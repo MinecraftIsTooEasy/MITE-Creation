@@ -16,15 +16,14 @@ public class RegisterHelper {
     public static ArrayList<RecipesArgs> shapelessRecipe = new ArrayList<>();
     private float difficulty;
     public static void registerAllItems(){
-//        Items.registerItems();
-//        Blocks.registerBlocks();
+        Items.itemRegister();
+        Blocks.registerBlocks();
 //        AchievementExtend.registerAchievements();
     }
     public static void registerAllRecipes(CraftingManager crafters){
         RecipeRegister recipeRegister = new RecipeRegister();
-//        Blocks.registerRecipes(recipeRegister);
-//        Items.registerRecipes(recipeRegister);
-//        RecipeOther.registerRecipes(recipeRegister);
+        Blocks.registerRecipes(recipeRegister);
+        Items.registerRecipes(recipeRegister);
 
         RecipesArgs recipesArgs;
         for (RecipesArgs shapedRecipe : shapedRecipes) {

@@ -52,8 +52,8 @@ item.coins/tungsten.name=Tungsten Coin
 item.arrows/tungsten.name=Tungsten Arrow
 item.items/fishing_rods/tungsten_uncast.name=Fishing Rod
 
-tile.ores/tungsten_ore.name=Tungsten Ore
-tile.blocks/tungsten_block.name=Block of Tungsten
+tile.tungsten_ore.name=Tungsten Ore
+tile.tungsten_block.name=Block of Tungsten
 tile.tungsten_anvil.intact.name=Tungsten Anvil
 tile.tungsten_anvil.slightlyDamaged.name=Slightly Damaged Tungsten Anvil
 tile.tungsten_anvil.veryDamaged.name=Very Damaged Tungsten Anvil

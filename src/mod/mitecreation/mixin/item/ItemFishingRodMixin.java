@@ -40,6 +40,8 @@ public class ItemFishingRodMixin extends Item implements IDamageableItem {
             return 8;
         } else if (this.hook_material == Materials.tungsten) {
             return 9;
+        } else if (this.hook_material == Material.rusted_iron) {
+            return 10;
         } else {
             return -1;
         }
@@ -67,6 +69,8 @@ public class ItemFishingRodMixin extends Item implements IDamageableItem {
                 return Material.ancient_metal;
             case 9:
                 return Materials.tungsten;
+            case 10:
+                return Material.rusted_iron;
             default:
                 return null;
         }

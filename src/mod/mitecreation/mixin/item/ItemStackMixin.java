@@ -40,16 +40,16 @@ public class ItemStackMixin {
         return null;
     }
 
-    @Overwrite
-    public boolean isBlock() {
-        try{
-            FishModLoader.LOGGER.info(this.itemID);
-            FishModLoader.LOGGER.info(this.getItem());
-
-            return this.getItem() instanceof ItemBlock;
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return false;
-    }
+//    @Overwrite
+//    public boolean isBlock() {
+//        try {
+//            FishModLoader.LOGGER.info(this.itemID);
+//            FishModLoader.LOGGER.info(this.getItem());
+//
+//            return this.getItem() instanceof ItemBlock;
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        }
+//        return false;
+//    }
 }

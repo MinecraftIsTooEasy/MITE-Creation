@@ -2,6 +2,7 @@ package mod.mitecreation.mixin.recipe;
 
 import mod.mitecreation.block.Blocks;
 import mod.mitecreation.item.Items;
+import mod.mitecreation.util.RegisterHelper;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.gen.Invoker;
@@ -24,6 +25,16 @@ public class CraftingManagerMixin {
         Blocks.registerBlocks();
         RecipesMITE.addCraftingRecipes((CraftingManager)craftingManager);
         Items.recipeRegister(craftingManager);
+//        RegisterHelper.registerAllItems();
+//        RecipesMITE.addCraftingRecipes(craftingManager);
+//        RegisterHelper.registerAllRecipes(craftingManager);
+    }
+    @Redirect(method = "<init>",
+            at = @At(value = "INVOKE",target = "Lnet/minecraft/RecipesMITE;addCraftingRecipes(Lnet/minecraft/CraftingManager;)V"))
+    private void injectRegisterRecipes2(CraftingManager crafters) {
+        RegisterHelper.registerAllItems();
+        RecipesMITE.addCraftingRecipes(crafters);
+        RegisterHelper.registerAllRecipes(crafters);
     }
     public ShapedRecipes addRecipeP(ItemStack var1, boolean var2, Object ... var3){
         return this.addRecipe(var1,var2,var3);

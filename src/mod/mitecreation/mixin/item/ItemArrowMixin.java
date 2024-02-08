@@ -15,7 +15,7 @@ import static net.xiaoyu233.fml.util.ReflectHelper.dyCast;
 @Mixin(ItemArrow.class)
 public class ItemArrowMixin extends Item {
     @Inject(method = "<clinit>",at = @At("RETURN"))
-    private static void injectClinit(CallbackInfo callback){
+    private static void injectClinit(CallbackInfo callback) {
         material_types = new Material[]{Material.flint, Material.obsidian, Material.copper, Material.silver, Material.gold, Material.iron, Material.rusted_iron, Material.ancient_metal, Materials.tungsten, Material.mithril, Material.adamantium};
     }
     @Overwrite
@@ -27,35 +27,33 @@ public class ItemArrowMixin extends Item {
         }
     }
 
-
-    @Overwrite
-    public float getChanceOfRecovery() {
-        if (dyCast(this) == arrowFlint) {
-            return 0.3F;
-        } else if (dyCast(this) == Item.arrowObsidian) {
-            return 0.4F;
-        } else if (dyCast(this) == Item.arrowCopper) {
-            return 0.6F;
-        } else if (dyCast(this) == Item.arrowSilver) {
-            return 0.6F;
-        } else if (dyCast(this) == Item.arrowGold) {
-            return 0.5F;
-        } else if (dyCast(this) == Item.arrowRustedIron) {
-            return 0.5F;
-        } else if (dyCast(this) == Item.arrowIron) {
-            return 0.7F;
-        } else if (dyCast(this) == Item.arrowAncientMetal) {
-            return 0.8F;
-        } else if (dyCast(this) == Items.arrowTungsten) {
-            return 0.8F;
-        } else if (dyCast(this) == Item.arrowMithril) {
-            return 0.8F;
-        } else if (dyCast(this) == Item.arrowAdamantium) {
-            return 0.9F;
-        } else {
-            return 0.7F;
+        public float getChanceOfRecovery () {
+            if (dyCast(this) == arrowFlint) {
+                return 0.3F;
+            } else if (dyCast(this) == Item.arrowObsidian) {
+                return 0.4F;
+            } else if (dyCast(this) == Item.arrowCopper) {
+                return 0.6F;
+            } else if (dyCast(this) == Item.arrowSilver) {
+                return 0.6F;
+            } else if (dyCast(this) == Item.arrowGold) {
+                return 0.5F;
+            } else if (dyCast(this) == Item.arrowRustedIron) {
+                return 0.5F;
+            } else if (dyCast(this) == Item.arrowIron) {
+                return 0.7F;
+            } else if (dyCast(this) == Item.arrowAncientMetal) {
+                return 0.8F;
+            } else if (dyCast(this) == Items.arrowTungsten) {
+                return 0.8F;
+            } else if (dyCast(this) == Item.arrowMithril) {
+                return 0.8F;
+            } else if (dyCast(this) == Item.arrowAdamantium) {
+                return 0.9F;
+            } else {
+                return 0.7F;
+            }
         }
-    }
     @Shadow
     public float getMaterialDamageVsEntity() {
         if (dyCast(this) == arrowFlint) {
@@ -75,7 +73,7 @@ public class ItemArrowMixin extends Item {
         } else if (dyCast(this) == Item.arrowAncientMetal) {
             return 4F;
         } else if (dyCast(this) == Items.arrowTungsten) {
-            return 4.5F;
+            return 5F;
         } else if (dyCast(this) == Item.arrowMithril) {
             return 5F;
         } else if (dyCast(this) == Item.arrowAdamantium) {

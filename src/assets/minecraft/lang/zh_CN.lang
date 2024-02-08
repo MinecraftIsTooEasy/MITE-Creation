@@ -6,7 +6,7 @@ item.nuggets/rusted_iron.name=锈铁粒
 
 item.coins/rusted_iron.name=锈铁币
 
-tile.blocks/rusted_iron_block.name=锈铁块
+tile.rusted_iron_block.name=锈铁块
 tile.rusted_iron_anvil.intact.name=锈铁砧
 tile.rusted_iron_anvil.slightlyDamaged.name=轻微受损的锈铁砧
 tile.rusted_iron_anvil.veryDamaged.name=严重损坏的锈铁砧
@@ -52,8 +52,8 @@ item.coins/tungsten.name=钨币
 item.arrows/tungsten.name=钨箭
 item.items/fishing_rods/tungsten_uncast.name=钓鱼竿
 
-tile.ores/tungsten_ore.name=钨矿石
-tile.blocks/tungsten_block.name=钨块
+tile.tungsten_ore.name=钨矿石
+tile.tungsten_block.name=钨块
 tile.tungsten_anvil.intact.name=钨砧
 tile.tungsten_anvil.slightlyDamaged.name=轻微受损的钨砧
 tile.tungsten_anvil.veryDamaged.name=严重受损的钨砧

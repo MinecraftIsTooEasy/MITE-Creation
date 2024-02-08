@@ -1,11 +1,10 @@
 package mod.mitecreation.util;
 
-import net.minecraft.BlockBed;
 import net.minecraft.Item;
 import net.minecraft.ItemArmor;
 
 public class Util {
-    public static final String modVerStr = "Build 0.1";
+    public static final String modVerStr = "0.0.1-BETA";
     public static final int modVerNum= 1;
     private static int nextBlockID = 160;
     private static int nextItemID = 1283;

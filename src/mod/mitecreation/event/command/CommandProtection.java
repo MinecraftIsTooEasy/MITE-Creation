@@ -16,6 +16,6 @@ public class CommandProtection extends CommandAbstract {
     @Override
     public void processCommand(ICommandListener iCommandListener, String[] strings) {
         EntityPlayer entityPlayer = getCommandSenderAsPlayer(iCommandListener);
-        entityPlayer.sendChatToPlayer(ChatMessage.createFromText("You have " + entityPlayer.getTotalProtection(DamageSource.causeMobDamage(null)) + " protection"));
+        entityPlayer.sendChatToPlayer(ChatMessage.createFromText("You have " + entityPlayer.getTotalProtection(DamageSource.causeMobDamage(null)) + " protection").setColor(EnumChatFormat.YELLOW));
     }
 }
