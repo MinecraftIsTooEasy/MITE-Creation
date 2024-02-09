@@ -7,6 +7,7 @@ import net.minecraft.Minecraft;
 
 public class Materials extends Material {
     public static final Materials tungsten = (Materials) new Materials(EnumEquipmentMaterials.tungsten).setRequiresTool().setMetal(true).setMinHarvestLevel(4);
+    public static final Materials stone = (Materials) new Materials(EnumEquipmentMaterials.stone).setRequiresTool().setRockyMineral().setMetal(false).setMinHarvestLevel(2);
 
     public float getDurability(){
         return super.durability;
@@ -33,6 +34,8 @@ public class Materials extends Material {
         } else if (this == flint) {
             return 1.0F;
         } else if (this == obsidian) {
+            return 2.0F;
+        } else if (this == stone) {
             return 2.0F;
         } else if (this == rusted_iron) {
             return 2.0F;

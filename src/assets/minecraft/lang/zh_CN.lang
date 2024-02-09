@@ -5,11 +5,16 @@ item.ingots/rusted_iron.name=锈铁锭
 item.nuggets/rusted_iron.name=锈铁粒
 
 item.coins/rusted_iron.name=锈铁币
+item.coins/iron.name=铁币
+item.items/fishing_rods/rusted_iron_uncast.name=钓鱼竿
 
 tile.rusted_iron_block.name=锈铁块
 tile.rusted_iron_anvil.intact.name=锈铁砧
 tile.rusted_iron_anvil.slightlyDamaged.name=轻微受损的锈铁砧
 tile.rusted_iron_anvil.veryDamaged.name=严重损坏的锈铁砧
+
+item.tools/stone/stone_club.name=石棒
+item.tools/stone/stone_dagger.name=石短剑
 
 item.raw_nuggets/rusted_iron.name=粗锈铁粒
 item.raw_nuggets/copper.name=粗铜粒
@@ -88,5 +93,6 @@ entity.EntitySpirit.name=阴魂
 containet.strongbox.rusted_iron=锈铁箱子
 container.strongbox.tungsten=钨箱子
 
+material.stone.name=石头
 material.rusted_iron.name=锈铁
 material.tungsten.name=钨

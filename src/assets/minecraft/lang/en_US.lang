@@ -5,6 +5,13 @@ item.ingots/rusted_iron.name=Rusted Iron Ingot
 item.nuggets/rusted_iron.name=Rusted Iron Nugget
 
 item.coins/rusted_iron.name=Rusted Iron Coin
+item.coins/iron.name=Iron Coin
+item.items/fishing_rods/rusted_iron_uncast.name=Fishing Rod
+
+tile.rusted_iron_block.name=Block of Rusted Iron
+tile.rusted_iron_anvil.intact.name=Rusted Iron Anvil
+tile.rusted_iron_anvil.slightlyDamaged.name=Slightly Damaged Rusted Iron Anvil
+tile.rusted_iron_anvil.veryDamaged.name=Very Damaged Rusted Iron Anvil
 
 item.raw_nuggets/rusted_iron.name=Raw Rusted Iron Nugget
 item.raw_nuggets/copper.name=Raw Copper Nugget
@@ -15,10 +22,8 @@ item.raw_nuggets/tungsten.name=Raw Tungsten Nugget
 item.raw_nuggets/mithril.name=Raw Mithril Nugget
 item.raw_nuggets/adamantium.name=Raw Adamantium Nugget
 
-tile.rusted_iron_block.name=Block of Rusted Iron
-tile.rusted_iron_anvil.intact.name=Rusted Iron Anvil
-tile.rusted_iron_anvil.slightlyDamaged.name=Slightly Damaged Rusted Iron Anvil
-tile.rusted_iron_anvil.veryDamaged.name=Very Damaged Rusted Iron Anvil
+item.tools/stone/stone_club.name=Stone Club
+item.tools/stone/stone_dagger.name=Stone Dagger
 
 item.armor/tungsten_helmet.name=Tungsten Helmet
 item.armor/tungsten_chestplate.name=Tungsten Chestplate
@@ -88,5 +93,6 @@ entity.EntitySpirit.name=Spirit
 containet.strongbox.rusted_iron=Rusted Iron Strongbox
 container.strongbox.tungsten=Tungsten Strongbox
 
+material.stone.name=Stone
 material.rusted_iron.name=Rusted Iron
 material.tungsten.name=Tungsten

@@ -59,7 +59,6 @@ public class Items {
     public static final ItemArmor bootsTungsten = new ItemBoots(Util.getNextItemID(),Materials.tungsten,false);
     public static final ItemArmor bootsChainTungsten = new ItemBoots(Util.getNextItemID(),Materials.tungsten,true);
 
-
     public static final Item doorTungsten= new ItemDoor(Util.getNextItemID(), Materials.tungsten);
     public static final ItemChain chainTungsten = createInstance(ItemChain.class,new Class[]{int.class,Material.class},Util.getNextItemID(),Materials.tungsten);
     public static final ItemCoin coinTungsten = createInstance(ItemCoin.class, new Class[]{int.class, Material.class}, Util.getNextItemID(), Materials.tungsten);
@@ -72,6 +71,15 @@ public class Items {
     public static final yi tungstenBucketMilk = (yi)(new yi(Util.getNextItemID(), Materials.tungsten)).setContainerItem(tungstenBucket);
 
     public static final Item rustedIronBlock = new ItemBlock(Blocks.rustedIronBlock);
+
+    public static final ItemClub stoneClub = createInstance(ItemClub.class,new Class[]{int.class,Material.class},Util.getNextItemID(),Materials.stone);
+    public static final ItemDagger stoneDagger = createInstance(ItemDagger.class,new Class[]{int.class,Material.class},Util.getNextItemID(),Materials.stone);
+
+    public static final ItemBucket woodBucketEmpty = (ItemBucket) new ItemBucket(Util.getNextItemID(), Materials.wood,null);
+    public static final ItemBucket woodBucketWater = (ItemBucket) new ItemBucket(Util.getNextItemID(), Materials.wood,Materials.water).setContainerItem(woodBucketEmpty);
+    public static final yi woodBucketMilk = (yi) new yi(Util.getNextItemID(), Materials.wood).setContainerItem(woodBucketEmpty);
+
+    public static final ItemHoe hoeFlint = createInstance(ItemHoe.class,new Class[]{int.class,Material.class},Util.getNextItemID(),Materials.flint);
 
     public static void itemRegister() {
 //        if(true){
@@ -167,7 +175,16 @@ public class Items {
             register("raw_nuggets/tungsten", rawTungstenNugget, CreativeModeTab.tabMaterials);
             register("raw_nuggets/mithril", rawMithrilNugget, CreativeModeTab.tabMaterials);
             register("raw_nuggets/adamantium", rawAdamantiumNugget, CreativeModeTab.tabMaterials);
-        }
+
+            register("tools/stone/stone_club", stoneClub, CreativeModeTab.tabCombat);
+            register("tools/stone/stone_dagger", stoneDagger, CreativeModeTab.tabCombat);
+
+            register("buckets/wood/empty", woodBucketEmpty, CreativeModeTab.tabTools);
+            register("buckets/wood/water", woodBucketWater, CreativeModeTab.tabTools);
+            register("buckets/wood/milk", woodBucketMilk, CreativeModeTab.tabTools);
+
+            register("tool/flint/flint_hoe", hoeFlint, CreativeModeTab.tabTools);
+    }
 
     public static void recipeRegister(CraftingManager c) {
 //        c.addShapelessRecipeP(new ItemStack(rustedIronNugget,1),true,Item.arrowRustedIron);
@@ -212,47 +229,47 @@ public class Items {
         c.addRecipeP(new ItemStack(Item.plateChainRustedIron, 1), true, "Q@Q", "QQQ", "QQQ", Character.valueOf('Q'), Item.chainRustedIron);
         c.addRecipeP(new ItemStack(Items.fishingRodRustedIron, 1), true, "  Q", " Q@", "QW@", Character.valueOf('Q'), Item.stick, Character.valueOf('@'), Item.silk, Character.valueOf('W'), Items.rustedIronNugget);
 
-        c.addShapelessRecipeP(new ItemStack(tungstenNugget, 1), true, Items.arrowTungsten);
-        c.addShapelessRecipeP(new ItemStack(ingotTungsten, 1), true, tungstenNugget, tungstenNugget, tungstenNugget, tungstenNugget, tungstenNugget, tungstenNugget, tungstenNugget, tungstenNugget, tungstenNugget);
-        c.addShapelessRecipeP(new ItemStack(tungstenNugget, 9), true, ingotTungsten);
-        c.addRecipeP(new ItemStack(anvilTungsten, 1), true, "###", "@$@", "$$$", Character.valueOf('#'), tungstenBlock, Character.valueOf('$'), ingotTungsten);
-        c.addRecipeP(new ItemStack(Items.axeTungsten, 1), true, "QQ@", "QS@", "@S@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('S'), Item.stick);
-        c.addRecipeP(new ItemStack(Items.axeTungsten, 1), true, "@QQ", "@SQ", "@S@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('S'), Item.stick);
-        c.addRecipeP(new ItemStack(Items.arrowTungsten, 1), true, "@Q@", "@W@", "@E@", Character.valueOf('Q'), tungstenNugget, Character.valueOf('W'), Item.stick, Character.valueOf('E'), Item.feather);
-        c.addRecipeP(new ItemStack(Items.bootsTungsten, 1), true, "@@@", "Q@Q", "Q@Q", Character.valueOf('Q'), ingotTungsten);
-        c.addRecipeP(new ItemStack(Items.bootsTungsten, 1), true, "Q@Q", "Q@Q", "@@@", Character.valueOf('Q'), ingotTungsten);
-        c.addRecipeP(new ItemStack(Items.chainTungsten, 1), true, "@Q@", "Q@Q", "@Q@", Character.valueOf('Q'), tungstenNugget);
-        c.addRecipeP(new ItemStack(Items.daggerTungsten, 1), true, "@Q", "@W", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
-        c.addRecipeP(new ItemStack(Items.daggerTungsten, 1), true, "Q@", "W@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
-        c.addRecipeP(new ItemStack(Items.battleAxeTungsten, 1), true, "Q@Q", "QWQ", "@W@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
-        c.addRecipeP(new ItemStack(Items.hatchetTungsten, 1), true, "QW", "@W", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
-        c.addRecipeP(new ItemStack(Items.hatchetTungsten, 1), true, "WQ", "W@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
-        c.addRecipeP(new ItemStack(Items.hoeTungsten, 1), true, "QQ@", "@W@", "@W@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
-        c.addRecipeP(new ItemStack(Items.hoeTungsten, 1), true, "@QQ", "@W@", "@W@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
-        c.addRecipeP(new ItemStack(Items.hoeTungsten, 1), true, "@QQ", "@@W", "@@W", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
-        c.addRecipeP(new ItemStack(Items.hoeTungsten, 1), true, "QQ@", "W@@", "W@@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
-        c.addRecipeP(new ItemStack(Items.mattockTungsten, 1), true, "QQQ", "@WQ", "@W@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
-        c.addRecipeP(new ItemStack(Items.pickaxeTungsten, 1), true, "QQQ", "@W@", "@W@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
-        c.addRecipeP(new ItemStack(Items.scytheTungsten, 1), true, "WQ@", "W@Q", "W@@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
-        c.addRecipeP(new ItemStack(anvilTungsten, 1), true, "QQQ", "@W@", "WWW", Character.valueOf('Q'), tungstenBlock, Character.valueOf('W'), ingotTungsten);
-        c.addRecipeP(new ItemStack(Items.shearsTungsten, 1), true, "Q@", "@Q", Character.valueOf('Q'), ingotTungsten);
-        c.addRecipeP(new ItemStack(Items.shearsTungsten, 1), true, "@Q", "Q@", Character.valueOf('Q'), ingotTungsten);
-        c.addRecipeP(new ItemStack(Items.shovelTungsten, 1), true, "@Q@", "@W@", "@W@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
-        c.addRecipeP(new ItemStack(Items.shovelTungsten, 1), true, "Q@@", "W@@", "W@@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
-        c.addRecipeP(new ItemStack(Items.shovelTungsten, 1), true, "@@Q", "@@W", "@@W", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
-        c.addRecipeP(new ItemStack(Items.swordTungsten, 1), true, "Q@@", "Q@@", "W@@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
-        c.addRecipeP(new ItemStack(Items.swordTungsten, 1), true, "@Q@", "@Q@", "@W@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
-        c.addRecipeP(new ItemStack(Items.swordTungsten, 1), true, "@@Q", "@@Q", "@@W", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
-        c.addRecipeP(new ItemStack(Items.warHammerTungsten, 1), true, "QQQ", "QWQ", "@W@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
-        c.addRecipeP(new ItemStack(tungstenBlock, 1), true, "QQQ", "QQQ", "QQQ", Character.valueOf('Q'), ingotTungsten);
-        c.addRecipeP(new ItemStack(Items.helmetTungsten, 1), true, "QQQ", "Q@Q", Character.valueOf('Q'), ingotTungsten);
-        c.addRecipeP(new ItemStack(Items.legsTungsten, 1), true, "QQQ", "Q@Q", "Q@Q", Character.valueOf('Q'), ingotTungsten);
-        c.addRecipeP(new ItemStack(Items.plateTungsten, 1), true, "Q@Q", "QQQ", "QQQ", Character.valueOf('Q'), ingotTungsten);
-        c.addRecipeP(new ItemStack(Items.helmetChainTungsten, 1), true, "QQQ", "Q@Q", Character.valueOf('Q'), Items.chainTungsten);
-        c.addRecipeP(new ItemStack(Items.bootsChainTungsten, 1), true, "Q@Q", "Q@Q", Character.valueOf('Q'), Items.chainTungsten);
-        c.addRecipeP(new ItemStack(Items.legsChainTungsten, 1), true, "QQQ", "Q@Q", "Q@Q", Character.valueOf('Q'), Items.chainTungsten);
-        c.addRecipeP(new ItemStack(Items.plateChainTungsten, 1), true, "Q@Q", "QQQ", "QQQ", Character.valueOf('Q'), Items.chainTungsten);
-        c.addRecipeP(new ItemStack(Items.fishingRodTungsten, 1), true, "  Q", " Q@", "QW@", Character.valueOf('Q'), Item.stick, Character.valueOf('@'), Item.silk, Character.valueOf('W'), Items.tungstenNugget);
+//        c.addShapelessRecipeP(new ItemStack(tungstenNugget, 1), true, Items.arrowTungsten);
+//        c.addShapelessRecipeP(new ItemStack(ingotTungsten, 1), true, tungstenNugget, tungstenNugget, tungstenNugget, tungstenNugget, tungstenNugget, tungstenNugget, tungstenNugget, tungstenNugget, tungstenNugget);
+//        c.addShapelessRecipeP(new ItemStack(tungstenNugget, 9), true, ingotTungsten);
+//        c.addRecipeP(new ItemStack(anvilTungsten, 1), true, "###", "@$@", "$$$", Character.valueOf('#'), tungstenBlock, Character.valueOf('$'), ingotTungsten);
+//        c.addRecipeP(new ItemStack(Items.axeTungsten, 1), true, "QQ@", "QS@", "@S@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('S'), Item.stick);
+//        c.addRecipeP(new ItemStack(Items.axeTungsten, 1), true, "@QQ", "@SQ", "@S@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('S'), Item.stick);
+//        c.addRecipeP(new ItemStack(Items.arrowTungsten, 1), true, "@Q@", "@W@", "@E@", Character.valueOf('Q'), tungstenNugget, Character.valueOf('W'), Item.stick, Character.valueOf('E'), Item.feather);
+//        c.addRecipeP(new ItemStack(Items.bootsTungsten, 1), true, "@@@", "Q@Q", "Q@Q", Character.valueOf('Q'), ingotTungsten);
+//        c.addRecipeP(new ItemStack(Items.bootsTungsten, 1), true, "Q@Q", "Q@Q", "@@@", Character.valueOf('Q'), ingotTungsten);
+//        c.addRecipeP(new ItemStack(Items.chainTungsten, 1), true, "@Q@", "Q@Q", "@Q@", Character.valueOf('Q'), tungstenNugget);
+//        c.addRecipeP(new ItemStack(Items.daggerTungsten, 1), true, "@Q", "@W", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
+//        c.addRecipeP(new ItemStack(Items.daggerTungsten, 1), true, "Q@", "W@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
+//        c.addRecipeP(new ItemStack(Items.battleAxeTungsten, 1), true, "Q@Q", "QWQ", "@W@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
+//        c.addRecipeP(new ItemStack(Items.hatchetTungsten, 1), true, "QW", "@W", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
+//        c.addRecipeP(new ItemStack(Items.hatchetTungsten, 1), true, "WQ", "W@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
+//        c.addRecipeP(new ItemStack(Items.hoeTungsten, 1), true, "QQ@", "@W@", "@W@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
+//        c.addRecipeP(new ItemStack(Items.hoeTungsten, 1), true, "@QQ", "@W@", "@W@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
+//        c.addRecipeP(new ItemStack(Items.hoeTungsten, 1), true, "@QQ", "@@W", "@@W", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
+//        c.addRecipeP(new ItemStack(Items.hoeTungsten, 1), true, "QQ@", "W@@", "W@@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
+//        c.addRecipeP(new ItemStack(Items.mattockTungsten, 1), true, "QQQ", "@WQ", "@W@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
+//        c.addRecipeP(new ItemStack(Items.pickaxeTungsten, 1), true, "QQQ", "@W@", "@W@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
+//        c.addRecipeP(new ItemStack(Items.scytheTungsten, 1), true, "WQ@", "W@Q", "W@@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
+//        c.addRecipeP(new ItemStack(anvilTungsten, 1), true, "QQQ", "@W@", "WWW", Character.valueOf('Q'), tungstenBlock, Character.valueOf('W'), ingotTungsten);
+//        c.addRecipeP(new ItemStack(Items.shearsTungsten, 1), true, "Q@", "@Q", Character.valueOf('Q'), ingotTungsten);
+//        c.addRecipeP(new ItemStack(Items.shearsTungsten, 1), true, "@Q", "Q@", Character.valueOf('Q'), ingotTungsten);
+//        c.addRecipeP(new ItemStack(Items.shovelTungsten, 1), true, "@Q@", "@W@", "@W@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
+//        c.addRecipeP(new ItemStack(Items.shovelTungsten, 1), true, "Q@@", "W@@", "W@@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
+//        c.addRecipeP(new ItemStack(Items.shovelTungsten, 1), true, "@@Q", "@@W", "@@W", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
+//        c.addRecipeP(new ItemStack(Items.swordTungsten, 1), true, "Q@@", "Q@@", "W@@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
+//        c.addRecipeP(new ItemStack(Items.swordTungsten, 1), true, "@Q@", "@Q@", "@W@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
+//        c.addRecipeP(new ItemStack(Items.swordTungsten, 1), true, "@@Q", "@@Q", "@@W", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
+//        c.addRecipeP(new ItemStack(Items.warHammerTungsten, 1), true, "QQQ", "QWQ", "@W@", Character.valueOf('Q'), ingotTungsten, Character.valueOf('W'), Item.stick);
+//        c.addRecipeP(new ItemStack(tungstenBlock, 1), true, "QQQ", "QQQ", "QQQ", Character.valueOf('Q'), ingotTungsten);
+//        c.addRecipeP(new ItemStack(Items.helmetTungsten, 1), true, "QQQ", "Q@Q", Character.valueOf('Q'), ingotTungsten);
+//        c.addRecipeP(new ItemStack(Items.legsTungsten, 1), true, "QQQ", "Q@Q", "Q@Q", Character.valueOf('Q'), ingotTungsten);
+//        c.addRecipeP(new ItemStack(Items.plateTungsten, 1), true, "Q@Q", "QQQ", "QQQ", Character.valueOf('Q'), ingotTungsten);
+//        c.addRecipeP(new ItemStack(Items.helmetChainTungsten, 1), true, "QQQ", "Q@Q", Character.valueOf('Q'), Items.chainTungsten);
+//        c.addRecipeP(new ItemStack(Items.bootsChainTungsten, 1), true, "Q@Q", "Q@Q", Character.valueOf('Q'), Items.chainTungsten);
+//        c.addRecipeP(new ItemStack(Items.legsChainTungsten, 1), true, "QQQ", "Q@Q", "Q@Q", Character.valueOf('Q'), Items.chainTungsten);
+//        c.addRecipeP(new ItemStack(Items.plateChainTungsten, 1), true, "Q@Q", "QQQ", "QQQ", Character.valueOf('Q'), Items.chainTungsten);
+//        c.addRecipeP(new ItemStack(Items.fishingRodTungsten, 1), true, "  Q", " Q@", "QW@", Character.valueOf('Q'), Item.stick, Character.valueOf('@'), Item.silk, Character.valueOf('W'), Items.tungstenNugget);
     }
     public static void registerBasicToolRecipes(RecipeRegister register, Material material) {
         Item item = getMatchingItem(ItemIngot.class, material);

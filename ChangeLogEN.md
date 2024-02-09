@@ -16,7 +16,7 @@
 ### Mechanism
 * Coarse mineral particles will fall off after mining the ore
 * The gravel only drops raw nugget
-* Copper, silver, and gold raw nugget can be fired into copper, silver, and gold coarse particles in a clay furnace or a sand furnace using primary heating value fuel
+* Copper, silver, and gold raw nugget can be fired into copper, silver and gold nugget in a clay furnace or a sand furnace using primary heating value fuel
 * Using higher calorific value fuels to burn items faster
 
 ### Blocks
@@ -27,15 +27,17 @@
 * Note: There is currently no texture difference between ores
 * Add rusted iron block and rust anvil
 
+### Commands
+
+* Add  `protection` command to view the player's protection value
+
 ### World
 * Over World Dungeon spoils table added
 
-|Items | Minimum | Maximum | Weight|
-|-----|-----|-----|---|
-|Rust iron coarse particles | 1 | 4 | 10|
-|Rust iron particles | 1 | 4 | 5|
-|Rust iron ingots | 1 | 2 | 2|
-
-
+| Item                 | Minimum | Maximum | Weight|
+|----------------------|-----|-----|---|
+| Rusted iron raw nugget | 1 | 4 | 10|
+| Rusted iron nugget   | 1 | 4 | 5|
+| Rusted iron ingot    | 1 | 2 | 2|
 
 ---

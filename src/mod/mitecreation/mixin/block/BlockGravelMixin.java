@@ -43,7 +43,7 @@ public class BlockGravelMixin extends Block{
                 n2 = Item.chipFlint.itemID;
             }
         } else {
-            n2 = random.nextInt(3) > 0 ? Items.rawCopperNugget.itemID : (random.nextInt(3) > 0 ? Items.rawSilverNugget.itemID : (random.nextInt(3) > 0 ? Items.rawGoldNugget.itemID : (random.nextInt(3) > 0 ? Items.rawGoldNugget.itemID : (random.nextInt(3) > 0 ? (blockBreakInfo.wasExploded() ? -1 : Item.shardObsidian.itemID) : (random.nextInt(3) > 0 ? (blockBreakInfo.wasExploded() ? -1 : Item.shardEmerald.itemID) : (random.nextInt(3) > 0 ? (blockBreakInfo.wasExploded() ? -1 : Item.shardDiamond.itemID) : (random.nextInt(3) > 0 ? Items.rawMithrilNugget.itemID : Items.rawAdamantiumNugget.itemID)))))));
+            n2 = random.nextInt(3) > 0 ? Items.rawCopperNugget.itemID : (random.nextInt(3) > 0 ? Items.rawSilverNugget.itemID : (random.nextInt(3) > 0 ? Items.rawGoldNugget.itemID : (random.nextInt(3) > 0 ? Items.rawGoldNugget.itemID : (random.nextInt(3) > 0 ? (blockBreakInfo.wasExploded() ? -1 : Item.shardObsidian.itemID) : (random.nextInt(3) > 0 ? (blockBreakInfo.wasExploded() ? -1 : Item.shardEmerald.itemID) : (random.nextInt(3) > 0 ? (blockBreakInfo.wasExploded() ? -1 : Item.shardDiamond.itemID) : (random.nextInt(3) > 0 ? Items.rawTungstenNugget.itemID : (random.nextInt(3) > 0 ? Items.rawMithrilNugget.itemID : Items.rawAdamantiumNugget.itemID))))))));
         }
         if (this.isNetherGravel(blockBreakInfo.getMetadata())) {
             if (n2 == Item.copperNugget.itemID || n2 == Item.silverNugget.itemID || n2 == Item.mithrilNugget.itemID || n2 == Item.adamantiumNugget.itemID) {

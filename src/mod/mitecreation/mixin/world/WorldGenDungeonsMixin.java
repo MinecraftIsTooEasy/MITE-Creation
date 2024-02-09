@@ -19,6 +19,9 @@ public class WorldGenDungeonsMixin extends WorldGenerator {
             new StructurePieceTreasure(Item.coinCopper.itemID, 0, 1, 4, 10),
             new StructurePieceTreasure(Item.coinSilver.itemID, 0, 1, 2, 2),
             new StructurePieceTreasure(Item.coinGold.itemID, 0, 1, 1, 1),
+            new StructurePieceTreasure(Items.rawRustedIronNugget.itemID, 0, 1, 4, 10),
+            new StructurePieceTreasure(Items.rustedIronNugget.itemID, 0, 1, 4, 5),
+            new StructurePieceTreasure(Items.ingotRustedIron.itemID, 0, 1, 2, 2),
             new StructurePieceTreasure(Item.saddle.itemID, 0, 1, 1, 10),
             new StructurePieceTreasure(Item.gunpowder.itemID, 0, 1, 4, 10),
             new StructurePieceTreasure(Item.silk.itemID, 0, 1, 4, 10),
@@ -51,9 +54,6 @@ public class WorldGenDungeonsMixin extends WorldGenerator {
             new StructurePieceTreasure(Item.battleAxeCopper.itemID, 0, 1, 1, 1),
             new StructurePieceTreasure(Item.warHammerRustedIron.itemID, 0, 1, 1, 2),
             new StructurePieceTreasure(Item.warHammerCopper.itemID, 0, 1, 1, 1),
-            new StructurePieceTreasure(Items.rawRustedIronNugget.itemID, 0, 1, 4, 10),
-            new StructurePieceTreasure(Items.rustedIronNugget.itemID, 0, 1, 4, 5),
-            new StructurePieceTreasure(Items.ingotRustedIron.itemID, 0, 1, 2, 2)
     };
     private static final StructurePieceTreasure[] chest_contents_for_underworld = new StructurePieceTreasure[]{
             new StructurePieceTreasure(Item.ancientMetalNugget.itemID, 0, 1, 4, 10),
