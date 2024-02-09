@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 public class Accessor {
     private static final Logger logger = LogManager.getLogger("Accessor");
-
+    
     private Accessor() {
         try{
             throw new Throwable("你怎么回事，为什么要创建Accessor的实例？");
@@ -16,7 +16,7 @@ public class Accessor {
             throw new RuntimeException(e);
         }
     }
-
+    
     public static <T,Y> T modify(@Nonnull Field field, @Nonnull T value ,@Nonnull Y instance) {
         try {
             if(Modifier.isFinal(field.getModifiers())){
@@ -35,7 +35,7 @@ public class Accessor {
             throw new RuntimeException("Accessor：输入的值" + value + "无效", e);
         }
     }
-
+    
     public static <T> T modifyStatic(@Nonnull Field field, @Nonnull T value) {
         try {
             Field modifiers = Field.class.getDeclaredField("modifiers");
@@ -50,7 +50,7 @@ public class Accessor {
             throw new RuntimeException("Accessor：输入的值" + value + "无效", e);
         }
     }
-
+    
     public static <T,Y> Y access(@Nonnull Field field, @Nonnull T instance) throws TargetIsStaticException {
         if(!Modifier.isStatic(field.getModifiers())){
             try {
@@ -65,7 +65,7 @@ public class Accessor {
             throw new TargetIsStaticException("Accessor：成员" + field.getName() + "是非静态的，不能以静态形式访问！");
         }
     }
-
+    
     public static <T> T accessStatic(@Nonnull Field field) throws TargetIsNotStaticException {
         if(Modifier.isStatic(field.getModifiers())){
             try {
@@ -78,20 +78,20 @@ public class Accessor {
             throw new TargetIsNotStaticException("Accessor：成员" + field.getName() + "不是静态的！");
         }
     }
-
+    
     public static <T> T createInstance(@Nonnull Class<T> clazz, @Nullable Object... args) {
         try {
             Class[] parameterTypes = new Class[args.length];
             int i = 0;
             Object[] var4 = args;
             int var5 = args.length;
-
+            
             for(int var6 = 0; var6 < var5; ++var6) {
                 Object object = var4[var6];
                 parameterTypes[i] = object.getClass();
                 ++i;
             }
-
+            
             Constructor<T> constructor = clazz.getDeclaredConstructor(parameterTypes);
             constructor.setAccessible(true);
             return constructor.newInstance(args);
@@ -101,7 +101,7 @@ public class Accessor {
             throw new RuntimeException(e);
         }
     }
-
+    
     public static <T> T createInstance(@Nonnull Class<T> clazz, @Nonnull Class[] types, @Nonnull Object[] args) {
         try {
             if (types.length != args.length) {
@@ -119,7 +119,7 @@ public class Accessor {
             throw new RuntimeException("Accessor：快去告诉锈铁锭他Accessor有问题", e);
         }
     }
-
+    
     public static <T, Y> Y invoke(@Nonnull Method method, @Nonnull T instance, @Nullable Object... args) throws TargetIsStaticException {
         if(!Modifier.isStatic(method.getModifiers()) || instance == null){
             try {
@@ -132,7 +132,7 @@ public class Accessor {
             throw new TargetIsStaticException("Accessor：不能以静态方式访问非静态方法" + method.getName());
         }
     }
-
+    
     public static <T> T invokeStatic(@Nonnull Method method,@Nullable Object... args) throws TargetIsNotStaticException {
         if(Modifier.isStatic(method.getModifiers())){
             try {
@@ -147,7 +147,7 @@ public class Accessor {
             throw new TargetIsNotStaticException("Accessor：方法" + method.getName() + "不是静态的！");
         }
     }
-
+    
     public static <T> Class<T> accessClass(@Nonnull String className) {
         try {
             Class<T> clazz = (Class<T>) Class.forName(className);
@@ -156,7 +156,7 @@ public class Accessor {
             throw new RuntimeException("Accessor：要不再考虑清楚？", e);
         }
     }
-
+    
     public static <T, Y> Class<Y> accessInnerClass(@Nonnull Class<T> outerClass, @Nonnull String innerClassName) {
         try {
             Class<Y> innerClass = (Class<Y>) Class.forName(outerClass.getName() + "$" + innerClassName);
@@ -165,5 +165,5 @@ public class Accessor {
             throw new RuntimeException(e);
         }
     }
-
+    
 }

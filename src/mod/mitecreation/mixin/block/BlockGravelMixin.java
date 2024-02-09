@@ -16,7 +16,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Random;
 
 @Mixin(value= BlockGravel.class)
-public class BlockGravelMixin extends BlockFalling implements IBlockWithSubtypes {
+public class BlockGravelMixin extends BlockFalling implements IBlockWithSubtypes{
+
     protected BlockGravelMixin(int par1, Material par2Material, BlockConstants constants) {
         super(par1, par2Material,constants);
     }
@@ -48,7 +49,8 @@ public class BlockGravelMixin extends BlockFalling implements IBlockWithSubtypes
                 n2 = Item.chipFlint.itemID;
             }
         } else {
-            n2 = random.nextInt(3) > 0 ? Items.rawCopperNugget.itemID : (random.nextInt(3) > 0 ? Items.rawSilverNugget.itemID : (random.nextInt(3) > 0 ? Items.rawGoldNugget.itemID : (random.nextInt(3) > 0 ? Items.rawGoldNugget.itemID : (random.nextInt(3) > 0 ? (blockBreakInfo.wasExploded() ? -1 : Item.shardObsidian.itemID) : (random.nextInt(3) > 0 ? (blockBreakInfo.wasExploded() ? -1 : Item.shardEmerald.itemID) : (random.nextInt(3) > 0 ? (blockBreakInfo.wasExploded() ? -1 : Item.shardDiamond.itemID) : (random.nextInt(3) > 0 ? Items.rawMithrilNugget.itemID : Items.rawAdamantiumNugget.itemID)))))));        }
+            n2 = random.nextInt(3) > 0 ? Items.rawCopperNugget.itemID : (random.nextInt(3) > 0 ? Items.rawSilverNugget.itemID : (random.nextInt(3) > 0 ? Items.rawGoldNugget.itemID : (random.nextInt(3) > 0 ? Items.rawGoldNugget.itemID : (random.nextInt(3) > 0 ? (blockBreakInfo.wasExploded() ? -1 : Item.shardObsidian.itemID) : (random.nextInt(3) > 0 ? (blockBreakInfo.wasExploded() ? -1 : Item.shardEmerald.itemID) : (random.nextInt(3) > 0 ? (blockBreakInfo.wasExploded() ? -1 : Item.shardDiamond.itemID) : (random.nextInt(3) > 0 ? Items.rawMithrilNugget.itemID : Items.rawAdamantiumNugget.itemID)))))));
+        }
         if (this.isNetherGravel(blockBreakInfo.getMetadata())) {
             if (n2 == Item.copperNugget.itemID || n2 == Item.silverNugget.itemID || n2 == Item.mithrilNugget.itemID || n2 == Item.adamantiumNugget.itemID) {
                 n2 = Item.goldNugget.itemID;
@@ -68,7 +70,6 @@ public class BlockGravelMixin extends BlockFalling implements IBlockWithSubtypes
     private boolean isNetherGravel(int metadata) {
         return false;
     }
-
 
     @Shadow
     private BlockSubtypes subtypes;
