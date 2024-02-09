@@ -2,16 +2,11 @@ package mod.mitecreation.item;
 
 import mod.mitecreation.block.Blocks;
 import mod.mitecreation.item.materil.Materials;
-import mod.mitecreation.mixin.recipe.CraftingManagerInvoker;
 import mod.mitecreation.util.RecipeRegister;
-import mod.mitecreation.util.RecipesArgs;
 import mod.mitecreation.util.Util;
 import net.minecraft.*;
-import net.xiaoyu233.fml.FishModLoader;
 
 import static mod.mitecreation.block.Blocks.*;
-import static mod.mitecreation.util.RegisterHelper.shapedRecipes;
-import static mod.mitecreation.util.RegisterHelper.shapelessRecipe;
 import static net.minecraft.Item.getMatchingItem;
 import static net.xiaoyu233.fml.util.ReflectHelper.createInstance;
 
@@ -72,12 +67,18 @@ public class Items {
 
     public static final Item rustedIronBlock = new ItemBlock(Blocks.rustedIronBlock);
 
-    public static final ItemClub stoneClub = createInstance(ItemClub.class,new Class[]{int.class,Material.class},Util.getNextItemID(),Materials.stone);
-    public static final ItemDagger stoneDagger = createInstance(ItemDagger.class,new Class[]{int.class,Material.class},Util.getNextItemID(),Materials.stone);
+    public static final ItemClub clubStone = createInstance(ItemClub.class,new Class[]{int.class,Material.class},Util.getNextItemID(),Materials.stone);
+    public static final ItemDagger daggerStone = createInstance(ItemDagger.class,new Class[]{int.class,Material.class},Util.getNextItemID(),Materials.stone);
 
     public static final ItemBucket woodBucketEmpty = (ItemBucket) new ItemBucket(Util.getNextItemID(), Materials.wood,null);
     public static final ItemBucket woodBucketWater = (ItemBucket) new ItemBucket(Util.getNextItemID(), Materials.wood,Materials.water).setContainerItem(woodBucketEmpty);
     public static final yi woodBucketMilk = (yi) new yi(Util.getNextItemID(), Materials.wood).setContainerItem(woodBucketEmpty);
+
+    public static final ItemBucket rustedIronBucketEmpty = new ItemBucket(Util.getNextItemID(), Material.rusted_iron, null);
+    public static final ItemBucket rustedIronBucketWater = (ItemBucket) new ItemBucket(Util.getNextItemID(), Material.rusted_iron, Material.water).setContainerItem(rustedIronBucketEmpty);
+    public static final ItemBucket rustedIronBucketLava = (ItemBucket)new ItemBucket(Util.getNextItemID(), Material.rusted_iron, Material.lava).setContainerItem(rustedIronBucketEmpty);
+    public static final ItemBucket rustedIronBucketStone = (ItemBucket) new ItemBucket(Util.getNextItemID(), Material.rusted_iron, Material.stone).setContainerItem(rustedIronBucketEmpty);
+    public static final yi rustedIronBucketMilk = (yi)(new yi(Util.getNextItemID(), Material.rusted_iron)).setContainerItem(rustedIronBucketEmpty);
 
     public static final ItemHoe hoeFlint = createInstance(ItemHoe.class,new Class[]{int.class,Material.class},Util.getNextItemID(),Materials.flint);
 
@@ -176,18 +177,26 @@ public class Items {
             register("raw_nuggets/mithril", rawMithrilNugget, CreativeModeTab.tabMaterials);
             register("raw_nuggets/adamantium", rawAdamantiumNugget, CreativeModeTab.tabMaterials);
 
-            register("tools/stone/stone_club", stoneClub, CreativeModeTab.tabCombat);
-            register("tools/stone/stone_dagger", stoneDagger, CreativeModeTab.tabCombat);
+            register("tools/stone/stone_club", clubStone, CreativeModeTab.tabCombat);
+            tungstenBucket.setLowestCraftingDifficultyToProduce(Item.clubWood.getLowestCraftingDifficultyToProduce());
+            register("tools/stone/stone_dagger", daggerStone, CreativeModeTab.tabCombat);
+            tungstenBucket.setLowestCraftingDifficultyToProduce(Item.clubWood.getLowestCraftingDifficultyToProduce());
 
-            register("buckets/wood/empty", woodBucketEmpty, CreativeModeTab.tabTools);
-            register("buckets/wood/water", woodBucketWater, CreativeModeTab.tabTools);
-            register("buckets/wood/milk", woodBucketMilk, CreativeModeTab.tabTools);
+            register("buckets/wood/empty", woodBucketEmpty, CreativeModeTab.tabMisc);
+            register("buckets/wood/water", woodBucketWater, CreativeModeTab.tabMisc);
+            register("buckets/wood/milk", woodBucketMilk, CreativeModeTab.tabMisc);
+
+           register("buckets/rusted_iron/empty", rustedIronBucketEmpty, CreativeModeTab.tabMisc);
+           register("buckets/rusted_iron/lava", rustedIronBucketLava, CreativeModeTab.tabMisc);
+           register("buckets/rusted_iron/milk", rustedIronBucketMilk, CreativeModeTab.tabMisc);
+           register("buckets/rusted_iron/stone", rustedIronBucketStone, CreativeModeTab.tabMisc);
+           register("buckets/rusted_iron/water", rustedIronBucketWater, CreativeModeTab.tabMisc);
 
             register("tool/flint/flint_hoe", hoeFlint, CreativeModeTab.tabTools);
     }
 
     public static void recipeRegister(CraftingManager c) {
-//        c.addShapelessRecipeP(new ItemStack(rustedIronNugget,1),true,Item.arrowRustedIron);
+        c.addShapelessRecipeP(new ItemStack(rustedIronNugget,1),true,Item.arrowRustedIron);
         c.addShapelessRecipeP(new ItemStack(ingotRustedIron, 1), true, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget);
         c.addShapelessRecipeP(new ItemStack(rustedIronNugget, 9), true, ingotRustedIron);
         c.addRecipeP(new ItemStack(anvilRustedIron, 1), true, "###", "@$@", "$$$", Character.valueOf('#'), rustedIronBlock, Character.valueOf('$'), ingotRustedIron);
@@ -427,8 +436,15 @@ public class Items {
                 tungstenBlock);
         register.registerShapelessRecipe(new ItemStack(tungstenNugget, 9), true,
                 ingotTungsten);
+        register.registerShapelessRecipe(new ItemStack(ingotRustedIron, 9), true,
+                rustedIronBlock);
+        register.registerShapelessRecipe(new ItemStack(rustedIronNugget, 9), true,
+                ingotRustedIron);
         registerArmorRecipe(register, ingotTungsten, Materials.tungsten);
+//        registerArmorRecipe(register, ingotRustedIron, Materials.rusted_iron);
         registerFullMetalToolRecipe(register,Materials.tungsten);
+//        registerFullMetalToolRecipe(register,Material.rusted_iron);
+
         ItemCoin[] coins = new ItemCoin[]{
                 coinIron, coinTungsten};
         for (ItemCoin coin : coins) {
@@ -439,6 +455,50 @@ public class Items {
         }
         register.registerShapelessRecipe(new ItemStack(Items.tungstenBucket, 1), false,
                 Items.tungstenBucketStone).resetDifficulty(100);
+        register.registerShapelessRecipe(new ItemStack(Items.rustedIronBucketEmpty, 1), false,
+                Items.rustedIronBucketStone).resetDifficulty(100);
+        register.registerShapelessRecipe(new ItemStack(rustedIronNugget,1),true,Item.arrowRustedIron);
+        register.registerShapelessRecipe(new ItemStack(ingotRustedIron, 1), true, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget);
+        register.registerShapelessRecipe(new ItemStack(rustedIronNugget, 9), true, ingotRustedIron);
+        register.registerShapedRecipe(new ItemStack(anvilRustedIron, 1), true, "###", "@$@", "$$$", Character.valueOf('#'), rustedIronBlock, Character.valueOf('$'), ingotRustedIron);
+        register.registerShapedRecipe(new ItemStack(Item.axeRustedIron, 1), true, "QQ@", "QS@", "@S@", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('S'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(Item.axeRustedIron, 1), true, "@QQ", "@SQ", "@S@", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('S'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(Item.arrowRustedIron, 1), true, "@Q@", "@W@", "@E@", Character.valueOf('Q'), rustedIronNugget, Character.valueOf('W'), Item.stick, Character.valueOf('E'), Item.feather);
+        register.registerShapedRecipe(new ItemStack(Item.bootsRustedIron, 1), true, "@@@", "Q@Q", "Q@Q", Character.valueOf('Q'), ingotRustedIron);
+        register.registerShapedRecipe(new ItemStack(Item.bootsRustedIron, 1), true, "Q@Q", "Q@Q", "@@@", Character.valueOf('Q'), ingotRustedIron);
+        register.registerShapedRecipe(new ItemStack(Item.chainRustedIron, 1), true, "@Q@", "Q@Q", "@Q@", Character.valueOf('Q'), rustedIronNugget);
+        register.registerShapedRecipe(new ItemStack(Item.daggerRustedIron, 1), true, "@Q", "@W", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('W'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(Item.daggerRustedIron, 1), true, "Q@", "W@", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('W'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(Item.battleAxeRustedIron, 1), true, "Q@Q", "QWQ", "@W@", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('W'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(Item.hatchetRustedIron, 1), true, "QW", "@W", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('W'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(Item.hatchetRustedIron, 1), true, "WQ", "W@", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('W'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(Item.hoeRustedIron, 1), true, "QQ@", "@W@", "@W@", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('W'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(Item.hoeRustedIron, 1), true, "@QQ", "@W@", "@W@", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('W'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(Item.hoeRustedIron, 1), true, "@QQ", "@@W", "@@W", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('W'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(Item.hoeRustedIron, 1), true, "QQ@", "W@@", "W@@", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('W'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(Item.mattockRustedIron, 1), true, "QQQ", "@WQ", "@W@", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('W'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(Item.pickaxeRustedIron, 1), true, "QQQ", "@W@", "@W@", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('W'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(Item.scytheRustedIron, 1), true, "WQ@", "W@Q", "W@@", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('W'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(anvilRustedIron, 1), true, "QQQ", "@W@", "WWW", Character.valueOf('Q'), rustedIronBlock, Character.valueOf('W'), ingotRustedIron);
+        register.registerShapedRecipe(new ItemStack(Item.shearsRustedIron, 1), true, "Q@", "@Q", Character.valueOf('Q'), ingotRustedIron);
+        register.registerShapedRecipe(new ItemStack(Item.shearsRustedIron, 1), true, "@Q", "Q@", Character.valueOf('Q'), ingotRustedIron);
+        register.registerShapedRecipe(new ItemStack(Item.shovelRustedIron, 1), true, "@Q@", "@W@", "@W@", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('W'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(Item.shovelRustedIron, 1), true, "Q@@", "W@@", "W@@", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('W'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(Item.shovelRustedIron, 1), true, "@@Q", "@@W", "@@W", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('W'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(Item.swordRustedIron, 1), true, "Q@@", "Q@@", "W@@", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('W'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(Item.swordRustedIron, 1), true, "@Q@", "@Q@", "@W@", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('W'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(Item.swordRustedIron, 1), true, "@@Q", "@@Q", "@@W", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('W'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(Item.warHammerRustedIron, 1), true, "QQQ", "QWQ", "@W@", Character.valueOf('Q'), ingotRustedIron, Character.valueOf('W'), Item.stick);
+        register.registerShapedRecipe(new ItemStack(rustedIronBlock, 1), true, "QQQ", "QQQ", "QQQ", Character.valueOf('Q'), ingotRustedIron);
+        register.registerShapedRecipe(new ItemStack(Item.helmetRustedIron, 1), true, "QQQ", "Q@Q", Character.valueOf('Q'), ingotRustedIron);
+        register.registerShapedRecipe(new ItemStack(Item.legsRustedIron, 1), true, "QQQ", "Q@Q", "Q@Q", Character.valueOf('Q'), ingotRustedIron);
+        register.registerShapedRecipe(new ItemStack(Item.plateRustedIron, 1), true, "Q@Q", "QQQ", "QQQ", Character.valueOf('Q'), ingotRustedIron);
+        register.registerShapedRecipe(new ItemStack(Item.helmetChainRustedIron, 1), true, "QQQ", "Q@Q", Character.valueOf('Q'), Item.chainRustedIron);
+        register.registerShapedRecipe(new ItemStack(Item.bootsChainRustedIron, 1), true, "Q@Q", "Q@Q", Character.valueOf('Q'), Item.chainRustedIron);
+        register.registerShapedRecipe(new ItemStack(Item.legsChainRustedIron, 1), true, "QQQ", "Q@Q", "Q@Q", Character.valueOf('Q'), Item.chainRustedIron);
+        register.registerShapedRecipe(new ItemStack(Item.plateChainRustedIron, 1), true, "Q@Q", "QQQ", "QQQ", Character.valueOf('Q'), Item.chainRustedIron);
+        register.registerShapedRecipe(new ItemStack(Items.fishingRodRustedIron, 1), true, "  Q", " Q@", "QW@", Character.valueOf('Q'), Item.stick, Character.valueOf('@'), Item.silk, Character.valueOf('W'), Items.rustedIronNugget);
+
     }
         public static void furnaceRecipeRegister(RecipesFurnace recipesFurnace){
         recipesFurnace.addSmelting(rawCopperNugget.itemID,new ItemStack(Item.copperNugget,1));

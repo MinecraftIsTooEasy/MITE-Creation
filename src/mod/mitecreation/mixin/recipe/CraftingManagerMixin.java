@@ -28,17 +28,17 @@ public class CraftingManagerMixin {
     }
     @Redirect(method = {"<init>"}, at=@At(value = "INVOKE", target = "Lnet/minecraft/RecipesMITE;addCraftingRecipes(Lnet/minecraft/CraftingManager;)V"))
     private void injectRegisterRecipes(CraftingManager craftingManager) {
-        Items.itemRegister();
-        Blocks.registerBlocks();
-        RecipesMITE.addCraftingRecipes((CraftingManager)craftingManager);
-        Items.recipeRegister(craftingManager);
-//        RegisterHelper.registerAllItems();
-//        RecipesMITE.addCraftingRecipes(craftingManager);
-//        RegisterHelper.registerAllRecipes(craftingManager);
+//        Items.itemRegister();
+//        Blocks.registerBlocks();
+//        RecipesMITE.addCraftingRecipes((CraftingManager)craftingManager);
+//        Items.recipeRegister(craftingManager);
+        RegisterHelper.registerAllItems();
+        RecipesMITE.addCraftingRecipes(craftingManager);
+        RegisterHelper.registerAllRecipes(craftingManager);
     }
 //    @Redirect(method = "<init>",
 //            at = @At(value = "INVOKE",target = "Lnet/minecraft/RecipesMITE;addCraftingRecipes(Lnet/minecraft/CraftingManager;)V"))
-//    private void injectRegisterRecipes2(CraftingManager crafters) {
+//    private void injectRegisterRecipes1(CraftingManager crafters) {
 //        RegisterHelper.registerAllItems();
 //        RecipesMITE.addCraftingRecipes(crafters);
 //        RegisterHelper.registerAllRecipes(crafters);

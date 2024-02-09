@@ -17,14 +17,14 @@ public class BlockOreMixin extends Block implements IBlockWithSubtypes{
     private final BlockSubtypes subtypes = BlockOreTransHelper.subtypesInitializer();
 
     public int richOrPoor;
-    
+
     protected BlockOreMixin(int par1, Material par2Material, BlockConstants constants) {
         super(par1, par2Material, constants);
     }
     public Block setResourceLocation(String string) {
         return this.setTextureName(string);
     }
-    
+
     public int dropBlockAsEntityItem(BlockBreakInfo blockBreakInfo) {
         Random random = new Random();
         boolean bl;
@@ -168,7 +168,7 @@ public class BlockOreMixin extends Block implements IBlockWithSubtypes{
         //}
         return super.dropBlockAsEntityItem(blockBreakInfo, n, n2, n3, 1);
     }
-    
+
     public Block setTextureName(String string) {
         if((Block)this instanceof BlockOre){
             if(this.richOrPoor == 0){

@@ -28,7 +28,9 @@ public class ItemBucketMixin extends ItemVessel {
     @Overwrite
     public static ItemVessel getPeer(Material vessel_material, Material contents) {
         if (contents == null) {
-            if (vessel_material == Material.copper) {
+            if (vessel_material == Material.rusted_iron) {
+                return Items.rustedIronBucketEmpty;
+            } else if (vessel_material == Material.copper) {
                 return Item.bucketCopperEmpty;
             } else if (vessel_material == Material.silver) {
                 return Item.bucketSilverEmpty;
@@ -42,6 +44,8 @@ public class ItemBucketMixin extends ItemVessel {
                 return Item.bucketAdamantiumEmpty;
             }  else if (vessel_material == Materials.tungsten) {
                 return Items.tungstenBucket;
+            } else if (vessel_material == Materials.wood) {
+                    return Items.woodBucketEmpty;
             } else {
                 return vessel_material == Material.ancient_metal ? Item.bucketAncientMetalEmpty : null;
             }
@@ -60,6 +64,10 @@ public class ItemBucketMixin extends ItemVessel {
                 return Item.bucketAdamantiumWater;
             }  else if (vessel_material == Materials.tungsten) {
                 return Items.tungstenBucketWater;
+            }  else if (vessel_material == Materials.wood) {
+                return Items.woodBucketWater;
+            } else if (vessel_material == Material.rusted_iron) {
+                    return Items.rustedIronBucketWater;
             } else {
                 return vessel_material == Material.ancient_metal ? Item.bucketAncientMetalWater : null;
             }
@@ -78,11 +86,15 @@ public class ItemBucketMixin extends ItemVessel {
                 return Item.bucketAdamantiumLava;
             }  else if (vessel_material == Materials.tungsten) {
                 return Items.tungstenBucketLava;
+            } else if (vessel_material == Material.rusted_iron) {
+                    return Items.rustedIronBucketLava;
             } else {
                 return vessel_material == Material.ancient_metal ? Item.bucketAncientMetalLava : null;
             }
         } else if (contents == Material.milk) {
-            if (vessel_material == Material.copper) {
+            if (vessel_material == Material.rusted_iron) {
+                return Items.rustedIronBucketMilk;
+            } else if (vessel_material == Material.copper) {
                 return Item.bucketCopperMilk;
             } else if (vessel_material == Material.silver) {
                 return Item.bucketSilverMilk;
@@ -96,11 +108,15 @@ public class ItemBucketMixin extends ItemVessel {
                 return Item.bucketAdamantiumMilk;
             }  else if (vessel_material == Materials.tungsten) {
                 return Items.tungstenBucketMilk;
+            }  else if (vessel_material == Materials.wood) {
+                return Items.woodBucketMilk;
             } else {
                 return vessel_material == Material.ancient_metal ? Item.bucketAncientMetalMilk : null;
             }
         } else if (contents == Material.stone) {
-            if (vessel_material == Material.copper) {
+            if (vessel_material == Material.rusted_iron) {
+                return Item.bucketCopperStone;
+            } else if (vessel_material == Material.copper) {
                 return Item.bucketCopperStone;
             } else if (vessel_material == Material.silver) {
                 return Item.bucketSilverStone;
@@ -125,7 +141,7 @@ public class ItemBucketMixin extends ItemVessel {
     @Overwrite
     public float getChanceOfMeltingWhenFilledWithLava() {
         Material material = this.getVesselMaterial();
-        return material == Material.adamantium ? 0.0F : (material == Material.gold ? 0.2F : 0.01F * (Material.mithril.getDurability() / material.getDurability()));
+        return material == Material.adamantium ? 0.0F : (material == Material.gold ? 0.2F : (material == Material.rusted_iron ? 0.24F : 0.01F * (Material.mithril.getDurability() / material.getDurability())));
     }
 
 
