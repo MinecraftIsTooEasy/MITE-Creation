@@ -1,4 +1,4 @@
-package mod.mitecreation.Entity;
+package mod.mitecreation.entity;
 
 import net.minecraft.*;
 
@@ -14,7 +14,7 @@ public class EntitySpirit extends EntityEnderman {
     }
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.setEntityAttribute(GenericAttributes.maxHealth, 60.0);
+        this.setEntityAttribute(GenericAttributes.maxHealth, 30.0);
         this.setEntityAttribute(GenericAttributes.movementSpeed, 0.35);
         this.setEntityAttribute(GenericAttributes.attackDamage, 15.0);
     }
@@ -158,16 +158,8 @@ public class EntitySpirit extends EntityEnderman {
         }
         return super.attackEntityFrom(damage);
     }
-    protected String getLivingSound() {
-        return this.isScreaming() ? "mob.endermen.scream" : "mob.endermen.idle";
-    }
 
-    protected String getHurtSound() {
-        return "mob.endermen.hit";
-    }
-
-    protected String getDeathSound() {
-        return "mob.endermen.death";
+    protected void dropFewItems(boolean recently_hit_by_player, DamageSource damage_source) {
     }
     public int getExperienceValue() {
         return super.getExperienceValue() * 4;

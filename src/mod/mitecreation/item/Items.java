@@ -2,7 +2,9 @@ package mod.mitecreation.item;
 
 import mod.mitecreation.block.Blocks;
 import mod.mitecreation.item.materil.Materials;
+import mod.mitecreation.util.Accessor;
 import mod.mitecreation.util.RecipeRegister;
+import mod.mitecreation.util.TargetIsNotStaticException;
 import mod.mitecreation.util.Util;
 import net.minecraft.*;
 
@@ -87,6 +89,17 @@ public class Items {
 //            return;
 //        }
 //        if(false) {
+//        Item[] items  = Item.itemsList;
+//        items[0] = null;
+//        try {
+//            Accessor.modifyStatic(Item.class.getField("itemsList"),items);
+//            Accessor.modifyStatic(Items.class.getField("itemStone"),new ItemStone(Block.stone,new String[]{"tile.stone","tile.deepslate"}));
+//            itemStone.setMaxStackSize(4);
+//        } catch (NoSuchFieldException e) {
+//            throw new RuntimeException(e);
+//        } catch (TargetIsNotStaticException e) {
+//            throw new RuntimeException(e);
+//        }
             register("coins/iron", coinIron, CreativeModeTab.tabMisc);
 
             register("nuggets/rusted_iron", rustedIronNugget, CreativeModeTab.tabMaterials);
