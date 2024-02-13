@@ -28,7 +28,7 @@ public class ItemCoinMixin extends Item {
         if (material == Material.adamantium) {
             return 10000;
         }
-        return material == Material.copper ? 5 : (material == Material.silver ? 25 : (material == Material.gold ? 100 : 0));
+        return material == Material.copper ? 5 : (material == Material.silver ? 25 : (material == Material.gold ? 100 : ( material == Material.rusted_iron ? 2 : 0)));
     }
 
     @Overwrite
@@ -48,7 +48,7 @@ public class ItemCoinMixin extends Item {
         if (material == Material.adamantium) {
             return coinAdamantium;
         }
-        return material == Material.copper ? coinCopper : (material == Material.silver ? coinSilver : (material == Material.gold ? coinGold : null));
+        return material == Material.copper ? coinCopper : (material == Material.silver ? coinSilver : (material == Material.gold ? coinGold : ( material == Material.rusted_iron ? Items.coinRustedIron : null)));
     }
 
     @Overwrite
@@ -69,7 +69,6 @@ public class ItemCoinMixin extends Item {
         if (material == Material.adamantium) {
             return adamantiumNugget;
         }
-
-        return material == Material.copper ? Item.copperNugget : (material == Material.silver ? Item.silverNugget : (material == Material.gold ? Item.goldNugget : null));
+        return material == Material.copper ? Item.copperNugget : (material == Material.silver ? Item.silverNugget : (material == Material.gold ? Item.goldNugget  : ( material == Material.rusted_iron ? Items.rustedIronNugget : null)));
     }
 }

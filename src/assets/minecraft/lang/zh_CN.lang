@@ -58,7 +58,7 @@ item.arrows/tungsten.name=钨箭
 item.items/fishing_rods/tungsten_uncast.name=钓鱼竿
 
 tile.tungsten_ore.name=钨矿石
-tile.tungsten_block.name=钨块
+tile.block/tungsten_block.name=钨块
 tile.tungsten_anvil.intact.name=钨砧
 tile.tungsten_anvil.slightlyDamaged.name=轻微受损的钨砧
 tile.tungsten_anvil.veryDamaged.name=严重受损的钨砧
@@ -89,6 +89,7 @@ tile.stairsDeepslateBrick.name=深板岩砖楼梯
 tile.monsterStoneEgg.deepslate.name=深板岩怪物蛋
 
 entity.EntitySpirit.name=阴魂
+entity.ENtitySpiderQueen.name=蛛后
 
 containet.strongbox.rusted_iron=锈铁箱子
 container.strongbox.tungsten=钨箱子

@@ -16,9 +16,10 @@ public class Materials extends Material {
     public Materials(EnumEquipmentMaterial enum_crafting_material) {
         super(enum_crafting_material);
     }
-//    public Materials(String name, MaterialMapColor map_color) {
-//        super(name, map_color);
-//    }
+
+    public Materials(String name, MaterialMapColor map_color) {
+        super(name, map_color);
+    }
 
     public Materials(String name) {
         super(name);

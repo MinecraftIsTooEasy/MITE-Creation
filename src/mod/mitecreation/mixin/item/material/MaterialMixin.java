@@ -1,8 +1,7 @@
-package mod.mitecreation.mixin.material;
+package mod.mitecreation.mixin.item.material;
 
 import net.minecraft.Material;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(Material.class)

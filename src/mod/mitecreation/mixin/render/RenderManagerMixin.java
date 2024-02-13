@@ -1,5 +1,7 @@
 package mod.mitecreation.mixin.render;
 
+import mod.mitecreation.entity.EntitySpiderQueen;
+import mod.mitecreation.render.RenderSpiderQueen;
 import mod.mitecreation.render.RenderSpirit;
 import net.minecraft.*;
 import mod.mitecreation.entity.EntitySpirit;
@@ -23,6 +25,7 @@ public class RenderManagerMixin {
             at = @At(value = "RETURN"))
     private void injectRegister(CallbackInfo callback) {
         this.q.put(EntitySpirit.class, new RenderSpirit());
+        this.q.put(EntitySpiderQueen.class, new RenderSpiderQueen(1.45F));
 
         for (bgm o : this.q.values()) {
             o.a(dyCast(bgl.class, this));

@@ -58,7 +58,7 @@ item.arrows/tungsten.name=Tungsten Arrow
 item.items/fishing_rods/tungsten_uncast.name=Fishing Rod
 
 tile.tungsten_ore.name=Tungsten Ore
-tile.tungsten_block.name=Block of Tungsten
+tile.block/tungsten_block.name=Block of Tungsten
 tile.tungsten_anvil.intact.name=Tungsten Anvil
 tile.tungsten_anvil.slightlyDamaged.name=Slightly Damaged Tungsten Anvil
 tile.tungsten_anvil.veryDamaged.name=Very Damaged Tungsten Anvil
@@ -89,6 +89,7 @@ tile.stairsDeepslateBrick.name=Deepslate Bricks Stairs
 tile.monsterStoneEgg.deepslatebrick.name=Deepslate Brick Monster Egg
 
 entity.EntitySpirit.name=Spirit
+entity.ENtitySpiderQueen.name=Spider Queen
 
 containet.strongbox.rusted_iron=Rusted Iron Strongbox
 container.strongbox.tungsten=Tungsten Strongbox

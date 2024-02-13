@@ -13,7 +13,8 @@ import static net.minecraft.Item.getMatchingItem;
 import static net.xiaoyu233.fml.util.ReflectHelper.createInstance;
 
 public class Items {
-    public static final ItemCoin coinIron = createInstance(ItemCoin.class, new Class[]{int.class, Material.class}, Util.getNextItemID(), Materials.iron);
+    public static final ItemCoin coinIron = createInstance(ItemCoin.class, new Class[]{int.class, Material.class}, Util.getNextItemID(), Material.iron);
+    public static final ItemCoin coinRustedIron = createInstance(ItemCoin.class, new Class[]{int.class, Material.class}, Util.getNextItemID(), Material.rusted_iron);
 
     public static final ItemNuggets rustedIronNugget = new ItemNuggets(Util.getNextItemID(),Material.rusted_iron);
     public static final ItemIngots ingotRustedIron = new ItemIngots(Util.getNextItemID(),Material.rusted_iron);
@@ -85,7 +86,7 @@ public class Items {
     public static final ItemHoe hoeFlint = createInstance(ItemHoe.class,new Class[]{int.class,Material.class},Util.getNextItemID(),Materials.flint);
 
     public static void itemRegister() {
-//        if(true){
+//        if(true) {
 //            return;
 //        }
 //        if(false) {
@@ -101,6 +102,7 @@ public class Items {
 //            throw new RuntimeException(e);
 //        }
             register("coins/iron", coinIron, CreativeModeTab.tabMisc);
+            register("coins/rusted_iron", coinRustedIron, CreativeModeTab.tabMisc);
 
             register("nuggets/rusted_iron", rustedIronNugget, CreativeModeTab.tabMaterials);
             register("ingots/rusted_iron", ingotRustedIron, CreativeModeTab.tabMaterials);
@@ -446,7 +448,7 @@ public class Items {
     }
     public static void registerRecipes(RecipeRegister register) {
         register.registerShapelessRecipe(new ItemStack(ingotTungsten, 9), true,
-                tungstenBlock);
+                blockTungsten);
         register.registerShapelessRecipe(new ItemStack(tungstenNugget, 9), true,
                 ingotTungsten);
         register.registerShapelessRecipe(new ItemStack(ingotRustedIron, 9), true,

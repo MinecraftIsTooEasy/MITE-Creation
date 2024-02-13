@@ -13,7 +13,7 @@ public class Blocks extends Block {
     public static Block rustedIronBlock = new BlockOreBlock(getNextBlockID(), Material.rusted_iron);
     public static BlockAnvil anvilRustedIron = new BlockAnvils(getNextBlockID(), Material.rusted_iron);
     public static final Block oreTungsten = new BlockOre(getNextBlockID(), Materials.tungsten, 3).setBlockHardness(3.5F).setExplosionResistance(30.0f);
-    public static final BlockOreBlock tungstenBlock = new BlockOreBlock(getNextBlockID(), Materials.tungsten);
+    public static final BlockOreBlock blockTungsten = new BlockOreBlock(getNextBlockID(), Materials.tungsten);
     public static final Block fenceTungsten = createInstance(BlockThinFence.class, new Class[]{int.class, String.class, String.class, Material.class, boolean.class}
             , getNextBlockID(), "bars/tungsten_bars", "bars/tungsten_bars", Materials.tungsten, false).setStepSound_(soundMetalFootstep).setExplosionResistance(96.0f).setBlockHardness(51.2F);
     public static final Block doorTungsten = createInstance(BlockDoor.class, new Class[]{int.class, Material.class}
@@ -44,7 +44,7 @@ public class Blocks extends Block {
         registerAnvil("rusted_iron_anvil", anvilRustedIron);
         anvilRustedIron.stepSound = Block.soundAnvilFootstep;
         registerItemBlock("ore/tungsten_ore", oreTungsten);
-        registerItemBlock("block/tungsten_block", tungstenBlock);
+        registerItemBlock("block/tungsten_block", blockTungsten);
         registerItemBlock("bars/tungsten_bars", fenceTungsten);
         registerItemBlock("door/door_tungsten", doorTungsten);
         registerAnvil("tungsten_anvil", anvilTungsten);
@@ -56,9 +56,9 @@ public class Blocks extends Block {
                 "AAA",
                 " I ",
                 "III",
-                'A', tungstenBlock,
+                'A', blockTungsten,
                 'I', Items.ingotTungsten);
-        register.registerShapedRecipe(new ItemStack(tungstenBlock),true,
+        register.registerShapedRecipe(new ItemStack(blockTungsten),true,
                 "XXX",
                 "XXX",
                 "XXX",

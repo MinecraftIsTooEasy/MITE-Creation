@@ -1,5 +1,6 @@
 package mod.mitecreation.mixin.util;
 
+import mod.mitecreation.entity.EntitySpiderQueen;
 import mod.mitecreation.entity.EntitySpirit;
 import net.minecraft.Entity;
 import net.minecraft.EntityTypes;
@@ -28,5 +29,6 @@ public class EntityTypesMixin {
     @Inject(method = "<clinit>", at = @At("RETURN"))
     private static void injectClinit(CallbackInfo callbackInfo) {
         addMapping(EntitySpirit.class, "EntitySpirit", 541, 0xFFFFFFF, 0xFFAD0000);
+        addMapping(EntitySpiderQueen.class, "EntitySpiderQueen", 542, 0xFFFFFFF, 0xFFAD0000);
     }
 }
