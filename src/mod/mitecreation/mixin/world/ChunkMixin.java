@@ -33,8 +33,8 @@ public abstract class ChunkMixin {
     //}
 
     @Inject(method = "<init>(Lnet/minecraft/World;[BII)V",at = @At("TAIL"))
-    void injectConstructor(World par1World, byte[] par2ArrayOfByte, int par3, int par4, CallbackInfo ci) {
-        if(par1World.isUnderworld() && !((Object)this instanceof EmptyChunk)) {
+    void injectConstructor(World par1World, byte[] par2ArrayOfByte, int par3, int par4, CallbackInfo ci){
+        if(par1World.isUnderworld() && !((Object)this instanceof EmptyChunk)){
             for (int var6 = 0; var6 < this.storageArrays.length; ++var6) {
                 for (int var7 = 0; var7 < 16; ++var7) {
                     for(int var8 = 0;var8 < 16;++var8){
