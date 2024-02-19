@@ -58,7 +58,6 @@ public class WorldGenDungeonsMixin extends WorldGenerator {
     private static final StructurePieceTreasure[] chest_contents_for_underworld = new StructurePieceTreasure[]{
             new StructurePieceTreasure(Item.ancientMetalNugget.itemID, 0, 1, 4, 10),
             new StructurePieceTreasure(Item.ingotAncientMetal.itemID, 0, 1, 5, 10),
-            new StructurePieceTreasure(Item.goldNugget.itemID, 0, 1, 5, 10),
             new StructurePieceTreasure(Item.gunpowder.itemID, 0, 1, 4, 10),
             new StructurePieceTreasure(Item.silk.itemID, 0, 1, 4, 10),
             new StructurePieceTreasure(Item.bowlEmpty.itemID, 0, 1, 1, 3),

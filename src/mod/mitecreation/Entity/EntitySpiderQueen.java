@@ -94,12 +94,12 @@ public class EntitySpiderQueen extends EntityArachnid {
                 if (spawnCounter < 20) {
                     ++this.spawnCounter;
                 } else {
-                    EntityBlackWidowSpider widowspider = new EntityBlackWidowSpider(worldObj);
-                    widowspider.setPosition(posX + this.rand.nextInt(8) - this.rand.nextInt(8), posY, posZ - this.rand.nextInt(8) + this.rand.nextInt(8));
-                    widowspider.refreshDespawnCounter(-9600);
-                    worldObj.spawnEntityInWorld(widowspider);
-                    widowspider.onSpawnWithEgg(null);
-                    widowspider.entityFX(EnumEntityFX.summoned);
+                    EntityCaveSpider caveSpider = new EntityCaveSpider(worldObj);
+                    caveSpider.setPosition(posX + this.rand.nextInt(8) - this.rand.nextInt(8), posY, posZ - this.rand.nextInt(8) + this.rand.nextInt(8));
+                    caveSpider.refreshDespawnCounter(-9600);
+                    worldObj.spawnEntityInWorld(caveSpider);
+                    caveSpider.onSpawnWithEgg(null);
+                    caveSpider.entityFX(EnumEntityFX.summoned);
                     spawnCounter = 0;
                     spawnSums++;
                 }

@@ -1,12 +1,22 @@
 curse.fearOfElemental.name=元素恐惧
 curse.fearOfElemental.desc=你发现你难以对元素类生物造成伤害
 
+item.buckets/wood/empty.name=木桶
+item.buckets/wood/water.name=装满水的木桶
+item.buckets/wood/milk.name=装满牛奶的木桶
+
 item.ingots/rusted_iron.name=锈铁锭
 item.nuggets/rusted_iron.name=锈铁粒
 
 item.coins/rusted_iron.name=锈铁币
 item.coins/iron.name=铁币
-item.items/fishing_rods/rusted_iron_uncast.name=钓鱼竿
+item.fishing_rods/rusted_iron_uncast.name=钓鱼竿
+
+item.buckets/rusted_iron/empty.name=锈铁桶
+item.buckets/rusted_iron/water.name=装满水的锈铁桶
+item.buckets/rusted_iron/lava.name=装满岩浆的锈铁桶
+item.buckets/rusted_iron/stone.name=装满石头的锈铁桶
+item.buckets/rusted_iron/milk.name=装满牛奶的锈铁桶
 
 tile.rusted_iron_block.name=锈铁块
 tile.rusted_iron_anvil.intact.name=锈铁砧
@@ -55,9 +65,15 @@ item.doors/tungsten.name=钨门
 item.chains/tungsten.name=钨锁链
 item.coins/tungsten.name=钨币
 item.arrows/tungsten.name=钨箭
-item.items/fishing_rods/tungsten_uncast.name=钓鱼竿
+item.fishing_rods/tungsten_uncast.name=钓鱼竿
 
-tile.tungsten_ore.name=钨矿石
+item.buckets/tungsten/empty.name=钨桶
+item.buckets/tungsten/water.name=装满水的钨桶
+item.buckets/tungsten/lava.name=装满岩浆的钨桶
+item.buckets/tungsten/stone.name=装满石头的钨桶
+item.buckets/tungsten/milk.name=装满牛奶的钨桶
+
+tile.ore/tungsten_ore.name=钨矿石
 tile.block/tungsten_block.name=钨块
 tile.tungsten_anvil.intact.name=钨砧
 tile.tungsten_anvil.slightlyDamaged.name=轻微受损的钨砧
@@ -68,11 +84,14 @@ tile.tungsten_chest.name=钨箱子
 tile.chestTungsten.name=钨箱子
 
 item.tools/emerald/emerald_sword.name=[TEST]绿宝石剑
+item.tools/diamond/diamond_sword.name=[TEST]钻石剑
+
 
 tile.mushroom_luminous.name=微光蘑菇
-tile.sand_gravel.name=粗沙
+tile.gravelSand.name=粗砾沙石
+
 tile.deepslate.name=深板岩
-tile.deepslate_gravel.name=深板岩沙砾
+tile.gravelDeepslate.name=深层沙砾
 tile.cobble_deepslate.name=深板岩圆石
 tile.cobble_deepslate_magma.name=熔岩深板岩圆石
 tile.deepslate_brick.default.name=深板岩砖
@@ -89,11 +108,11 @@ tile.stairsDeepslateBrick.name=深板岩砖楼梯
 tile.monsterStoneEgg.deepslate.name=深板岩怪物蛋
 
 entity.EntitySpirit.name=阴魂
-entity.ENtitySpiderQueen.name=蛛后
+entity.EntitySpiderQueen.name=蛛后
 
 containet.strongbox.rusted_iron=锈铁箱子
 container.strongbox.tungsten=钨箱子
 
 material.stone.name=石头
-material.rusted_iron.name=锈铁
+material.rustedIron.name=锈铁
 material.tungsten.name=钨

@@ -1,11 +1,9 @@
 package mod.mitecreation.item;
 
+//import mod.mitecreation.block.BlockCobblestone;
 import mod.mitecreation.block.Blocks;
 import mod.mitecreation.item.materil.Materials;
-import mod.mitecreation.util.Accessor;
-import mod.mitecreation.util.RecipeRegister;
-import mod.mitecreation.util.TargetIsNotStaticException;
-import mod.mitecreation.util.Util;
+import mod.mitecreation.util.*;
 import net.minecraft.*;
 
 import static mod.mitecreation.block.Blocks.*;
@@ -83,7 +81,12 @@ public class Items {
     public static final ItemBucket rustedIronBucketStone = (ItemBucket) new ItemBucket(Util.getNextItemID(), Material.rusted_iron, Material.stone).setContainerItem(rustedIronBucketEmpty);
     public static final yi rustedIronBucketMilk = (yi)(new yi(Util.getNextItemID(), Material.rusted_iron)).setContainerItem(rustedIronBucketEmpty);
 
-    public static final ItemHoe hoeFlint = createInstance(ItemHoe.class,new Class[]{int.class,Material.class},Util.getNextItemID(),Materials.flint);
+    public static final ItemSword swordEmerald = createInstance(ItemSword.class,new Class[]{int.class,Material.class},Util.getNextItemID(), Material.emerald);
+    public static final ItemSword swordDiamond = createInstance(ItemSword.class,new Class[]{int.class,Material.class},Util.getNextItemID(), Material.diamond);
+
+//    public static final ItemHoe hoeFlint = createInstance(ItemHoe.class,new Class[]{int.class,Material.class},Util.getNextItemID(),Materials.flint);
+
+    public static final ItemStone itemStone = null;
 
     public static void itemRegister() {
 //        if(true) {
@@ -93,121 +96,123 @@ public class Items {
 //        Item[] items  = Item.itemsList;
 //        items[0] = null;
 //        try {
-//            Accessor.modifyStatic(Item.class.getField("itemsList"),items);
+//            Item.itemsList[0] = null;
 //            Accessor.modifyStatic(Items.class.getField("itemStone"),new ItemStone(Block.stone,new String[]{"tile.stone","tile.deepslate"}));
 //            itemStone.setMaxStackSize(4);
+//            Block.blocksList[4] = null;
+//            Accessor.modifyStatic(Block.class.getField("cobblestone"), new BlockCobblestone());
 //        } catch (NoSuchFieldException e) {
 //            throw new RuntimeException(e);
-//        } catch (TargetIsNotStaticException e) {
-//            throw new RuntimeException(e);
 //        }
-            register("coins/iron", coinIron, CreativeModeTab.tabMisc);
-            register("coins/rusted_iron", coinRustedIron, CreativeModeTab.tabMisc);
+        register("coins/iron", coinIron, CreativeModeTab.tabMisc);
+        register("coins/rusted_iron", coinRustedIron, CreativeModeTab.tabMisc);
 
-            register("nuggets/rusted_iron", rustedIronNugget, CreativeModeTab.tabMaterials);
-            register("ingots/rusted_iron", ingotRustedIron, CreativeModeTab.tabMaterials);
-            ingotRustedIron.setMaxStackSize(8);
+        register("nuggets/rusted_iron", rustedIronNugget, CreativeModeTab.tabMaterials);
+        register("ingots/rusted_iron", ingotRustedIron, CreativeModeTab.tabMaterials);
+        ingotRustedIron.setMaxStackSize(8);
 
-            register("fishing_rods/rusted_iron_uncast", fishingRodRustedIron, CreativeModeTab.tabTools);
-            fishingRodRustedIron.setLowestCraftingDifficultyToProduce(Item.flint.getLowestCraftingDifficultyToProduce());
+        register("fishing_rods/rusted_iron_uncast", fishingRodRustedIron, CreativeModeTab.tabTools);
+        fishingRodRustedIron.setLowestCraftingDifficultyToProduce(Item.flint.getLowestCraftingDifficultyToProduce());
 
-            register("rusted_iron_block", rustedIronBlock, CreativeModeTab.tabBlock);
-            rustedIronBlock.setMaxStackSize(4);
+        register("rusted_iron_block", rustedIronBlock, CreativeModeTab.tabBlock);
+        rustedIronBlock.setMaxStackSize(4);
 
-            register("ingots/tungsten", ingotTungsten, CreativeModeTab.tabMaterials);
-            ingotTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("nuggets/tungsten", tungstenNugget, CreativeModeTab.tabMaterials);
-            tungstenNugget.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("ingots/tungsten", ingotTungsten, CreativeModeTab.tabMaterials);
+        ingotTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("nuggets/tungsten", tungstenNugget, CreativeModeTab.tabMaterials);
+        tungstenNugget.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
 
-            register("armor/tungsten_helmet", helmetTungsten, CreativeModeTab.tabCombat);
-            helmetTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("armor/tungsten_chestplate", plateTungsten, CreativeModeTab.tabCombat);
-            plateTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("armor/tungsten_leggings", legsTungsten, CreativeModeTab.tabCombat);
-            legsTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("armor/tungsten_boots", bootsTungsten, CreativeModeTab.tabCombat);
-            bootsTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("armor/tungsten_chainmail_helmet", helmetChainTungsten, CreativeModeTab.tabCombat);
-            helmetChainTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("armor/tungsten_chainmail_chestplate", plateChainTungsten, CreativeModeTab.tabCombat);
-            plateChainTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("armor/tungsten_chainmail_leggings", legsChainTungsten, CreativeModeTab.tabCombat);
-            legsChainTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("armor/tungsten_chainmail_boots", bootsChainTungsten, CreativeModeTab.tabCombat);
-            bootsChainTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("armor/tungsten_helmet", helmetTungsten, CreativeModeTab.tabCombat);
+        helmetTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("armor/tungsten_chestplate", plateTungsten, CreativeModeTab.tabCombat);
+        plateTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("armor/tungsten_leggings", legsTungsten, CreativeModeTab.tabCombat);
+        legsTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("armor/tungsten_boots", bootsTungsten, CreativeModeTab.tabCombat);
+        bootsTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("armor/tungsten_chainmail_helmet", helmetChainTungsten, CreativeModeTab.tabCombat);
+        helmetChainTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("armor/tungsten_chainmail_chestplate", plateChainTungsten, CreativeModeTab.tabCombat);
+        plateChainTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("armor/tungsten_chainmail_leggings", legsChainTungsten, CreativeModeTab.tabCombat);
+        legsChainTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("armor/tungsten_chainmail_boots", bootsChainTungsten, CreativeModeTab.tabCombat);
+        bootsChainTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
 
-            register("tools/tungsten/tungsten_battle_axe", battleAxeTungsten, CreativeModeTab.tabCombat);
-            battleAxeTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("tools/tungsten/tungsten_dagger", daggerTungsten, CreativeModeTab.tabCombat);
-            daggerTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("tools/tungsten/tungsten_sword", swordTungsten, CreativeModeTab.tabCombat);
-            swordTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("tools/tungsten/tungsten_war_hammer", warHammerTungsten, CreativeModeTab.tabCombat);
-            warHammerTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("tools/tungsten/tungsten_battle_axe", battleAxeTungsten, CreativeModeTab.tabCombat);
+        battleAxeTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("tools/tungsten/tungsten_dagger", daggerTungsten, CreativeModeTab.tabCombat);
+        daggerTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("tools/tungsten/tungsten_sword", swordTungsten, CreativeModeTab.tabCombat);
+        swordTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("tools/tungsten/tungsten_war_hammer", warHammerTungsten, CreativeModeTab.tabCombat);
+        warHammerTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
 
-            register("tools/tungsten/tungsten_axe", axeTungsten, CreativeModeTab.tabTools);
-            axeTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("tools/tungsten/tungsten_hatchet", hatchetTungsten, CreativeModeTab.tabTools);
-            hatchetTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("tools/tungsten/tungsten_hoe", hoeTungsten, CreativeModeTab.tabTools);
-            hoeTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("tools/tungsten/tungsten_knife", knifeTungsten, CreativeModeTab.tabTools);
-            knifeTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("tools/tungsten/tungsten_pickaxe", pickaxeTungsten, CreativeModeTab.tabTools);
-            pickaxeTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("tools/tungsten/tungsten_mattock", mattockTungsten, CreativeModeTab.tabTools);
-            mattockTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("tools/tungsten/tungsten_scythe", scytheTungsten, CreativeModeTab.tabTools);
-            scytheTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("tools/tungsten/tungsten_shears", shearsTungsten, CreativeModeTab.tabTools);
-            shearsTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("tools/tungsten/tungsten_shovel", shovelTungsten, CreativeModeTab.tabTools);
-            shovelTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("fishing_rods/tungsten_uncast", fishingRodTungsten, CreativeModeTab.tabTools);
-            fishingRodTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("tools/tungsten/tungsten_axe", axeTungsten, CreativeModeTab.tabTools);
+        axeTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("tools/tungsten/tungsten_hatchet", hatchetTungsten, CreativeModeTab.tabTools);
+        hatchetTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("tools/tungsten/tungsten_hoe", hoeTungsten, CreativeModeTab.tabTools);
+        hoeTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("tools/tungsten/tungsten_knife", knifeTungsten, CreativeModeTab.tabTools);
+        knifeTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("tools/tungsten/tungsten_pickaxe", pickaxeTungsten, CreativeModeTab.tabTools);
+        pickaxeTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("tools/tungsten/tungsten_mattock", mattockTungsten, CreativeModeTab.tabTools);
+        mattockTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("tools/tungsten/tungsten_scythe", scytheTungsten, CreativeModeTab.tabTools);
+        scytheTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("tools/tungsten/tungsten_shears", shearsTungsten, CreativeModeTab.tabTools);
+        shearsTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("tools/tungsten/tungsten_shovel", shovelTungsten, CreativeModeTab.tabTools);
+        shovelTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("fishing_rods/tungsten_uncast", fishingRodTungsten, CreativeModeTab.tabTools);
+        fishingRodTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
 
-            register("doors/tungsten", doorTungsten, CreativeModeTab.tabRedstone);
-            doorTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("chains/tungsten", chainTungsten, CreativeModeTab.tabMaterials);
-            chainTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("coins/tungsten", coinTungsten, CreativeModeTab.tabMisc);
-            coinTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("arrows/tungsten", arrowTungsten, CreativeModeTab.tabCombat);
-            arrowTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("doors/tungsten", doorTungsten, CreativeModeTab.tabRedstone);
+        doorTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("chains/tungsten", chainTungsten, CreativeModeTab.tabMaterials);
+        chainTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("coins/tungsten", coinTungsten, CreativeModeTab.tabMisc);
+        coinTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("arrows/tungsten", arrowTungsten, CreativeModeTab.tabCombat);
+        arrowTungsten.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
 
-            register("buckets/tungsten/empty", tungstenBucket, CreativeModeTab.tabMisc);
-            tungstenBucket.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
-            register("buckets/tungsten/lava", tungstenBucketLava, CreativeModeTab.tabMisc);
-            register("buckets/tungsten/milk", tungstenBucketMilk, CreativeModeTab.tabMisc);
-            register("buckets/tungsten/stone", tungstenBucketStone, CreativeModeTab.tabMisc);
-            register("buckets/tungsten/water", tungstenBucketWater, CreativeModeTab.tabMisc);
+        register("buckets/tungsten/empty", tungstenBucket, CreativeModeTab.tabMisc);
+        tungstenBucket.setLowestCraftingDifficultyToProduce(Item.ingotAncientMetal.getLowestCraftingDifficultyToProduce());
+        register("buckets/tungsten/lava", tungstenBucketLava, CreativeModeTab.tabMisc);
+        register("buckets/tungsten/milk", tungstenBucketMilk, CreativeModeTab.tabFood);
+        register("buckets/tungsten/stone", tungstenBucketStone, CreativeModeTab.tabMisc);
+        register("buckets/tungsten/water", tungstenBucketWater, CreativeModeTab.tabMisc);
 
-            register("raw_nuggets/rusted_iron", rawRustedIronNugget, CreativeModeTab.tabMaterials);
-            register("raw_nuggets/copper", rawCopperNugget, CreativeModeTab.tabMaterials);
-            register("raw_nuggets/silver", rawSilverNugget, CreativeModeTab.tabMaterials);
-            register("raw_nuggets/gold", rawGoldNugget, CreativeModeTab.tabMaterials);
-            register("raw_nuggets/ancient_metal", rawAncientMetalNugget, CreativeModeTab.tabMaterials);
-            register("raw_nuggets/ancient_metal", rawAncientMetalNugget, CreativeModeTab.tabMaterials);
-            register("raw_nuggets/tungsten", rawTungstenNugget, CreativeModeTab.tabMaterials);
-            register("raw_nuggets/mithril", rawMithrilNugget, CreativeModeTab.tabMaterials);
-            register("raw_nuggets/adamantium", rawAdamantiumNugget, CreativeModeTab.tabMaterials);
+        register("raw_nuggets/rusted_iron", rawRustedIronNugget, CreativeModeTab.tabMaterials);
+        register("raw_nuggets/copper", rawCopperNugget, CreativeModeTab.tabMaterials);
+        register("raw_nuggets/silver", rawSilverNugget, CreativeModeTab.tabMaterials);
+        register("raw_nuggets/gold", rawGoldNugget, CreativeModeTab.tabMaterials);
+        register("raw_nuggets/ancient_metal", rawAncientMetalNugget, CreativeModeTab.tabMaterials);
+        register("raw_nuggets/tungsten", rawTungstenNugget, CreativeModeTab.tabMaterials);
+        register("raw_nuggets/mithril", rawMithrilNugget, CreativeModeTab.tabMaterials);
+        register("raw_nuggets/adamantium", rawAdamantiumNugget, CreativeModeTab.tabMaterials);
 
-            register("tools/stone/stone_club", clubStone, CreativeModeTab.tabCombat);
-            tungstenBucket.setLowestCraftingDifficultyToProduce(Item.clubWood.getLowestCraftingDifficultyToProduce());
-            register("tools/stone/stone_dagger", daggerStone, CreativeModeTab.tabCombat);
-            tungstenBucket.setLowestCraftingDifficultyToProduce(Item.clubWood.getLowestCraftingDifficultyToProduce());
+        register("tools/stone/stone_club", clubStone, CreativeModeTab.tabCombat);
+        tungstenBucket.setLowestCraftingDifficultyToProduce(Item.clubWood.getLowestCraftingDifficultyToProduce());
+        register("tools/stone/stone_dagger", daggerStone, CreativeModeTab.tabCombat);
+        tungstenBucket.setLowestCraftingDifficultyToProduce(Item.clubWood.getLowestCraftingDifficultyToProduce());
 
-            register("buckets/wood/empty", woodBucketEmpty, CreativeModeTab.tabMisc);
-            register("buckets/wood/water", woodBucketWater, CreativeModeTab.tabMisc);
-            register("buckets/wood/milk", woodBucketMilk, CreativeModeTab.tabMisc);
+        register("buckets/wood/empty", woodBucketEmpty, CreativeModeTab.tabMisc);
+        register("buckets/wood/water", woodBucketWater, CreativeModeTab.tabMisc);
+        register("buckets/wood/milk", woodBucketMilk, CreativeModeTab.tabFood);
 
-           register("buckets/rusted_iron/empty", rustedIronBucketEmpty, CreativeModeTab.tabMisc);
-           register("buckets/rusted_iron/lava", rustedIronBucketLava, CreativeModeTab.tabMisc);
-           register("buckets/rusted_iron/milk", rustedIronBucketMilk, CreativeModeTab.tabMisc);
-           register("buckets/rusted_iron/stone", rustedIronBucketStone, CreativeModeTab.tabMisc);
-           register("buckets/rusted_iron/water", rustedIronBucketWater, CreativeModeTab.tabMisc);
+        register("buckets/rusted_iron/empty", rustedIronBucketEmpty, CreativeModeTab.tabMisc);
+        register("buckets/rusted_iron/lava", rustedIronBucketLava, CreativeModeTab.tabMisc);
+        register("buckets/rusted_iron/milk", rustedIronBucketMilk, CreativeModeTab.tabFood);
+        register("buckets/rusted_iron/stone", rustedIronBucketStone, CreativeModeTab.tabMisc);
+        register("buckets/rusted_iron/water", rustedIronBucketWater, CreativeModeTab.tabMisc);
 
-            register("tool/flint/flint_hoe", hoeFlint, CreativeModeTab.tabTools);
+        register("tools/emerald/emerald_sword", swordEmerald, CreativeModeTab.tabCombat);
+        register("tools/diamond/diamond_sword", swordDiamond, CreativeModeTab.tabCombat);
+
+//        register("tool/flint/flint_hoe", hoeFlint, CreativeModeTab.tabTools);
     }
 
     public static void recipeRegister(CraftingManager c) {
@@ -402,7 +407,7 @@ public class Items {
                 'A', item);
     }
     public static void registerArmorRecipe(RecipeRegister register,Item item, Material material){
-        if(item instanceof ItemChain){
+        if(item instanceof ItemChain) {
             register.registerShapedRecipe(new ItemStack(ItemArmor.getMatchingArmor(ItemHelmet.class,material,true)),true,
                     "AAA",
                     "A A",
@@ -461,7 +466,7 @@ public class Items {
 //        registerFullMetalToolRecipe(register,Material.rusted_iron);
 
         ItemCoin[] coins = new ItemCoin[]{
-                coinIron, coinTungsten};
+                 coinIron, coinTungsten};
         for (ItemCoin coin : coins) {
             for (int plank_subtype = 1; plank_subtype <= 9; ++plank_subtype) {
                 register.registerShapelessRecipe(new ItemStack(coin.getNuggetPeer(), plank_subtype), true, new ItemStack(coin, plank_subtype)).resetDifficulty(25);

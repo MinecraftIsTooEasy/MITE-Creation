@@ -74,8 +74,19 @@ public class BlockOreMixin extends Block implements IBlockWithSubtypes{
                     case 2:
                         n3 = 14 + random.nextInt(5) + random.nextInt(5);
                         break;
+                    case 3:
+                        n3 = 3 + random.nextInt(2) + random.nextInt(2);
+                        break;
+                    case 4:
+                        n3 = 7 + random.nextInt(3) + random.nextInt(3);
+                        break;
+                    case 5:
+                        n3 = 14 + random.nextInt(5) + random.nextInt(5);
+                        break;
                     default:
-                        throw new IllegalArgumentException("Unhandled metadata!");
+                        n3 = 0;
+                        FishModLoader.LOGGER.error("dropBlockAsEntityItem():Unhandled subtype:" + metadata);
+                        break;
                 }
             }else if(this == oreIron){
                 n = Items.rawRustedIronNugget.itemID;
@@ -90,8 +101,19 @@ public class BlockOreMixin extends Block implements IBlockWithSubtypes{
                     case 2:
                         n3 = 14 + random.nextInt(5) + random.nextInt(5);
                         break;
+                    case 3:
+                        n3 = 3 + random.nextInt(2) + random.nextInt(2);
+                        break;
+                    case 4:
+                        n3 = 7 + random.nextInt(3) + random.nextInt(3);
+                        break;
+                    case 5:
+                        n3 = 14 + random.nextInt(5) + random.nextInt(5);
+                        break;
                     default:
-                        throw new IllegalArgumentException("Unhandled metadata!");
+                        n3 = 0;
+                        FishModLoader.LOGGER.error("dropBlockAsEntityItem():Unhandled subtype:" + metadata);
+                        break;
                 }
             }else if(this == oreSilver){
                 n = Items.rawSilverNugget.itemID;
@@ -106,8 +128,19 @@ public class BlockOreMixin extends Block implements IBlockWithSubtypes{
                     case 2:
                         n3 = 14 + random.nextInt(5) + random.nextInt(5);
                         break;
+                    case 3:
+                        n3 = 3 + random.nextInt(2) + random.nextInt(2);
+                        break;
+                    case 4:
+                        n3 = 7 + random.nextInt(3) + random.nextInt(3);
+                        break;
+                    case 5:
+                        n3 = 14 + random.nextInt(5) + random.nextInt(5);
+                        break;
                     default:
-                        throw new IllegalArgumentException("Unhandled metadata!");
+                        n3 = 0;
+                        FishModLoader.LOGGER.error("dropBlockAsEntityItem():Unhandled subtype:" + metadata);
+                        break;
                 }
             }else if(this == oreGold){
                 n = Items.rawGoldNugget.itemID;
@@ -122,8 +155,19 @@ public class BlockOreMixin extends Block implements IBlockWithSubtypes{
                     case 2:
                         n3 = 14 + random.nextInt(5) + random.nextInt(5);
                         break;
+                    case 3:
+                        n3 = 3 + random.nextInt(2) + random.nextInt(2);
+                        break;
+                    case 4:
+                        n3 = 7 + random.nextInt(3) + random.nextInt(3);
+                        break;
+                    case 5:
+                        n3 = 14 + random.nextInt(5) + random.nextInt(5);
+                        break;
                     default:
-                        throw new IllegalArgumentException("Unhandled metadata!");
+                        n3 = 0;
+                        FishModLoader.LOGGER.error("dropBlockAsEntityItem():Unhandled subtype:" + metadata);
+                        break;
                 }
             }else if(this == oreMithril){
                 n = Items.rawMithrilNugget.itemID;
@@ -138,8 +182,19 @@ public class BlockOreMixin extends Block implements IBlockWithSubtypes{
                     case 2:
                         n3 = 14 + random.nextInt(5) + random.nextInt(5);
                         break;
+                    case 3:
+                        n3 = 3 + random.nextInt(2) + random.nextInt(2);
+                        break;
+                    case 4:
+                        n3 = 7 + random.nextInt(3) + random.nextInt(3);
+                        break;
+                    case 5:
+                        n3 = 14 + random.nextInt(5) + random.nextInt(5);
+                        break;
                     default:
-                        throw new IllegalArgumentException("Unhandled metadata!");
+                        n3 = 0;
+                        FishModLoader.LOGGER.error("dropBlockAsEntityItem():Unhandled subtype:" + metadata);
+                        break;
                 }
             }else if(this == oreAdamantium){
                 n = Items.rawAdamantiumNugget.itemID;
@@ -154,8 +209,19 @@ public class BlockOreMixin extends Block implements IBlockWithSubtypes{
                     case 2:
                         n3 = 14 + random.nextInt(5) + random.nextInt(5);
                         break;
+                    case 3:
+                        n3 = 3 + random.nextInt(2) + random.nextInt(2);
+                        break;
+                    case 4:
+                        n3 = 7 + random.nextInt(3) + random.nextInt(3);
+                        break;
+                    case 5:
+                        n3 = 14 + random.nextInt(5) + random.nextInt(5);
+                        break;
                     default:
-                        throw new IllegalArgumentException("Unhandled metadata!");
+                        n3 = 0;
+                        FishModLoader.LOGGER.error("dropBlockAsEntityItem():Unhandled subtype:" + metadata);
+                        break;
                 }
             }
         }
@@ -170,31 +236,20 @@ public class BlockOreMixin extends Block implements IBlockWithSubtypes{
     }
 
     public Block setTextureName(String string) {
-        if((Block)this instanceof BlockOre){
-            if(this.richOrPoor == 0){
-                this.textureName = "poor_" + string;
-            } else if (this.richOrPoor == 2) {
-                this.textureName = "rich_" + string;
-            }
-        }
         this.textureName = string;
         return this;
     }
 
     @Override
     public String getMetadataNotes() {
-        return "0=Poor Ore, 1=Normal Ore ,2=Rich Ore";
+        return "0=Poor Ore, 1=Normal Ore ,2=Rich Ore, 3=Poor Ore Deepslate, 4=Normal Ore Deepslate, 5=Rich Ore Deepslate";
     }
 
     @Override
     public int getItemSubtype(int n) {
-        int i = n;
-        if(this.getBlockSubtype(n) == 3){
-            i = 0;
-        } else if (this.getBlockSubtype(n) == 4) {
-            i = 1;
-        } else if (this.getBlockSubtype(n) == 5) {
-            i = 2;
+        if(n >= 6 || n < 0){
+            FishModLoader.LOGGER.error("getItemSubtype():Unhandled subtype:" + n);
+            return 0;
         }
         return this.getBlockSubtype(n);
     }
@@ -210,12 +265,9 @@ public class BlockOreMixin extends Block implements IBlockWithSubtypes{
 
     @Override
     public int getBlockSubtypeUnchecked(int n) {
-        if(n == 3){
+        if(n >= 6 || n < 0){
+            FishModLoader.LOGGER.error("getItemSubtype():Unhandled subtype:" + n);
             return 0;
-        } else if (n == 4) {
-            return 1;
-        } else if (n == 5) {
-            return 2;
         }
         return n;
     }
@@ -256,15 +308,23 @@ public class BlockOreMixin extends Block implements IBlockWithSubtypes{
             }
         }
         this.richOrPoor = metadata;
-        FishModLoader.LOGGER.info(metadata);
         return true;
     }
 
     public float getBlockHardness(int metadata) {
-        if(metadata == 0){
-            return super.getBlockHardness(metadata) * 0.7f;
-        }if(metadata == 2){
-            return super.getBlockHardness(metadata) * 1.4f;
+        switch(metadata){
+            case 0:
+                return super.getBlockHardness(metadata) * 0.7f;
+            case 1:
+                return super.getBlockHardness(metadata);
+            case 2:
+                return super.getBlockHardness(metadata) * 1.4f;
+            case 3:
+                return super.getBlockHardness(metadata) * 0.7f * 1.25f;
+            case 4:
+                return super.getBlockHardness(metadata) * 1.25f;
+            case 5:
+                return super.getBlockHardness(metadata) * 1.4f * 1.25f;
         }
         return super.getBlockHardness(metadata);
     }

@@ -16,11 +16,25 @@ public abstract class WorldMixin {
         int i2 = new Random().nextInt(2);
         if(getBlock(n,n2,n3) instanceof BlockOre){
             ((BlockOre)getBlock(n,n2,n3)).richOrPoor = (i + i2);
-            ((BlockOre)getBlock(n,n2,n3)).setResourceLocation(getBlock(n,n2,n3).getUnlocalizedName());
         }
     }
+
+    @Shadow
+    private Chunk getChunkFromChunkCoords(int var10001, int var10002) {
+        return null;
+    }
+
     @Shadow
     public final Block getBlock(int n, int n2, int n3){
         return null;
     }
+
+    @Shadow
+    public BiomeBase getBiomeGenForCoords(int par1, int par2) {
+        return null;
+    }
+
+    @Shadow
+    protected abstract boolean chunkExists(int par1, int par2);
+
 }

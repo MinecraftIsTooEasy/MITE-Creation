@@ -26,7 +26,7 @@ public class EnumEquipmentMaterials {
             e.printStackTrace();
         }
     }
-    public static final EnumEquipmentMaterial tungsten = newEnumEquipmentMaterial(32.0F,30, EnumQuality.masterwork,"tungsten");
+    public static final EnumEquipmentMaterial tungsten = newEnumEquipmentMaterial(32.0F,60, EnumQuality.masterwork,"tungsten");
     public static final EnumEquipmentMaterial stone = newEnumEquipmentMaterial(2.0F,0, EnumQuality.poor,"stone");
 
     private static final EnumEquipmentMaterial newEnumEquipmentMaterial(float durability, int enchantability, EnumQuality max_quality, String name){

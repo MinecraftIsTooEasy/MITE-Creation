@@ -1,6 +1,5 @@
 package mod.mitecreation.mixin.block;
 
-import mod.mitecreation.block.Blocks;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;

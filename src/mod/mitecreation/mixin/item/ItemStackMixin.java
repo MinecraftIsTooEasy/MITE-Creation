@@ -1,7 +1,6 @@
 package mod.mitecreation.mixin.item;
 
 import net.minecraft.*;
-import net.xiaoyu233.fml.FishModLoader;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;

@@ -13,9 +13,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(EntityTypes.class)
 public class EntityTypesMixin {
-    @Shadow
-    public static void addMapping(Class par0Class, String par1Str, int par2) {
-    }
 
     @Shadow
     private static void addMapping(Class par0Class, String par1Str, int par2, int par3, int par4) {
@@ -29,6 +26,6 @@ public class EntityTypesMixin {
     @Inject(method = "<clinit>", at = @At("RETURN"))
     private static void injectClinit(CallbackInfo callbackInfo) {
         addMapping(EntitySpirit.class, "EntitySpirit", 541, 0xFFFFFFF, 0xFFAD0000);
-        addMapping(EntitySpiderQueen.class, "EntitySpiderQueen", 542, 0xFFFFFFF, 0xFFAD0000);
+        addMapping(EntitySpiderQueen.class, "EntitySpiderQueen", 542, 11013646, 0xFFAD1245);
     }
 }

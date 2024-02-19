@@ -27,11 +27,30 @@ public class WorldGenMinableMixin {
         if (bl && (n3 < 1 || world.isAirOrPassableBlock(n2, n3 - 1, n4, true))) {
             return 0;
         }
-        if (bl2 && world.canBlockSeeTheSky(n2, n3 + 1, n4)) {
-            BiomeBase biomeBase = world.getBiomeGenForCoords(n2, n4);
-            world.setBlock(n2, n3, n4, biomeBase == BiomeBase.desert || biomeBase == BiomeBase.desertHills ? Block.sand.blockID : Block.grass.blockID, 0, 2);
-        } else {
-            world.setBlock(n2, n3, n4, this.minableBlockId, this.minable_block_metadata, 2);
+        if(world.getBiomeGenForCoords(n2,n4) == BiomeBase.underworld){
+            if(Block.blocksList[this.minableBlockId] instanceof BlockOre && !(Block.blocksList[this.minableBlockId] instanceof BlockGoldOre) && !(Block.blocksList[this.minableBlockId] instanceof BlockRedstoneOre)){
+                switch (random.nextInt(3)){
+                    case 0:
+                        this.minable_block_metadata = 3;
+                        break;
+                    case 1:
+                        this.minable_block_metadata = 4;
+                        break;
+                    case 2:
+                        this.minable_block_metadata = 5;
+                        break;
+                }
+                world.setBlock(n2, n3, n4, this.minableBlockId, this.minable_block_metadata, 2);
+            }else if(Block.blocksList[this.minableBlockId] instanceof BlockGoldOre || Block.blocksList[this.minableBlockId] instanceof BlockRedstoneOre){
+                world.setBlock(n2, n3, n4, this.minableBlockId, this.minable_block_metadata, 2);
+            }
+        }else {
+            if (bl2 && world.canBlockSeeTheSky(n2, n3 + 1, n4)) {
+                BiomeBase biomeBase = world.getBiomeGenForCoords(n2, n4);
+                world.setBlock(n2, n3, n4, biomeBase == BiomeBase.desert || biomeBase == BiomeBase.desertHills ? Block.sand.blockID : Block.grass.blockID, 0, 2);
+            } else {
+                world.setBlock(n2, n3, n4, this.minableBlockId, this.minable_block_metadata, 2);
+            }
         }
         int n5 = 1;
         for (int i = 0; i < 16; ++i) {
@@ -49,7 +68,6 @@ public class WorldGenMinableMixin {
             n5 += this.growVein(world, random, n - n5, n2 + n6, n3 + n7, n4 + n8, bl, bl2);
             if (n5 == n) break;
         }
-        
         return n5;
     }
 }

@@ -1,12 +1,22 @@
 curse.fearOfElemental.name=Fear Of Elemental
 curse.fearOfElemental.desc=You've become fearful of earth elemental & fire elemental|and have difficulty striking them|in melee combat.
 
+item.buckets/wood/empty.name=Wood Bucket
+item.buckets/wood/water.name=Wood Bucket of Water
+item.buckets/wood/milk.name=Wood Bucket of Milk
+
 item.ingots/rusted_iron.name=Rusted Iron Ingot
 item.nuggets/rusted_iron.name=Rusted Iron Nugget
 
 item.coins/rusted_iron.name=Rusted Iron Coin
 item.coins/iron.name=Iron Coin
-item.items/fishing_rods/rusted_iron_uncast.name=Fishing Rod
+item.fishing_rods/rusted_iron_uncast.name=Fishing Rod
+
+item.buckets/rusted_iron/empty.name=Rusted Iron Bucket
+item.buckets/rusted_iron/water.name=Rusted Iron Bucket of Water
+item.buckets/rusted_iron/lava.name=Rusted Iron Bucket of Lava
+item.buckets/rusted_iron/stone.name=Rusted Iron Bucket of Stone
+item.buckets/rusted_iron/milk.name=Rusted Iron Bucket of Milk
 
 tile.rusted_iron_block.name=Block of Rusted Iron
 tile.rusted_iron_anvil.intact.name=Rusted Iron Anvil
@@ -55,9 +65,15 @@ item.doors/tungsten.name=Tungsten Door
 item.chains/tungsten.name=Tungsten Chain
 item.coins/tungsten.name=Tungsten Coin
 item.arrows/tungsten.name=Tungsten Arrow
-item.items/fishing_rods/tungsten_uncast.name=Fishing Rod
+item.fishing_rods/tungsten_uncast.name=Fishing Rod
 
-tile.tungsten_ore.name=Tungsten Ore
+item.buckets/tungsten/empty.name=Tungsten Bucket
+item.buckets/tungsten/water.name=Tungsten Bucket of Water
+item.buckets/tungsten/lava.name=Tungsten Bucket of Lava
+item.buckets/tungsten/stone.name=Tungsten Bucket of Stone
+item.buckets/tungsten/milk.name=Tungsten Bucket of Milk
+
+tile.ore/tungsten_ore.name=Tungsten Ore
 tile.block/tungsten_block.name=Block of Tungsten
 tile.tungsten_anvil.intact.name=Tungsten Anvil
 tile.tungsten_anvil.slightlyDamaged.name=Slightly Damaged Tungsten Anvil
@@ -70,9 +86,10 @@ tile.chestTungsten.name=Tungsten Strongbox
 item.tools/emerald/emerald_sword.name=[TEST]Emerald Sword
 
 tile.mushroom_luminous.name=Mushroom Luminous
-tile.sand_gravel.name=Sand Gravel
+tile.gravelSand.name=Sand Gravel
+
 tile.deepslate.name=Deepslate
-tile.deepslate_gravel.name=Deepslate Gravel
+tile.gravelDeepslate.name=Deepslate Gravel
 tile.cobble_deepslate.name=Cobble Deepslate
 tile.cobble_deepslate_magma.name=Magma Cobble Deepslate
 tile.deepslate_brick.default.name=Deepslate Bricks
@@ -89,11 +106,11 @@ tile.stairsDeepslateBrick.name=Deepslate Bricks Stairs
 tile.monsterStoneEgg.deepslatebrick.name=Deepslate Brick Monster Egg
 
 entity.EntitySpirit.name=Spirit
-entity.ENtitySpiderQueen.name=Spider Queen
+entity.EntitySpiderQueen.name=Spider Queen
 
 containet.strongbox.rusted_iron=Rusted Iron Strongbox
 container.strongbox.tungsten=Tungsten Strongbox
 
 material.stone.name=Stone
-material.rusted_iron.name=Rusted Iron
+material.rustedIron.name=Rusted Iron
 material.tungsten.name=Tungsten
