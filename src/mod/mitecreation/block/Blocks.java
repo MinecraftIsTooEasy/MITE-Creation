@@ -1,7 +1,7 @@
 package mod.mitecreation.block;
 
 import mod.mitecreation.item.Items;
-import mod.mitecreation.item.materil.Materials;
+import mod.mitecreation.materil.Materials;
 import mod.mitecreation.util.RecipeRegister;
 import mod.mitecreation.util.Util;
 import net.minecraft.*;

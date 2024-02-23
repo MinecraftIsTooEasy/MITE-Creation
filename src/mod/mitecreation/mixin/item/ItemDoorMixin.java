@@ -3,7 +3,7 @@ package mod.mitecreation.mixin.item;
 import net.minecraft.Block;
 import net.minecraft.ItemDoor;
 import net.minecraft.Material;
-import mod.mitecreation.item.materil.Materials;
+import mod.mitecreation.materil.Materials;
 import mod.mitecreation.block.Blocks;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;

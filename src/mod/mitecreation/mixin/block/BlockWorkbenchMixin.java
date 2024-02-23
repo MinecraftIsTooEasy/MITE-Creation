@@ -1,7 +1,7 @@
 package mod.mitecreation.mixin.block;
 
 import net.minecraft.*;
-import mod.mitecreation.item.materil.Materials;
+import mod.mitecreation.materil.Materials;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

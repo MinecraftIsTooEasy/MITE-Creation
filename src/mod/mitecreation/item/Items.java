@@ -1,8 +1,9 @@
 package mod.mitecreation.item;
 
 //import mod.mitecreation.block.BlockCobblestone;
+import mod.mitecreation.block.BlockCobblestone;
 import mod.mitecreation.block.Blocks;
-import mod.mitecreation.item.materil.Materials;
+import mod.mitecreation.materil.Materials;
 import mod.mitecreation.util.*;
 import net.minecraft.*;
 
@@ -89,21 +90,22 @@ public class Items {
     public static final ItemStone itemStone = null;
 
     public static void itemRegister() {
-//        if(true) {
-//            return;
-//        }
-//        if(false) {
-//        Item[] items  = Item.itemsList;
-//        items[0] = null;
-//        try {
-//            Item.itemsList[0] = null;
-//            Accessor.modifyStatic(Items.class.getField("itemStone"),new ItemStone(Block.stone,new String[]{"tile.stone","tile.deepslate"}));
-//            itemStone.setMaxStackSize(4);
-//            Block.blocksList[4] = null;
-//            Accessor.modifyStatic(Block.class.getField("cobblestone"), new BlockCobblestone());
-//        } catch (NoSuchFieldException e) {
-//            throw new RuntimeException(e);
-//        }
+        if(true) {
+            return;
+        }
+        if(false) {
+            Item[] items = Item.itemsList;
+            items[0] = null;
+            try {
+                Item.itemsList[0] = null;
+                Accessor.modifyStatic(Items.class.getField("itemStone"), new ItemStone(Block.stone, new String[]{"tile.stone", "tile.deepslate"}));
+                itemStone.setMaxStackSize(4);
+                Block.blocksList[4] = null;
+                Accessor.modifyStatic(Block.class.getField("cobblestone"), new BlockCobblestone());
+            } catch (NoSuchFieldException e) {
+                throw new RuntimeException(e);
+            }
+        }
         register("coins/iron", coinIron, CreativeModeTab.tabMisc);
         register("coins/rusted_iron", coinRustedIron, CreativeModeTab.tabMisc);
 

@@ -1,7 +1,7 @@
 package mod.mitecreation.mixin.item;
 
 import mod.mitecreation.item.Items;
-import mod.mitecreation.item.materil.Materials;
+import mod.mitecreation.materil.Materials;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;

@@ -25,7 +25,7 @@ public class BlockOreTransHelper {
     }
 
     public static BlockSubtypes subtypesInitializer() {
-        BlockSubtypes subtypes = new BlockSubtypes(new String[]{"poor_ore", "normal_ore","rich_ore","poor_ore_deepslate","normal_ore_deepslate","rich_ore_deepslate"});
+        BlockSubtypes subtypes = new BlockSubtypes(new String[]{"poor_ore", "normal_ore", "rich_ore", "poor_ore_deepslate", "normal_ore_deepslate", "rich_ore_deepslate"});
         return subtypes;
     }
 }

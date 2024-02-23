@@ -4,7 +4,7 @@ import net.minecraft.Item;
 import net.minecraft.ItemCoin;
 import net.minecraft.Material;
 import mod.mitecreation.item.Items;
-import mod.mitecreation.item.materil.Materials;
+import mod.mitecreation.materil.Materials;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 

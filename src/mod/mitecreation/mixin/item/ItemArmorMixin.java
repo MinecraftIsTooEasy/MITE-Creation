@@ -1,6 +1,6 @@
 package mod.mitecreation.mixin.item;
 
-import mod.mitecreation.item.materil.Materials;
+import mod.mitecreation.materil.Materials;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;

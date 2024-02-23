@@ -1,4 +1,4 @@
-package mod.mitecreation.item.materil;
+package mod.mitecreation.materil;
 
 import net.minecraft.EnumEquipmentMaterial;
 import net.minecraft.Material;
