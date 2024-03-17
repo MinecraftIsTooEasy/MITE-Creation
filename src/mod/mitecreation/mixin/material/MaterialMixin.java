@@ -34,4 +34,3 @@ public class MaterialMixin {
         return this.name;
     }
 }
-

@@ -3,9 +3,7 @@ package mod.mitecreation.mixin.item;
 import mod.mitecreation.item.Items;
 import mod.mitecreation.materil.Materials;
 import net.minecraft.*;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
-import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.*;
 
 @Mixin(ItemBucket.class)
 public class ItemBucketMixin extends ItemVessel {
@@ -136,11 +134,11 @@ public class ItemBucketMixin extends ItemVessel {
         }
     }
 
-    @Overwrite
-    public float getChanceOfMeltingWhenFilledWithLava() {
-        Material material = this.getVesselMaterial();
-        return material == Material.adamantium ? 0.0F : (material == Material.gold ? 0.2F : (material == Material.rusted_iron ? 0.24F : 0.01F * (Material.mithril.getDurability() / material.getDurability())));
-    }
+//    @Overwrite
+//    public float getChanceOfMeltingWhenFilledWithLava() {
+//        Material material = this.getVesselMaterial();
+//        return material == Material.adamantium ? 0.0F : (material == Material.gold ? 0.2F : (material == Material.rusted_iron ? 0.24F : 0.01F * (Material.mithril.getDurability() / material.getDurability())));
+//    }
 
 
     @Shadow
