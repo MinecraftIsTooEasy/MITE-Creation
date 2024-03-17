@@ -18,7 +18,7 @@ public abstract class ItemArmorMixin extends Item implements IDamageableItem {
         this.effective_material = material;
         this.is_chain_mail = isChainMail;
         this.setMaxStackSize(1);
-        this.setCreativeTab(CreativeModeTab.tabCombat);
+        this.setCreativeTab(CreativeTabs.tabCombat);
     }
         @Overwrite
         public int getMaterialProtection() {

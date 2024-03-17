@@ -273,13 +273,13 @@ public class BlockOreMixin extends Block implements IBlockWithSubtypes{
     }
 
     @Override
-    public void a(mt mt2) {
-        this.subtypes.setIcons(this.registerIcons(mt2, this.getTextures()));
+    public void registerIcons(IconRegister par1IconRegister) {
+        this.subtypes.setIcons(this.registerIcons(par1IconRegister, this.getTextures()));
     }
 
     @Override
-    public IIcon a(int n, int n2) {
-        return this.subtypes.getIcon(this.getBlockSubtype(n2));
+    public Icon getIcon(int side, int metadata) {
+        return this.subtypes.getIcon(this.getBlockSubtype(metadata));
     }
 
     @Override

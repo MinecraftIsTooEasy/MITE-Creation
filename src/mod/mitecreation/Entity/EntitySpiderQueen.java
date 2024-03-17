@@ -16,7 +16,7 @@ public class EntitySpiderQueen extends EntityArachnid {
         do {
             var2 = this.worldObj.isUnderworld() ? new EntityLongdeadGuardian(this.worldObj) : new EntitySkeleton(this.worldObj);
             ((EntitySkeleton)var2).setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
-            ((EntitySkeleton)var2).onSpawnWithEgg((GroupDataEntity)null);
+            ((EntitySkeleton)var2).onSpawnWithEgg((EntityLivingData)null);
         } while(((EntitySkeleton)var2).getSkeletonType() != 0);
 
         return (EntitySkeleton)var2;
@@ -57,23 +57,24 @@ public class EntitySpiderQueen extends EntityArachnid {
 
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.setEntityAttribute(GenericAttributes.maxHealth, 24.0);
-        this.setEntityAttribute(GenericAttributes.followRange, 40.0);
-        this.setEntityAttribute(GenericAttributes.attackDamage, 12.0);
-        this.setEntityAttribute(GenericAttributes.movementSpeed, 0.92);
+        this.setEntityAttribute(SharedMonsterAttributes.maxHealth, 24.0);
+        this.setEntityAttribute(SharedMonsterAttributes.followRange, 40.0);
+        this.setEntityAttribute(SharedMonsterAttributes.attackDamage, 12.0);
+        this.setEntityAttribute(SharedMonsterAttributes.movementSpeed, 0.92);
     }
     public EntityDamageResult attackEntityAsMob(Entity target) {
         EntityDamageResult result = super.attackEntityAsMob(target);
         if (result != null && !result.entityWasDestroyed()) {
             if (result.entityLostHealth() && target instanceof EntityLiving) {
-                target.getAsEntityLivingBase().addPotionEffect(new MobEffect(MobEffectList.moveSlowdown.id, 50, 5));
-                target.getAsEntityLivingBase().addPotionEffect(new MobEffect(MobEffectList.poison.id, 850, 0));
+                target.getAsEntityLivingBase().addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 50, 5));
+                target.getAsEntityLivingBase().addPotionEffect(new PotionEffect(Potion.poison.id, 850, 0));
             }
             return result;
         } else {
             return result;
         }
     }
+
     private int spawnCounter;
     private int spawnSums;
     public void onUpdate() {
@@ -85,7 +86,7 @@ public class EntitySpiderQueen extends EntityArachnid {
                 while (i.hasNext()) {
                     EntityArachnid spiders = (EntityArachnid) i.next();
                     if (spiders == this) continue;
-                    spiders.addPotionEffect(new MobEffect(MobEffectList.damageBoost.id, 200, 0));
+                    spiders.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 200, 0));
                 }
             }
         }

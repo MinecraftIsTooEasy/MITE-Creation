@@ -14,8 +14,8 @@ public abstract class WorldMixin {
     public final void poorOrRichInjector(int n, int n2, int n3, int n4, int n5, int n6, CallbackInfoReturnable callbackInfo){
         int i = new Random().nextInt(2);
         int i2 = new Random().nextInt(2);
-        if(getBlock(n,n2,n3) instanceof BlockOre){
-            ((BlockOre)getBlock(n,n2,n3)).richOrPoor = (i + i2);
+        if(getBlock(n,n2,n3) instanceof BlockOre) {
+//            ((BlockOre)getBlock(n,n2,n3)).richOrPoor = (i + i2);
         }
     }
 
@@ -30,7 +30,7 @@ public abstract class WorldMixin {
     }
 
     @Shadow
-    public BiomeBase getBiomeGenForCoords(int par1, int par2) {
+    public BiomeGenBase getBiomeGenForCoords(int par1, int par2) {
         return null;
     }
 

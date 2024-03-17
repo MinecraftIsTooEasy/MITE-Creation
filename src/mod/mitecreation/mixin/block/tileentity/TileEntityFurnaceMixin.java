@@ -1,11 +1,15 @@
 package mod.mitecreation.mixin.block.tileentity;
 
 import net.minecraft.*;
+import mod.mitecreation.item.Items;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(value=TileEntityFurnace.class)
+@Mixin(value = TileEntityFurnace.class)
 public class TileEntityFurnaceMixin extends TileEntityMixin {
     @Shadow
     private ItemStack[] furnaceItemStacks;
@@ -18,32 +22,26 @@ public class TileEntityFurnaceMixin extends TileEntityMixin {
     @Shadow
     private int currentItemBurnTime;
     
-    @Overwrite
-    public static int getHeatLevelRequired(int n) {
-        if (n == Block.oreAdamantium.blockID) {
-            return 4;
+    @Inject(method = "getHeatLevelRequired", at = @At("RETURN"), cancellable = true)
+    private static void creationInjectGetHeatLevelRequired(int item_id, CallbackInfoReturnable<Integer> cir) {
+        if (item_id == Items.rawAdamantiumNugget.itemID) {
+            cir.setReturnValue(4);
         }
-        if (n == Block.oreMithril.blockID) {
-            return 3;
+        if (item_id == Items.rawMithrilNugget.itemID || item_id == Items.rawTungstenNugget.itemID) {
+            cir.setReturnValue(3);
         }
-        if (n == Block.oreCopper.blockID || n == Block.oreSilver.blockID || n == Block.oreGold.blockID || n == Block.oreIron.blockID) {
-            return 2;
+        if (item_id == Items.rawRustedIronNugget.itemID || item_id == Items.rustedIronNugget.itemID || item_id == Items.rawAncientMetalNugget.itemID) {
+            cir.setReturnValue(2);
         }
-        if (n == Block.oreNetherQuartz.blockID || n == Block.oreEmerald.blockID || n == Block.oreDiamond.blockID || n == Block.oreRedstone.blockID) {
-            return 2;
+        if (item_id == Items.rawCopperNugget.itemID || item_id == Items.rawSilverNugget.itemID || item_id == Items.rawGoldNugget.itemID) {
+            cir.setReturnValue(1);
         }
-        if (n == Block.oreLapis.blockID) {
-            return 2;
-        }
-        if (n == Block.sandStone.blockID) {
-            return 2;
-        }
-        return 1;
+        cir.setReturnValue(1);
     }
     @Overwrite
     public void smeltItem(int n) {
         if (this.canSmelt(n)) {
-            ItemStack itemStack = RecipesFurnace.smelting().getSmeltingResult(this.getInputItemStack(), n);
+            ItemStack itemStack = FurnaceRecipes.smelting().getSmeltingResult(this.getInputItemStack(), n);
             if (this.furnaceItemStacks[2] == null) {
                 this.furnaceItemStacks[2] = itemStack.copy();
             } else if (this.furnaceItemStacks[2].itemID == itemStack.itemID) {
@@ -106,11 +104,11 @@ public class TileEntityFurnaceMixin extends TileEntityMixin {
                 }
                 if (this.isBurning() && this.canSmelt(this.heat_level)) {
                     ++this.furnaceCookTime;
-                    if (this.furnaceCookTime == this.furnaceItemStacks[0].getItem().getCookTime(this.heat_level) / this.heat_level) {
-                        this.furnaceCookTime = 0;
-                        this.smeltItem(this.heat_level);
-                        bl2 = true;
-                    }
+//                    if (this.furnaceCookTime == this.furnaceItemStacks[0].getItem().getCookTime(this.heat_level) / this.heat_level) {
+//                        this.furnaceCookTime = 0;
+//                        this.smeltItem(this.heat_level);
+//                        bl2 = true;
+//                    }
                 } else {
                     this.furnaceCookTime = 0;
                 }
@@ -161,9 +159,9 @@ public class TileEntityFurnaceMixin extends TileEntityMixin {
     private boolean isBurning() {
         return false;
     }
-    @Overwrite
-    public int d(int n) {
-        return this.furnaceItemStacks[0] == null ? this.furnaceCookTime * n / 200 : this.furnaceCookTime * n / (this.furnaceItemStacks[0].getItem().getCookTime(this.heat_level) / Math.max(this.heat_level, 1));
-    }
+//    @Overwrite
+//    public int getCookProgressScaled(int par1) {
+//        return this.furnaceItemStacks[0] == null ? this.furnaceCookTime * par1 / 200 : this.furnaceCookTime * par1 / (this.furnaceItemStacks[0].getItem().getCookTime(this.heat_level) / Math.max(this.heat_level, 1));
+//    }
 }
 

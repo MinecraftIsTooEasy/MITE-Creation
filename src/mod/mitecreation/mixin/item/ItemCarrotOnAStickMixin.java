@@ -6,8 +6,8 @@ import mod.mitecreation.item.Items;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
-@Mixin(ItemCarrotStick.class)
-public class ItemCarrotStickMixin extends Item implements IDamageableItem {
+@Mixin(ItemCarrotOnAStick.class)
+public class ItemCarrotOnAStickMixin extends Item implements IDamageableItem {
     protected Material hook_material;
     @Shadow
     public int getNumComponentsForDurability() {

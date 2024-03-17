@@ -132,7 +132,7 @@ public class CraftingManagerMixin {
                         item_stack_armor.copyDyedColor(var4);
                     }
 
-                    crafting_result = (new CraftingResult(item_stack_armor, crafting_difficulty / 2.0F, var4.getItem().getSkillsetsThatCanRepairThis(), (aah)null)).setExperienceCostExempt().setQualityOverride(var4.getQuality());
+                    crafting_result = (new CraftingResult(item_stack_armor, crafting_difficulty / 2.0F, var4.getItem().getSkillsetsThatCanRepairThis(), (IRecipe) null)).setExperienceCostExempt().setQualityOverride(var4.getQuality());
                     crafting_result.setRepair();
                     return crafting_result;
                 } else {
@@ -145,7 +145,7 @@ public class CraftingManagerMixin {
             Container event_handler = par1InventoryCrafting.getEventHandler();
 
             for(var6 = 0; var6 < this.recipes.size(); ++var6) {
-                aah var12 = (aah)this.recipes.get(var6);
+                IRecipe var12 = (IRecipe) this.recipes.get(var6);
                 if (var12.matches(par1InventoryCrafting, par2World) && (!(event_handler instanceof MITEContainerCrafting) || !((MITEContainerCrafting)event_handler).isRecipeForbidden(var12))) {
                     crafting_result = var12.getCraftingResult(par1InventoryCrafting);
                     if (crafting_result == null) {
@@ -187,7 +187,7 @@ public class CraftingManagerMixin {
                 int damage_repaired = num_sinews_to_use * damage_repaired_per_sinew;
                 int damage_after_repair = Math.max(damage - damage_repaired, 0);
                 ItemStack resulting_stack = item_stack_armor.copy().setItemDamage(damage_after_repair);
-                crafting_result = (new CraftingResult(resulting_stack, (float)(num_sinews_to_use * 50), item_stack_armor.getItem().getSkillsetsThatCanRepairThis(), (aah)null)).setExperienceCostExempt().setQualityOverride(item_stack_armor.getQuality()).setConsumption(num_sinews_to_use);
+                crafting_result = (new CraftingResult(resulting_stack, (float)(num_sinews_to_use * 50), item_stack_armor.getItem().getSkillsetsThatCanRepairThis(), (IRecipe) null)).setExperienceCostExempt().setQualityOverride(item_stack_armor.getQuality()).setConsumption(num_sinews_to_use);
                 crafting_result.setRepair();
                 return crafting_result;
             }

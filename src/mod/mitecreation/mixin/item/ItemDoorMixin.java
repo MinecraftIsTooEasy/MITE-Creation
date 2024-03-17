@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(ItemDoor.class)
 public class ItemDoorMixin {
+
     @Overwrite
     public Block getBlock() {
         if (this.door_material == Material.wood) {
@@ -27,8 +28,8 @@ public class ItemDoorMixin {
             return Block.doorMithril;
         } else if (this.door_material == Material.adamantium) {
             return Block.doorAdamantium;
-        } else if (this.door_material == Materials.tungsten) {
-            return Blocks.doorTungsten;
+//        } else if (this.door_material == Materials.tungsten) {
+//            return Blocks.doorTungsten;
         } else {
             return this.door_material == Material.ancient_metal ? Block.doorAncientMetal : null;
         }

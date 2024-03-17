@@ -3,14 +3,14 @@ package mod.mitecreation.mixin.recipe;
 import net.minecraft.Block;
 import net.minecraft.Item;
 import net.minecraft.ItemStack;
-import net.minecraft.RecipeIngots;
+import net.minecraft.RecipesIngots;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(RecipeIngots.class)
+@Mixin(RecipesIngots.class)
 public class RecipeIngotsMixin {
     @Shadow
     private Object[][] recipeItems;

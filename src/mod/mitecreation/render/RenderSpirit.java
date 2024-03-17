@@ -6,7 +6,7 @@ import org.lwjgl.opengl.GL12;
 
 import java.util.Random;
 
-public class RenderSpirit extends bgk {
+public class RenderSpirit extends RenderEnderman {
     public static final int body_texture = 0;
     private Random rnd = new Random();
     public RenderSpirit() {

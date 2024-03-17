@@ -7,8 +7,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(BiomeHell.class)
-public class BiomeHellMixin extends BiomeBase {
+@Mixin(BiomeGenHell.class)
+public class BiomeHellMixin extends BiomeGenBase {
 
     protected BiomeHellMixin(int par1) {
         super(par1);
@@ -16,9 +16,9 @@ public class BiomeHellMixin extends BiomeBase {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     public void injectCtor(CallbackInfo callbackInfo) {
-        this.spawnableMonsterList.add(new BiomeMeta(EntityInfernalCreeper.class, 20, 1, 3));
-        this.spawnableMonsterList.add(new BiomeMeta(EntityDemonSpider.class, 20, 1, 4));
-        this.spawnableMonsterList.add(new BiomeMeta(EntityHellhound.class, 20, 1, 4));
-        this.spawnableMonsterList.add(new BiomeMeta(EntitySpirit.class, 10, 1, 2));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityInfernalCreeper.class, 20, 1, 3));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityDemonSpider.class, 20, 1, 4));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityHellhound.class, 20, 1, 4));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntitySpirit.class, 10, 1, 2));
     }
 }

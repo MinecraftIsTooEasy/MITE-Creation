@@ -18,20 +18,20 @@ public class ItemNuggetMixin extends ItemIngot  {
         super(id, material);
     }
 
-    @Inject(at = @At("RETURN"), method = "<init>")
-    private void injectXP(int id, Material material, CallbackInfo callbackInfo) {
-        if(material == Material.copper || material == Material.silver ||  material == Material.iron) {
-            this.setXPReward(1);
-        } else if (material == Material.gold) {
-            this.setXPReward(2);
-        } else if (material == Material.mithril) {
-            this.setXPReward(4);
-        } else if (material == Materials.tungsten) {
-            this.setXPReward(3);
-        } else if (material == Materials.adamantium) {
-            this.setXPReward(10);
-        }
-    }
+//    @Inject(at = @At("RETURN"), method = "<init>")
+//    private void injectXP(int id, Material material, CallbackInfo callbackInfo) {
+//        if(material == Material.copper || material == Material.silver ||  material == Material.iron) {
+//            this.setXPReward(1);
+//        } else if (material == Material.gold) {
+//            this.setXPReward(2);
+//        } else if (material == Material.mithril) {
+//            this.setXPReward(4);
+//        } else if (material == Materials.tungsten) {
+//            this.setXPReward(3);
+//        } else if (material == Materials.adamantium) {
+//            this.setXPReward(10);
+//        }
+//    }
 
     @Overwrite
     public ItemNugget getForMaterial(Material material) {

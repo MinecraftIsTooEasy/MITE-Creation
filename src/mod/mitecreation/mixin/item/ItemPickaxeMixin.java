@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ItemPickaxe.class)
-public class ItemPickaxeMixin extends ItemTool{
+public class ItemPickaxeMixin extends ItemTool {
     protected ItemPickaxeMixin(int par1, Material material) {
         super(par1, material);
     }

@@ -10,7 +10,7 @@ public class BlockCobblestone extends Block implements IBlockWithSubtypes {
         setHardness(2.0f);
         setResistance(10.0f);
         setStepSound(soundStoneFootstep);
-        setUnlocalizedName("stonebrick").setCreativeTab(CreativeModeTab.tabBlock);
+        setUnlocalizedName("stonebrick").setCreativeTab(CreativeTabs.tabBlock);
         setTextureName("cobblestone");
     }
 
@@ -25,8 +25,8 @@ public class BlockCobblestone extends Block implements IBlockWithSubtypes {
     }
 
     @Override
-    public IIcon a(int n, int n2) {
-        return this.subtypes.getIcon(this.getBlockSubtype(n2));
+    public Icon getIcon(int side, int metadata) {
+        return this.subtypes.getIcon(this.getBlockSubtype(metadata));
     }
 
     @Override
@@ -48,13 +48,13 @@ public class BlockCobblestone extends Block implements IBlockWithSubtypes {
     }
 
     @Override
-    public void a(mt mt2) {
-        this.subtypes.setIcons(this.registerIcons(mt2, this.getTextures(),""));
+    public void registerIcons(IconRegister par1IconRegister) {
+        this.subtypes.setIcons(this.registerIcons(par1IconRegister, this.getTextures(),""));
     }
 
     @Override
     public int getBlockSubtypeUnchecked(int n) {
-        switch (n){
+        switch (n) {
             case 0:
                 return n;
             case 1:

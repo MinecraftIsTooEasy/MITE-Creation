@@ -1,10 +1,10 @@
 package mod.mitecreation.item;
 
 import net.minecraft.Block;
-import net.minecraft.ItemMultiTexture;
+import net.minecraft.ItemMultiTextureTile;
 import net.minecraft.ItemStack;
 
-public class ItemStone extends ItemMultiTexture {
+public class ItemStone extends ItemMultiTextureTile {
 
     public ItemStone(Block block, String[] names) {
         super(block, names);

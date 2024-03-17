@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Class-Path: FishModLoader-v1.4.2.jar lwjgl_util-2.9.0.jar lwjgl-2.9.0.
+ jar lwjgl-platform-2.9.0-natives-windows.jar

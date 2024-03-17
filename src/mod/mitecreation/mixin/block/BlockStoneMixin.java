@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(BlockStone.class)
 @Implements(@Interface(iface = IBlockWithSubtypes.class,prefix = "vw$"))
-public class BlockStoneMixin extends Block implements IBlockWithSubtypes{
+public class BlockStoneMixin extends Block implements IBlockWithSubtypes {
     private final BlockSubtypes subtypes = BlockStoneMixinHelper.subtypesInitializer();
 
     protected BlockStoneMixin(int par1, Material par2Material, BlockConstants constants) {
@@ -26,8 +26,8 @@ public class BlockStoneMixin extends Block implements IBlockWithSubtypes{
     }
 
     @Override
-    public IIcon a(int n, int n2) {
-        return this.subtypes.getIcon(this.getBlockSubtype(n2));
+    public Icon getIcon(int side, int metadata) {
+        return this.subtypes.getIcon(this.getBlockSubtype(metadata));
     }
 
     @Override
@@ -49,8 +49,8 @@ public class BlockStoneMixin extends Block implements IBlockWithSubtypes{
     }
 
     @Override
-    public void a(mt mt2) {
-        this.subtypes.setIcons(this.registerIcons(mt2, this.getTextures(),""));
+    public void registerIcons(IconRegister par1IconRegister) {
+        this.subtypes.setIcons(this.registerIcons(par1IconRegister, this.getTextures(),""));
     }
 
     @Override

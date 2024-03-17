@@ -4,7 +4,7 @@ import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(ItemGravel.class)
-public class ItemGravelMixin extends ItemMultiTexture{
+public class ItemGravelMixin extends ItemMultiTextureTile {
 
     public ItemGravelMixin(Block block, String[] names) {
         super(block, new String[]{"gravel",""});

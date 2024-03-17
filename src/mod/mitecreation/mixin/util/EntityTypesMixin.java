@@ -3,7 +3,7 @@ package mod.mitecreation.mixin.util;
 import mod.mitecreation.entity.EntitySpiderQueen;
 import mod.mitecreation.entity.EntitySpirit;
 import net.minecraft.Entity;
-import net.minecraft.EntityTypes;
+import net.minecraft.EntityList;
 import net.minecraft.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(EntityTypes.class)
+@Mixin(EntityList.class)
 public class EntityTypesMixin {
 
     @Shadow

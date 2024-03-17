@@ -18,8 +18,8 @@ public class ItemMixin {
     //private static void injector(CallbackInfo callbackInfo){
     //    StatisticList.initStats();
     //}
-    public void setResourceLocation(String string) {
-        this.setTextureName(string);
+    public void useVanillaTexture(String texture) {
+        this.setTextureName(texture);
     }
     @Shadow
     public Item setTextureName(String string) {

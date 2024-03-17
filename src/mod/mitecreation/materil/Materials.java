@@ -1,8 +1,8 @@
 package mod.mitecreation.materil;
 
 import net.minecraft.EnumEquipmentMaterial;
+import net.minecraft.MapColor;
 import net.minecraft.Material;
-import net.minecraft.MaterialMapColor;
 import net.minecraft.Minecraft;
 
 public class Materials extends Material {
@@ -17,7 +17,7 @@ public class Materials extends Material {
         super(enum_crafting_material);
     }
 
-    public Materials(String name, MaterialMapColor map_color) {
+    public Materials(String name, MapColor map_color) {
         super(name, map_color);
     }
 

@@ -14,8 +14,8 @@ import javax.swing.*;
 
 @Mod
 public class MITECreationMod extends AbstractMod {
-    private static final int MOD_LOADER_MIN_VER_NUM = 142;
-    private static final String MOD_LOADER_MIN_VER_STRING = "v1.4.2";
+    private static final int MOD_LOADER_MIN_VER_NUM = 200;
+    private static final String MOD_LOADER_MIN_VER_STRING = "v2.0.0";
     public void preInit() {
     }
     @Nonnull

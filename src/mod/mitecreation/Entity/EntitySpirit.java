@@ -12,12 +12,14 @@ public class EntitySpirit extends EntityEnderman {
             this.max_num_evasions = this.num_evasions = 8;
         }
     }
+
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.setEntityAttribute(GenericAttributes.maxHealth, 30.0);
-        this.setEntityAttribute(GenericAttributes.movementSpeed, 0.35);
-        this.setEntityAttribute(GenericAttributes.attackDamage, 15.0);
+        this.setEntityAttribute(SharedMonsterAttributes.maxHealth, 30.0);
+        this.setEntityAttribute(SharedMonsterAttributes.movementSpeed, 0.35);
+        this.setEntityAttribute(SharedMonsterAttributes.attackDamage, 15.0);
     }
+
     protected float getSoundVolume(String sound) {
         return 0.75F;
     }

@@ -16,19 +16,19 @@ import java.util.Map;
 
 import static net.xiaoyu233.fml.util.ReflectHelper.dyCast;
 
-@Mixin(bgl.class)
+@Mixin(RenderManager.class)
 public class RenderManagerMixin {
     @Shadow
-    private final Map<Class<? extends Entity>, bgm> q = new HashMap<>();
+    private final Map<Class<? extends Entity>, Render> entityRenderMap = new HashMap<>();
     @Inject(
             method = "<init>",
             at = @At(value = "RETURN"))
     private void injectRegister(CallbackInfo callback) {
-        this.q.put(EntitySpirit.class, new RenderSpirit());
-        this.q.put(EntitySpiderQueen.class, new RenderSpiderQueen(1.45F));
+        this.entityRenderMap.put(EntitySpirit.class, new RenderSpirit());
+        this.entityRenderMap.put(EntitySpiderQueen.class, new RenderSpiderQueen(1.45F));
 
-        for (bgm o : this.q.values()) {
-            o.a(dyCast(bgl.class, this));
+        for (Render o : this.entityRenderMap.values()) {
+            o.setRenderManager(dyCast(RenderManager.class, this));
         }
     }
 }

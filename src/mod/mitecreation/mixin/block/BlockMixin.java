@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.List;
 
 @Mixin(value=Block.class)
-public class BlockMixin{
+public class BlockMixin {
     @Shadow
     private String textureName;
     public Block setResourceLocation(String string) {
@@ -20,7 +20,7 @@ public class BlockMixin{
     }
     @Redirect(method="<clinit>",at=@At(value="INVOKE",target="INVOKESTATIC net/minecraft/StatisticList.initBreakableStats()V"))
     private static void blocksInjector(CallbackInfo callbackInfo){
-        StatisticList.initBreakableStats();
+        StatList.initBreakableStats();
     }
     @Shadow
     @Final
@@ -61,7 +61,7 @@ public class BlockMixin{
         return this.is_solid[metadata];
     }
     @Shadow
-    public CreativeModeTab D() {
+    public CreativeTabs getCreativeTabToDisplayOn() {
         return null;
     }
     @Shadow
@@ -182,10 +182,10 @@ public class BlockMixin{
     };
 
     public String getItemDisplayName(ItemStack itemStack){
-        return ("" + LocaleI18n.translateToLocal(itemStack.getItem().getUnlocalizedNameInefficiently(itemStack) + ".name")).trim();
+        return ("" + StatCollector.translateToLocal(itemStack.getItem().getUnlocalizedNameInefficiently(itemStack) + ".name")).trim();
     }
 
-    public Block setBlockHardness(float resistance) {
+    public Block setHardness(float resistance) {
         return this.setHardness(resistance);
     }
 
@@ -197,10 +197,10 @@ public class BlockMixin{
         return this.setLightValue(v);
     }
 
-    @Shadow
-    public Block setHardness(float par1) {
-        return null;
-    }
+//    @Shadow
+//    public Block setHardness(float par1) {
+//        return null;
+//    }
 
     @Shadow
     public Block setLightValue(float exp) {

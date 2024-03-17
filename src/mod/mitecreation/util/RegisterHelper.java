@@ -2,6 +2,8 @@ package mod.mitecreation.util;
 
 import mod.mitecreation.block.Blocks;
 import mod.mitecreation.mixin.recipe.CraftingManagerInvoker;
+import mod.mitecreation.recipe.RecipesOriginBlockExtend;
+import mod.mitecreation.recipe.RecipesOriginItemExtend;
 import net.minecraft.CraftingManager;
 import net.minecraft.ShapedRecipes;
 import net.minecraft.ShapelessRecipes;
@@ -22,8 +24,8 @@ public class RegisterHelper {
     }
     public static void registerAllRecipes(CraftingManager crafters){
         RecipeRegister recipeRegister = new RecipeRegister();
-        Blocks.registerRecipes(recipeRegister);
-        Items.registerRecipes(recipeRegister);
+        RecipesOriginBlockExtend.registerRecipes(recipeRegister);
+        RecipesOriginItemExtend.registerRecipes(recipeRegister);
 
         RecipesArgs recipesArgs;
         for (RecipesArgs shapedRecipe : shapedRecipes) {

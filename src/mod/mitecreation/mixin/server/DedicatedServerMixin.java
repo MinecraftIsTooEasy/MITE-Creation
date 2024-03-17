@@ -11,6 +11,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class DedicatedServerMixin {
     @Inject(method = "playerLoggedIn",at = @At("RETURN"))
     public void playerLoggedIn(ServerPlayer player, CallbackInfo callbackInfo) {
-        player.sendChatToPlayer(ChatMessage.createFromTranslationKey("[Server] ").appendComponent(ChatMessage.createFromTranslationKey("MITE Creation Successful Load,Version: ").setColor(EnumChatFormat.WHITE)).appendComponent(ChatMessage.createFromText(Util.modVerStr)));
+        player.sendChatToPlayer(ChatMessageComponent.createFromTranslationKey("[Server] ").appendComponent(ChatMessageComponent.createFromTranslationKey("MITE Creation Successful Load,Version: ").setColor(EnumChatFormatting.WHITE)).appendComponent(ChatMessageComponent.createFromText(Util.modVerStr)));
     }
 }

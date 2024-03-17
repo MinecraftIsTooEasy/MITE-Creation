@@ -8,8 +8,8 @@ import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(ItemFishingRod.class)
 public class ItemFishingRodMixin extends Item implements IDamageableItem {
-    private IIcon[] uncastIcons = new IIcon[11];
-    private IIcon castIcon;
+    private Icon[] uncastIcons = new Icon[11];
+    private Icon castIcon;
     private Material hook_material;
 
     @Shadow
@@ -73,13 +73,14 @@ public class ItemFishingRodMixin extends Item implements IDamageableItem {
                 return null;
         }
     }
+
     @Overwrite
-    public void a(mt par1IconRegister) {
-        this.castIcon = par1IconRegister.a(this.A() + "_cast");
+    public void registerIcons(IconRegister par1IconRegister) {
+        this.castIcon = par1IconRegister.registerIcon(this.getIconString() + "_cast");
 
         for(int i = 0; i < this.uncastIcons.length; ++i) {
-            if(this.getMaterialByOrdinal(i)!=null){
-                this.uncastIcons[i] = par1IconRegister.a("fishing_rods/" + this.getMaterialByOrdinal(i).getName() + "_uncast");
+            if(this.getMaterialByOrdinal(i)!=null) {
+ //               this.uncastIcons[i] = par1IconRegister.registerIcon("fishing_rods/" + this.getMaterialByOrdinal(i).getName() + "_uncast");
             }
         }
 

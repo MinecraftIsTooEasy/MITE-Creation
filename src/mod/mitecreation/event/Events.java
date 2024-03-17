@@ -19,7 +19,7 @@ public class Events {
 
     @Subscribe
     public void onPlayerLoggedIn(PlayerLoggedInEvent event) {
-        event.getPlayer().sendChatToPlayer(ChatMessage.createFromTranslationKey("[Client] ").appendComponent(ChatMessage.createFromTranslationKey("MITE Creation Successful Load,Version: ").setColor(EnumChatFormat.WHITE)).appendComponent(ChatMessage.createFromText(Util.modVerStr)));
+        event.getPlayer().sendChatToPlayer(ChatMessageComponent.createFromTranslationKey("[Client] ").appendComponent(ChatMessageComponent.createFromTranslationKey("MITE Creation Successful Load,Version: ").setColor(EnumChatFormatting.WHITE)).appendComponent(ChatMessageComponent.createFromText(Util.modVerStr)));
     }
 
 }

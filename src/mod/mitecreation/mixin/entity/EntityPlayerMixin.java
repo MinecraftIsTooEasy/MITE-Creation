@@ -5,7 +5,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(value= EntityPlayer.class)
-public abstract class EntityPlayerMixin extends EntityLiving {
+public abstract class EntityPlayerMixin extends EntityLivingBase {
     public EntityPlayerMixin(World par1World) {
         super(par1World);
     }

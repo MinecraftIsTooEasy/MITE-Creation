@@ -107,12 +107,12 @@ public class BlockGravelMixin extends BlockFalling implements IBlockWithSubtypes
     }
 
     @Override
-    public void a(mt par1IconRegister) {
+    public void registerIcons(IconRegister par1IconRegister) {
         this.subtypes.setIcons(this.registerIcons(par1IconRegister, this.getTextures()));
     }
 
     @Override
-    public IIcon a(int side, int metadata) {
+    public Icon getIcon(int side, int metadata) {
         return this.subtypes.getIcon(this.getBlockSubtype(metadata));
     }
 
@@ -127,6 +127,6 @@ public class BlockGravelMixin extends BlockFalling implements IBlockWithSubtypes
     }
     @Inject(method = "<init>",at = @At("TAIL"))
     private void inject(CallbackInfo callbackInfo){
-        this.subtypes = new BlockSubtypes(new String[]{"gravel", "nether_gravel","deep_gravel","sand_gravel"});
+        this.subtypes = new BlockSubtypes(new String[]{"gravel", "nether_gravel", "deep_gravel", "sand_gravel"});
     }
 }

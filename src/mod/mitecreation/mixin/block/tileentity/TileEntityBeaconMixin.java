@@ -5,14 +5,20 @@ import mod.mitecreation.block.Blocks;
 import mod.mitecreation.item.Items;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(TileEntityBeacon.class)
 public abstract class TileEntityBeaconMixin extends TileEntity {
     private float c;
     private boolean isBeaconActive;
     private int levels = -1;
+//    @Inject(method = "updateState", at = @At("HEAD"))
+//    private void injectUpdateState(CallbackInfo ci) {
     @Overwrite
-    private void updateState() {
+    public void updateState() {
         if (!this.worldObj.canBlockSeeTheSky(this.xCoord, this.yCoord + 1, this.zCoord)) {
             this.isBeaconActive = false;
             this.levels = 0;
@@ -48,6 +54,10 @@ public abstract class TileEntityBeaconMixin extends TileEntity {
             }
         }
     }
+
+//    @Inject(method = "isItemValidForSlot", at = @At("HEAD"), cancellable = true)
+//    private void injectiIsItemValidForSlot(int par1, ItemStack par2ItemStack, CallbackInfoReturnable<Boolean> cir) {
+//        cir.setReturnValue(par2ItemStack.itemID == Item.emerald.itemID || par2ItemStack.itemID == Item.diamond.itemID || par2ItemStack.itemID == Item.ingotMithril.itemID || par2ItemStack.itemID == Item.ingotAdamantium.itemID || par2ItemStack.itemID == Items.ingotTungsten.itemID);
 
     @Overwrite
     public boolean isItemValidForSlot(int par1, ItemStack par2ItemStack) {

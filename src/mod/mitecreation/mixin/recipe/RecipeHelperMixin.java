@@ -10,7 +10,7 @@ import static net.minecraft.RecipeHelper.hasAsComponent;
 public class RecipeHelperMixin {
 
     @Overwrite
-    public static void addRecipe(aah recipe, boolean include_in_lowest_crafting_difficulty_determination) {
+    public static void addRecipe(IRecipe recipe, boolean include_in_lowest_crafting_difficulty_determination) {
         if (include_in_lowest_crafting_difficulty_determination) {
             recipe.setIncludeInLowestCraftingDifficultyDetermination();
         }
@@ -47,7 +47,7 @@ public class RecipeHelperMixin {
                                 //Minecraft.setErrorMessage("addRecipe: getMaterialForDurability()==null for component " + item);
                             }
 
-                            item.setCraftingDifficultyAsComponent(peer.getCraftingDifficultyAsComponent((ItemStack)null) * item.getMaterialForDurability().getDurability() / peer.getMaterialForDurability().getDurability());
+//                            item.setCraftingDifficultyAsComponent(peer.getCraftingDifficultyAsComponent((ItemStack)null) * item.getMaterialForDurability().getDurability() / peer.getMaterialForDurability().getDurability());
                             component_difficulty = item.getCraftingDifficultyAsComponent((ItemStack)null);
                         }
                     }
@@ -99,10 +99,10 @@ public class RecipeHelperMixin {
 
                     for(int i = 0; i < BlockWorkbench.tool_materials.length; ++i) {
                         Material material = BlockWorkbench.tool_materials[i];
-                        if (material != Material.obsidian && material.getDurability() < tool_material.getDurability() && material.getDurability() > highest_durability_that_is_less_than_tool_material) {
-                            next_strongest_material = material;
-                            highest_durability_that_is_less_than_tool_material = material.getDurability();
-                        }
+//                        if (material != Material.obsidian && material.getDurability() < tool_material.getDurability() && material.getDurability() > highest_durability_that_is_less_than_tool_material) {
+//                            next_strongest_material = material;
+//                            highest_durability_that_is_less_than_tool_material = material.getDurability();
+//                        }
                     }
 
                     recipe.setMaterialToCheckToolBenchHardnessAgainst(next_strongest_material);
