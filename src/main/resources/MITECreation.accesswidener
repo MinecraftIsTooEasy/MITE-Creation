@@ -1,0 +1,17 @@
+accessWidener v2 named
+accessible method net/minecraft/Block setHardness (F)Lnet/minecraft/Block;
+accessible method net/minecraft/Block setLightValue (F)Lnet/minecraft/Block;
+accessible method net/minecraft/Block setResistance (F)Lnet/minecraft/Block;
+accessible method net/minecraft/Block setTextureName (Ljava/lang/String;)Lnet/minecraft/Block;
+accessible method net/minecraft/Block setStepSound (Lnet/minecraft/StepSound;)Lnet/minecraft/Block;
+
+accessible field net/minecraft/ItemVessel vessel_material Lnet/minecraft/Material;
+accessible field net/minecraft/Material durability F
+accessible field net/minecraft/Material name Ljava/lang/String;
+accessible field net/minecraft/Material min_harvest_level I
+
+accessible method net/minecraft/CraftingManager addRecipe (Lnet/minecraft/ItemStack;Z[Ljava/lang/Object;)Lnet/minecraft/ShapedRecipes;
+accessible method net/minecraft/CraftingManager addShapelessRecipe (Lnet/minecraft/ItemStack;Z[Ljava/lang/Object;)Lnet/minecraft/ShapelessRecipes;
+accessible method net/minecraft/SlotCrafting getNumCraftingResults (Lnet/minecraft/EntityPlayer;)I
+
+extendable class net/minecraft/BlockDoor

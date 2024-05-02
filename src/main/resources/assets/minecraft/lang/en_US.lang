@@ -1,0 +1,116 @@
+curse.fearOfElemental.name=Fear Of Elemental
+curse.fearOfElemental.desc=You've become fearful of earth elemental & fire elemental|and have difficulty striking them|in melee combat.
+
+item.buckets/wood/empty.name=Wood Bucket
+item.buckets/wood/water.name=Wood Bucket of Water
+item.buckets/wood/milk.name=Wood Bucket of Milk
+
+item.ingots/rusted_iron.name=Rusted Iron Ingot
+item.nuggets/rusted_iron.name=Rusted Iron Nugget
+
+item.coins/rusted_iron.name=Rusted Iron Coin
+item.coins/iron.name=Iron Coin
+item.fishing_rods/rusted_iron_uncast.name=Fishing Rod
+
+item.buckets/rusted_iron/empty.name=Rusted Iron Bucket
+item.buckets/rusted_iron/water.name=Rusted Iron Bucket of Water
+item.buckets/rusted_iron/lava.name=Rusted Iron Bucket of Lava
+item.buckets/rusted_iron/stone.name=Rusted Iron Bucket of Stone
+item.buckets/rusted_iron/milk.name=Rusted Iron Bucket of Milk
+
+tile.rusted_iron_block.name=Block of Rusted Iron
+tile.rusted_iron_anvil.intact.name=Rusted Iron Anvil
+tile.rusted_iron_anvil.slightlyDamaged.name=Slightly Damaged Rusted Iron Anvil
+tile.rusted_iron_anvil.veryDamaged.name=Very Damaged Rusted Iron Anvil
+
+item.raw_nuggets/rusted_iron.name=Raw Rusted Iron Nugget
+item.raw_nuggets/copper.name=Raw Copper Nugget
+item.raw_nuggets/silver.name=Raw Silver Nugget
+item.raw_nuggets/gold.name=Raw Gold Nugget
+item.raw_nuggets/ancient_metal.name=Raw Ancient Metal Nugget
+item.raw_nuggets/tungsten.name=Raw Tungsten Nugget
+item.raw_nuggets/mithril.name=Raw Mithril Nugget
+item.raw_nuggets/adamantium.name=Raw Adamantium Nugget
+
+item.tools/stone/stone_club.name=Stone Club
+item.tools/stone/stone_dagger.name=Stone Dagger
+
+item.armor/tungsten_helmet.name=Tungsten Helmet
+item.armor/tungsten_chestplate.name=Tungsten Chestplate
+item.armor/tungsten_leggings.name=Tungsten Leggings
+item.armor/tungsten_boots.name=Tungsten Boots
+item.armor/tungsten_chainmail_helmet.name=Tungsten Chainmail Helmet
+item.armor/tungsten_chainmail_chestplate.name=Tungsten Chainmail Chestplate
+item.armor/tungsten_chainmail_leggings.name=Tungsten Chainmail Leggings
+item.armor/tungsten_chainmail_boots.name=Tungsten Chainmail Boots
+
+item.ingots/tungsten.name=Tungsten Ingot
+item.nuggets/tungsten.name=Tungsten Nugget
+item.tools/tungsten/tungsten_axe.name=Tungsten Axe
+item.tools/tungsten/tungsten_pickaxe.name=Tungsten Pickaxe
+item.tools/tungsten/tungsten_dagger.name=Tungsten Dagger
+item.tools/tungsten/tungsten_hatchet.name=Tungsten Hatchet
+item.tools/tungsten/tungsten_battle_axe.name=Tungsten Battle Axe
+item.tools/tungsten/tungsten_hoe.name=Tungsten Hoe
+item.tools/tungsten/tungsten_knife.name=Tungsten Knife
+item.tools/tungsten/tungsten_mattock.name=Tungsten Mattock
+item.tools/tungsten/tungsten_scythe.name=Tungsten Scythe
+item.tools/tungsten/tungsten_shears.name=Tungsten Shears
+item.tools/tungsten/tungsten_shovel.name=Tungsten Shovel
+item.tools/tungsten/tungsten_sword.name=Tungsten Sword
+item.tools/tungsten/tungsten_war_hammer.name=Tungsten War Hammer
+item.tools/tungsten/tungsten_club.name=Tungsten Morningstar
+
+item.doors/tungsten.name=Tungsten Door
+item.chains/tungsten.name=Tungsten Chain
+item.coins/tungsten.name=Tungsten Coin
+item.arrows/tungsten.name=Tungsten Arrow
+item.fishing_rods/tungsten_uncast.name=Fishing Rod
+
+item.buckets/tungsten/empty.name=Tungsten Bucket
+item.buckets/tungsten/water.name=Tungsten Bucket of Water
+item.buckets/tungsten/lava.name=Tungsten Bucket of Lava
+item.buckets/tungsten/stone.name=Tungsten Bucket of Stone
+item.buckets/tungsten/milk.name=Tungsten Bucket of Milk
+
+tile.ore/tungsten_ore.name=Tungsten Ore
+tile.block/tungsten_block.name=Block of Tungsten
+tile.tungsten_anvil.intact.name=Tungsten Anvil
+tile.tungsten_anvil.slightlyDamaged.name=Slightly Damaged Tungsten Anvil
+tile.tungsten_anvil.veryDamaged.name=Very Damaged Tungsten Anvil
+tile.bars/tungsten_bars.name=Tungsten Bars
+tile.toolbench.tungsten.name=Tungsten Toolbench
+ile.tungsten_chest.name=Tungsten Strongbox
+tile.chestTungsten.name=Tungsten Strongbox
+
+item.tools/emerald/emerald_sword.name=[TEST]Emerald Sword
+
+tile.mushroom_luminous.name=Mushroom Luminous
+tile.gravelSand.name=Sand Gravel
+
+tile.deepslate.name=Deepslate
+tile.gravelDeepslate.name=Deepslate Gravel
+tile.cobble_deepslate.name=Cobble Deepslate
+tile.cobble_deepslate_magma.name=Magma Cobble Deepslate
+tile.deepslate_brick.default.name=Deepslate Bricks
+tile.deepslate_brick.mossy.name=Mossy Deepslate Bricks
+tile.deepslate_brick.cracked.name=Cracked Deepslate Bricks
+tile.deepslate_brick.chiseled.name=Chiseled Deepslate Bricks
+tile.deepslate_brick_magma.name=Magma Deepslate Bricks
+
+tile.slab.group4.deepslate.name=Deepslate Slab
+tile.slab.group4.deepslateBrick.name=Deepslate Bricks Slab
+
+tile.stairsDeepslateBrick.name=Deepslate Bricks Stairs
+
+tile.monsterStoneEgg.deepslatebrick.name=Deepslate Brick Monster Egg
+
+entity.EntitySpirit.name=Spirit
+entity.EntitySpiderQueen.name=Spider Queen
+
+containet.strongbox.rusted_iron=Rusted Iron Strongbox
+container.strongbox.tungsten=Tungsten Strongbox
+
+material.stone.name=Stone
+material.rustedIron.name=Rusted Iron
+material.tungsten.name=Tungsten

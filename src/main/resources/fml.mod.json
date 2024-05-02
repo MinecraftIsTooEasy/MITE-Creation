@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "mite_creation",
+  "version": "0.0.3-BETA",
+  "depends": {
+    "fishmodloader": ">=3.1.0"
+  },
+  "environment": "*",
+  "name": "MITE Creation",
+  "description": "An extended MITE content mod",
+  "authors": [
+    "Xy_Lose",
+    "Rusted_Iron_Ingot"
+  ],
+  "entrypoints": {
+    "preLaunch": [
+      "mod.mitecreation.EarlyRiser"
+    ],
+    "main": [
+      "mod.mitecreation.MITECreationMod"
+    ]
+  },
+  "mixins": [
+    "mitecreation.mixins.json"
+  ],
+  "accessWidener": "MITECreation.accesswidener",
+  "custom": {
+    "loom:injected_interfaces": {
+      "net/minecraft/Material": [
+        "mod/mitecreation/api/CreationMaterial"
+      ]
+    }
+  }
+}
