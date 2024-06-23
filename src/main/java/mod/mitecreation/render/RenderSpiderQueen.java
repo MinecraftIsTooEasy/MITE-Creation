@@ -7,7 +7,7 @@ public class RenderSpiderQueen extends RenderArachnid {
 
     private float scale;
 
-    protected boolean forceGlowOverride(){
+    protected boolean forceGlowOverride() {
         return true;
     }
 

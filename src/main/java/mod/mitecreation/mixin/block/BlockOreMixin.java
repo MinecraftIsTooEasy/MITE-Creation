@@ -1,6 +1,7 @@
 package mod.mitecreation.mixin.block;
 
-import mod.mitecreation.item.Items;
+import mod.mitecreation.block.CreationBlock;
+import mod.mitecreation.item.CreationItem;
 import mod.mitecreation.util.BlockOreTransHelper;
 import net.minecraft.*;
 import java.util.Random;
@@ -63,7 +64,7 @@ public class BlockOreMixin extends Block implements IBlockWithSubtypes{
                 n = this == oreEmerald ? Item.emerald.itemID : (this == oreNetherQuartz ? Item.netherQuartz.itemID : this.blockID);
             }
             if(this == oreCopper){
-                n = Items.rawCopperNugget.itemID;
+                n = CreationItem.rawCopperNugget.itemID;
                 int metadata = blockBreakInfo.getMetadata();
                 switch(metadata) {
                     case 0:
@@ -90,7 +91,7 @@ public class BlockOreMixin extends Block implements IBlockWithSubtypes{
                         break;
                 }
             }else if(this == oreIron){
-                n = Items.rawRustedIronNugget.itemID;
+                n = CreationItem.rawRustedIronNugget.itemID;
                 int metadata = blockBreakInfo.getMetadata();
                 switch(metadata) {
                     case 0:
@@ -116,8 +117,8 @@ public class BlockOreMixin extends Block implements IBlockWithSubtypes{
                         FishModLoader.LOGGER.error("dropBlockAsEntityItem():Unhandled subtype:" + metadata);
                         break;
                 }
-            }else if(this == oreSilver){
-                n = Items.rawSilverNugget.itemID;
+            } else if(this == oreSilver) {
+                n = CreationItem.rawSilverNugget.itemID;
                 int metadata = blockBreakInfo.getMetadata();
                 switch(metadata) {
                     case 0:
@@ -143,8 +144,8 @@ public class BlockOreMixin extends Block implements IBlockWithSubtypes{
                         FishModLoader.LOGGER.error("dropBlockAsEntityItem():Unhandled subtype:" + metadata);
                         break;
                 }
-            }else if(this == oreGold){
-                n = Items.rawGoldNugget.itemID;
+            } else if(this == oreGold) {
+                n = CreationItem.rawGoldNugget.itemID;
                 int metadata = blockBreakInfo.getMetadata();
                 switch(metadata) {
                     case 0:
@@ -170,8 +171,8 @@ public class BlockOreMixin extends Block implements IBlockWithSubtypes{
                         FishModLoader.LOGGER.error("dropBlockAsEntityItem():Unhandled subtype:" + metadata);
                         break;
                 }
-            }else if(this == oreMithril){
-                n = Items.rawMithrilNugget.itemID;
+            } else if(this == CreationBlock.oreTungsten) {
+                n = CreationItem.rawTungstenNugget.itemID;
                 int metadata = blockBreakInfo.getMetadata();
                 switch(metadata) {
                     case 0:
@@ -197,8 +198,35 @@ public class BlockOreMixin extends Block implements IBlockWithSubtypes{
                         FishModLoader.LOGGER.error("dropBlockAsEntityItem():Unhandled subtype:" + metadata);
                         break;
                 }
-            }else if(this == oreAdamantium){
-                n = Items.rawAdamantiumNugget.itemID;
+            } else if(this == oreMithril) {
+                n = CreationItem.rawMithrilNugget.itemID;
+                int metadata = blockBreakInfo.getMetadata();
+                switch(metadata) {
+                    case 0:
+                        n3 = 3 + random.nextInt(2) + random.nextInt(2);
+                        break;
+                    case 1:
+                        n3 = 7 + random.nextInt(3) + random.nextInt(3);
+                        break;
+                    case 2:
+                        n3 = 14 + random.nextInt(5) + random.nextInt(5);
+                        break;
+                    case 3:
+                        n3 = 3 + random.nextInt(2) + random.nextInt(2);
+                        break;
+                    case 4:
+                        n3 = 7 + random.nextInt(3) + random.nextInt(3);
+                        break;
+                    case 5:
+                        n3 = 14 + random.nextInt(5) + random.nextInt(5);
+                        break;
+                    default:
+                        n3 = 0;
+                        FishModLoader.LOGGER.error("dropBlockAsEntityItem():Unhandled subtype:" + metadata);
+                        break;
+                }
+            } else if(this == oreAdamantium) {
+                n = CreationItem.rawAdamantiumNugget.itemID;
                 int metadata = blockBreakInfo.getMetadata();
                 switch(metadata) {
                     case 0:

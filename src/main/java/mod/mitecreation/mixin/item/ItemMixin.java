@@ -1,6 +1,6 @@
 package mod.mitecreation.mixin.item;
 
-import mod.mitecreation.item.Items;
+import mod.mitecreation.item.CreationItem;
 import mod.mitecreation.materil.Materials;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.*;
@@ -13,7 +13,7 @@ public class ItemMixin {
     @Shadow
     @Final
     private int itemID;
-    
+
     //@Redirect(method="<clinit>",at=@At(value="INVOKE", target="INVOKESTATIC net/minecraft/StatisticList.initStats()V"))
     //private static void injector(CallbackInfo callbackInfo){
     //    StatisticList.initStats();
@@ -27,38 +27,6 @@ public class ItemMixin {
         return null;
     }
 
-    @Overwrite
-    public Item getRepairItem() {
-        Material material = this.getMaterialForRepairs();
-        if(material == Material.rusted_iron){
-            return Items.rustedIronNugget;
-        }
-        if (material == Material.copper) {
-            return Item.copperNugget;
-        }
-        if (material == Material.silver) {
-            return Item.silverNugget;
-        }
-        if (material == Material.gold) {
-            return Item.goldNugget;
-        }
-        if (material != Material.iron) {
-            if (material == Materials.tungsten) {
-                return Items.tungstenNugget;
-            }
-            if (material == Material.mithril) {
-                return Item.mithrilNugget;
-            }
-            if (material == Material.adamantium) {
-                return Item.adamantiumNugget;
-            }
-            if (material == Material.ancient_metal) {
-                return Item.ancientMetalNugget;
-            }
-        }
-        return Item.ironNugget;
-    }
-
     @Inject(method = "getRepairItem", at = @At("HEAD"), cancellable = true)
     private void getRepairItemCreation(CallbackInfoReturnable<Item> cir) {
         Material material_for_repairs = this.getMaterialForRepairs();
@@ -69,9 +37,9 @@ public class ItemMixin {
     @Unique
     private static Item repairItemCreation(Material material_for_repairs) {
         if (material_for_repairs == Material.rusted_iron)
-            return Items.rustedIronNugget;
+            return CreationItem.rustedIronNugget;
         if (material_for_repairs == Materials.tungsten)
-            return Items.tungstenNugget;
+            return CreationItem.tungstenNugget;
         return null;
     }
 
@@ -79,26 +47,27 @@ public class ItemMixin {
     private Material getMaterialForRepairs() {
         return null;
     }
+
     public int getCookTime(int heat_level) {
-        if(this.itemID == Items.rawGoldNugget.itemID) {
+        if(this.itemID == CreationItem.rawGoldNugget.itemID) {
             return getCookTimeA(heat_level);
         }
-        if(this.itemID == Items.rawSilverNugget.itemID) {
+        if(this.itemID == CreationItem.rawSilverNugget.itemID) {
             return getCookTimeA(heat_level);
         }
-        if(this.itemID == Items.rawCopperNugget.itemID) {
+        if(this.itemID == CreationItem.rawCopperNugget.itemID) {
             return getCookTimeA(heat_level);
         }
-        if(this.itemID == Items.rustedIronNugget.itemID){
+        if(this.itemID == CreationItem.rustedIronNugget.itemID){
             return getCookTimeA(heat_level);
         }
-        if(this.itemID == Items.rawAncientMetalNugget.itemID){
+        if(this.itemID == CreationItem.rawAncientMetalNugget.itemID){
             return getCookTimeB(heat_level);
         }
-        if(this.itemID == Items.rawMithrilNugget.itemID){
+        if(this.itemID == CreationItem.rawMithrilNugget.itemID){
             return getCookTimeB(heat_level);
         }
-        if(this.itemID == Items.rawAdamantiumNugget.itemID){
+        if(this.itemID == CreationItem.rawAdamantiumNugget.itemID){
             return getCookTimeC(heat_level);
         }
         return this.isBlock() ? 200 * (this.getAsItemBlock().getBlock().getMinHarvestLevel(-1) + 1) : 200;

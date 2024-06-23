@@ -1,14 +1,18 @@
 package mod.mitecreation.mixin.world;
 
+import mod.mitecreation.block.CreationBlock;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Random;
+
 @Mixin(value= WorldGenMinable.class)
 public class WorldGenMinableMixin {
-
     @Shadow
     private int minableBlockId;
     @Shadow
@@ -42,10 +46,10 @@ public class WorldGenMinableMixin {
                         break;
                 }
                 world.setBlock(n2, n3, n4, this.minableBlockId, this.minable_block_metadata, 2);
-            }else if(Block.blocksList[this.minableBlockId] instanceof BlockGoldOre || Block.blocksList[this.minableBlockId] instanceof BlockRedstoneOre){
+            } else if(Block.blocksList[this.minableBlockId] instanceof BlockGoldOre || Block.blocksList[this.minableBlockId] instanceof BlockRedstoneOre){
                 world.setBlock(n2, n3, n4, this.minableBlockId, this.minable_block_metadata, 2);
             }
-        }else {
+        } else {
             if (bl2 && world.canBlockSeeTheSky(n2, n3 + 1, n4)) {
                 BiomeGenBase biomeBase = world.getBiomeGenForCoords(n2, n4);
                 world.setBlock(n2, n3, n4, biomeBase == BiomeGenBase.desert || biomeBase == BiomeGenBase.desertHills ? Block.sand.blockID : Block.grass.blockID, 0, 2);
@@ -70,5 +74,19 @@ public class WorldGenMinableMixin {
             if (n5 == n) break;
         }
         return n5;
+    }
+
+    @Inject(method = "getMinVeinHeight", at = @At(value = "INVOKE", target = "Lnet/minecraft/Minecraft;setErrorMessage(Ljava/lang/String;)V"), cancellable = true)
+    private void creationMinVeinHeight(World world, CallbackInfoReturnable<Integer> cir) {
+        Block block = Block.blocksList[this.minableBlockId];
+        if (block == CreationBlock.oreTungsten)
+            cir.setReturnValue(0);
+    }
+
+    @Inject(method = "getMaxVeinHeight", at = @At(value = "INVOKE", target = "Lnet/minecraft/Minecraft;setErrorMessage(Ljava/lang/String;)V"), cancellable = true)
+    private void creationMaxVeinHeight(World world, CallbackInfoReturnable<Integer> cir) {
+        Block block = Block.blocksList[this.minableBlockId];
+        if (block == CreationBlock.oreTungsten)
+            cir.setReturnValue(32);
     }
 }

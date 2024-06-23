@@ -1,16 +1,9 @@
 package mod.mitecreation.mixin.item;
 
-import net.minecraft.Item;
 import net.minecraft.ItemIngot;
 import net.minecraft.ItemNugget;
 import net.minecraft.Material;
-import mod.mitecreation.item.Items;
-import mod.mitecreation.materil.Materials;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ItemNugget.class)
 public class ItemNuggetMixin extends ItemIngot  {

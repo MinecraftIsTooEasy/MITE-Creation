@@ -16,7 +16,7 @@ public class ItemStone extends ItemMultiTextureTile {
             return super.getUnlocalizedName();
         }
         if(item_stack.getItemSubtype() == 1) {
-            return "tile.deepslate.name";
+            return "tile.deepSlate.name";
         } else {
             return "tile.stone.name";
         }

@@ -14,4 +14,11 @@ accessible method net/minecraft/CraftingManager addRecipe (Lnet/minecraft/ItemSt
 accessible method net/minecraft/CraftingManager addShapelessRecipe (Lnet/minecraft/ItemStack;Z[Ljava/lang/Object;)Lnet/minecraft/ShapelessRecipes;
 accessible method net/minecraft/SlotCrafting getNumCraftingResults (Lnet/minecraft/EntityPlayer;)I
 
+accessible method net/minecraft/Block getTextureName ()Ljava/lang/String;
+
+accessible field net/minecraft/Skill id I
+
 extendable class net/minecraft/BlockDoor
+
+accessible method net/minecraft/WorldGenDungeons pickMobSpawner (Lnet/minecraft/World;Ljava/util/Random;I)Ljava/lang/String;
+accessible method net/minecraft/WorldGenDungeons getChestContentsForWorld (Lnet/minecraft/World;)[Lnet/minecraft/WeightedRandomChestContent;

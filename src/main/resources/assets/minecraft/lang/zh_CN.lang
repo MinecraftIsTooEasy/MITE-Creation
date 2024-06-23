@@ -73,7 +73,7 @@ item.buckets/tungsten/lava.name=装满岩浆的钨桶
 item.buckets/tungsten/stone.name=装满石头的钨桶
 item.buckets/tungsten/milk.name=装满牛奶的钨桶
 
-tile.ore/tungsten_ore.name=钨矿石
+tile.tungsten_ore.name=钨矿石
 tile.block/tungsten_block.name=钨块
 tile.tungsten_anvil.intact.name=钨砧
 tile.tungsten_anvil.slightlyDamaged.name=轻微受损的钨砧
@@ -88,22 +88,28 @@ item.tools/diamond/diamond_sword.name=[TEST]钻石剑
 
 
 tile.mushroom_luminous.name=微光蘑菇
-tile.gravelSand.name=粗砾沙石
+tile.sand_gravel.name=粗砾沙石
 
 tile.deepslate.name=深板岩
-tile.gravelDeepslate.name=深层沙砾
+tile.deepsltae_gravel.name=深层沙砾
 tile.cobble_deepslate.name=深板岩圆石
 tile.cobble_deepslate_magma.name=熔岩深板岩圆石
 tile.deepslate_brick.default.name=深板岩砖
+tile.deepslate_brick.name=深板岩砖
 tile.deepslate_brick.mossy.name=覆苔深板岩砖
 tile.deepslate_brick.cracked.name=裂纹深板岩砖
-tile.deepslate_brick.chiseledname=錾制深板岩砖
+tile.deepslate_brick.chiseled.name=錾制深板岩砖
 tile.deepslate_brick_magma.name=熔岩深板岩砖
 
+[WIP]
 tile.slab.group4.deepslate.name=深板岩台阶
 tile.slab.group4.deepslateBrick.name=深板岩砖台阶
 
-tile.stairsDeepslateBrick.name=深板岩砖楼梯
+tile.cobble_deepslate_wall.name=深板岩圆石墙
+tile.deepslate_brick_wall.name=深板岩砖墙
+
+tile.cobble_deepslate_stairs.name=深板岩圆石楼梯
+tile.deepslate_brick_stairs.name=深板岩砖楼梯
 
 tile.monsterStoneEgg.deepslate.name=深板岩怪物蛋
 

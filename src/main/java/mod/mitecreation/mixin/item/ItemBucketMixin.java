@@ -1,6 +1,6 @@
 package mod.mitecreation.mixin.item;
 
-import mod.mitecreation.item.Items;
+import mod.mitecreation.item.CreationItem;
 import mod.mitecreation.materil.Materials;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.*;
@@ -19,25 +19,25 @@ public class ItemBucketMixin extends ItemVessel {
     private static ItemVessel creationVessels(Material vessel_material, Material contents) {
         if (contents == null) {
             if (vessel_material == Materials.tungsten)
-                return Items.tungstenBucket;
+                return CreationItem.tungstenBucket;
             if (vessel_material == Material.wood)
-                return Items.woodBucketEmpty;
+                return CreationItem.woodBucketEmpty;
         } else if (contents == Material.water) {
             if (vessel_material == Materials.tungsten)
-                return Items.tungstenBucketWater;
+                return CreationItem.tungstenBucketWater;
             if (vessel_material == Material.wood)
-                return Items.woodBucketWater;
+                return CreationItem.woodBucketWater;
         } else if (contents == Material.lava) {
             if (vessel_material == Materials.tungsten)
-                return Items.tungstenBucketLava;
+                return CreationItem.tungstenBucketLava;
         } else if (contents == Material.milk) {
             if (vessel_material == Materials.tungsten)
-                return Items.tungstenBucketMilk;
+                return CreationItem.tungstenBucketMilk;
             if (vessel_material == Material.wood)
-                return Items.woodBucketMilk;
+                return CreationItem.woodBucketMilk;
         } else if (contents == Material.stone) {
             if (vessel_material == Materials.tungsten)
-                return Items.tungstenBucketStone;
+                return CreationItem.tungstenBucketStone;
         }
         return null;
     }

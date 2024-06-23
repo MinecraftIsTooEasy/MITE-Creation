@@ -73,7 +73,7 @@ item.buckets/tungsten/lava.name=Tungsten Bucket of Lava
 item.buckets/tungsten/stone.name=Tungsten Bucket of Stone
 item.buckets/tungsten/milk.name=Tungsten Bucket of Milk
 
-tile.ore/tungsten_ore.name=Tungsten Ore
+tile.tungsten_ore.name=Tungsten Ore
 tile.block/tungsten_block.name=Block of Tungsten
 tile.tungsten_anvil.intact.name=Tungsten Anvil
 tile.tungsten_anvil.slightlyDamaged.name=Slightly Damaged Tungsten Anvil
@@ -86,24 +86,30 @@ tile.chestTungsten.name=Tungsten Strongbox
 item.tools/emerald/emerald_sword.name=[TEST]Emerald Sword
 
 tile.mushroom_luminous.name=Mushroom Luminous
-tile.gravelSand.name=Sand Gravel
+tile.sand_gravel.name=Sand Gravel
 
 tile.deepslate.name=Deepslate
-tile.gravelDeepslate.name=Deepslate Gravel
+tile.deepsltae_gravel.name=Deepslate Gravel
 tile.cobble_deepslate.name=Cobble Deepslate
 tile.cobble_deepslate_magma.name=Magma Cobble Deepslate
 tile.deepslate_brick.default.name=Deepslate Bricks
+tile.deepslate_brick.name=Deepslate Bricks
 tile.deepslate_brick.mossy.name=Mossy Deepslate Bricks
 tile.deepslate_brick.cracked.name=Cracked Deepslate Bricks
 tile.deepslate_brick.chiseled.name=Chiseled Deepslate Bricks
 tile.deepslate_brick_magma.name=Magma Deepslate Bricks
 
+[WIP]
 tile.slab.group4.deepslate.name=Deepslate Slab
 tile.slab.group4.deepslateBrick.name=Deepslate Bricks Slab
 
-tile.stairsDeepslateBrick.name=Deepslate Bricks Stairs
+tile.cobble_deepslate_wall.name=Cobble Deepslate Wall
+tile.deepslate_brick_wall.name=Deepslate Brick Wall
 
-tile.monsterStoneEgg.deepslatebrick.name=Deepslate Brick Monster Egg
+tile.cobble_deepslate_stairs.name=Cobble Deepslate Stairs
+tile.deepslate_brick_stairs.name=Deepslate Bricks Stairs
+
+tile.monsterStoneEgg.deepslate.name=Deepslate Brick Monster Egg
 
 entity.EntitySpirit.name=Spirit
 entity.EntitySpiderQueen.name=Spider Queen

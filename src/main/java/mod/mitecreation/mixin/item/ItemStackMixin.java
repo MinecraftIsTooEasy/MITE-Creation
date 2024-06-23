@@ -8,10 +8,10 @@ import org.spongepowered.asm.mixin.Shadow;
 @Mixin(value = ItemStack.class)
 public class ItemStackMixin {
 
-    @Shadow
-    EnumQuality quality;
-    @Shadow
-    int itemID;
+//    @Shadow
+//    EnumQuality quality;
+//    @Shadow
+//    int itemID;
 
 //    @Overwrite
 //    public ItemStack setQuality(EnumQuality enumQuality) {
@@ -32,15 +32,15 @@ public class ItemStackMixin {
 //        return new ItemStack(item,1);
 //    }
 
-    @Shadow
-    private String getDisplayName() {
-        return null;
-    }
-
-    @Shadow
-    public Item getItem() {
-        return null;
-    }
+//    @Shadow
+//    private String getDisplayName() {
+//        return null;
+//    }
+//
+//    @Shadow
+//    public Item getItem() {
+//        return null;
+//    }
 
 //    @Overwrite
 //    public boolean isBlock() {

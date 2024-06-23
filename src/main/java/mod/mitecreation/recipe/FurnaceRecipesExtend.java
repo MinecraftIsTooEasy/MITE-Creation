@@ -1,13 +1,13 @@
 package mod.mitecreation.recipe;
 
-import mod.mitecreation.block.Blocks;
-import mod.mitecreation.item.Items;
+import mod.mitecreation.block.CreationBlock;
+import mod.mitecreation.item.CreationItem;
 import net.minecraft.FurnaceRecipes;
 import net.minecraft.Item;
 import net.minecraft.ItemStack;
 import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
 
-import static mod.mitecreation.item.Items.*;
+import static mod.mitecreation.item.CreationItem.*;
 
 public class FurnaceRecipesExtend {
 
@@ -24,10 +24,12 @@ public class FurnaceRecipesExtend {
         Item.ironNugget.setXPReward(1);
         FurnaceRecipes.smelting().addSmelting(rawAncientMetalNugget.itemID,new ItemStack(Item.ancientMetalNugget,1));
         Item.ancientMetalNugget.setXPReward(2);
+        FurnaceRecipes.smelting().addSmelting(rawTungstenNugget.itemID,new ItemStack(tungstenNugget,1));
+        tungstenNugget.setXPReward(3);
         FurnaceRecipes.smelting().addSmelting(rawMithrilNugget.itemID,new ItemStack(Item.mithrilNugget,1));
         Item.mithrilNugget.setXPReward(4);
         FurnaceRecipes.smelting().addSmelting(rawAdamantiumNugget.itemID,new ItemStack(Item.adamantiumNugget,1));
         Item.adamantiumNugget.setXPReward(10);
-        FurnaceRecipes.smelting().smelting().addSmelting(Blocks.oreTungsten.blockID, new ItemStack(Items.ingotTungsten));
+        FurnaceRecipes.smelting().addSmelting(CreationBlock.oreTungsten.blockID, new ItemStack(CreationItem.ingotTungsten));
     }
 }

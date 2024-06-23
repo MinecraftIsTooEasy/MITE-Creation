@@ -1,7 +1,7 @@
 package mod.mitecreation.mixin.block.tileentity;
 
 import net.minecraft.*;
-import mod.mitecreation.item.Items;
+import mod.mitecreation.item.CreationItem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
@@ -22,19 +22,19 @@ public class TileEntityFurnaceMixin extends TileEntityMixin {
     private int heat_level;
     @Shadow
     private int currentItemBurnTime;
-    
+
     @Inject(method = "getHeatLevelRequired", at = @At("RETURN"), cancellable = true)
     private static void creationInjectGetHeatLevelRequired(int item_id, CallbackInfoReturnable<Integer> cir) {
-        if (item_id == Items.rawAdamantiumNugget.itemID) {
+        if (item_id == CreationItem.rawAdamantiumNugget.itemID) {
             cir.setReturnValue(4);
         }
-        if (item_id == Items.rawMithrilNugget.itemID || item_id == Items.rawTungstenNugget.itemID) {
+        if (item_id == CreationItem.rawMithrilNugget.itemID || item_id == CreationItem.rawTungstenNugget.itemID) {
             cir.setReturnValue(3);
         }
-        if (item_id == Items.rawRustedIronNugget.itemID || item_id == Items.rustedIronNugget.itemID || item_id == Items.rawAncientMetalNugget.itemID) {
+        if (item_id == CreationItem.rawRustedIronNugget.itemID || item_id == CreationItem.rustedIronNugget.itemID || item_id == CreationItem.rawAncientMetalNugget.itemID) {
             cir.setReturnValue(2);
         }
-        if (item_id == Items.rawCopperNugget.itemID || item_id == Items.rawSilverNugget.itemID || item_id == Items.rawGoldNugget.itemID) {
+        if (item_id == CreationItem.rawCopperNugget.itemID || item_id == CreationItem.rawSilverNugget.itemID || item_id == CreationItem.rawGoldNugget.itemID) {
             cir.setReturnValue(1);
         }
         cir.setReturnValue(1);

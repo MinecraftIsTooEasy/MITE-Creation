@@ -1,6 +1,6 @@
 package mod.mitecreation.mixin.item;
 
-import mod.mitecreation.item.Items;
+import mod.mitecreation.item.CreationItem;
 import mod.mitecreation.materil.Materials;
 import net.minecraft.*;
 import net.xiaoyu233.fml.util.ReflectHelper;
@@ -9,8 +9,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.List;
 
 import static net.xiaoyu233.fml.util.ReflectHelper.dyCast;
 
@@ -26,7 +24,7 @@ public class ItemArrowMixin extends Item {
 
     @Inject(method = "getChanceOfRecovery", at = @At("HEAD"), cancellable = true)
     private void getChanceOfRecoveryCreation(CallbackInfoReturnable<Float> cir) {
-        if (ReflectHelper.dyCast(this) == Items.arrowTungsten) {
+        if (ReflectHelper.dyCast(this) == CreationItem.arrowTungsten) {
             cir.setReturnValue(0.8F);
         } else {
             cir.setReturnValue(0.0F);

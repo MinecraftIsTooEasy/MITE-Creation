@@ -1,10 +1,10 @@
 package mod.mitecreation.event;
 
 import com.google.common.eventbus.Subscribe;
-import mod.mitecreation.block.Blocks;
+import mod.mitecreation.block.CreationBlock;
 import mod.mitecreation.entity.EntitySpiderQueen;
 import mod.mitecreation.entity.EntitySpirit;
-import mod.mitecreation.item.Items;
+import mod.mitecreation.item.CreationItem;
 import mod.mitecreation.recipe.FurnaceRecipesExtend;
 import mod.mitecreation.recipe.RecipesOriginBlockExtend;
 import mod.mitecreation.recipe.RecipesOriginItemExtend;
@@ -18,8 +18,8 @@ public class CreationEvents {
 
     @Subscribe
     public void onItemRegister(ItemRegistryEvent event){
-        Items.itemRegister(event);
-        Blocks.registerBlocks(event);
+        CreationItem.itemRegister(event);
+        CreationBlock.registerBlocks(event);
     }
 
     @Subscribe
