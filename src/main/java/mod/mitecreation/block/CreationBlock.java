@@ -13,8 +13,8 @@ import net.xiaoyu233.fml.reload.utils.IdUtil;
 import static mod.mitecreation.MITECreationMod.CreationNameSpace;
 
 public class CreationBlock extends Block {
-    public static Block rustedIronBlock;
-    public static BlockAnvil anvilRustedIron;
+    public static final Block rustedIronBlock;
+    public static final BlockAnvil anvilRustedIron;
     public static final Block oreTungsten;
     public static final Block blockTungsten;
     public static final Block fenceTungsten;
@@ -30,10 +30,12 @@ public class CreationBlock extends Block {
     public static final Block cobbleDeepStaleWall;
     public static final Block deepStaleBrickWall;
     public static final Block deepSlate;
+    public static final BlockCobbleDeepSlateSlabGroup cobbledDeepStaleSingleSlab;
+    public static final BlockDeepSlateDoubleSlab cobbledDeepStaleDoubleSlab;
+    public static final BlockDeepSlateBrickSlabGroup deepStaleBrickSingleSlab;
+    public static final BlockDeepSlateDoubleSlab deepStaleBrickDoubleSlab;
+    public static final BlockAncientRelict ancientRelict;
 
-
-//    public static final BlockSlabGroupCreation deepStaleSingleSlab;
-//    public static final BlockDoubleSlab deepStaleDoubleSlab;
 
     protected CreationBlock(int par1, Material par2Material, BlockConstants constants) {
         super(par1, par2Material, constants);
@@ -59,10 +61,15 @@ public class CreationBlock extends Block {
         registryEvent.registerItemBlock(CreationNameSpace, "sand_gravel", gravelSand);
         registryEvent.registerItemBlock(CreationNameSpace, "deepsltae_gravel", gravelDeepSlate);
         registryEvent.registerItemBlock(CreationNameSpace, "deepslate", deepSlate);
+        registryEvent.registerItemBlock(CreationNameSpace, "cobbledDeepslateSlab", cobbledDeepStaleSingleSlab);
+        registryEvent.registerItemBlock(CreationNameSpace, "cobbledDeepslateSlab", cobbledDeepStaleDoubleSlab);
+        registryEvent.registerItemBlock(CreationNameSpace, "deepslateBrickSlab", deepStaleBrickSingleSlab);
+        registryEvent.registerItemBlock(CreationNameSpace, "deepslateBrickSlab", deepStaleBrickDoubleSlab);
+        registryEvent.registerItemBlock(CreationNameSpace, "ancient_relict", ancientRelict);
 
 
-//        registryEvent.registerItemBlock(CreationNameSpace, "deepsltae_slab", deepStaleSingleSlab);
-//        registryEvent.registerItemBlock(CreationNameSpace, "deepsltae_slab", deepStaleDoubleSlab);
+//        registryEvent.registerItemBlock(CreationNameSpace, "deepsltae_slab", cobbledDeepStaleSingleSlab);
+//        registryEvent.registerItemBlock(CreationNameSpace, "deepsltae_slab", cobbledDeepStaleDoubleSlab);
     }
 
     static {
@@ -117,15 +124,20 @@ public class CreationBlock extends Block {
         deepSlate = (new BlockDeepSlate(3348))
                 .setHardness(3.0F).setResistance(15.0F).setStepSound(soundStoneFootstep).setUnlocalizedName("deepSlate").setTextureName("deepSlate");
 
+        cobbledDeepStaleSingleSlab = (BlockCobbleDeepSlateSlabGroup) (new BlockCobbleDeepSlateSlabGroup(IdUtil.getNextBlockID(), Material.stone))
+                .setStepSound(soundStoneFootstep);
 
-//        deepStaleSingleSlab = (BlockSlabGroupCreation)(new BlockSlabGroupCreation(IdUtil.getNextBlockID(), Material.stone))
-//                .setHardness(3.0F).setResistance(15.0F).setStepSound(soundStoneFootstep);
-//
-//        deepStaleDoubleSlab = (BlockDoubleSlab) (new BlockDoubleSlab(IdUtil.getNextBlockID(), deepStaleSingleSlab))
-//                .setHardness(3.0F).setResistance(15.0F).setStepSound(soundStoneFootstep);
+        cobbledDeepStaleDoubleSlab = (BlockDeepSlateDoubleSlab) (new BlockDeepSlateDoubleSlab(IdUtil.getNextBlockID(), cobbledDeepStaleSingleSlab))
+                .setStepSound(soundStoneFootstep);
 
-//        Item.itemsList[deepStaleSingleSlab.blockID] = (new ItemSlab(deepStaleSingleSlab, deepStaleDoubleSlab, false)).setUnlocalizedName("deepSlateSlab");
-//        Item.itemsList[deepStaleDoubleSlab.blockID] = (new ItemSlab(deepStaleSingleSlab, deepStaleDoubleSlab, true)).setUnlocalizedName("deepSlateSlab");
+        deepStaleBrickSingleSlab = (BlockDeepSlateBrickSlabGroup) (new BlockDeepSlateBrickSlabGroup(IdUtil.getNextBlockID(), Material.stone))
+                .setStepSound(soundStoneFootstep);
+
+        deepStaleBrickDoubleSlab = (BlockDeepSlateDoubleSlab) (new BlockDeepSlateDoubleSlab(IdUtil.getNextBlockID(), deepStaleBrickSingleSlab))
+                .setStepSound(soundStoneFootstep);
+
+        ancientRelict = (BlockAncientRelict) new BlockAncientRelict(IdUtil.getNextBlockID()).setHardness(2.5F).setCreativeTab(CreativeTabs.tabBlock)
+                .setStepSound(soundStoneFootstep).setUnlocalizedName("ancientRelict");
     }
 
 }

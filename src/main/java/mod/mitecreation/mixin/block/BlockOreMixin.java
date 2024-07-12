@@ -10,13 +10,16 @@ import net.xiaoyu233.fml.FishModLoader;
 import org.spongepowered.asm.mixin.Implements;
 import org.spongepowered.asm.mixin.Interface;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(value=BlockOre.class)
-@Implements(@Interface(iface = IBlockWithSubtypes.class,prefix = "vw$"))
+@Implements(@Interface(iface = IBlockWithSubtypes.class, prefix = "vw$"))
 public class BlockOreMixin extends Block implements IBlockWithSubtypes{
 
+    @Unique
     private final BlockSubtypes subtypes = BlockOreTransHelper.subtypesInitializer();
 
+    @Unique
     public int richOrPoor;
 
     protected BlockOreMixin(int par1, Material par2Material, BlockConstants constants) {

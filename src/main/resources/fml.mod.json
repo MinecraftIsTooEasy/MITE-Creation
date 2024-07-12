@@ -3,7 +3,8 @@
   "id": "mite_creation",
   "version": "0.0.3-BETA",
   "depends": {
-    "fishmodloader": ">=3.3.0",
+    "mite": "~1.6.4",
+    "fishmodloader": ">=3.3.1",
     "rusted_iron_core": ">=1.1.1"
   },
   "environment": "*",

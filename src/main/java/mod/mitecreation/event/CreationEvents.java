@@ -4,6 +4,7 @@ import com.google.common.eventbus.Subscribe;
 import mod.mitecreation.block.CreationBlock;
 import mod.mitecreation.entity.EntitySpiderQueen;
 import mod.mitecreation.entity.EntitySpirit;
+import mod.mitecreation.event.command.CommandProtection;
 import mod.mitecreation.item.CreationItem;
 import mod.mitecreation.recipe.FurnaceRecipesExtend;
 import mod.mitecreation.recipe.RecipesOriginBlockExtend;
@@ -13,6 +14,7 @@ import mod.mitecreation.render.RenderSpirit;
 import mod.mitecreation.util.Util;
 import net.minecraft.*;
 import net.xiaoyu233.fml.reload.event.*;
+import net.xiaoyu233.fml.reload.utils.IdUtil;
 
 public class CreationEvents {
 
@@ -30,14 +32,19 @@ public class CreationEvents {
     }
 
     @Subscribe
+    public void onCommandRegister(CommandRegisterEvent event) {
+        event.register(new CommandProtection());
+    }
+
+    @Subscribe
     public void onEntityRegister(EntityRegisterEvent event){
-        event.register(EntitySpirit.class, "EntitySpirit", 541, 0xFFFFFFF, 0xFFAD0000);
-        event.register(EntitySpiderQueen.class, "EntitySpiderQueen", 542, 11013646, 0xFFAD1245);
+        event.register(EntitySpirit.class, "EntitySpirit", IdUtil.getNextEntityID(), 0xFFFFFFF, 0xFFAD0000);
+        event.register(EntitySpiderQueen.class, "EntitySpiderQueen", IdUtil.getNextEntityID(), 11013646, 0xFFAD1245);
     }
 
     @Subscribe
     public void onEntityRendererRegister(EntityRendererRegistryEvent event) {
-        event.register(EntitySpiderQueen.class, new RenderSpiderQueen(1.45F));
+        event.register(EntitySpiderQueen.class, new RenderSpiderQueen(1.5F));
         event.register(EntitySpirit.class, new RenderSpirit());
     }
 

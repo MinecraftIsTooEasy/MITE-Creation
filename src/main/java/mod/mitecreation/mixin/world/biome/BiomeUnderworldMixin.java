@@ -15,7 +15,7 @@ public class BiomeUnderworldMixin extends BiomeGenBase {
     }
 
     @Inject(method = "<init>", at = @At("RETURN"))
-    public void injectCtor(CallbackInfo callbackInfo) {
+    public void creationUnderWorldMobSpawnableAdd(CallbackInfo callbackInfo) {
         this.spawnableMonsterList.add(new SpawnListEntry(EntitySpiderQueen.class, 5, 1, 1));
     }
 

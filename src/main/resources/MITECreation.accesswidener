@@ -22,3 +22,7 @@ extendable class net/minecraft/BlockDoor
 
 accessible method net/minecraft/WorldGenDungeons pickMobSpawner (Lnet/minecraft/World;Ljava/util/Random;I)Ljava/lang/String;
 accessible method net/minecraft/WorldGenDungeons getChestContentsForWorld (Lnet/minecraft/World;)[Lnet/minecraft/WeightedRandomChestContent;
+
+accessible method net/minecraft/EntityMob canDespawn ()Z
+accessible method net/minecraft/EntityLiving tryDespawnEntity ()V
+accessible method net/minecraft/WorldServer tryCreateNewLivingEntityCloseTo (IIIIILjava/lang/Class;Lnet/minecraft/EnumCreatureType;)Lnet/minecraft/EntityLiving;

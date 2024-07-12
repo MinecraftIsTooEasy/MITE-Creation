@@ -1,9 +1,9 @@
 curse.fearOfElemental.name=Fear Of Elemental
 curse.fearOfElemental.desc=You've become fearful of earth elemental & fire elemental|and have difficulty striking them|in melee combat.
 
-item.buckets/wood/empty.name=Wood Bucket
-item.buckets/wood/water.name=Wood Bucket of Water
-item.buckets/wood/milk.name=Wood Bucket of Milk
+item.buckets/wood/empty.name=Wooden Bucket
+item.buckets/wood/water.name=Wooden Bucket of Water
+item.buckets/wood/milk.name=Wooden Bucket of Milk
 
 item.ingots/rusted_iron.name=Rusted Iron Ingot
 item.nuggets/rusted_iron.name=Rusted Iron Nugget
@@ -80,34 +80,34 @@ tile.tungsten_anvil.slightlyDamaged.name=Slightly Damaged Tungsten Anvil
 tile.tungsten_anvil.veryDamaged.name=Very Damaged Tungsten Anvil
 tile.bars/tungsten_bars.name=Tungsten Bars
 tile.toolbench.tungsten.name=Tungsten Toolbench
-ile.tungsten_chest.name=Tungsten Strongbox
+tile.tungsten_chest.name=Tungsten Strongbox
 tile.chestTungsten.name=Tungsten Strongbox
 
 item.tools/emerald/emerald_sword.name=[TEST]Emerald Sword
+item.tools/diamond/diamond_sword.name=[TEST]Diamond Sword
 
-tile.mushroom_luminous.name=Mushroom Luminous
+tile.mushroom_luminous.name=Luminous Mushroom
 tile.sand_gravel.name=Sand Gravel
 
 tile.deepslate.name=Deepslate
-tile.deepsltae_gravel.name=Deepslate Gravel
-tile.cobble_deepslate.name=Cobble Deepslate
-tile.cobble_deepslate_magma.name=Magma Cobble Deepslate
-tile.deepslate_brick.default.name=Deepslate Bricks
-tile.deepslate_brick.name=Deepslate Bricks
-tile.deepslate_brick.mossy.name=Mossy Deepslate Bricks
-tile.deepslate_brick.cracked.name=Cracked Deepslate Bricks
-tile.deepslate_brick.chiseled.name=Chiseled Deepslate Bricks
-tile.deepslate_brick_magma.name=Magma Deepslate Bricks
+tile.deepslate_gravel.name=Deepslate Gravel
+tile.cobble_deepslate.name=Cobbled Deepslate
+tile.cobble_deepslate_magma.name=Magma Cobbled Deepslate
+tile.deepslate_brick.default.name=Deepslate Brick
+tile.deepslate_brick.name=Deepslate Brick
+tile.deepslate_brick.mossy.name=Mossy Deepslate Brick
+tile.deepslate_brick.cracked.name=Cracked Deepslate Brick
+tile.deepslate_brick.chiseled.name=Chiseled Deepslate Brick
+tile.deepslate_brick_magma.name=Magma Deepslate Brick
 
-[WIP]
-tile.slab.group4.deepslate.name=Deepslate Slab
-tile.slab.group4.deepslateBrick.name=Deepslate Bricks Slab
+tile.cobbledDeepslateSlab.cobbledDeepSlate.name=Cobbled Deepslate Slab
+tile.deepslateBrickSlab.deepSlateBrick.name=Deepslate Brick Slab
 
-tile.cobble_deepslate_wall.name=Cobble Deepslate Wall
+tile.cobble_deepslate_wall.name=Cobbled Deepslate Wall
 tile.deepslate_brick_wall.name=Deepslate Brick Wall
 
-tile.cobble_deepslate_stairs.name=Cobble Deepslate Stairs
-tile.deepslate_brick_stairs.name=Deepslate Bricks Stairs
+tile.cobble_deepslate_stairs.name=Cobbled Deepslate Stairs
+tile.deepslate_brick_stairs.name=Deepslate Brick Stairs
 
 tile.monsterStoneEgg.deepslate.name=Deepslate Brick Monster Egg
 

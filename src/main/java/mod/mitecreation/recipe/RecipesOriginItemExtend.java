@@ -175,25 +175,22 @@ public class RecipesOriginItemExtend {
         registerArmorRecipe(register, ingotTungsten, Materials.tungsten);
 //        registerArmorRecipe(register, ingotRustedIron, Materials.rusted_iron);
         registerFullMetalToolRecipe(register,Materials.tungsten);
-//        registerFullMetalToolRecipe(register,Material.rusted_iron);
+//        registerFullMetalToolRecipe(register, Material.rusted_iron);
 
         ItemCoin[] coins = new ItemCoin[]{
                 coinIron, coinTungsten};
         for (ItemCoin coin : coins) {
             for (int plank_subtype = 1; plank_subtype <= 9; ++plank_subtype) {
-//                register.registerShapelessRecipe(new ItemStack(coin.getNuggetPeer(), plank_subtype), true, new ItemStack(coin, plank_subtype)).resetDifficulty(25);
-                register.registerShapelessRecipe(new ItemStack(coin.getNuggetPeer(), plank_subtype), true, new ItemStack(coin, plank_subtype));
+                register.registerShapelessRecipe(new ItemStack(coin.getNuggetPeer(), plank_subtype),
+                        true, (ItemStack) new ItemStack(coin, plank_subtype)); // 25
             }
-            register.registerShapelessRecipe(new ItemStack(coin), true, new ItemStack(coin.getNuggetPeer()));
+            register.registerShapelessRecipe(new ItemStack(coin),
+                    true, new ItemStack(coin.getNuggetPeer()));
         }
-//        register.registerShapelessRecipe(new ItemStack(CreationItem.tungstenBucket, 1), false,
-//                CreationItem.tungstenBucketStone).resetDifficulty(100);
-//        register.registerShapelessRecipe(new ItemStack(Items.rustedIronBucketEmpty, 1), false,
-//                Items.rustedIronBucketStone).resetDifficulty(100);
-        register.registerShapelessRecipe(new ItemStack(CreationItem.tungstenBucket, 1), false,
-                CreationItem.tungstenBucketStone);
-        register.registerShapelessRecipe(new ItemStack(CreationItem.rustedIronBucketEmpty, 1), false,
-                CreationItem.rustedIronBucketStone);
+        register.registerShapelessRecipe(new ItemStack(CreationItem.tungstenBucket, 1),
+                false, (ItemBucket) CreationItem.tungstenBucketStone); //100
+        register.registerShapelessRecipe(new ItemStack(CreationItem.rustedIronBucketEmpty, 1),
+                false, (ItemBucket) CreationItem.rustedIronBucketStone); //100
         register.registerShapelessRecipe(new ItemStack(rustedIronNugget,1),true,Item.arrowRustedIron);
         register.registerShapelessRecipe(new ItemStack(ingotRustedIron, 1), true, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget);
         register.registerShapelessRecipe(new ItemStack(rustedIronNugget, 9), true, ingotRustedIron);

@@ -37,8 +37,14 @@ public class RecipesOriginBlockExtend {
                 "###",
                 "###",
                 '#', CreationBlock.cobbleDeepStale);
+        register.registerShapedRecipe(new ItemStack(CreationBlock.cobbledDeepStaleSingleSlab, 6), true,
+                "###",
+                '#', CreationBlock.cobbleDeepStale);
         register.registerShapedRecipe(new ItemStack(CreationBlock.deepStaleBrickWall, 8), true,
                 "###",
+                "###",
+                '#', CreationBlock.deepStaleBrick);
+        register.registerShapedRecipe(new ItemStack(CreationBlock.deepStaleBrickSingleSlab, 6), true,
                 "###",
                 '#', CreationBlock.deepStaleBrick);
         register.registerShapedRecipe(new ItemStack(CreationBlock.stairsCobbleDeepSlate, 4), true,

@@ -91,7 +91,7 @@ tile.mushroom_luminous.name=微光蘑菇
 tile.sand_gravel.name=粗砾沙石
 
 tile.deepslate.name=深板岩
-tile.deepsltae_gravel.name=深层沙砾
+tile.deepslate_gravel.name=深层沙砾
 tile.cobble_deepslate.name=深板岩圆石
 tile.cobble_deepslate_magma.name=熔岩深板岩圆石
 tile.deepslate_brick.default.name=深板岩砖
@@ -101,9 +101,8 @@ tile.deepslate_brick.cracked.name=裂纹深板岩砖
 tile.deepslate_brick.chiseled.name=錾制深板岩砖
 tile.deepslate_brick_magma.name=熔岩深板岩砖
 
-[WIP]
-tile.slab.group4.deepslate.name=深板岩台阶
-tile.slab.group4.deepslateBrick.name=深板岩砖台阶
+tile.cobbledDeepslateSlab.cobbledDeepSlate.name=深板岩圆石台阶
+tile.deepslateBrickSlab.deepSlateBrick.name=深板岩砖台阶
 
 tile.cobble_deepslate_wall.name=深板岩圆石墙
 tile.deepslate_brick_wall.name=深板岩砖墙

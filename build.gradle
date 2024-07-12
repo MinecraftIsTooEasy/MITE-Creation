@@ -26,7 +26,7 @@ repositories {
 loom {
 	accessWidenerPath = file("src/main/resources/MITECreation.accesswidener")
 	mergedMinecraftJar()
-	setFML(new File("libs\\FishModLoader-v3.3.0.jar"))
+	setFML(new File("libs\\FishModLoader-v3.3.1.jar"))
 	mods {
 		"MITE-Creation" {
 			sourceSet sourceSets.main
@@ -36,7 +36,7 @@ loom {
 }
 
 runClient{
-	args("--username", "Player", "--session", "a.a.a.a", "--width", 854, "--height", 480)
+	args("--username", "uuuuu", "--session", "a.a.a.a", "--width", 854, "--height", 480)
 //	jvmArgs.add("-Dminecraft.client.jar=F:\\\\MITE Plus R5\\\\.minecraft\\\\versions\\\\1.6.4-MITE\\\\1.6.4-MITE.jar")
 }
 

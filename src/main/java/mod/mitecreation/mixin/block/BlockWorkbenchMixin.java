@@ -14,8 +14,10 @@ import static net.minecraft.BlockWorkbench.getToolMaterial;
 @Mixin(BlockWorkbench.class)
 public abstract class BlockWorkbenchMixin extends Block {
 
+    @Unique
     protected Icon[] front_icons = new Icon[16];
 
+    @Unique
     protected Icon[] side_icons = new Icon[16];
 
     @Shadow

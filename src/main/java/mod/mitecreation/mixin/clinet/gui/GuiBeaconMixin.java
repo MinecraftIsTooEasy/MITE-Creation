@@ -3,11 +3,13 @@ package mod.mitecreation.mixin.clinet.gui;
 import net.minecraft.*;
 import org.lwjgl.opengl.GL11;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 
 
 @Mixin(GuiBeacon.class)
 public class GuiBeaconMixin extends GuiContainer {
 
+    @Unique
     private static final ResourceLocation beaconGuiTextures = new ResourceLocation("textures/gui/container/beacon.png");
     private TileEntityBeacon beacon;
 

@@ -16,7 +16,7 @@ public class RenderSpiderQueen extends RenderArachnid {
         this.scale = scale;
     }
 
-    protected void a(EntityLiving par1EntityLivingBase, float par2) {
+    protected void preRenderCallback(EntityLivingBase par1EntityLivingBase, float par2) {
         super.preRenderCallback(par1EntityLivingBase, par2);
         GL11.glScalef(this.scale, this.scale, this.scale);
     }
