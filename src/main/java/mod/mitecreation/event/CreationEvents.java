@@ -1,16 +1,13 @@
 package mod.mitecreation.event;
 
 import com.google.common.eventbus.Subscribe;
+import mod.mitecreation.MITECreationMod;
 import mod.mitecreation.block.CreationBlock;
-import mod.mitecreation.entity.EntitySpiderQueen;
-import mod.mitecreation.entity.EntitySpirit;
-import mod.mitecreation.event.command.CommandProtection;
+import mod.mitecreation.entity.*;
+import mod.mitecreation.event.command.*;
 import mod.mitecreation.item.CreationItem;
-import mod.mitecreation.recipe.FurnaceRecipesExtend;
-import mod.mitecreation.recipe.RecipesOriginBlockExtend;
-import mod.mitecreation.recipe.RecipesOriginItemExtend;
-import mod.mitecreation.render.RenderSpiderQueen;
-import mod.mitecreation.render.RenderSpirit;
+import mod.mitecreation.recipe.*;
+import mod.mitecreation.render.*;
 import mod.mitecreation.util.Util;
 import net.minecraft.*;
 import net.xiaoyu233.fml.reload.event.*;
@@ -38,14 +35,16 @@ public class CreationEvents {
 
     @Subscribe
     public void onEntityRegister(EntityRegisterEvent event){
-        event.register(EntitySpirit.class, "EntitySpirit", IdUtil.getNextEntityID(), 0xFFFFFFF, 0xFFAD0000);
-        event.register(EntitySpiderQueen.class, "EntitySpiderQueen", IdUtil.getNextEntityID(), 11013646, 0xFFAD1245);
+        event.register(EntitySpirit.class, MITECreationMod.CreationNameSpace, "EntitySpirit", IdUtil.getNextEntityID(), 0xFFFFFFF, 0xFFAD0000);
+        event.register(EntitySpiderQueen.class, MITECreationMod.CreationNameSpace, "EntitySpiderQueen", IdUtil.getNextEntityID(), 11013646, 0xFFAD1245);
+        event.register(EntityDevilBat.class, MITECreationMod.CreationNameSpace, "EntityDevilBat", IdUtil.getNextEntityID(), 0xFFFFFF, 0xFFFFFF);
     }
 
     @Subscribe
     public void onEntityRendererRegister(EntityRendererRegistryEvent event) {
         event.register(EntitySpiderQueen.class, new RenderSpiderQueen(1.5F));
         event.register(EntitySpirit.class, new RenderSpirit());
+        event.register(EntityDevilBat.class, new RenderDevilBat());
     }
 
     @Subscribe

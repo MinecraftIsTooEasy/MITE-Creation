@@ -29,4 +29,6 @@ bin/
 .DS_Store
 
 ### MITE Creation ###
-run/
+.gradle/
+.idea/
+build/

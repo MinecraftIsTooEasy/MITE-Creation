@@ -18,19 +18,19 @@ public class CreationItem {
     public static final ItemCoin coinIron = createInstance(ItemCoin.class, new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), Material.iron);
     public static final ItemCoin coinRustedIron = createInstance(ItemCoin.class, new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), Material.rusted_iron);
 
-    public static final NuggetItem rustedIronNugget = new NuggetItem(IdUtil.getNextItemID(),Material.rusted_iron);
-    public static final IngotItem ingotRustedIron = new IngotItem(IdUtil.getNextItemID(),Material.rusted_iron);
+    public static final NuggetItem rustedIronNugget = new NuggetItem(IdUtil.getNextItemID(), Material.rusted_iron);
+    public static final IngotItem ingotRustedIron = new IngotItem(IdUtil.getNextItemID(), Material.rusted_iron);
 
     public static ItemFishingRod fishingRodRustedIron = (ItemFishingRod)(new ItemFishingRod(IdUtil.getNextItemID(), Materials.rusted_iron)).setUnlocalizedName("fishingRod");
 
-    public static final ItemRawNugget rawRustedIronNugget = new ItemRawNugget(IdUtil.getNextItemID(),Material.rusted_iron);
-    public static final ItemRawNugget rawCopperNugget = new ItemRawNugget(IdUtil.getNextItemID(),Material.copper);
-    public static final ItemRawNugget rawSilverNugget = new ItemRawNugget(IdUtil.getNextItemID(),Material.silver);
-    public static final ItemRawNugget rawGoldNugget = new ItemRawNugget(IdUtil.getNextItemID(),Material.gold);
-    public static final ItemRawNugget rawAncientMetalNugget = new ItemRawNugget(IdUtil.getNextItemID(),Material.ancient_metal);
+    public static final ItemRawNugget rawRustedIronNugget = new ItemRawNugget(IdUtil.getNextItemID(), Material.rusted_iron);
+    public static final ItemRawNugget rawCopperNugget = new ItemRawNugget(IdUtil.getNextItemID(), Material.copper);
+    public static final ItemRawNugget rawSilverNugget = new ItemRawNugget(IdUtil.getNextItemID(), Material.silver);
+    public static final ItemRawNugget rawGoldNugget = new ItemRawNugget(IdUtil.getNextItemID(), Material.gold);
+    public static final ItemRawNugget rawAncientMetalNugget = new ItemRawNugget(IdUtil.getNextItemID(), Material.ancient_metal);
     public static final ItemRawNugget rawTungstenNugget = new ItemRawNugget(IdUtil.getNextItemID(), Materials.tungsten);
-    public static final ItemRawNugget rawMithrilNugget = new ItemRawNugget(IdUtil.getNextItemID(),Material.mithril);
-    public static final ItemRawNugget rawAdamantiumNugget = new ItemRawNugget(IdUtil.getNextItemID(),Material.adamantium);
+    public static final ItemRawNugget rawMithrilNugget = new ItemRawNugget(IdUtil.getNextItemID(), Material.mithril);
+    public static final ItemRawNugget rawAdamantiumNugget = new ItemRawNugget(IdUtil.getNextItemID(), Material.adamantium);
 
     public static final ItemNugget tungstenNugget = createInstance(ItemNugget.class, new Class[]{int.class,Material.class},IdUtil.getNextItemID(),Materials.tungsten);
     public static final Item ingotTungsten = createInstance(ItemIngot.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(),Materials.tungsten).setXPReward(75);
