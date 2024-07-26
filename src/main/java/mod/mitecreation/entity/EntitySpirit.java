@@ -1,15 +1,23 @@
 package mod.mitecreation.entity;
 
 import net.minecraft.*;
+import net.xiaoyu233.fml.FishModLoader;
 
-public class EntitySpirit extends EntityEnderman {
+import java.util.Iterator;
+import java.util.List;
 
-    private int fx_counter;
+public class EntitySpirit extends EntityMob {
+    private int heal_counter;
     private int max_num_evasions;
     private int num_evasions;
+    private int teleportDelay;
+    private Entity lastEntityToAttack;
+    private boolean isAggressive;
 
     public EntitySpirit(World par1World) {
         super(par1World);
+        this.setSize(0.5F, 2.8F);
+        this.stepHeight = 1.0F;
         if (par1World != null && this.onServer()) {
             this.max_num_evasions = this.num_evasions = 8;
         }
@@ -20,14 +28,119 @@ public class EntitySpirit extends EntityEnderman {
         this.setEntityAttribute(SharedMonsterAttributes.maxHealth, 30.0);
         this.setEntityAttribute(SharedMonsterAttributes.movementSpeed, 0.35);
         this.setEntityAttribute(SharedMonsterAttributes.attackDamage, 15.0);
+        if (FishModLoader.hasMod("mite_ite")) {
+            int day = this.getWorld() != null ? this.getWorld().getDayOfWorld() : 0;
+            this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(80.0 + (double)day / 20.0);
+            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(0.35);
+            this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setAttribute(35.0 + (double)day / 20.0);
+        }
     }
 
-    protected float getSoundVolume(String sound) {
-        return 0.75F;
+    protected void entityInit() {
+        super.entityInit();
+        this.dataWatcher.addObject(16, (byte)0);
+        this.dataWatcher.addObject(17, (byte)0);
+        this.dataWatcher.addObject(18, (byte)0);
+    }
+
+    public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound) {
+        super.writeEntityToNBT(par1NBTTagCompound);
+        par1NBTTagCompound.setShort("carried", (short)this.getCarried());
+        par1NBTTagCompound.setShort("carriedData", (short)this.getCarryingData());
+        par1NBTTagCompound.setByte("max_num_evasions", (byte)this.max_num_evasions);
+        par1NBTTagCompound.setByte("num_evasions", (byte)this.num_evasions);
+    }
+
+    public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound) {
+        super.readEntityFromNBT(par1NBTTagCompound);
+        this.setCarried(par1NBTTagCompound.getShort("carried"));
+        this.setCarryingData(par1NBTTagCompound.getShort("carriedData"));
+        this.max_num_evasions = par1NBTTagCompound.getByte("max_num_evasions");
+        this.num_evasions = par1NBTTagCompound.getByte("num_evasions");
+    }
+
+    public EntityItem findTargetEntityItem(float max_distance) {
+        Iterator i = this.worldObj.getEntitiesWithinAABB(EntityItem.class, this.boundingBox.expand((double)max_distance, (double)(max_distance * 0.25F), (double)max_distance)).iterator();
+
+        EntityItem entity_item;
+        do {
+            do {
+                do {
+                    if (!i.hasNext()) {
+                        return null;
+                    }
+
+                    entity_item = (EntityItem)i.next();
+                } while(entity_item.isWet());
+            } while(entity_item.isBurning() && this.isHarmedByFire());
+        } while(!this.willPickupAsValuable(entity_item.getEntityItem()));
+
+        return entity_item;
     }
 
     public void onLivingUpdate() {
-        super.onLivingUpdate();
+        if (this.lastEntityToAttack != this.entityToAttack) {
+            AttributeInstance var1 = this.getEntityAttribute(SharedMonsterAttributes.movementSpeed);
+        }
+
+        this.lastEntityToAttack = this.entityToAttack;
+        int var6;
+
+        for(var6 = 0; var6 < 2; ++var6) {
+            this.worldObj.spawnParticle(EnumParticle.portal_nether, this.posX + (this.rand.nextDouble() - 0.5) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - 0.25, this.posZ + (this.rand.nextDouble() - 0.5) * (double)this.width, (this.rand.nextDouble() - 0.5) * 2.0, -this.rand.nextDouble(), (this.rand.nextDouble() - 0.5) * 2.0);
+        }
+
+        boolean has_teleported = false;
+        if (this.entityToAttack == null && this.worldObj.isDaytime() && !this.worldObj.isRemote && this.rand.nextInt(4) == 0) {
+            float var7 = this.getBrightness(1.0F);
+            if (var7 > 0.5F && this.worldObj.canBlockSeeTheSky(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY), MathHelper.floor_double(this.posZ)) && this.rand.nextFloat() * 30.0F < (var7 - 0.4F) * 2.0F) {
+                this.entityToAttack = null;
+                this.setScreaming(false);
+                this.isAggressive = false;
+                if (this.teleportRandomly()) {
+                    has_teleported = true;
+                }
+            }
+        }
+
+        if (this.onServer() && !has_teleported && this.getTicksExistedWithOffset() % 20 == 0 && this.rand.nextInt(10) == 0 && this.tryTeleportToValuableItem()) {
+            has_teleported = true;
+        }
+
+        if (this.onServer() && (this.isWet() || this.isBurning())) {
+            this.entityToAttack = null;
+            this.setScreaming(false);
+            this.isAggressive = false;
+            this.teleportRandomly();
+        }
+
+        if (this.isScreaming() && !this.isAggressive && this.rand.nextInt(100) == 0) {
+            this.setScreaming(false);
+        }
+
+        this.isJumping = false;
+        if (this.entityToAttack != null) {
+            this.faceEntity(this.entityToAttack, 100.0F, 100.0F);
+        }
+
+        if (!this.worldObj.isRemote && this.isEntityAlive()) {
+            if (this.entityToAttack != null) {
+                if (++this.teleportDelay > 30) {
+                    if (this.rand.nextInt(2) == 0) {
+                        if (this.rand.nextInt(3) == 0) {
+                            this.teleportRandomly();
+                        } else {
+                            this.teleportToEntity(this.entityToAttack);
+                        }
+                    }
+
+                    this.teleportDelay = 0;
+                }
+            } else {
+                this.setScreaming(false);
+                this.teleportDelay = 0;
+            }
+        }
         if (this.onServer() && this.getHealth() > 0.0F) {
             int ticks_existed_with_offset = this.getTicksExistedWithOffset();
             if (this.num_evasions < this.max_num_evasions && ticks_existed_with_offset % 600 == 0) {
@@ -48,6 +161,197 @@ public class EntitySpirit extends EntityEnderman {
             }
         }
 
+        super.onLivingUpdate();
+    }
+
+    private EntityItem getNearestObtainableValuableItem() {
+        EntityItem nearest_obtainable_valuable_item = null;
+        double distance_sq_to_nearest_obtainable_valuable_item = 0.0;
+        List items = this.worldObj.getEntitiesWithinAABB(EntityItem.class, this.boundingBox.expand(16.0, 8.0, 16.0));
+        Iterator i = items.iterator();
+
+        while(true) {
+            EntityItem entity_item;
+            double distance_sq;
+            do {
+                int x;
+                int y;
+                int z;
+                do {
+                    do {
+                        ItemStack item_stack;
+                        do {
+                            do {
+                                do {
+                                    do {
+                                        if (!i.hasNext()) {
+                                            return nearest_obtainable_valuable_item;
+                                        }
+
+                                        entity_item = (EntityItem)i.next();
+                                    } while(entity_item.isDead);
+                                } while(entity_item.isWet());
+                            } while(entity_item.isBurning() && this.isHarmedByFire());
+
+                            item_stack = entity_item.getEntityItem();
+                        } while(!this.willPickupAsValuable(item_stack));
+
+                        x = entity_item.getBlockPosX();
+                        y = entity_item.getBlockPosY();
+                        z = entity_item.getBlockPosZ();
+                    } while(!this.worldObj.isAirOrPassableBlock(x, y + 1, z, false));
+                } while(!this.worldObj.isAirOrPassableBlock(x, y + 2, z, false));
+
+                distance_sq = this.getDistanceSqToEntity(entity_item);
+            } while(nearest_obtainable_valuable_item != null && !(distance_sq < distance_sq_to_nearest_obtainable_valuable_item));
+
+            nearest_obtainable_valuable_item = entity_item;
+            distance_sq_to_nearest_obtainable_valuable_item = distance_sq;
+        }
+    }
+
+    private boolean tryTeleportToValuableItem() {
+        if (this.onClient()) {
+            Minecraft.setErrorMessage("tryTeleportToValuableItem: called on client");
+        }
+
+        if (!this.isWet() && !this.isBurning()) {
+            EntityItem entity_item = this.getNearestObtainableValuableItem();
+            if (entity_item == null) {
+                return false;
+            } else {
+                int x = entity_item.getBlockPosX();
+                int y = entity_item.getBlockPosY();
+                int z = entity_item.getBlockPosZ();
+                return this.teleportTo((double)x + 0.5, this.worldObj.getBlockCollisionTopY(x, y, z, this), (double)z + 0.5);
+            }
+        } else {
+            return false;
+        }
+    }
+
+    protected boolean teleportRandomly() {
+        if (this.onClient()) {
+            Minecraft.setErrorMessage("teleportRandomly: called on client");
+        }
+
+        if (this.isDecoy()) {
+            return false;
+        } else if (this.tryTeleportToValuableItem()) {
+            return true;
+        } else {
+            double var1 = this.posX + (this.rand.nextDouble() - 0.5) * 64.0;
+            double var3 = this.posY + (double)(this.rand.nextInt(64) - 32);
+            double var5 = this.posZ + (this.rand.nextDouble() - 0.5) * 64.0;
+            return this.teleportTo(var1, var3, var5);
+        }
+    }
+
+    protected boolean teleportToEntity(Entity par1Entity) {
+        int x = par1Entity.getBlockPosX() + this.rand.nextInt(7) - 3;
+        int y = par1Entity.getBlockPosY() + 3;
+        int z = par1Entity.getBlockPosZ() + this.rand.nextInt(7) - 3;
+
+        for(int dy = 0; dy >= -6 && this.worldObj.isAirOrPassableBlock(x, y - 1, z, false); --dy) {
+            --y;
+        }
+
+        return this.teleportTo((double)((float)x + 0.5F), (double)((float)y + 0.1F), (double)((float)z + 0.5F));
+    }
+
+    protected boolean teleportTo(double par1, double par3, double par5) {
+        double var7 = this.posX;
+        double var9 = this.posY;
+        double var11 = this.posZ;
+        this.posX = par1;
+        this.posY = par3;
+        this.posZ = par5;
+        boolean var13 = false;
+        int var14 = MathHelper.floor_double(this.posX);
+        int var15 = MathHelper.floor_double(this.posY);
+        int var16 = MathHelper.floor_double(this.posZ);
+        if (this.worldObj.blockExists(var14, var15, var16)) {
+            boolean var17 = false;
+
+            while(!var17 && var15 > 0) {
+                if (this.worldObj.isBlockSolid(var14, var15 - 1, var16)) {
+                    var17 = true;
+                } else {
+                    --this.posY;
+                    --var15;
+                }
+            }
+        }
+
+        if (!var13) {
+            this.setPosition(var7, var9, var11);
+            return false;
+        } else {
+            int x = MathHelper.floor_double(this.posX);
+            int y = MathHelper.floor_double(this.posY);
+            int z = MathHelper.floor_double(this.posZ);
+            World var10000 = this.worldObj;
+            double distance = (double)World.getDistanceFromDeltas(this.posX - var7, this.posY - var9, this.posZ - var11);
+            this.worldObj.blockFX(EnumBlockFX.particle_trail, x, y, z, (new SignalData()).setByte(EnumParticle.portal_nether.ordinal()).setShort((int)(8.0 * distance)).setApproxPosition((double)MathHelper.floor_double(var7), (double)MathHelper.floor_double(var9), (double)MathHelper.floor_double(var11)));
+            this.worldObj.blockFX(EnumBlockFX.particle_trail, x, y + 1, z, (new SignalData()).setByte(EnumParticle.portal_nether.ordinal()).setShort((int)(8.0 * distance)).setApproxPosition((double)MathHelper.floor_double(var7), (double)MathHelper.floor_double(var9 + 1.0), (double)MathHelper.floor_double(var11)));
+            this.worldObj.playSoundEffect(var7, var9, var11, "mob.endermen.portal", 1.0F, 1.0F);
+            return true;
+        }
+    }
+
+    protected String getLivingSound() {
+        return this.isScreaming() ? "imported.mob.spirit.scream" : "imported.mob.spirit.idle";
+    }
+
+    protected String getHurtSound() {
+        return "imported.mob.spirit.hit";
+    }
+
+    protected String getDeathSound() {
+        return "imported.mob.spirit.death";
+    }
+
+    protected int getDropItemId() {
+        return Item.enderPearl.itemID;
+    }
+
+    public void setCarried(int par1) {
+        this.dataWatcher.updateObject(16, (byte)(par1 & 255));
+    }
+
+    public int getCarried() {
+        return this.dataWatcher.getWatchableObjectByte(16);
+    }
+
+    public void setCarryingData(int par1) {
+        this.dataWatcher.updateObject(17, (byte)(par1 & 255));
+    }
+
+    public int getCarryingData() {
+        return this.dataWatcher.getWatchableObjectByte(17);
+    }
+
+    public boolean isScreaming() {
+        return this.dataWatcher.getWatchableObjectByte(18) > 0;
+    }
+
+    public void setScreaming(boolean par1) {
+        this.dataWatcher.updateObject(18, (byte)(par1 ? 1 : 0));
+    }
+
+    public boolean isEntityBiologicallyAlive() {
+        return false;
+    }
+
+    public void tryAddArrowToContainedItems(EntityArrow entity_arrow) {
+    }
+
+    public boolean isFrenzied() {
+        return false;
+    }
+
+    protected float getSoundVolume(String sound) {
+        return 0.75F;
     }
 
     public boolean tryTeleportTo(double pos_x, double pos_y, double pos_z) {
@@ -68,7 +372,7 @@ public class EntitySpirit extends EntityEnderman {
                             if (this.worldObj.getCollidingBoundingBoxes(this, bb).isEmpty() && !this.worldObj.isAnyLiquid(bb)) {
                                 World var10000 = this.worldObj;
                                 double distance = (double)World.getDistanceFromDeltas(delta_pos_x, delta_pos_y, delta_pos_z);
-                                this.worldObj.blockFX(EnumBlockFX.particle_trail, x, y, z, (new SignalData()).setByte(EnumParticle.runegate.ordinal()).setShort((int)(16.0 * distance)).setApproxPosition((double)MathHelper.floor_double(this.posX), (double)MathHelper.floor_double(this.posY), (double)MathHelper.floor_double(this.posZ)));
+                                this.worldObj.blockFX(EnumBlockFX.particle_trail, x, y, z, (new SignalData()).setByte(EnumParticle.portal_nether.ordinal()).setShort((int)(16.0 * distance)).setApproxPosition((double)MathHelper.floor_double(this.posX), (double)MathHelper.floor_double(this.posY), (double)MathHelper.floor_double(this.posZ)));
                                 this.worldObj.playSoundEffect(this.posX, this.posY, this.posZ, "mob.endermen.portal", 1.0F, 1.0F);
                                 this.setPosition(pos_x, pos_y, pos_z);
                                 this.send_position_update_immediately = true;
@@ -139,13 +443,8 @@ public class EntitySpirit extends EntityEnderman {
     @Override
     public void onUpdate() {
         super.onUpdate();
-        if (!this.getWorld().isRemote) {
-            if (fx_counter > 0) {
-                fx_counter--;
-            } else {
-                this.fx_counter = 60;
-                this.entityFX(EnumEntityFX.summoned);
-            }
+        if (this.getHealth() < this.getMaxHealth()) {
+            this.heal(0.05F);
         }
     }
 
@@ -170,6 +469,21 @@ public class EntitySpirit extends EntityEnderman {
     @Override
     public float getReach() {
         return super.getReach() * 1.5F;
+    }
+
+    @Override
+    public int getMaxSpawnedInChunk() {
+        return 1;
+    }
+
+    @Override
+    public boolean isHarmedByFire() {
+        return false;
+    }
+
+    @Override
+    public boolean isHarmedByLava() {
+        return false;
     }
 }
 

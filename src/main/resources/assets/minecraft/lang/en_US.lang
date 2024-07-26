@@ -111,8 +111,9 @@ tile.deepslate_brick_stairs.name=Deepslate Brick Stairs
 
 tile.monsterStoneEgg.deepslate.name=Deepslate Brick Monster Egg
 
-entity.EntitySpirit.name=Spirit
-entity.EntitySpiderQueen.name=Spider Queen
+entity.Spirit.name=Spirit
+entity.SpiderQueen.name=Spider Queen
+entity.DevilBat.name=Devil Bat
 
 containet.strongbox.rusted_iron=Rusted Iron Strongbox
 container.strongbox.tungsten=Tungsten Strongbox

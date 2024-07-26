@@ -1,7 +1,7 @@
 package mod.mitecreation.mixin.item;
 
 import net.minecraft.*;
-import mod.mitecreation.materil.Materials;
+import mod.mitecreation.materil.CreationMaterial;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,7 +17,7 @@ public class ItemPickaxeMixin extends ItemTool {
 
     @Inject(method = "<init>",at = @At("RETURN"))
     public void creatonInjectInit(CallbackInfo callbackInfo) {
-        this.addMaterialsEffectiveAgainst(new Material[]{Materials.tungsten});
+        this.addMaterialsEffectiveAgainst(new Material[]{CreationMaterial.tungsten});
     }
 
     @Shadow

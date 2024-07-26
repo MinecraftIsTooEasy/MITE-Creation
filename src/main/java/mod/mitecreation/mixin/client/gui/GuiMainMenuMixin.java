@@ -1,4 +1,4 @@
-package mod.mitecreation.mixin.clinet.gui;
+package mod.mitecreation.mixin.client.gui;
 
 import mod.mitecreation.util.Util;
 import net.minecraft.EnumChatFormatting;

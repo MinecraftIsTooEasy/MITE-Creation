@@ -1,4 +1,4 @@
-package mod.mitecreation.render;
+package mod.mitecreation.client.render;
 
 import net.minecraft.*;
 import org.lwjgl.opengl.GL11;
@@ -11,9 +11,13 @@ public class RenderDevilBat extends RenderLiving {
         this.renderedBatSize = ((ModelBat)this.mainModel).getBatSize();
     }
 
+    protected boolean forceGlowOverride() {
+        return true;
+    }
+
     @Override
     protected void setTextures() {
-        this.setTexture(0, "textures/entity/bat/devil", "textures/entity/bat/devil_glow");
+        this.setTexture(0, "textures/entity/bat/devil");
     }
 
     public void func_82443_a(EntityBat par1EntityBat, double par2, double par4, double par6, float par8, float par9) {

@@ -36,7 +36,7 @@ loom {
 }
 
 runClient{
-	args("--username", "uuuuu", "--session", "a.a.a.a", "--width", 854, "--height", 480)
+	args("--username", "Xy_Lose", "--session", "a.a.a.a", "--width", 854, "--height", 480)
 //	jvmArgs.add("-Dminecraft.client.jar=F:\\\\MITE Plus R5\\\\.minecraft\\\\versions\\\\1.6.4-MITE\\\\1.6.4-MITE.jar")
 }
 
@@ -48,7 +48,7 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 //	implementation("org.spongepowered:mixin:0.8.5")
 
-	implementation files("libs\\RustedIronCore-1.1.1.jar")
+	implementation files("libs\\RustedIronCore-1.1.2.jar")
 	implementation files(loom.getFML().toPath())
 }
 

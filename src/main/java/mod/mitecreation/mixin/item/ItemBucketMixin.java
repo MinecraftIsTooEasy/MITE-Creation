@@ -1,7 +1,7 @@
 package mod.mitecreation.mixin.item;
 
 import mod.mitecreation.item.CreationItem;
-import mod.mitecreation.materil.Materials;
+import mod.mitecreation.materil.CreationMaterial;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,25 +18,25 @@ public class ItemBucketMixin extends ItemVessel {
     @Unique
     private static ItemVessel creationVessels(Material vessel_material, Material contents) {
         if (contents == null) {
-            if (vessel_material == Materials.tungsten)
+            if (vessel_material == CreationMaterial.tungsten)
                 return CreationItem.tungstenBucket;
             if (vessel_material == Material.wood)
                 return CreationItem.woodBucketEmpty;
         } else if (contents == Material.water) {
-            if (vessel_material == Materials.tungsten)
+            if (vessel_material == CreationMaterial.tungsten)
                 return CreationItem.tungstenBucketWater;
             if (vessel_material == Material.wood)
                 return CreationItem.woodBucketWater;
         } else if (contents == Material.lava) {
-            if (vessel_material == Materials.tungsten)
+            if (vessel_material == CreationMaterial.tungsten)
                 return CreationItem.tungstenBucketLava;
         } else if (contents == Material.milk) {
-            if (vessel_material == Materials.tungsten)
+            if (vessel_material == CreationMaterial.tungsten)
                 return CreationItem.tungstenBucketMilk;
             if (vessel_material == Material.wood)
                 return CreationItem.woodBucketMilk;
         } else if (contents == Material.stone) {
-            if (vessel_material == Materials.tungsten)
+            if (vessel_material == CreationMaterial.tungsten)
                 return CreationItem.tungstenBucketStone;
         }
         return null;

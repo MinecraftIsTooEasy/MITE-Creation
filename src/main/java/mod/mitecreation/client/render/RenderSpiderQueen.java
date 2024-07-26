@@ -1,4 +1,4 @@
-package mod.mitecreation.render;
+package mod.mitecreation.client.render;
 
 import net.minecraft.*;
 import org.lwjgl.opengl.GL11;

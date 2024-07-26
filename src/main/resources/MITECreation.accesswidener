@@ -4,6 +4,7 @@ accessible method net/minecraft/Block setLightValue (F)Lnet/minecraft/Block;
 accessible method net/minecraft/Block setResistance (F)Lnet/minecraft/Block;
 accessible method net/minecraft/Block setTextureName (Ljava/lang/String;)Lnet/minecraft/Block;
 accessible method net/minecraft/Block setStepSound (Lnet/minecraft/StepSound;)Lnet/minecraft/Block;
+accessible method net/minecraft/BlockFalling tryToFall (Lnet/minecraft/World;III)Z
 
 accessible field net/minecraft/ItemVessel vessel_material Lnet/minecraft/Material;
 accessible field net/minecraft/Material durability F
@@ -26,3 +27,11 @@ accessible method net/minecraft/WorldGenDungeons getChestContentsForWorld (Lnet/
 accessible method net/minecraft/EntityMob canDespawn ()Z
 accessible method net/minecraft/EntityLiving tryDespawnEntity ()V
 accessible method net/minecraft/WorldServer tryCreateNewLivingEntityCloseTo (IIIIILjava/lang/Class;Lnet/minecraft/EnumCreatureType;)Lnet/minecraft/EntityLiving;
+accessible method net/minecraft/Damage getResponsibleEntity ()Lnet/minecraft/Entity;
+
+accessible method net/minecraft/EnumParticle get (I)Lnet/minecraft/EnumParticle;
+accessible method net/minecraft/EnumEntityFX get (I)Lnet/minecraft/EnumEntityFX;
+
+accessible field net/minecraft/ContainerWorkbench x I
+accessible field net/minecraft/ContainerWorkbench y I
+accessible field net/minecraft/ContainerWorkbench z I

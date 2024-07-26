@@ -71,4 +71,14 @@ public class EntityDevilBat extends EntityVampireBat {
     public int getMaxSpawnedInChunk() {
         return 4;
     }
+
+    @Override
+    public boolean isHarmedByFire() {
+        return false;
+    }
+
+    @Override
+    public boolean isHarmedByLava() {
+        return false;
+    }
 }

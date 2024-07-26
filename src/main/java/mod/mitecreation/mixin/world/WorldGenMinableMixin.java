@@ -32,7 +32,7 @@ public class WorldGenMinableMixin {
         if (bl && (n3 < 1 || world.isAirOrPassableBlock(n2, n3 - 1, n4, true))) {
             return 0;
         }
-        if(world.getBiomeGenForCoords(n2,n4) == BiomeGenBase.underworld){
+        if(world.getBiomeGenForCoords(n2,n4) == BiomeGenBase.underworld) {
             if(Block.blocksList[this.minableBlockId] instanceof BlockOre && !(Block.blocksList[this.minableBlockId] instanceof BlockGoldOre) && !(Block.blocksList[this.minableBlockId] instanceof BlockRedstoneOre)){
                 switch (random.nextInt(3)){
                     case 0:

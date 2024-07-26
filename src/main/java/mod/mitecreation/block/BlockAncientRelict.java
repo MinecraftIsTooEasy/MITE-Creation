@@ -9,6 +9,7 @@ public class BlockAncientRelict extends Block {
         super(par1, Material.ancient_metal, (new BlockConstants()).setNeverHidesAdjacentFaces().setNotAlwaysLegal());
     }
 
+    @Override
     public int dropBlockAsEntityItem(BlockBreakInfo info) {
         int metadata_dropped = 0;
         int quantity_dropped = 1;

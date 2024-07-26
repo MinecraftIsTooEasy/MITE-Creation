@@ -1,9 +1,7 @@
 package mod.mitecreation;
 
-import mod.mitecreation.event.CreationEvents;
+import mod.mitecreation.client.event.CreationEvents;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.Debug;
-import net.minecraft.Minecraft;
 import net.xiaoyu233.fml.reload.event.MITEEvents;
 
 public class MITECreationMod implements ModInitializer {

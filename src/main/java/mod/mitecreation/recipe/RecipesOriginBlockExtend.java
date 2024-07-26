@@ -1,29 +1,31 @@
 package mod.mitecreation.recipe;
 
 import mod.mitecreation.block.CreationBlock;
+import mod.mitecreation.block.CreationWorkbench;
 import mod.mitecreation.item.CreationItem;
-import net.minecraft.Block;
-import net.minecraft.Item;
-import net.minecraft.ItemStack;
-import net.minecraft.Skill;
+import net.minecraft.*;
 import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
 
 public class RecipesOriginBlockExtend {
 
     public static void registerRecipes(RecipeRegistryEvent register) {
+//        shapedRecipe(register);
+//    }
+//
+//    public static void shapedRecipe(RecipeRegistryEvent register) {
         //Tungsten Recipes
-        register.registerShapedRecipe(new ItemStack(CreationBlock.anvilTungsten),true,
+        register.registerShapedRecipe(new ItemStack(CreationBlock.anvilTungsten), true,
                 "AAA",
                 " I ",
                 "III",
                 'A', CreationBlock.blockTungsten,
                 'I', CreationItem.ingotTungsten);
-        register.registerShapedRecipe(new ItemStack(CreationBlock.blockTungsten),true,
+        register.registerShapedRecipe(new ItemStack(CreationBlock.blockTungsten), true,
                 "XXX",
                 "XXX",
                 "XXX",
                 'X', CreationItem.ingotTungsten);
-        register.registerShapedRecipe(new ItemStack(CreationBlock.fenceTungsten, 16),true,
+        register.registerShapedRecipe(new ItemStack(CreationBlock.fenceTungsten, 16), true,
                 "XXX",
                 "XXX",
                 'X', CreationItem.ingotTungsten);
@@ -103,5 +105,19 @@ public class RecipesOriginBlockExtend {
                 "###",
                 '#', CreationBlock.deepSlate);
 
+        //Work bench
+//        for (int i = 0; i < CreationBlock.creationWorkBench.getNumSubBlocks(); ++i) {
+//            Material tool_material = CreationWorkbench.getToolMaterial(i);
+//            for (int plank_subtype = 0; plank_subtype < 4; ++plank_subtype) {
+//                register.registerShapedRecipe(new ItemStack(CreationBlock.creationWorkBench, 1, i),
+//                        true,
+//                        "IL",
+//                        "s#",
+//                        'I', ItemIngot.getMatchingItem(ItemIngot.class, tool_material),
+//                        'L', Item.leather,
+//                        's', Item.stick,
+//                        '#', new ItemStack(Block.planks, 1, plank_subtype));
+//            }
+//        }
     }
 }

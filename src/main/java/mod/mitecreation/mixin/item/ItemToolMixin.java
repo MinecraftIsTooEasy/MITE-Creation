@@ -1,7 +1,7 @@
 package mod.mitecreation.mixin.item;
 
 import net.minecraft.*;
-import mod.mitecreation.materil.Materials;
+import mod.mitecreation.materil.CreationMaterial;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -19,7 +19,7 @@ public class ItemToolMixin extends Item {
 
     @Unique
     private float creationMaterialHarvestEfficiency() {
-        if (this.effective_material == Materials.tungsten)
+        if (this.effective_material == CreationMaterial.tungsten)
             return 2.25F;
         return 0;
     }

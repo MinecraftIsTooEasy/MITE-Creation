@@ -1,5 +1,6 @@
 package mod.mitecreation.mixin.world.biome;
 
+import mod.mitecreation.entity.EntityDevilBat;
 import mod.mitecreation.entity.EntitySpirit;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,6 +20,7 @@ public class BiomeHellMixin extends BiomeGenBase {
         this.spawnableMonsterList.add(new SpawnListEntry(EntityInfernalCreeper.class, 20, 1, 3));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityDemonSpider.class, 20, 1, 4));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityHellhound.class, 20, 1, 4));
-        this.spawnableMonsterList.add(new SpawnListEntry(EntitySpirit.class, 10, 1, 2));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntitySpirit.class, 5, 1, 2));
+        this.spawnableCaveCreatureList.add(new SpawnListEntry(EntityDevilBat.class, 10, 2, 2));
     }
 }

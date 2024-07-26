@@ -1,6 +1,6 @@
 package mod.mitecreation.mixin.item;
 
-import mod.mitecreation.materil.Materials;
+import mod.mitecreation.materil.CreationMaterial;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
@@ -28,7 +28,7 @@ public abstract class ItemArmorMixin extends Item implements IDamageableItem {
     @Unique
     private int creationArmorProtection() {
         int protection;
-        if (this.effective_material == Materials.tungsten) {
+        if (this.effective_material == CreationMaterial.tungsten) {
             protection = 9;
         } else {
             return 0;

@@ -1,6 +1,7 @@
 package mod.mitecreation.block;
 
-import mod.mitecreation.materil.Materials;
+import mod.mitecreation.item.CreationItem;
+import mod.mitecreation.materil.CreationMaterial;
 import mod.rustedironcore.api.block.DoorBlock;
 import mod.rustedironcore.api.block.PaneBlock;
 import mod.rustedironcore.api.block.StairsBlock;
@@ -8,6 +9,7 @@ import mod.rustedironcore.api.block.WallBlock;
 import net.minecraft.*;
 import net.xiaoyu233.fml.api.block.AnvilBlock;
 import net.xiaoyu233.fml.reload.event.ItemRegistryEvent;
+import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
 import net.xiaoyu233.fml.reload.utils.IdUtil;
 
 import static mod.mitecreation.MITECreationMod.CreationNameSpace;
@@ -35,6 +37,7 @@ public class CreationBlock extends Block {
     public static final BlockDeepSlateBrickSlabGroup deepStaleBrickSingleSlab;
     public static final BlockDeepSlateDoubleSlab deepStaleBrickDoubleSlab;
     public static final BlockAncientRelict ancientRelict;
+    public static final Block creationWorkBench;
 
 
     protected CreationBlock(int par1, Material par2Material, BlockConstants constants) {
@@ -66,6 +69,7 @@ public class CreationBlock extends Block {
         registryEvent.registerItemBlock(CreationNameSpace, "deepslateBrickSlab", deepStaleBrickSingleSlab);
         registryEvent.registerItemBlock(CreationNameSpace, "deepslateBrickSlab", deepStaleBrickDoubleSlab);
         registryEvent.registerItemBlock(CreationNameSpace, "ancient_relict", ancientRelict);
+        registryEvent.registerItemBlock(CreationNameSpace, "work_bench", creationWorkBench);
 
 
 //        registryEvent.registerItemBlock(CreationNameSpace, "deepsltae_slab", cobbledDeepStaleSingleSlab);
@@ -77,19 +81,19 @@ public class CreationBlock extends Block {
 
         anvilRustedIron = new AnvilBlock(IdUtil.getNextBlockID(), Material.rusted_iron);
 
-        oreTungsten = (new BlockOre(IdUtil.getNextBlockID(), Materials.tungsten, 4))
+        oreTungsten = (new BlockOre(IdUtil.getNextBlockID(), CreationMaterial.tungsten, 4))
                 .setHardness(3.25F).setResistance(15.0F);
 
-        blockTungsten = (new BlockOreStorage(IdUtil.getNextBlockID(), Materials.tungsten))
+        blockTungsten = (new BlockOreStorage(IdUtil.getNextBlockID(), CreationMaterial.tungsten))
                 .setStepSound(Block.soundMetalFootstep);
 
-        fenceTungsten = (new PaneBlock(IdUtil.getNextBlockID(), "bars/tungsten_bars", "bars/tungsten_bars", Materials.tungsten, false))
+        fenceTungsten = (new PaneBlock(IdUtil.getNextBlockID(), "bars/tungsten_bars", "bars/tungsten_bars", CreationMaterial.tungsten, false))
                 .setStepSound(Block.soundMetalFootstep).setResistance(24.0F).setHardness(12.8F).setMinHarvestLevel(4);
 
-        doorTungsten = (DoorBlock)(new DoorBlock(IdUtil.getNextBlockID(), Materials.tungsten))
+        doorTungsten = (DoorBlock)(new DoorBlock(IdUtil.getNextBlockID(), CreationMaterial.tungsten))
                 .setStepSound(Block.soundMetalFootstep).setMinHarvestLevel(4);
 
-        anvilTungsten = new AnvilBlock(IdUtil.getNextBlockID(), Materials.tungsten);
+        anvilTungsten = new AnvilBlock(IdUtil.getNextBlockID(), CreationMaterial.tungsten);
 
         deepStaleBrick = (BlockDeepStaleBrick) (new BlockDeepStaleBrick(IdUtil.getNextBlockID()))
                 .setHardness(1.8F).setResistance(15.0F).setStepSound(soundStoneFootstep)
@@ -138,6 +142,8 @@ public class CreationBlock extends Block {
 
         ancientRelict = (BlockAncientRelict) new BlockAncientRelict(IdUtil.getNextBlockID()).setHardness(2.5F).setCreativeTab(CreativeTabs.tabBlock)
                 .setStepSound(soundStoneFootstep).setUnlocalizedName("ancientRelict");
+
+        creationWorkBench = new CreationWorkbench(IdUtil.getNextBlockID());
     }
 
 }

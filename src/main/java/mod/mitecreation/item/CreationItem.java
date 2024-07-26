@@ -1,7 +1,7 @@
 package mod.mitecreation.item;
 
 import mod.mitecreation.block.CreationBlock;
-import mod.mitecreation.materil.Materials;
+import mod.mitecreation.materil.CreationMaterial;
 import mod.mitecreation.util.Util;
 import mod.rustedironcore.api.item.IngotItem;
 import net.minecraft.*;
@@ -21,63 +21,63 @@ public class CreationItem {
     public static final NuggetItem rustedIronNugget = new NuggetItem(IdUtil.getNextItemID(), Material.rusted_iron);
     public static final IngotItem ingotRustedIron = new IngotItem(IdUtil.getNextItemID(), Material.rusted_iron);
 
-    public static ItemFishingRod fishingRodRustedIron = (ItemFishingRod)(new ItemFishingRod(IdUtil.getNextItemID(), Materials.rusted_iron)).setUnlocalizedName("fishingRod");
+    public static CreationItemFishingRod fishingRodRustedIron = (CreationItemFishingRod)(new CreationItemFishingRod(IdUtil.getNextItemID(), CreationMaterial.rusted_iron)).setUnlocalizedName("fishingRod");
 
     public static final ItemRawNugget rawRustedIronNugget = new ItemRawNugget(IdUtil.getNextItemID(), Material.rusted_iron);
     public static final ItemRawNugget rawCopperNugget = new ItemRawNugget(IdUtil.getNextItemID(), Material.copper);
     public static final ItemRawNugget rawSilverNugget = new ItemRawNugget(IdUtil.getNextItemID(), Material.silver);
     public static final ItemRawNugget rawGoldNugget = new ItemRawNugget(IdUtil.getNextItemID(), Material.gold);
     public static final ItemRawNugget rawAncientMetalNugget = new ItemRawNugget(IdUtil.getNextItemID(), Material.ancient_metal);
-    public static final ItemRawNugget rawTungstenNugget = new ItemRawNugget(IdUtil.getNextItemID(), Materials.tungsten);
+    public static final ItemRawNugget rawTungstenNugget = new ItemRawNugget(IdUtil.getNextItemID(), CreationMaterial.tungsten);
     public static final ItemRawNugget rawMithrilNugget = new ItemRawNugget(IdUtil.getNextItemID(), Material.mithril);
     public static final ItemRawNugget rawAdamantiumNugget = new ItemRawNugget(IdUtil.getNextItemID(), Material.adamantium);
 
-    public static final ItemNugget tungstenNugget = createInstance(ItemNugget.class, new Class[]{int.class,Material.class},IdUtil.getNextItemID(),Materials.tungsten);
-    public static final Item ingotTungsten = createInstance(ItemIngot.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(),Materials.tungsten).setXPReward(75);
+    public static final ItemNugget tungstenNugget = createInstance(ItemNugget.class, new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten);
+    public static final Item ingotTungsten = createInstance(ItemIngot.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten).setXPReward(75);
 
-    public static final ItemWarHammer warHammerTungsten = createInstance(ItemWarHammer.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(),Materials.tungsten);
-    public static final ItemBattleAxe battleAxeTungsten = createInstance(ItemBattleAxe.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(),Materials.tungsten);
-    public static final ItemSword swordTungsten = createInstance(ItemSword.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), Materials.tungsten);
-    public static final ItemDagger daggerTungsten = createInstance(ItemDagger.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(),Materials.tungsten);
-    public static final ItemPickaxe pickaxeTungsten = createInstance(ItemPickaxe.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(),Materials.tungsten);
-    public static final ItemShovel shovelTungsten = createInstance(ItemShovel.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(),Materials.tungsten);
-    public static final ItemAxe axeTungsten = createInstance(ItemAxe.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(),Materials.tungsten);
-    public static final ItemHoe hoeTungsten = createInstance(ItemHoe.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(),Materials.tungsten);
-    public static final ItemKnife knifeTungsten = createInstance(ItemKnife.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(),Materials.tungsten);
-    public static final ItemMattock mattockTungsten = createInstance(ItemMattock.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(),Materials.tungsten);
-    public static final ItemScythe scytheTungsten = createInstance(ItemScythe.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(),Materials.tungsten);
-    public static final ItemShears shearsTungsten = createInstance(ItemShears.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(),Materials.tungsten);
-    public static final ItemHatchet hatchetTungsten = createInstance(ItemHatchet.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(),Materials.tungsten);
-    public static ItemFishingRod fishingRodTungsten = (ItemFishingRod)(new ItemFishingRod(IdUtil.getNextItemID(), Materials.tungsten)).setUnlocalizedName("fishingRod");
+    public static final ItemWarHammer warHammerTungsten = createInstance(ItemWarHammer.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten);
+    public static final ItemBattleAxe battleAxeTungsten = createInstance(ItemBattleAxe.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten);
+    public static final ItemSword swordTungsten = createInstance(ItemSword.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten);
+    public static final ItemDagger daggerTungsten = createInstance(ItemDagger.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten);
+    public static final ItemPickaxe pickaxeTungsten = createInstance(ItemPickaxe.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten);
+    public static final ItemShovel shovelTungsten = createInstance(ItemShovel.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten);
+    public static final ItemAxe axeTungsten = createInstance(ItemAxe.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten);
+    public static final ItemHoe hoeTungsten = createInstance(ItemHoe.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten);
+    public static final ItemKnife knifeTungsten = createInstance(ItemKnife.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten);
+    public static final ItemMattock mattockTungsten = createInstance(ItemMattock.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten);
+    public static final ItemScythe scytheTungsten = createInstance(ItemScythe.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten);
+    public static final ItemShears shearsTungsten = createInstance(ItemShears.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten);
+    public static final ItemHatchet hatchetTungsten = createInstance(ItemHatchet.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten);
+    public static CreationItemFishingRod fishingRodTungsten = (CreationItemFishingRod)(new CreationItemFishingRod(IdUtil.getNextItemID(), CreationMaterial.tungsten)).setUnlocalizedName("fishingRod");
 
-    public static final ItemArmor helmetTungsten = new ItemHelmet(IdUtil.getNextItemID(),Materials.tungsten,false);
-    public static final ItemArmor helmetChainTungsten = new ItemHelmet(IdUtil.getNextItemID(),Materials.tungsten,true);
-    public static final ItemArmor plateTungsten = new ItemCuirass(IdUtil.getNextItemID(),Materials.tungsten,false);
-    public static final ItemArmor plateChainTungsten = new ItemCuirass(IdUtil.getNextItemID(),Materials.tungsten,true);
-    public static final ItemArmor legsTungsten = new ItemLeggings(IdUtil.getNextItemID(),Materials.tungsten,false);
-    public static final ItemArmor legsChainTungsten = new ItemLeggings(IdUtil.getNextItemID(),Materials.tungsten,true);
-    public static final ItemArmor bootsTungsten = new ItemBoots(IdUtil.getNextItemID(),Materials.tungsten,false);
-    public static final ItemArmor bootsChainTungsten = new ItemBoots(IdUtil.getNextItemID(),Materials.tungsten,true);
+    public static final ItemArmor helmetTungsten = new ItemHelmet(IdUtil.getNextItemID(), CreationMaterial.tungsten,false);
+    public static final ItemArmor helmetChainTungsten = new ItemHelmet(IdUtil.getNextItemID(), CreationMaterial.tungsten,true);
+    public static final ItemArmor plateTungsten = new ItemCuirass(IdUtil.getNextItemID(), CreationMaterial.tungsten,false);
+    public static final ItemArmor plateChainTungsten = new ItemCuirass(IdUtil.getNextItemID(), CreationMaterial.tungsten,true);
+    public static final ItemArmor legsTungsten = new ItemLeggings(IdUtil.getNextItemID(), CreationMaterial.tungsten,false);
+    public static final ItemArmor legsChainTungsten = new ItemLeggings(IdUtil.getNextItemID(), CreationMaterial.tungsten,true);
+    public static final ItemArmor bootsTungsten = new ItemBoots(IdUtil.getNextItemID(), CreationMaterial.tungsten,false);
+    public static final ItemArmor bootsChainTungsten = new ItemBoots(IdUtil.getNextItemID(), CreationMaterial.tungsten,true);
 
-    public static final Item doorTungsten= new ItemDoor(IdUtil.getNextItemID(), Materials.tungsten);
-    public static final ItemChain chainTungsten = createInstance(ItemChain.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(),Materials.tungsten);
-    public static final ItemCoin coinTungsten = createInstance(ItemCoin.class, new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), Materials.tungsten);
-    public static final ItemArrow arrowTungsten = new ItemArrow(IdUtil.getNextItemID(), Materials.tungsten);
+    public static final Item doorTungsten= new ItemDoor(IdUtil.getNextItemID(), CreationMaterial.tungsten);
+    public static final ItemChain chainTungsten = createInstance(ItemChain.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten);
+    public static final ItemCoin coinTungsten = createInstance(ItemCoin.class, new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), CreationMaterial.tungsten);
+    public static final ItemArrow arrowTungsten = new ItemArrow(IdUtil.getNextItemID(), CreationMaterial.tungsten);
 
-    public static final ItemBucket tungstenBucket = new ItemBucket(IdUtil.getNextItemID(), Materials.tungsten, null);
-    public static final ItemBucket tungstenBucketWater = (ItemBucket)new ItemBucket(IdUtil.getNextItemID(), Materials.tungsten, Material.water).setContainerItem(tungstenBucket);
-    public static final ItemBucket tungstenBucketLava = (ItemBucket)new ItemBucket(IdUtil.getNextItemID(), Materials.tungsten, Material.lava).setContainerItem(tungstenBucket);
-    public static final ItemBucket tungstenBucketStone = (ItemBucket)new ItemBucket(IdUtil.getNextItemID(), Materials.tungsten, Material.stone).setContainerItem(tungstenBucket);
-    public static final ItemBucketMilk tungstenBucketMilk = (ItemBucketMilk) (new ItemBucketMilk(IdUtil.getNextItemID(), Materials.tungsten)).setContainerItem(tungstenBucket);
+    public static final ItemBucket tungstenBucket = new ItemBucket(IdUtil.getNextItemID(), CreationMaterial.tungsten, null);
+    public static final ItemBucket tungstenBucketWater = (ItemBucket)new ItemBucket(IdUtil.getNextItemID(), CreationMaterial.tungsten, Material.water).setContainerItem(tungstenBucket);
+    public static final ItemBucket tungstenBucketLava = (ItemBucket)new ItemBucket(IdUtil.getNextItemID(), CreationMaterial.tungsten, Material.lava).setContainerItem(tungstenBucket);
+    public static final ItemBucket tungstenBucketStone = (ItemBucket)new ItemBucket(IdUtil.getNextItemID(), CreationMaterial.tungsten, Material.stone).setContainerItem(tungstenBucket);
+    public static final ItemBucketMilk tungstenBucketMilk = (ItemBucketMilk) (new ItemBucketMilk(IdUtil.getNextItemID(), CreationMaterial.tungsten)).setContainerItem(tungstenBucket);
 
     public static final Item rustedIronBlock = new ItemBlock(CreationBlock.rustedIronBlock);
 
-    public static final ItemClub clubStone = createInstance(ItemClub.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(),Materials.stone);
-    public static final ItemDagger daggerStone = createInstance(ItemDagger.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(),Materials.stone);
+    public static final ItemClub clubStone = createInstance(ItemClub.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.stone);
+    public static final ItemDagger daggerStone = createInstance(ItemDagger.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.stone);
 
-    public static final ItemBucket woodBucketEmpty = (ItemBucket) new ItemBucket(IdUtil.getNextItemID(), Materials.wood,null);
-    public static final ItemBucket woodBucketWater = (ItemBucket) new ItemBucket(IdUtil.getNextItemID(), Materials.wood,Materials.water).setContainerItem(woodBucketEmpty);
-    public static final ItemBucketMilk woodBucketMilk = (ItemBucketMilk) new ItemBucketMilk(IdUtil.getNextItemID(), Materials.wood).setContainerItem(woodBucketEmpty);
+    public static final ItemBucket woodBucketEmpty = (ItemBucket) new ItemBucket(IdUtil.getNextItemID(), CreationMaterial.wood,null);
+    public static final ItemBucket woodBucketWater = (ItemBucket) new ItemBucket(IdUtil.getNextItemID(), CreationMaterial.wood, CreationMaterial.water).setContainerItem(woodBucketEmpty);
+    public static final ItemBucketMilk woodBucketMilk = (ItemBucketMilk) new ItemBucketMilk(IdUtil.getNextItemID(), CreationMaterial.wood).setContainerItem(woodBucketEmpty);
 
     public static final ItemBucket rustedIronBucketEmpty = new ItemBucket(IdUtil.getNextItemID(), Material.rusted_iron, null);
     public static final ItemBucket rustedIronBucketWater = (ItemBucket) new ItemBucket(IdUtil.getNextItemID(), Material.rusted_iron, Material.water).setContainerItem(rustedIronBucketEmpty);

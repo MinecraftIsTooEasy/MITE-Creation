@@ -1,7 +1,7 @@
 package mod.mitecreation.mixin.item;
 
 import mod.mitecreation.item.CreationItem;
-import mod.mitecreation.materil.Materials;
+import mod.mitecreation.materil.CreationMaterial;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
@@ -38,7 +38,7 @@ public class ItemMixin {
     private static Item repairItemCreation(Material material_for_repairs) {
         if (material_for_repairs == Material.rusted_iron)
             return CreationItem.rustedIronNugget;
-        if (material_for_repairs == Materials.tungsten)
+        if (material_for_repairs == CreationMaterial.tungsten)
             return CreationItem.tungstenNugget;
         return null;
     }

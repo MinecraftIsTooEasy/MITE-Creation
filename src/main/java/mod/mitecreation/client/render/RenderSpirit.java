@@ -1,10 +1,12 @@
-package mod.mitecreation.render;
+package mod.mitecreation.client.render;
 
 import mod.mitecreation.entity.EntitySpirit;
 import net.minecraft.*;
 import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
+
+import static org.lwjgl.opengl.GL11.*;
 
 public class RenderSpirit extends RenderLiving {
 
@@ -15,6 +17,10 @@ public class RenderSpirit extends RenderLiving {
         super(new ModelEnderman(), 0.5F);
         this.endermanModel = (ModelEnderman)super.mainModel;
         this.setRenderPassModel(this.endermanModel);
+    }
+
+    protected boolean forceGlowOverride() {
+        return true;
     }
 
     public void renderSpirit(EntitySpirit par1EntitySpirit, double par2, double par4, double par6, float par8, float par9) {
@@ -37,6 +43,8 @@ public class RenderSpirit extends RenderLiving {
         super.renderEquippedItems(par1EntitySpirit, par2);
         if (par1EntitySpirit.getCarried() > 0) {
             GL11.glEnable(32826);
+//            GL11.glEnable(GL_BLEND);
+//            GL11.glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
             GL11.glPushMatrix();
             float var3 = 0.5F;
             GL11.glTranslatef(0.0F, 0.6875F, -0.75F);
@@ -79,8 +87,11 @@ public class RenderSpirit extends RenderLiving {
     }
 
     protected void setTextures() {
-        this.setTexture(0, "textures/entity/spirit","textures/entity/spirit_glow");
+        this.setTexture(0, "textures/entity/spirit");
     }
 
+    public float getModelOpacity(Entity entity) {
+        return 0.4F;
+    }
 }
 

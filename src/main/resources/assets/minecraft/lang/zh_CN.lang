@@ -86,7 +86,6 @@ tile.chestTungsten.name=钨箱子
 item.tools/emerald/emerald_sword.name=[TEST]绿宝石剑
 item.tools/diamond/diamond_sword.name=[TEST]钻石剑
 
-
 tile.mushroom_luminous.name=微光蘑菇
 tile.sand_gravel.name=粗砾沙石
 
@@ -112,8 +111,9 @@ tile.deepslate_brick_stairs.name=深板岩砖楼梯
 
 tile.monsterStoneEgg.deepslate.name=深板岩怪物蛋
 
-entity.EntitySpirit.name=阴魂
-entity.EntitySpiderQueen.name=蛛后
+entity.Spirit.name=阴魂
+entity.SpiderQueen.name=蛛后
+entity.DevilBat.name=恶魔蝙蝠
 
 containet.strongbox.rusted_iron=锈铁箱子
 container.strongbox.tungsten=钨箱子

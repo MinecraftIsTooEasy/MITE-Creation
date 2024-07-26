@@ -4,15 +4,15 @@
   "version": "0.0.3-BETA",
   "depends": {
     "mite": "~1.6.4",
-    "fishmodloader": ">=3.3.1",
-    "rusted_iron_core": ">=1.1.1"
+    "fishmodloader": ">=3.3.2",
+    "rusted_iron_core": ">=1.1.2"
   },
   "environment": "*",
   "name": "MITE Creation",
   "description": "An extended MITE content mod",
   "authors": [
     "Xy_Lose",
-    "Rusted_Iron_Ingot"
+    "Rusted Iron Ingot"
   ],
   "entrypoints": {
     "preLaunch": [

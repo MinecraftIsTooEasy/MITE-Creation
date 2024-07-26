@@ -1,7 +1,7 @@
 package mod.mitecreation.mixin.item;
 
 import mod.mitecreation.item.CreationItem;
-import mod.mitecreation.materil.Materials;
+import mod.mitecreation.materil.CreationMaterial;
 import net.minecraft.*;
 import net.xiaoyu233.fml.util.ReflectHelper;
 import org.spongepowered.asm.mixin.*;
@@ -19,7 +19,7 @@ public class ItemArrowMixin extends Item {
     private static void injectClinit(CallbackInfo callback) {
         material_types = new Material[]{
                 Material.flint, Material.obsidian, Material.copper, Material.silver, Material.gold, Material.iron,
-                Material.rusted_iron, Material.ancient_metal, Materials.tungsten, Material.mithril, Material.adamantium};
+                Material.rusted_iron, Material.ancient_metal, CreationMaterial.tungsten, Material.mithril, Material.adamantium};
     }
 
     @Inject(method = "getChanceOfRecovery", at = @At("HEAD"), cancellable = true)

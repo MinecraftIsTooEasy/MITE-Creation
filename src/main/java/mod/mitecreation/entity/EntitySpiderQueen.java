@@ -1,6 +1,7 @@
 package mod.mitecreation.entity;
 
 import net.minecraft.*;
+import net.xiaoyu233.fml.FishModLoader;
 
 import java.util.Iterator;
 import java.util.List;
@@ -92,6 +93,13 @@ public class EntitySpiderQueen extends EntityArachnid {
         this.setEntityAttribute(SharedMonsterAttributes.followRange, 40.0);
         this.setEntityAttribute(SharedMonsterAttributes.attackDamage, 12.0);
         this.setEntityAttribute(SharedMonsterAttributes.movementSpeed, 0.92);
+        if (FishModLoader.hasMod("mite_ite")) {
+            int day = this.getWorld() != null ? this.getWorld().getDayOfWorld() : 0;
+            this.setEntityAttribute(SharedMonsterAttributes.followRange, 44.0D);
+            this.setEntityAttribute(SharedMonsterAttributes.movementSpeed, 1.0D);
+            this.setEntityAttribute(SharedMonsterAttributes.attackDamage, 16 + day / 10D);
+            this.setEntityAttribute(SharedMonsterAttributes.maxHealth, 40 + day / 16D);
+        }
     }
 
     public EntityDamageResult attackEntityAsMob(Entity target) {
