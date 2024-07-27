@@ -53,7 +53,7 @@ public class CreationWorkbench  extends BlockWorkbench {
     public static Material getMaterialToCheckToolBenchHardnessAgainst(int metadata) {
         return switch (metadata) {
             case 0 -> Material.rusted_iron;
-            case 1 -> CreationMaterial.tungsten;
+            case 1 -> Material.ancient_metal;
             default -> Material.obsidian;
         };
     }

@@ -11,7 +11,7 @@ import static mod.mitecreation.item.CreationItem.*;
 
 public class FurnaceRecipesExtend {
 
-    public static void furnaceRecipeRegister(RecipeRegistryEvent recipesFurnace) {
+    public static void furnaceRecipeRegister() {
         FurnaceRecipes.smelting().addSmelting(rawCopperNugget.itemID,new ItemStack(Item.copperNugget,1));
         Item.copperNugget.setXPReward(1);
         FurnaceRecipes.smelting().addSmelting(rawSilverNugget.itemID,new ItemStack(Item.silverNugget,1));

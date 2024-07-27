@@ -2,7 +2,7 @@ package mod.mitecreation.block;
 
 import net.minecraft.*;
 
-public class BlockDeepStaleBrick extends Block implements IBlockWithSubtypes{
+public class BlockDeepStaleBrick extends Block implements IBlockWithSubtypes {
     public static final String[] DEEPSTALE_BRICK_TYPES = new String[]{"default", "mossy", "cracked", "chiseled"};
     public static final String[] DEEPSTALE_BRICK_TEXTURE_TYPES = new String[]{null, "mossy", "cracked", "carved"};
     public static Icon[] DEEPSTALE_BRICK_ICONS;

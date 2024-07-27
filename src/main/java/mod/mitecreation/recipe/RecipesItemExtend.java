@@ -1,10 +1,7 @@
 package mod.mitecreation.recipe;
 
-import mod.mitecreation.block.CreationBlock;
-import mod.mitecreation.block.CreationWorkbench;
 import mod.mitecreation.item.CreationItem;
 import mod.mitecreation.materil.CreationMaterial;
-import mod.rustedironcore.api.item.IngotItem;
 import net.minecraft.*;
 import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
 
@@ -13,7 +10,7 @@ import static mod.mitecreation.block.CreationBlock.rustedIronBlock;
 import static mod.mitecreation.item.CreationItem.*;
 import static net.minecraft.Item.getMatchingItem;
 
-public class RecipesOriginItemExtend {
+public class RecipesItemExtend {
 
     public static void registerBasicToolRecipes(RecipeRegistryEvent register, Material material) {
         Item item = getMatchingItem(ItemIngot.class, material);

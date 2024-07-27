@@ -23,9 +23,8 @@ public class CreationEvents {
 
     @Subscribe
     public void onRecipeRegister(RecipeRegistryEvent event) {
-        RecipesOriginItemExtend.registerRecipes(event);
-        RecipesOriginBlockExtend.registerRecipes(event);
-        FurnaceRecipesExtend.furnaceRecipeRegister(event);
+        RecipesMITECreation.registerRecipes(event);
+        FurnaceRecipesExtend.furnaceRecipeRegister();
     }
 
     @Subscribe
