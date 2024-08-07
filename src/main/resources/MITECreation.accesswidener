@@ -35,3 +35,49 @@ accessible method net/minecraft/EnumEntityFX get (I)Lnet/minecraft/EnumEntityFX;
 accessible field net/minecraft/ContainerWorkbench x I
 accessible field net/minecraft/ContainerWorkbench y I
 accessible field net/minecraft/ContainerWorkbench z I
+
+accessible field net/minecraft/BiomeDecorator flowersPerChunk I
+accessible field net/minecraft/BiomeDecorator grassPerChunk I
+accessible field net/minecraft/BiomeDecorator treesPerChunk I
+accessible method net/minecraft/BiomeGenBase setTemperatureRainfall (FF)Lnet/minecraft/BiomeGenBase;
+accessible method net/minecraft/BiomeGenBase setDisableRain ()Lnet/minecraft/BiomeGenBase;
+accessible method net/minecraft/BiomeGenBase setMinMaxHeight (FF)Lnet/minecraft/BiomeGenBase;
+accessible field net/minecraft/BlockFurnace isActive Z
+accessible method net/minecraft/Item <init> (ILnet/minecraft/Material;Ljava/lang/String;)V
+accessible method net/minecraft/ItemIngot <init> (ILnet/minecraft/Material;)V
+accessible method net/minecraft/CraftingManager addShapelessRecipe (Lnet/minecraft/ItemStack;[Ljava/lang/Object;)Lnet/minecraft/ShapelessRecipes;
+accessible field net/minecraft/I18n i18nLocale Lnet/minecraft/Locale;
+
+accessible method net/minecraft/Container addSlotToContainer (Lnet/minecraft/Slot;)Lnet/minecraft/Slot;
+
+accessible method net/minecraft/DamageSource setFireAspect (Z)Lnet/minecraft/DamageSource;
+
+accessible method net/minecraft/EnumInsulinResistanceLevel getColor ()Lnet/minecraft/EnumChatFormatting;
+accessible field net/minecraft/EntityDamageResult entity_was_destroyed Z
+accessible method net/minecraft/EntityLivingBase tryDamageArmor (Lnet/minecraft/DamageSource;FLnet/minecraft/EntityDamageResult;)V
+accessible field net/minecraft/Entity rand Ljava/util/Random;
+accessible field net/minecraft/EntitySkeleton frenzied_by_bone_lord_countdown I
+
+accessible method net/minecraft/GuiContainer drawCreativeTabHoveringText (Ljava/lang/String;II)V
+
+accessible method net/minecraft/ItemStack isItemStackEqual (Lnet/minecraft/ItemStack;ZZZZ)Z
+
+accessible method net/minecraft/Potion setIconIndex (II)Lnet/minecraft/Potion;
+
+accessible method net/minecraft/Material setCanDouseFire ()Lnet/minecraft/Material;
+
+accessible method net/minecraft/World chunkExistsAndIsNotEmptyFromBlockCoords (II)Z
+
+accessible field net/minecraft/WeightedRandomChestContent min_quantity I
+accessible field net/minecraft/WeightedRandomChestContent max_quantity I
+accessible field net/minecraft/WeightedRandomChestContent theItemId Lnet/minecraft/ItemStack;
+
+extendable class net/minecraft/BlockDoor
+accessible class net/minecraft/ContainerRepairINNER2
+accessible class net/minecraft/ComponentNetherBridgePiece
+accessible class net/minecraft/GuiBeaconButtonPower
+
+accessible method net/minecraft/EnumDirection isNorth ()Z
+accessible method net/minecraft/EnumDirection isSouth ()Z
+accessible method net/minecraft/EnumDirection isWest ()Z
+accessible method net/minecraft/EnumDirection isEast ()Z

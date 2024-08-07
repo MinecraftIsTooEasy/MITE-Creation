@@ -1,13 +1,9 @@
 package mod.mitecreation.client.event;
 
 import com.google.common.eventbus.Subscribe;
-import mod.mitecreation.MITECreationMod;
 import mod.mitecreation.block.CreationBlock;
-import mod.mitecreation.entity.*;
-import mod.mitecreation.client.event.command.*;
+import mod.mitecreation.tileentity.ReforgeTileEntity;
 import mod.mitecreation.item.CreationItem;
-import mod.mitecreation.recipe.*;
-import mod.mitecreation.client.render.*;
 import mod.mitecreation.util.Util;
 import net.minecraft.*;
 import net.xiaoyu233.fml.reload.event.*;
@@ -55,6 +51,10 @@ public class CreationEvents {
         event.register("sound/imported/mob/spirit/scream.ogg");
         event.register("sound/imported/mob/spirit/stare.ogg");
     }
+
+    @Subscribe
+    public void onTileEntityRegister(TileEntityRegisterEvent event) {
+        event.register(ReforgeTileEntity.class, "Reforge");
 
     @Subscribe
     public void onPlayerLoggedIn(PlayerLoggedInEvent event) {

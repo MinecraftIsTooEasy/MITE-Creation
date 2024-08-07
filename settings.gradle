@@ -1,11 +1,14 @@
 pluginManagement {
 	repositories {
-		mavenLocal()
 		maven {
-			name = 'Fabric'
-			url = 'https://maven.fabricmc.net/'
+			name = "Fabric"
+			url = "https://maven.fabricmc.net/"
 		}
+		mavenLocal()
 		mavenCentral()
 		gradlePluginPortal()
+	}
+	plugins {
+		id "org.jetbrains.kotlin.jvm" version kotlin_version
 	}
 }

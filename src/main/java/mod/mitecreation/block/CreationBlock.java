@@ -1,5 +1,11 @@
 package mod.mitecreation.block;
 
+import mod.mitecreation.block.ore.normal.*;
+import mod.mitecreation.block.ore.poor.*;
+import mod.mitecreation.block.ore.poor.deepslate.*;
+import mod.mitecreation.block.ore.rich.*;
+import mod.mitecreation.block.ore.rich.BlockIronRichOre;
+import mod.mitecreation.block.ore.rich.deepslate.*;
 import mod.mitecreation.materil.CreationMaterial;
 import mod.rustedironcore.api.block.DoorBlock;
 import mod.rustedironcore.api.block.PaneBlock;
@@ -36,17 +42,58 @@ public class CreationBlock extends Block {
     public static final BlockDeepSlateDoubleSlab deepStaleBrickDoubleSlab;
     public static final BlockAncientRelict ancientRelict;
     public static final Block creationWorkBench;
-    public static final Block oreIronPoor;
-    public static final Block oreCoalPoor;
-    public static final Block oreLapisPoor;
-    public static final Block oreDiamondPoor;
-    public static final Block oreEmeraldPoor;
-    public static final Block oreNetherQuartzPoor;
-    public static final Block oreCopperPoor;
-    public static final Block oreSilverPoor;
-    public static final Block oreMithrilPoor;
-    public static final Block oreAdamantiumPoor;
-    public static final Block oreTungstenPoor;
+//    public static final Block oreIronPoor;
+//    public static final Block oreCoalPoor;
+//    public static final Block oreLapisPoor;
+//    public static final Block oreDiamondPoor;
+//    public static final Block oreEmeraldPoor;
+//    public static final Block oreNetherQuartzPoor;
+//    public static final Block oreCopperPoor;
+//    public static final Block oreSilverPoor;
+//    public static final Block oreMithrilPoor;
+//    public static final Block oreAdamantiumPoor;
+//    public static final Block oreTungstenPoor;
+//    public static final Block oreIronPoorDeepslate;
+//    public static final Block oreCoalPoorDeepslate;
+//    public static final Block oreLapisPoorDeepslate;
+//    public static final Block oreDiamondPoorDeepslate;
+//    public static final Block oreEmeraldPoorDeepslate;
+//    public static final Block oreCopperPoorDeepslate;
+//    public static final Block oreSilverPoorDeepslate;
+//    public static final Block oreMithrilPoorDeepslate;
+//    public static final Block oreAdamantiumPoorDeepslate;
+//    public static final Block oreTungstenPoorDeepslate;
+//    public static final Block oreIronRich;
+//    public static final Block oreCoalRich;
+//    public static final Block oreLapisRich;
+//    public static final Block oreDiamondRich;
+//    public static final Block oreEmeraldRich;
+//    public static final Block oreNetherQuartzRich;
+//    public static final Block oreCopperRich;
+//    public static final Block oreSilverRich;
+//    public static final Block oreMithrilRich;
+//    public static final Block oreAdamantiumRich;
+//    public static final Block oreTungstenRich;
+//    public static final Block oreIronRichDeepslate;
+//    public static final Block oreCoalRichDeepslate;
+//    public static final Block oreLapisRichDeepslate;
+//    public static final Block oreDiamondRichDeepslate;
+//    public static final Block oreEmeraldRichDeepslate;
+//    public static final Block oreCopperRichDeepslate;
+//    public static final Block oreSilverRichDeepslate;
+//    public static final Block oreMithrilRichDeepslate;
+//    public static final Block oreAdamantiumRichDeepslate;
+//    public static final Block oreTungstenRichDeepslate;
+    public static final Block oreIronDeepslate;
+    public static final Block oreCoalDeepslate;
+    public static final Block oreLapisDeepslate;
+    public static final Block oreDiamondDeepslate;
+    public static final Block oreEmeraldDeepslate;
+    public static final Block oreCopperDeepslate;
+    public static final Block oreSilverDeepslate;
+    public static final Block oreMithrilDeepslate;
+    public static final Block oreAdamantiumDeepslate;
+    public static final Block oreTungstenDeepslate;
 
     protected CreationBlock(int par1, Material par2Material, BlockConstants constants) {
         super(par1, par2Material, constants);
@@ -58,7 +105,7 @@ public class CreationBlock extends Block {
         anvilRustedIron.stepSound = Block.soundAnvilFootstep;
         registryEvent.registerAnvil(CreationNameSpace, "tungsten_anvil", anvilTungsten);
         anvilTungsten.stepSound = Block.soundAnvilFootstep;
-        registryEvent.registerItemBlock(CreationNameSpace, "tungsten_ore", oreTungsten);
+        registryEvent.registerItemBlock(CreationNameSpace, "ore/tungsten_ore", oreTungsten);
         registryEvent.registerItemBlock(CreationNameSpace, "block/tungsten_block", blockTungsten);
         registryEvent.registerItemBlock(CreationNameSpace, "bars/tungsten_bars", fenceTungsten);
         registryEvent.registerItemBlock(CreationNameSpace, "door/door_tungsten", doorTungsten);
@@ -78,20 +125,58 @@ public class CreationBlock extends Block {
         registryEvent.registerItemBlock(CreationNameSpace, "deepslateBrickSlab", deepStaleBrickDoubleSlab);
         registryEvent.registerItemBlock(CreationNameSpace, "ancient_relict", ancientRelict);
         registryEvent.registerItemBlock(CreationNameSpace, "work_bench", creationWorkBench);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/iron_ore_poor", oreIronPoor);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/coal_ore_poor", oreCoalPoor);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/lapis_ore_poor", oreLapisPoor);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/diamond_ore_poor", oreDiamondPoor);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/emerald_ore_poor", oreEmeraldPoor);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/quartz_ore_poor", oreNetherQuartzPoor);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/copper_ore_poor", oreCopperPoor);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/silver_ore_poor", oreSilverPoor);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/mithril_ore_poor", oreMithrilPoor);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/adamantium_ore_poor", oreAdamantiumPoor);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/tungsten_ore_poor", oreTungstenPoor);
-
-//        registryEvent.registerItemBlock(CreationNameSpace, "deepsltae_slab", cobbledDeepStaleSingleSlab);
-//        registryEvent.registerItemBlock(CreationNameSpace, "deepsltae_slab", cobbledDeepStaleDoubleSlab);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/iron_ore_poor", oreIronPoor);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/coal_ore_poor", oreCoalPoor);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/lapis_ore_poor", oreLapisPoor);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/diamond_ore_poor", oreDiamondPoor);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/emerald_ore_poor", oreEmeraldPoor);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/quartz_ore_poor", oreNetherQuartzPoor);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/copper_ore_poor", oreCopperPoor);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/silver_ore_poor", oreSilverPoor);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/mithril_ore_poor", oreMithrilPoor);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/adamantium_ore_poor", oreAdamantiumPoor);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/tungsten_ore_poor", oreTungstenPoor);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/iron_ore_poor", oreIronPoorDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/coal_ore_poor", oreCoalPoorDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/lapis_ore_poor", oreLapisPoorDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/diamond_ore_poor", oreDiamondPoorDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/emerald_ore_poor", oreEmeraldPoorDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/copper_ore_poor", oreCopperPoorDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/silver_ore_poor", oreSilverPoorDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/mithril_ore_poor", oreMithrilPoorDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/adamantium_ore_poor", oreAdamantiumPoorDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/tungsten_ore_poor", oreTungstenPoorDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/iron_ore_rich", oreIronRich);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/coal_ore_rich", oreCoalRich);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/lapis_ore_rich", oreLapisRich);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/diamond_ore_rich", oreDiamondRich);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/emerald_ore_rich", oreEmeraldRich);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/quartz_ore_rich", oreNetherQuartzRich);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/copper_ore_rich", oreCopperRich);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/silver_ore_rich", oreSilverRich);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/mithril_ore_rich", oreMithrilRich);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/adamantium_ore_rich", oreAdamantiumRich);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/tungsten_ore_rich", oreTungstenRich);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/iron_ore_rich", oreIronRichDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/coal_ore_rich", oreCoalRichDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/lapis_ore_rich", oreLapisRichDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/diamond_ore_rich", oreDiamondRichDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/emerald_ore_rich", oreEmeraldRichDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/copper_ore_rich", oreCopperRichDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/silver_ore_rich", oreSilverRichDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/mithril_ore_rich", oreMithrilRichDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/adamantium_ore_rich", oreAdamantiumRichDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/tungsten_ore_rich", oreTungstenRichDeepslate);
+        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/iron_ore_normal", oreIronDeepslate);
+        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/coal_ore_normal", oreCoalDeepslate);
+        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/lapis_ore_normal", oreLapisDeepslate);
+        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/diamond_ore_normal", oreDiamondDeepslate);
+        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/emerald_ore_normal", oreEmeraldDeepslate);
+        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/copper_ore_normal", oreCopperDeepslate);
+        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/silver_ore_normal", oreSilverDeepslate);
+        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/mithril_ore_normal", oreMithrilDeepslate);
+        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/adamantium_ore_normal", oreAdamantiumDeepslate);
+        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/tungsten_ore_normal", oreTungstenDeepslate);
     }
 
     static {
@@ -108,7 +193,7 @@ public class CreationBlock extends Block {
         fenceTungsten = (new PaneBlock(IdUtil.getNextBlockID(), "bars/tungsten_bars", "bars/tungsten_bars", CreationMaterial.tungsten, false))
                 .setStepSound(Block.soundMetalFootstep).setResistance(24.0F).setHardness(12.8F).setMinHarvestLevel(4);
 
-        doorTungsten = (DoorBlock)(new DoorBlock(IdUtil.getNextBlockID(), CreationMaterial.tungsten))
+        doorTungsten = (new DoorBlock(IdUtil.getNextBlockID(), CreationMaterial.tungsten))
                 .setStepSound(Block.soundMetalFootstep).setMinHarvestLevel(4);
 
         anvilTungsten = new AnvilBlock(IdUtil.getNextBlockID(), CreationMaterial.tungsten);
@@ -163,38 +248,160 @@ public class CreationBlock extends Block {
 
         creationWorkBench = new CreationWorkbench(IdUtil.getNextBlockID());
 
-        oreIronPoor = (new BlockPoorOre(IdUtil.getNextBlockID(), Material.iron, 2)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+//        oreIronPoor = (new BlockIronPoorOre(IdUtil.getNextBlockID(), Material.iron, 2)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreIron").setTextureName("iron_ore");
+//
+//        oreCoalPoor = (new BlockCoalPoorOre(IdUtil.getNextBlockID(), Material.coal, 2)).setHardness(1.2F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreCoal").setTextureName("coal_ore");
+//
+//        oreLapisPoor = (new BlockLapisPoorOre(IdUtil.getNextBlockID(), Material.lapis_lazuli, 2)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreLapisPoor").setTextureName("lapis_ore");
+//
+//        oreDiamondPoor = (new BlockDiamondPoorOre(IdUtil.getNextBlockID(), Material.diamond, 4)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreDiamond").setTextureName("diamond_ore");
+//
+//        oreEmeraldPoor = (new BlockEmeraldPoorOre(IdUtil.getNextBlockID(), Material.emerald, 3)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreEmerald").setTextureName("emerald_ore");
+//
+//        oreNetherQuartzPoor = (new BlockNetherQuartzPoorOre(IdUtil.getNextBlockID(), Material.quartz, 2)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("netherquartz").setTextureName("quartz_ore");
+//
+//        oreCopperPoor = (new BlockCopperPoorOre(IdUtil.getNextBlockID(), Material.copper, 2)).setHardness(2.5F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreCopper").setTextureName("copper_ore");
+//
+//        oreSilverPoor = (new BlockSilverPoorOre(IdUtil.getNextBlockID(), Material.silver, 2)).setHardness(2.5F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreSilver").setTextureName("silver_ore");
+//
+//        oreMithrilPoor = (new BlockMithrilPoorOre(IdUtil.getNextBlockID(), Material.mithril, 3)).setHardness(3.5F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreMithril").setTextureName("mithril_ore");
+//
+//        oreAdamantiumPoor = (new BlockAdamantiumPoorOre(IdUtil.getNextBlockID(), Material.adamantium, 4)).setHardness(4.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreAdamantium").setTextureName("adamantium_ore");
+//
+//        oreTungstenPoor = (new BlockTungstenPoorOre(IdUtil.getNextBlockID(), CreationMaterial.tungsten, 4)).setHardness(3.25F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreTungsten").setTextureName("tungsten_ore");
+//
+//        oreIronPoorDeepslate = (new BlockIronPoorOreDeepslate(IdUtil.getNextBlockID(), Material.iron, 2)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreIron").setTextureName("iron_ore");
+//
+//        oreCoalPoorDeepslate = (new BlockCoalPoorOreDeepslate(IdUtil.getNextBlockID(), Material.coal, 2)).setHardness(1.2F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreCoal").setTextureName("coal_ore");
+//
+//        oreLapisPoorDeepslate = (new BlockLapisPoorOreDeepslate(IdUtil.getNextBlockID(), Material.lapis_lazuli, 2)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreLapisPoor").setTextureName("lapis_ore");
+//
+//        oreDiamondPoorDeepslate = (new BlockDiamondPoorOreDeepslate(IdUtil.getNextBlockID(), Material.diamond, 4)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreDiamond").setTextureName("diamond_ore");
+//
+//        oreEmeraldPoorDeepslate = (new BlockEmeraldPoorOreDeepslate(IdUtil.getNextBlockID(), Material.emerald, 3)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreEmerald").setTextureName("emerald_ore");
+//
+//        oreCopperPoorDeepslate = (new BlockCopperPoorOreDeepslate(IdUtil.getNextBlockID(), Material.copper, 2)).setHardness(2.5F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreCopper").setTextureName("copper_ore");
+//
+//        oreSilverPoorDeepslate = (new BlockSilverPoorOreDeepslate(IdUtil.getNextBlockID(), Material.silver, 2)).setHardness(2.5F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreSilver").setTextureName("silver_ore");
+//
+//        oreMithrilPoorDeepslate = (new BlockMithrilPoorOreDeepslate(IdUtil.getNextBlockID(), Material.mithril, 3)).setHardness(3.5F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreMithril").setTextureName("mithril_ore");
+//
+//        oreAdamantiumPoorDeepslate = (new BlockAdamantiumPoorOreDeepslate(IdUtil.getNextBlockID(), Material.adamantium, 4)).setHardness(4.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreAdamantium").setTextureName("adamantium_ore");
+//
+//        oreTungstenPoorDeepslate = (new BlockTungstenPoorOreDeepslate(IdUtil.getNextBlockID(), CreationMaterial.tungsten, 4)).setHardness(3.25F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreTungsten").setTextureName("tungsten_ore");
+//
+//        oreIronRich = (new BlockIronRichOre(IdUtil.getNextBlockID(), Material.iron, 2)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreIron").setTextureName("iron_ore");
+//
+//        oreCoalRich = (new BlockCoalRichOre(IdUtil.getNextBlockID(), Material.coal, 2)).setHardness(1.2F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreCoal").setTextureName("coal_ore");
+//
+//        oreLapisRich = (new BlockLapisRichOre(IdUtil.getNextBlockID(), Material.lapis_lazuli, 2)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreLapis").setTextureName("lapis_ore");
+//
+//        oreDiamondRich = (new BlockDiamondRichOre(IdUtil.getNextBlockID(), Material.diamond, 4)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreDiamond").setTextureName("diamond_ore");
+//
+//        oreEmeraldRich = (new BlockEmeraldRichOre(IdUtil.getNextBlockID(), Material.emerald, 3)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreEmerald").setTextureName("emerald_ore");
+//
+//        oreNetherQuartzRich = (new BlockNetherQuartzRichOre(IdUtil.getNextBlockID(), Material.quartz, 2)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("netherquartz").setTextureName("quartz_ore");
+//
+//        oreCopperRich = (new BlockCopperRichOre(IdUtil.getNextBlockID(), Material.copper, 2)).setHardness(2.5F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreCopper").setTextureName("copper_ore");
+//
+//        oreSilverRich = (new BlockSilverRichOre(IdUtil.getNextBlockID(), Material.silver, 2)).setHardness(2.5F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreSilver").setTextureName("silver_ore");
+//
+//        oreMithrilRich = (new BlockMithrilRichOre(IdUtil.getNextBlockID(), Material.mithril, 3)).setHardness(3.5F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreMithril").setTextureName("mithril_ore");
+//
+//        oreAdamantiumRich = (new BlockAdamantiumRichOre(IdUtil.getNextBlockID(), Material.adamantium, 4)).setHardness(4.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreAdamantium").setTextureName("adamantium_ore");
+//
+//        oreTungstenRich = (new BlockTungstenRichOre(IdUtil.getNextBlockID(), CreationMaterial.tungsten, 4)).setHardness(3.25F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreTungsten").setTextureName("tungsten_ore");
+//
+//        oreIronRichDeepslate = (new BlockIronRichOreDeepslate(IdUtil.getNextBlockID(), Material.iron, 2)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreIron").setTextureName("iron_ore");
+//
+//        oreCoalRichDeepslate = (new BlockCoalRichOreDeepslate(IdUtil.getNextBlockID(), Material.coal, 2)).setHardness(1.2F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreCoal").setTextureName("coal_ore");
+//
+//        oreLapisRichDeepslate = (new BlockLapisRichOreDeepslate(IdUtil.getNextBlockID(), Material.lapis_lazuli, 2)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreLapis").setTextureName("lapis_ore");
+//
+//        oreDiamondRichDeepslate = (new BlockDiamondRichOreDeepslate(IdUtil.getNextBlockID(), Material.diamond, 4)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreDiamond").setTextureName("diamond_ore");
+//
+//        oreEmeraldRichDeepslate = (new BlockEmeraldRichOreDeepslate(IdUtil.getNextBlockID(), Material.emerald, 3)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreEmerald").setTextureName("emerald_ore");
+//
+//        oreCopperRichDeepslate = (new BlockCopperRichOreDeepslate(IdUtil.getNextBlockID(), Material.copper, 2)).setHardness(2.5F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreCopper").setTextureName("copper_ore");
+//
+//        oreSilverRichDeepslate = (new BlockSilverRichOreDeepslate(IdUtil.getNextBlockID(), Material.silver, 2)).setHardness(2.5F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreSilver").setTextureName("silver_ore");
+//
+//        oreMithrilRichDeepslate = (new BlockMithrilRichOreDeepslate(IdUtil.getNextBlockID(), Material.mithril, 3)).setHardness(3.5F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreMithril").setTextureName("mithril_ore");
+//
+//        oreAdamantiumRichDeepslate = (new BlockAdamantiumRichOreDeepslate(IdUtil.getNextBlockID(), Material.adamantium, 4)).setHardness(4.0F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreAdamantium").setTextureName("adamantium_ore");
+//
+//        oreTungstenRichDeepslate = (new BlockTungstenRichOreDeepslate(IdUtil.getNextBlockID(), CreationMaterial.tungsten, 4)).setHardness(3.25F).setStepSound(soundStoneFootstep)
+//                .setUnlocalizedName("oreTungsten").setTextureName("tungsten_ore");
+//
+        oreIronDeepslate = (new BlockIronOreDeepslate(IdUtil.getNextBlockID(), Material.iron, 2)).setHardness(3.0F).setStepSound(soundStoneFootstep)
                 .setUnlocalizedName("oreIron").setTextureName("iron_ore");
 
-        oreCoalPoor = (new BlockPoorOre(IdUtil.getNextBlockID(), Material.coal, 2)).setHardness(1.2F).setStepSound(soundStoneFootstep)
+        oreCoalDeepslate = (new BlockCoalOreDeepslate(IdUtil.getNextBlockID(), Material.coal, 2)).setHardness(1.2F).setStepSound(soundStoneFootstep)
                 .setUnlocalizedName("oreCoal").setTextureName("coal_ore");
 
-        oreLapisPoor = (new BlockPoorOre(IdUtil.getNextBlockID(), Material.lapis_lazuli, 2)).setHardness(3.0F).setStepSound(soundStoneFootstep)
-                .setUnlocalizedName("oreLapisPoor").setTextureName("lapis_ore");
+        oreLapisDeepslate = (new BlockLapisOreDeepslate(IdUtil.getNextBlockID(), Material.lapis_lazuli, 2)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+                .setUnlocalizedName("oreLapis").setTextureName("lapis_ore");
 
-        oreDiamondPoor = (new BlockPoorOre(IdUtil.getNextBlockID(), Material.diamond, 4)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+        oreDiamondDeepslate = (new BlockDiamondOreDeepslate(IdUtil.getNextBlockID(), Material.diamond, 4)).setHardness(3.0F).setStepSound(soundStoneFootstep)
                 .setUnlocalizedName("oreDiamond").setTextureName("diamond_ore");
 
-        oreEmeraldPoor = (new BlockPoorOre(IdUtil.getNextBlockID(), Material.emerald, 3)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+        oreEmeraldDeepslate = (new BlockEmeraldOreDeepslate(IdUtil.getNextBlockID(), Material.emerald, 3)).setHardness(3.0F).setStepSound(soundStoneFootstep)
                 .setUnlocalizedName("oreEmerald").setTextureName("emerald_ore");
 
-        oreNetherQuartzPoor = (new BlockPoorOre(IdUtil.getNextBlockID(), Material.quartz, 2)).setHardness(3.0F).setStepSound(soundStoneFootstep)
-                .setUnlocalizedName("netherquartz").setTextureName("quartz_ore");
-
-        oreCopperPoor = (new BlockPoorOre(IdUtil.getNextBlockID(), Material.copper, 2)).setHardness(2.5F).setStepSound(soundStoneFootstep)
+        oreCopperDeepslate = (new BlockCopperOreDeepslate(IdUtil.getNextBlockID(), Material.copper, 2)).setHardness(2.5F).setStepSound(soundStoneFootstep)
                 .setUnlocalizedName("oreCopper").setTextureName("copper_ore");
 
-        oreSilverPoor = (new BlockPoorOre(IdUtil.getNextBlockID(), Material.silver, 2)).setHardness(2.5F).setStepSound(soundStoneFootstep)
+        oreSilverDeepslate = (new BlockSilverOreDeepslate(IdUtil.getNextBlockID(), Material.silver, 2)).setHardness(2.5F).setStepSound(soundStoneFootstep)
                 .setUnlocalizedName("oreSilver").setTextureName("silver_ore");
 
-        oreMithrilPoor = (new BlockPoorOre(IdUtil.getNextBlockID(), Material.mithril, 3)).setHardness(3.5F).setStepSound(soundStoneFootstep)
+        oreMithrilDeepslate = (new BlockMithrilOreDeepslate(IdUtil.getNextBlockID(), Material.mithril, 3)).setHardness(3.5F).setStepSound(soundStoneFootstep)
                 .setUnlocalizedName("oreMithril").setTextureName("mithril_ore");
 
-        oreAdamantiumPoor = (new BlockPoorOre(IdUtil.getNextBlockID(), Material.adamantium, 4)).setHardness(4.0F).setStepSound(soundStoneFootstep)
+        oreAdamantiumDeepslate = (new BlockAdamantiumOreDeepslate(IdUtil.getNextBlockID(), Material.adamantium, 4)).setHardness(4.0F).setStepSound(soundStoneFootstep)
                 .setUnlocalizedName("oreAdamantium").setTextureName("adamantium_ore");
 
-        oreTungstenPoor = (new BlockPoorOre(IdUtil.getNextBlockID(), CreationMaterial.tungsten, 4)).setHardness(3.0F).setStepSound(soundStoneFootstep)
+        oreTungstenDeepslate = (new BlockTungstenOreDeepslate(IdUtil.getNextBlockID(), CreationMaterial.tungsten, 4)).setHardness(3.25F).setStepSound(soundStoneFootstep)
                 .setUnlocalizedName("oreTungsten").setTextureName("tungsten_ore");
-
     }
 }

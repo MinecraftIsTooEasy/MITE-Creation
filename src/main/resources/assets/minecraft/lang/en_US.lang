@@ -121,3 +121,11 @@ container.strongbox.tungsten=Tungsten Strongbox
 material.stone.name=Stone
 material.rustedIron.name=Rusted Iron
 material.tungsten.name=Tungsten
+
+item.gold_pan_empty.name=Goldpan
+item.gold_pan_sand.name=Goldpan with sand
+item.gold_pan_gravel.name=Goldpan with gravel
+item.gold_pan_clay.name=Goldpan with clay
+item.gold_pan_dirt.name=Goldpan with dirt
+item.bake_clay.name=Bake clay
+item.clay_brick.name=Clay brick
