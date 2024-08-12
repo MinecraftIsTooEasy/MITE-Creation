@@ -1,7 +1,6 @@
 package mod.mitecreation.mixins.block;
 
 import mod.mitecreation.item.CreationItem;
-import huix.faustpotion.game_objects.material.FPMaterialsKt;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -66,11 +65,4 @@ public abstract class BlockGravelMixin extends BlockFalling {
 
     @Shadow
     public abstract boolean isNetherGravel(int metadata);
-
-    @ModifyArg(method = "<init>", at = @At(value = "INVOKE",
-            target = "Lnet/minecraft/BlockFalling;<init>(ILnet/minecraft/Material;Lnet/minecraft/BlockConstants;)V")
-            , index = 1)
-    private static Material changeItsMaterial(Material material) {
-        return FPMaterialsKt.Companion.getGravel();
-    }
 }

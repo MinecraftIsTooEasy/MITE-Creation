@@ -44,7 +44,7 @@ public class BlockDeepSlateBrickSlabGroup  extends BlockSlab {
         if (model_blocks == null) {
             model_blocks = new Block[] {CreationBlock.deepStaleBrick};
         }
-        return model_blocks[this.getBlockSubtype(metadata)];
+        return CreationBlock.deepStaleBrick;
     }
 
     @Override

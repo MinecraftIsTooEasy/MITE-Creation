@@ -1,8 +1,17 @@
 package mod.mitecreation.client.event;
 
 import com.google.common.eventbus.Subscribe;
+import mod.mitecreation.MITECreationMod;
 import mod.mitecreation.block.CreationBlock;
-import mod.mitecreation.tileentity.ReforgeTileEntity;
+import mod.mitecreation.client.event.command.CommandProtection;
+import mod.mitecreation.client.render.RenderDevilBat;
+import mod.mitecreation.client.render.RenderSpiderQueen;
+import mod.mitecreation.client.render.RenderSpirit;
+import mod.mitecreation.entity.EntityDevilBat;
+import mod.mitecreation.entity.EntitySpiderQueen;
+import mod.mitecreation.entity.EntitySpirit;
+import mod.mitecreation.recipe.FurnaceRecipesExtend;
+import mod.mitecreation.recipe.RecipesMITECreation;
 import mod.mitecreation.item.CreationItem;
 import mod.mitecreation.util.Util;
 import net.minecraft.*;
@@ -19,8 +28,8 @@ public class CreationEvents {
 
     @Subscribe
     public void onRecipeRegister(RecipeRegistryEvent event) {
-        RecipesMITECreation.registerRecipes(event);
         FurnaceRecipesExtend.furnaceRecipeRegister();
+        RecipesMITECreation.registerRecipes(event);
     }
 
     @Subscribe
@@ -51,10 +60,6 @@ public class CreationEvents {
         event.register("sound/imported/mob/spirit/scream.ogg");
         event.register("sound/imported/mob/spirit/stare.ogg");
     }
-
-    @Subscribe
-    public void onTileEntityRegister(TileEntityRegisterEvent event) {
-        event.register(ReforgeTileEntity.class, "Reforge");
 
     @Subscribe
     public void onPlayerLoggedIn(PlayerLoggedInEvent event) {

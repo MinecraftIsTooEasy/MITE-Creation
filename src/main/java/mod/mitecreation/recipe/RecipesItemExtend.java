@@ -1,6 +1,7 @@
 package mod.mitecreation.recipe;
 
 import mod.mitecreation.item.CreationItem;
+import mod.mitecreation.item.CreationItemFishingRod;
 import mod.mitecreation.materil.CreationMaterial;
 import net.minecraft.*;
 import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
@@ -44,7 +45,7 @@ public class RecipesItemExtend {
                 " S ",
                 'A',item,
                 'S',Item.stick);
-        register.registerShapedRecipe(new ItemStack(getMatchingItem(ItemFishingRod.class, material)),true,
+        register.registerShapedRecipe(new ItemStack(getMatchingItem(CreationItemFishingRod.class, material)),true,
                 "  S",
                 " SG",
                 "SAG",
@@ -57,6 +58,7 @@ public class RecipesItemExtend {
                 'A',item);
         registerArmorRecipe(register,item,material);
     }
+
     public static void registerMITEToolRecipe(RecipeRegistryEvent register, Material material) {
         Item item = Item.getMatchingItem(ItemIngot.class, material);
         Item item_nugget = getMatchingItem(ItemNugget.class, item.getExclusiveMaterial());
@@ -118,7 +120,7 @@ public class RecipesItemExtend {
                 "AA",
                 'A', item);
     }
-    public static void registerArmorRecipe(RecipeRegistryEvent register,Item item, Material material){
+    public static void registerArmorRecipe(RecipeRegistryEvent register, Item item, Material material){
         if(item instanceof ItemChain) {
             register.registerShapedRecipe(new ItemStack(ItemArmor.getMatchingArmor(ItemHelmet.class, material,true)),true,
                     "AAA",
@@ -159,38 +161,47 @@ public class RecipesItemExtend {
                     'A',item);
         }
     }
-    public static void registerFullMetalToolRecipe(RecipeRegistryEvent register, Material material) {
+
+    public static void registerNuggetToIngotRecipe(RecipeRegistryEvent register, Item item, Material material) {
+        register.registerShapedRecipe(new ItemStack(getMatchingItem(ItemIngot.class, material)), true,
+                "AAA",
+                "AAA",
+                "AAA",
+                'A', item);
+    }
+
+
+        public static void registerFullMetalToolRecipe(RecipeRegistryEvent register, Material material) {
         registerBasicToolRecipes(register, material);
         registerMITEToolRecipe(register, material);
     }
+
     public static void registerRecipes(RecipeRegistryEvent register) {
         register.registerShapelessRecipe(new ItemStack(ingotTungsten, 9), true,
                 blockTungsten);
-        register.registerShapelessRecipe(new ItemStack(tungstenNugget, 9), true,
-                ingotTungsten);
         register.registerShapelessRecipe(new ItemStack(ingotRustedIron, 9), true,
                 rustedIronBlock);
         register.registerShapelessRecipe(new ItemStack(rustedIronNugget, 9), true,
                 ingotRustedIron);
-        registerMITEToolRecipe(register, CreationMaterial.tungsten);
-        registerArmorRecipe(register, ingotTungsten, CreationMaterial.tungsten);
-//        registerArmorRecipe(register, ingotRustedIron, Materials.rusted_iron);
-        registerFullMetalToolRecipe(register, CreationMaterial.tungsten);
-//        registerFullMetalToolRecipe(register, Material.rusted_iron);
+        register.registerShapelessRecipe(new ItemStack(tungstenNugget, 9), true,
+                ingotTungsten);
 
-        ItemCoin[] coins = new ItemCoin[] {coinIron, coinTungsten};
+        registerFullMetalToolRecipe(register, CreationMaterial.tungsten);
+        registerNuggetToIngotRecipe(register, tungstenNugget, CreationMaterial.tungsten);
+
+        ItemCoin[] coins = {coinRustedIron, coinIron, coinTungsten};
         for (ItemCoin coin : coins) {
-            for (int plank_subtype = 1; plank_subtype <= 9; ++plank_subtype) {
-                register.registerShapelessRecipe(new ItemStack(coin.getNuggetPeer(), plank_subtype),
-                        true, new ItemStack(coin, plank_subtype)).difficulty(25);
+            for (int num = 1; num <= 9; num++) {
+                register.registerShapelessRecipe(new ItemStack(coin.getNuggetPeer(), num), true, new ItemStack(coin, num)).difficulty(25);
             }
-            register.registerShapelessRecipe(new ItemStack(coin),
-                    true, new ItemStack(coin.getNuggetPeer()));
+            register.registerShapelessRecipe(new ItemStack(coin), true, new ItemStack(coin.getNuggetPeer()));
         }
+
         register.registerShapelessRecipe(new ItemStack(CreationItem.tungstenBucket, 1),
                 false, CreationItem.tungstenBucketStone).difficulty(100);
         register.registerShapelessRecipe(new ItemStack(CreationItem.rustedIronBucketEmpty, 1),
-                false, CreationItem.rustedIronBucketStone).difficulty(100); //100
+                false, CreationItem.rustedIronBucketStone).difficulty(100);
+
         register.registerShapelessRecipe(new ItemStack(rustedIronNugget,1),true,Item.arrowRustedIron);
         register.registerShapelessRecipe(new ItemStack(ingotRustedIron, 1), true, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget);
         register.registerShapelessRecipe(new ItemStack(rustedIronNugget, 9), true, ingotRustedIron);

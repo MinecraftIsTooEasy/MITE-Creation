@@ -1,43 +1,34 @@
 package mod.mitecreation.mixins.entity.player;
 
-import mod.mitecreation.tileentity.ReforgeTileEntity;
-import mod.mitecreation.injected_interfaces.IIPlayer;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(value= EntityPlayer.class)
-public abstract class EntityPlayerMixin extends EntityLivingBase implements IIPlayer {
+public abstract class EntityPlayerMixin extends EntityLivingBase {
 
     public EntityPlayerMixin(World par1World) {
         super(par1World);
     }
 
-    public float getProtection(DamageSource damageSource, boolean par2, boolean par3, boolean par4, boolean par5) {
-        float protection = 0.0f;
-        if (par2) {
-            protection += this.getNaturalDefense(damageSource);
-        }
-        if (par3) {
-            protection += this.getProtectionFromArmor(damageSource, par4);
-        }
-        if (par5) {
-            protection += this.getTotalProtectionOfPotionEffects(damageSource);
-        }
-        protection += this.getExperienceLevel() * 0.025f;
-        return protection;
-    }
+//    public float getProtection(DamageSource damageSource, boolean par2, boolean par3, boolean par4, boolean par5) {
+//        float protection = 0.0f;
+//        if (par2) {
+//            protection += this.getNaturalDefense(damageSource);
+//        }
+//        if (par3) {
+//            protection += this.getProtectionFromArmor(damageSource, par4);
+//        }
+//        if (par5) {
+//            protection += this.getTotalProtectionOfPotionEffects(damageSource);
+//        }
+//        protection += this.getExperienceLevel() * 0.025f;
+//        return protection;
+//    }
 
     @Shadow
     public final int getExperienceLevel() {
         return 0;
-    }
-
-    @Unique
-    @Override
-    public void displayReforgeGui(int x, int y, int z, ReforgeTileEntity tileEntity) {
-
     }
 
 //    @Overwrite

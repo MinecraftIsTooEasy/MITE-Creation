@@ -99,6 +99,7 @@ tile.deepslate_brick.mossy.name=Mossy Deepslate Brick
 tile.deepslate_brick.cracked.name=Cracked Deepslate Brick
 tile.deepslate_brick.chiseled.name=Chiseled Deepslate Brick
 tile.deepslate_brick_magma.name=Magma Deepslate Brick
+tile.ancient_relict.name=Ancient Relict
 
 tile.cobbledDeepslateSlab.cobbledDeepSlate.name=Cobbled Deepslate Slab
 tile.deepslateBrickSlab.deepSlateBrick.name=Deepslate Brick Slab
@@ -111,7 +112,20 @@ tile.deepslate_brick_stairs.name=Deepslate Brick Stairs
 
 tile.monsterStoneEgg.deepslate.name=Deepslate Brick Monster Egg
 
-entity.Spirit.name=Spirit
+tile.ore/normal/iron_ore_normal.name=Deepslate Iron Ore
+tile.ore/normal/coal_ore_normal.name=Deepslate Coal Ore
+tile.ore/normal/lapis_ore_normal.name=Deepslate Lapis Ore
+tile.ore/normal/diamond_ore_normal.name=Deepslate Diamond Ore
+tile.ore/normal/emerald_ore_normal.name=Deepslate Emerald Ore
+tile.ore/normal/copper_ore_normal.name=Deepslate Copper Ore
+tile.ore/normal/silver_ore_normal.name=Deepslate Silver Ore
+tile.ore/normal/mithril_ore_normal.name=Deepslate Mithril Ore
+tile.ore/normal/adamantium_ore_normal.name=Deepslate Adamantium Ore
+tile.ore/normal/tungsten_ore_normal.name=Deepslate Tungsten Ore
+tile.ore/normal/gold_ore_normal.name=Deepslate Gold Ore
+tile.ore/normal/redstone_ore_normal.name=Deepslate Redstone Ore
+
+entity.Spirit.name=Evil Spirit
 entity.SpiderQueen.name=Spider Queen
 entity.DevilBat.name=Devil Bat
 

@@ -5,21 +5,17 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import mod.mitecreation.block.CreationBlock;
 import mod.mitecreation.block.CreationWorkbench;
-import mod.mitecreation.tileentity.ReforgeTileEntity;
-import mod.mitecreation.injected_interfaces.IIPlayer;
 import mod.mitecreation.materil.CreationMaterial;
 import net.minecraft.*;
-import net.xiaoyu233.fml.util.ReflectHelper;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(ClientPlayer.class)
-public class ClientPlayerMixin implements IIPlayer {
+public class ClientPlayerMixin {
 
     @Shadow
     protected Minecraft mc;
@@ -42,11 +38,5 @@ public class ClientPlayerMixin implements IIPlayer {
             if (modifier != 0.0f)
                 cir.setReturnValue(modifier);
         }
-    }
-
-    @Unique
-    @Override
-    public void displayReforgeGui(int x, int y, int z, ReforgeTileEntity tileEntity) {
-        this.mc.displayGuiScreen(new ReforgeGui(ReflectHelper.dyCast(this), tileEntity));
     }
 }

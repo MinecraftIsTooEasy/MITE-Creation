@@ -47,20 +47,20 @@ public abstract class BiomeDecoratorMixin {
     public void creationBiomeDecorator(BiomeGenBase par1BiomeGenBase, CallbackInfo ci) {
 //        if (this.currentWorld.isUnderworld()) {
         if (par1BiomeGenBase.biomeID == 26) {
-            this.dirtGen = new WorldGenMinable(Block.dirt.blockID, 32, CreationBlock.deepSlate.blockID);
-            this.gravelGen = new WorldGenMinable(Block.gravel.blockID, 32, CreationBlock.deepSlate.blockID);
-            this.coalGen = new WorldGenMinable(Block.oreCoal.blockID, 16, CreationBlock.deepSlate.blockID);
-            this.copperGen = new WorldGenMinable(Block.oreCopper.blockID, 6, CreationBlock.deepSlate.blockID);
-            this.silverGen = new WorldGenMinable(Block.oreSilver.blockID, 6, CreationBlock.deepSlate.blockID);
-            this.goldGen = new WorldGenMinable(Block.oreGold.blockID, 4, CreationBlock.deepSlate.blockID);
-            this.ironGen = new WorldGenMinable(Block.oreIron.blockID, 6, CreationBlock.deepSlate.blockID);
-            this.mithrilGen = new WorldGenMinable(Block.oreMithril.blockID, 3, CreationBlock.deepSlate.blockID);
-            this.adamantiteGen = new WorldGenMinable(Block.oreAdamantium.blockID, 3, CreationBlock.deepSlate.blockID);
-            this.redstoneGen = new WorldGenMinable(Block.oreRedstone.blockID, 5, CreationBlock.deepSlate.blockID);
-            this.diamondGen = new WorldGenMinable(Block.oreDiamond.blockID, 3, CreationBlock.deepSlate.blockID);
-            this.lapisGen = new WorldGenMinable(Block.oreLapis.blockID, 3, CreationBlock.deepSlate.blockID);
-            this.silverfishGen = new WorldGenMinable(Block.silverfish.blockID, 3, CreationBlock.deepSlate.blockID);
-            this.tungstenGen = new WorldGenMinable(CreationBlock.oreTungsten.blockID, 3, CreationBlock.deepSlate.blockID);
+//            this.gravelGen = new WorldGenMinable(Block.gravel.blockID, 32, CreationBlock.deepSlate.blockID);
+            this.coalGen = new WorldGenMinable(CreationBlock.oreCoalDeepslate.blockID, 16, CreationBlock.deepSlate.blockID);
+            this.copperGen = new WorldGenMinable(CreationBlock.oreCopperDeepslate.blockID, 6, CreationBlock.deepSlate.blockID);
+            this.silverGen = new WorldGenMinable(CreationBlock.oreSilverDeepslate.blockID, 6, CreationBlock.deepSlate.blockID);
+            this.goldGen = new WorldGenMinable(CreationBlock.oreGoldDeepslate.blockID, 4, CreationBlock.deepSlate.blockID);
+            this.ironGen = new WorldGenMinable(CreationBlock.oreIronDeepslate.blockID, 6, CreationBlock.deepSlate.blockID);
+            this.mithrilGen = new WorldGenMinable(CreationBlock.oreMithrilDeepslate.blockID, 3, CreationBlock.deepSlate.blockID);
+            this.adamantiteGen = new WorldGenMinable(CreationBlock.oreAdamantiumDeepslate.blockID, 3, CreationBlock.deepSlate.blockID);
+            this.redstoneGen = new WorldGenMinable(CreationBlock.oreRedstoneDeepslate.blockID, 5, CreationBlock.deepSlate.blockID);
+            this.diamondGen = new WorldGenMinable(CreationBlock.oreDiamondDeepslate.blockID, 3, CreationBlock.deepSlate.blockID);
+            this.lapisGen = new WorldGenMinable(CreationBlock.oreLapisDeepslate.blockID, 3, CreationBlock.deepSlate.blockID);
+//            this.silverfishGen = new WorldGenMinable(Block.silverfish.blockID, 3, CreationBlock.deepSlate.blockID);
+            this.tungstenGen = new WorldGenMinable(CreationBlock.oreTungstenDeepslate.blockID, 3, CreationBlock.deepSlate.blockID);
+
         }
 //        this.tungstenGen = new WorldGenMinable(CreationBlock.oreTungsten.blockID, 3);
     }

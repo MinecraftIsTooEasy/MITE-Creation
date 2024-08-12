@@ -5,8 +5,7 @@
   "depends": {
     "mite": "~1.6.4",
     "fishmodloader": ">=3.3.2",
-    "rusted_iron_core": ">=1.1.2",
-    "fabric-language-kotlin": ">=1.11.0+kotlin.2.0.0"
+    "rusted_iron_core": ">=1.1.2"
   },
   "environment": "*",
   "name": "MITE Creation",
@@ -29,8 +28,7 @@
   "accessWidener": "MITECreation.accesswidener",
   "custom": {
     "loom:injected_interfaces": {
-      "net/xiaoyu233/fml/reload/event/ItemRegistryEvent": ["huix/faustspotion/injected_interfaces/IIItemRegistryEvent"],
-      "net/minecraft/EntityPlayer": ["huix/faustspotion/injected_interfaces/IIPlayer"]
+
     }
-  }
+    }
 }

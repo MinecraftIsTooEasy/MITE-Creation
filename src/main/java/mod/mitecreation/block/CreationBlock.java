@@ -1,11 +1,6 @@
 package mod.mitecreation.block;
 
 import mod.mitecreation.block.ore.normal.*;
-import mod.mitecreation.block.ore.poor.*;
-import mod.mitecreation.block.ore.poor.deepslate.*;
-import mod.mitecreation.block.ore.rich.*;
-import mod.mitecreation.block.ore.rich.BlockIronRichOre;
-import mod.mitecreation.block.ore.rich.deepslate.*;
 import mod.mitecreation.materil.CreationMaterial;
 import mod.rustedironcore.api.block.DoorBlock;
 import mod.rustedironcore.api.block.PaneBlock;
@@ -94,6 +89,8 @@ public class CreationBlock extends Block {
     public static final Block oreMithrilDeepslate;
     public static final Block oreAdamantiumDeepslate;
     public static final Block oreTungstenDeepslate;
+    public static final Block oreGoldDeepslate;
+    public static final Block oreRedstoneDeepslate;
 
     protected CreationBlock(int par1, Material par2Material, BlockConstants constants) {
         super(par1, par2Material, constants);
@@ -117,7 +114,7 @@ public class CreationBlock extends Block {
         registryEvent.registerItemBlock(CreationNameSpace, "cobble_deepslate_wall", cobbleDeepStaleWall);
         registryEvent.registerItemBlock(CreationNameSpace, "deepslate_brick_wall", deepStaleBrickWall);
         registryEvent.registerItemBlock(CreationNameSpace, "sand_gravel", gravelSand);
-        registryEvent.registerItemBlock(CreationNameSpace, "deepsltae_gravel", gravelDeepSlate);
+        registryEvent.registerItemBlock(CreationNameSpace, "deepslate_gravel", gravelDeepSlate);
         registryEvent.registerItemBlock(CreationNameSpace, "deepslate", deepSlate);
         registryEvent.registerItemBlock(CreationNameSpace, "cobbledDeepslateSlab", cobbledDeepStaleSingleSlab);
         registryEvent.registerItemBlock(CreationNameSpace, "cobbledDeepslateSlab", cobbledDeepStaleDoubleSlab);
@@ -177,6 +174,8 @@ public class CreationBlock extends Block {
         registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/mithril_ore_normal", oreMithrilDeepslate);
         registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/adamantium_ore_normal", oreAdamantiumDeepslate);
         registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/tungsten_ore_normal", oreTungstenDeepslate);
+        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/gold_ore_normal", oreGoldDeepslate);
+        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/redstone_ore_normal", oreRedstoneDeepslate);
     }
 
     static {
@@ -403,5 +402,12 @@ public class CreationBlock extends Block {
 
         oreTungstenDeepslate = (new BlockTungstenOreDeepslate(IdUtil.getNextBlockID(), CreationMaterial.tungsten, 4)).setHardness(3.25F).setStepSound(soundStoneFootstep)
                 .setUnlocalizedName("oreTungsten").setTextureName("tungsten_ore");
+
+        oreGoldDeepslate = (new BlockGoldOreDeepslate(IdUtil.getNextBlockID(), Material.gold, 2)).setHardness(2.4F).setStepSound(soundStoneFootstep)
+                .setUnlocalizedName("oreGold").setTextureName("gold_ore");
+
+        oreRedstoneDeepslate = (new BlockRedstoneOreDeepslate(IdUtil.getNextBlockID(), false)).setHardness(3.0F).setResistance(5.0F).setStepSound(soundStoneFootstep)
+                .setCreativeTab(CreativeTabs.tabBlock).setUnlocalizedName("oreRedstone").setTextureName("redstone_ore");
+
     }
 }

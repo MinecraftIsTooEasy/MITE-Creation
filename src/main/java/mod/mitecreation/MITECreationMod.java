@@ -1,9 +1,7 @@
 package mod.mitecreation;
 
-import mod.mitecreation.client.event.CreationEvents;
 import mod.mitecreation.client.event.EventListeners;
 import net.fabricmc.api.ModInitializer;
-import net.xiaoyu233.fml.reload.event.MITEEvents;
 
 public class MITECreationMod implements ModInitializer {
     public static final String CreationNameSpace = "Creation";

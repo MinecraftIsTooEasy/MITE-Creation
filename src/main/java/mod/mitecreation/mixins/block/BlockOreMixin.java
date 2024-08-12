@@ -1,11 +1,15 @@
 package mod.mitecreation.mixins.block;
 
+import com.llamalad7.mixinextras.sugar.Local;
+import com.llamalad7.mixinextras.sugar.ref.LocalIntRef;
 import mod.mitecreation.block.CreationBlock;
 import mod.mitecreation.item.CreationItem;
 import net.minecraft.*;
 import java.util.Random;
 
 import org.spongepowered.asm.mixin.*;
+import org.spongepowered.asm.mixin.injection.*;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value=BlockOre.class)
 public class BlockOreMixin extends Block {
@@ -14,73 +18,40 @@ public class BlockOreMixin extends Block {
         super(par1, par2Material, constants);
     }
 
-    @Overwrite
-    public int dropBlockAsEntityItem(BlockBreakInfo blockBreakInfo) {
-        Random random = new Random();
-        boolean suppress_fortune;
-        int id_dropped;
-        int metadata_dropped = 0;
-        int quantity_dropped = 1;
-        if (blockBreakInfo.wasExploded()) {
-            if (this == oreEmerald) {
-                id_dropped = Item.shardEmerald.itemID;
-            } else if (this == oreDiamond) {
-                id_dropped = Item.shardDiamond.itemID;
-            } else if (this == oreLapis) {
-                id_dropped = Item.dyePowder.itemID;
-                metadata_dropped = 4;
-                quantity_dropped = 3 + blockBreakInfo.world.rand.nextInt(3);
-            } else {
-                id_dropped = this == oreNetherQuartz ? Item.shardNetherQuartz.itemID : (this == oreCoal ? -1 : this.blockID);
+    @Inject(method = "dropBlockAsEntityItem", at = @At(value = "FIELD", target = "Lnet/minecraft/BlockOre;blockID:I", ordinal = 2))
+    private void changeDrop(BlockBreakInfo info, CallbackInfoReturnable<Integer> cir, @Local(ordinal = 0) LocalIntRef id_dropped, @Local(ordinal = 2) LocalIntRef quantity_dropped) {
+        if (info.wasExploded()) {
+            int pieceID = this.oreDropRawNuggetID(info.getMetadata());
+            if (pieceID != 0) {
+                id_dropped.set(pieceID);
+                quantity_dropped.set(1 + info.world.rand.nextInt(2));
             }
-        } else {
-            //if (blockBreakInfo.wasHarvestedByPlayer() && blockBreakInfo.getResponsiblePlayer().worldObj.areSkillsEnabled() && !blockBreakInfo.getResponsiblePlayer().hasSkill(Skill.MINING)) {
-            //    return super.dropBlockAsEntityItem(blockBreakInfo);
-            //}
-            if (!blockBreakInfo.wasHarvestedByPlayer()) {
-                return super.dropBlockAsEntityItem(blockBreakInfo);
-            }
-            if (this == oreCoal) {
-                id_dropped = Item.coal.itemID;
-            } else if (this == oreDiamond) {
-                id_dropped = Item.diamond.itemID;
-            } else if (this == oreLapis) {
-                id_dropped = Item.dyePowder.itemID;
-                metadata_dropped = 4;
-                quantity_dropped = 3 + blockBreakInfo.world.rand.nextInt(3);
-            } else {
-                id_dropped = this == oreEmerald ? Item.emerald.itemID : (this == oreNetherQuartz ? Item.netherQuartz.itemID : this.blockID);
-            }
-            if (this == oreCopper) {
-                id_dropped = CreationItem.rawCopperNugget.itemID;
-                quantity_dropped = 7 + random.nextInt(3) + random.nextInt(3);
-            } else if (this == oreIron) {
-                id_dropped = CreationItem.rawRustedIronNugget.itemID;
-                quantity_dropped = 7 + random.nextInt(3) + random.nextInt(3);
-            } else if (this == oreSilver) {
-                id_dropped = CreationItem.rawSilverNugget.itemID;
-                quantity_dropped = 7 + random.nextInt(3) + random.nextInt(3);
-            } else if (this == oreGold) {
-                id_dropped = CreationItem.rawGoldNugget.itemID;
-                quantity_dropped = 7 + random.nextInt(3) + random.nextInt(3);
-            } else if (this == CreationBlock.oreTungsten) {
-                id_dropped = CreationItem.rawTungstenNugget.itemID;
-                quantity_dropped = 7 + random.nextInt(3) + random.nextInt(3);
-            } else if (this == oreMithril) {
-                id_dropped = CreationItem.rawMithrilNugget.itemID;
-                quantity_dropped = 7 + random.nextInt(3) + random.nextInt(3);
-            } else if (this == oreAdamantium) {
-                id_dropped = CreationItem.rawAdamantiumNugget.itemID;
-                quantity_dropped = 7 + random.nextInt(3) + random.nextInt(3);
-            }
+            return;
         }
-        //if (metadata_dropped == -1) {
-        //    metadata_dropped = id_dropped == this.blockID ? this.getItemSubtype(blockBreakInfo.getMetadata()) : 0;
-        //}
-        //boolean bl2 = suppress_fortune = id_dropped == this.blockID && BitHelper.isBitSet(blockBreakInfo.getMetadata(), 1);
-        //if (id_dropped != -1 && blockBreakInfo.getMetadata() == 0) {
-        //    DedicatedServer.incrementTournamentScoringCounter(blockBreakInfo.getResponsiblePlayer(), Item.getItem(id_dropped));
-        //}
-        return super.dropBlockAsEntityItem(blockBreakInfo, id_dropped, metadata_dropped, quantity_dropped, 1);
+        int rawNuggetID = this.oreDropRawNuggetID(info.getMetadata());
+        if (rawNuggetID != 0) {
+            id_dropped.set(rawNuggetID);
+            quantity_dropped.set(7 + info.world.rand.nextInt(4));
+        }
     }
+
+    @Unique
+    private int oreDropRawNuggetID(int metadata) {
+        if (this == Block.oreCopper) return CreationItem.rawCopperNugget.itemID;
+        if (this == Block.oreSilver) return CreationItem.rawSilverNugget.itemID;
+        if (this == Block.oreIron) return CreationItem.rawRustedIronNugget.itemID;
+        if (this == Block.oreGold) return CreationItem.rawGoldNugget.itemID;
+        if (this == Block.oreMithril) return CreationItem.rawMithrilNugget.itemID;
+        if (this == Block.oreAdamantium) return CreationItem.rawAdamantiumNugget.itemID;
+        if (this == Block.oreNetherQuartz) return Item.shardNetherQuartz.itemID;
+        if (this == Block.oreDiamond) return Item.shardDiamond.itemID;
+        if (this == Block.oreEmerald) return Item.shardEmerald.itemID;
+        if (this == CreationBlock.oreTungsten) return CreationItem.rawTungstenNugget.itemID;
+        return 0;
+    }
+
+//    @ModifyConstant(method = "dropBlockAsEntityItem", constant = @Constant(floatValue = 0.1f))
+//    private float moreFortune(float constant) {
+//        return constant * 2.0f;
+//    }
 }
