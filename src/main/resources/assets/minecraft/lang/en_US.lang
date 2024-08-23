@@ -110,7 +110,7 @@ tile.deepslate_brick_wall.name=Deepslate Brick Wall
 tile.cobble_deepslate_stairs.name=Cobbled Deepslate Stairs
 tile.deepslate_brick_stairs.name=Deepslate Brick Stairs
 
-tile.monsterStoneEgg.deepslate.name=Deepslate Brick Monster Egg
+tile.monsterDeepslateEgg.name=Deepslate Monster Egg
 
 tile.ore/normal/iron_ore_normal.name=Deepslate Iron Ore
 tile.ore/normal/coal_ore_normal.name=Deepslate Coal Ore

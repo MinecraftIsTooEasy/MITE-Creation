@@ -1,10 +1,14 @@
 package mod.mitecreation.mixins.world;
 
+import com.llamalad7.mixinextras.sugar.Local;
+import mod.mitecreation.block.CreationBlock;
 import net.minecraft.*;
+import net.xiaoyu233.fml.FishModLoader;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(Chunk.class)
 public abstract class ChunkMixin {
@@ -34,15 +38,13 @@ public abstract class ChunkMixin {
 
     @Inject(method = "<init>(Lnet/minecraft/World;[BII)V", at = @At("TAIL"))
     void injectConstructor(World par1World, byte[] par2ArrayOfByte, int par3, int par4, CallbackInfo ci) {
-        if (par1World.isUnderworld() && !((Object)this instanceof EmptyChunk)) {
+        if (par1World.isUnderworld() && !((Object) this instanceof EmptyChunk)) {
             for (int var6 = 0; var6 < this.storageArrays.length; ++var6) {
                 for (int var7 = 0; var7 < 16; ++var7) {
                     for (int var8 = 0; var8 < 16; ++var8) {
-                        for (int var9  =0; var9 < 16; ++var9) {
+                        for (int var9 = 0; var9 < 16; ++var9) {
                             if (this.storageArrays[var6] != null && this.storageArrays[var6].getExtBlockID(var7, var8, var9) == Block.stone.blockID) {
-//                                this.storageArrays[var6].setExtBlockMetadata(var7, var8, var9, 1);
                                 this.storageArrays[var6].setExtBlockID(var7, var8, var9, 3348);
-
                             }
                         }
                     }

@@ -3,7 +3,7 @@ package mod.mitecreation.util;
 import net.minecraft.BlockSubtypes;
 import net.minecraft.Minecraft;
 
-public class BlockOreTransHelper {
+public class BlockOreMixinHelper {
 
     public static String[] setRichOrPoor(String string) {
         String[] stringArray = new String[]{"ore/poor/" + string + "_poor","ore/normal/" + string + "_normal","ore/rich/" + string + "_rich","ore/poor/" + string + "_poor_deepslate","ore/normal/" + string + "_normal_deepslate","ore/rich/" + string + "_rich_deepslate"};

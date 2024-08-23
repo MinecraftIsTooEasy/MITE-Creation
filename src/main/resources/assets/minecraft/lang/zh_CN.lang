@@ -110,7 +110,7 @@ tile.deepslate_brick_wall.name=深板岩砖墙
 tile.cobble_deepslate_stairs.name=深板岩圆石楼梯
 tile.deepslate_brick_stairs.name=深板岩砖楼梯
 
-tile.monsterStoneEgg.deepslate.name=深板岩怪物蛋
+tile.monsterDeepslateEgg.name=深板岩怪物蛋
 
 #tile.ore/poor/iron_ore_poor.name=铁矿石
 #tile.ore/poor/coal_ore_poor.name=煤矿石

@@ -2,6 +2,7 @@ package mod.mitecreation.mixins.world.biome;
 
 import mod.mitecreation.block.CreationBlock;
 import net.minecraft.*;
+import net.xiaoyu233.fml.FishModLoader;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -43,12 +44,12 @@ public abstract class BiomeDecoratorMixin {
     @Unique
     private WorldGenMinable tungstenGen;
 
-    @Inject(method = "<init>", at = @At("TAIL"))
+    @Inject(method = "<init>", at = @At("RETURN"))
     public void creationBiomeDecorator(BiomeGenBase par1BiomeGenBase, CallbackInfo ci) {
 //        if (this.currentWorld.isUnderworld()) {
         if (par1BiomeGenBase.biomeID == 26) {
-//            this.gravelGen = new WorldGenMinable(Block.gravel.blockID, 32, CreationBlock.deepSlate.blockID);
-            this.coalGen = new WorldGenMinable(CreationBlock.oreCoalDeepslate.blockID, 16, CreationBlock.deepSlate.blockID);
+            this.gravelGen = new WorldGenMinable(CreationBlock.gravelDeepSlate.blockID, 32, CreationBlock.deepSlate.blockID);
+//            this.coalGen = new WorldGenMinable(CreationBlock.oreCoalDeepslate.blockID, 16, CreationBlock.deepSlate.blockID);
             this.copperGen = new WorldGenMinable(CreationBlock.oreCopperDeepslate.blockID, 6, CreationBlock.deepSlate.blockID);
             this.silverGen = new WorldGenMinable(CreationBlock.oreSilverDeepslate.blockID, 6, CreationBlock.deepSlate.blockID);
             this.goldGen = new WorldGenMinable(CreationBlock.oreGoldDeepslate.blockID, 4, CreationBlock.deepSlate.blockID);
@@ -60,10 +61,15 @@ public abstract class BiomeDecoratorMixin {
             this.lapisGen = new WorldGenMinable(CreationBlock.oreLapisDeepslate.blockID, 3, CreationBlock.deepSlate.blockID);
 //            this.silverfishGen = new WorldGenMinable(Block.silverfish.blockID, 3, CreationBlock.deepSlate.blockID);
             this.tungstenGen = new WorldGenMinable(CreationBlock.oreTungstenDeepslate.blockID, 3, CreationBlock.deepSlate.blockID);
-
         }
 //        this.tungstenGen = new WorldGenMinable(CreationBlock.oreTungsten.blockID, 3);
     }
+
+//    @Inject(method = "<init>", at = @At("TAIL"))
+//    public void replace(BiomeGenBase par1BiomeGenBase, CallbackInfo ci) {
+//        this.gravelGen = new WorldGenMinable(CreationBlock.gravelDeepSlate.blockID, 32, Block.gravel.blockID);
+//    }
+
 
     @Inject(method = "generateOres", at = @At("HEAD"))
     private void creationGenerateOres(CallbackInfo ci) {

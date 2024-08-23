@@ -1,13 +1,14 @@
 package mod.mitecreation.mixins.world;
 
+import com.llamalad7.mixinextras.sugar.Local;
 import mod.mitecreation.block.CreationBlock;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.util.Random;
 
@@ -29,6 +30,16 @@ public abstract class WorldGenMinableMixin {
 
     @Shadow
     public abstract int getMaxVeinHeight(World world);
+
+    @Shadow
+    public int getMinableBlockId() {
+        return 0;
+    }
+
+    @Shadow
+    public int growVein(World world, Random rand, int blocks_to_grow, int x, int y, int z, boolean must_be_supported, boolean is_dirt) {
+        return 0;
+    }
 
 //    @Overwrite
 //    public int growVein(World world, Random random, int n, int n2, int n3, int n4, boolean bl, boolean bl2) {
@@ -82,13 +93,31 @@ public abstract class WorldGenMinableMixin {
 //        return n5;
 //    }
 
+    @Inject(
+            method = "generate(Lnet/minecraft/World;Ljava/util/Random;IIIZ)Z",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/WorldGenMinable;growVein(Lnet/minecraft/World;Ljava/util/Random;IIIIZZ)I",
+                    shift = At.Shift.AFTER),
+            cancellable = true)
+    public void generate(World world, Random rand, int x, int y, int z, boolean vein_size_increases_with_depth, CallbackInfoReturnable<Boolean> cir, @Local(ordinal = 4) int vein_size) {
+        boolean must_be_supported2 = world.isUnderworld() && this.getMinableBlockId() == CreationBlock.gravelDeepSlate.blockID;
+        boolean is_dirt1 = this.minableBlockId == Block.dirt.blockID;
+        this.growVein(world, rand, vein_size, x, y, z, must_be_supported2, is_dirt1);
+    }
+
+
     @Inject(method = "getMinVeinHeight", at = @At(value = "INVOKE", target = "Lnet/minecraft/Minecraft;setErrorMessage(Ljava/lang/String;)V"), cancellable = true)
     private void creationMinVeinHeight(World world, CallbackInfoReturnable<Integer> cir) {
         Block block = Block.blocksList[this.minableBlockId];
         if (block == CreationBlock.oreTungsten)
             cir.setReturnValue(0);
-        if (block == CreationBlock.oreAdamantiumDeepslate)
-            cir.setReturnValue(0);
+        if (world.isUnderworld()) {
+            if (block == CreationBlock.oreAdamantiumDeepslate)
+                cir.setReturnValue(0);
+            if (block == CreationBlock.gravelDeepSlate)
+                cir.setReturnValue(170);
+        }
     }
 
     @Inject(method = "getMaxVeinHeight", at = @At(value = "INVOKE", target = "Lnet/minecraft/Minecraft;setErrorMessage(Ljava/lang/String;)V"), cancellable = true)
@@ -99,6 +128,8 @@ public abstract class WorldGenMinableMixin {
         if (world.isUnderworld()) {
             if (block == CreationBlock.oreAdamantiumDeepslate)
                 cir.setReturnValue(130);
+            if (block == CreationBlock.gravelDeepSlate)
+                cir.setReturnValue(0);
         }
     }
 

@@ -5,8 +5,8 @@ import net.minecraft.ItemArmor;
 
 public class Util {
 
-    public static final String modVerStr = "0.0.4-BETA";
-    public static final int modVerNum = 4;
+    public static final String modVerStr = "0.0.5-BETA";
+    public static final int modVerNum = 5;
     private static int nextBlockID = 160;
     private static int nextItemID = 1283;
     public static int nextEnchantmentID = 97;

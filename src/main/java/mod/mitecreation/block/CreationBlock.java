@@ -91,6 +91,7 @@ public class CreationBlock extends Block {
     public static final Block oreTungstenDeepslate;
     public static final Block oreGoldDeepslate;
     public static final Block oreRedstoneDeepslate;
+    public static final BlockDeepslateSilverFish deepslateSilverFish;
 
     protected CreationBlock(int par1, Material par2Material, BlockConstants constants) {
         super(par1, par2Material, constants);
@@ -176,6 +177,7 @@ public class CreationBlock extends Block {
         registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/tungsten_ore_normal", oreTungstenDeepslate);
         registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/gold_ore_normal", oreGoldDeepslate);
         registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/redstone_ore_normal", oreRedstoneDeepslate);
+        registryEvent.registerItemBlock(CreationNameSpace, "monsterDeepslateEgg", deepslateSilverFish);
     }
 
     static {
@@ -409,5 +411,6 @@ public class CreationBlock extends Block {
         oreRedstoneDeepslate = (new BlockRedstoneOreDeepslate(IdUtil.getNextBlockID(), false)).setHardness(3.0F).setResistance(5.0F).setStepSound(soundStoneFootstep)
                 .setCreativeTab(CreativeTabs.tabBlock).setUnlocalizedName("oreRedstone").setTextureName("redstone_ore");
 
+        deepslateSilverFish = (BlockDeepslateSilverFish) (new BlockDeepslateSilverFish(IdUtil.getNextBlockID())).setHardness(1.0F).setUnlocalizedName("monsterDeepslateEgg");
     }
 }
