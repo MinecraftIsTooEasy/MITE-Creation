@@ -30,6 +30,15 @@ public class FurnaceRecipesExtend {
         Item.mithrilNugget.setXPReward(4);
         FurnaceRecipes.smelting().addSmelting(rawAdamantiumNugget.itemID,new ItemStack(Item.adamantiumNugget,1));
         Item.adamantiumNugget.setXPReward(10);
+
         FurnaceRecipes.smelting().addSmelting(CreationBlock.oreTungsten.blockID, new ItemStack(CreationItem.ingotTungsten));
+        FurnaceRecipes.smelting().addSmelting(CreationBlock.oreTungstenDeepslate.blockID, new ItemStack(ingotTungsten));
+
+        FurnaceRecipes.smelting().addSmelting(CreationBlock.oreCopperDeepslate.blockID, new ItemStack(Item.ingotCopper));
+        FurnaceRecipes.smelting().addSmelting(CreationBlock.oreSilverDeepslate.blockID, new ItemStack(Item.ingotSilver));
+        FurnaceRecipes.smelting().addSmelting(CreationBlock.oreGoldDeepslate.blockID, new ItemStack(Item.ingotGold));
+        FurnaceRecipes.smelting().addSmelting(CreationBlock.oreIronDeepslate.blockID, new ItemStack(Item.ingotIron));
+        FurnaceRecipes.smelting().addSmelting(CreationBlock.oreMithril.blockID, new ItemStack(Item.ingotMithril));
+        FurnaceRecipes.smelting().addSmelting(CreationBlock.oreAdamantiumDeepslate.blockID, new ItemStack(Item.ingotAdamantium));
     }
 }

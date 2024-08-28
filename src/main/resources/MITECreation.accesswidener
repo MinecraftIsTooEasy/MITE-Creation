@@ -81,5 +81,3 @@ accessible method net/minecraft/EnumDirection isNorth ()Z
 accessible method net/minecraft/EnumDirection isSouth ()Z
 accessible method net/minecraft/EnumDirection isWest ()Z
 accessible method net/minecraft/EnumDirection isEast ()Z
-
-accessible field net/minecraft/BiomeDecorator gravelGen Lnet/minecraft/WorldGenMinable;

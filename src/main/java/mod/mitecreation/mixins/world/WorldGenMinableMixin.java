@@ -2,6 +2,7 @@ package mod.mitecreation.mixins.world;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import mod.mitecreation.block.CreationBlock;
+import mod.mitecreation.block.ore.BlockOreDeepslate;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -12,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.util.Random;
 
-@Mixin(value= WorldGenMinable.class)
+@Mixin(WorldGenMinable.class)
 public abstract class WorldGenMinableMixin {
     @Shadow
     private int minableBlockId;
@@ -140,17 +141,87 @@ public abstract class WorldGenMinableMixin {
             if (world.underworld_y_offset != 0) {
                 if (block == CreationBlock.oreAdamantiumDeepslate) {
                     cir.setReturnValue(rand.nextInt(16 + world.underworld_y_offset));
+                    return;
+                }
+
+                if (block instanceof BlockOreDeepslate && rand.nextFloat() < 0.75F) {
+                    cir.setReturnValue(rand.nextInt(16 + world.underworld_y_offset));
+                    return;
                 }
             }
+            cir.setReturnValue(rand.nextInt(256));
+        } else {
             float relative_height;
-            if (block == CreationBlock.oreAdamantiumDeepslate) {
+
+            if (block == Block.dirt) {
                 do {
                     relative_height = rand.nextFloat();
-                } while(!(relative_height < rand.nextFloat()));
-                int min_height = this.getMinVeinHeight(world);
-                int height_range = this.getMaxVeinHeight(world) - min_height + 1;
-                cir.setReturnValue(min_height + (int) (relative_height * (float) height_range));
+                }
+                while (relative_height <= rand.nextFloat());
+            } else if (block == CreationBlock.gravelDeepSlate) {
+                do {
+                    relative_height = rand.nextFloat();
+                }
+                while (relative_height <= rand.nextFloat());
+                return;
+            } else if (block == CreationBlock.oreCopperDeepslate) {
+                if (rand.nextInt(2) == 0) {
+                    relative_height = rand.nextFloat() * 0.6F + 0.4F;
+                } else {
+                    do {
+                        relative_height = rand.nextFloat();
+                    }
+                    while (relative_height >= rand.nextFloat());
+                }
+            } else if (block == CreationBlock.oreSilverDeepslate) {
+                do {
+                    relative_height = rand.nextFloat();
+                }
+                while (relative_height >= rand.nextFloat());
+            } else if (block == CreationBlock.oreGoldDeepslate) {
+                do {
+                    relative_height = rand.nextFloat();
+                }
+                while (relative_height >= rand.nextFloat());
+            } else if (block == CreationBlock.oreIronDeepslate) {
+                do {
+                    relative_height = rand.nextFloat();
+                }
+                while (relative_height >= rand.nextFloat());
+            } else if (block == CreationBlock.oreMithrilDeepslate) {
+                do {
+                    relative_height = rand.nextFloat();
+                }
+                while (relative_height >= rand.nextFloat());
+            } else if (block != CreationBlock.oreAdamantiumDeepslate && block != CreationBlock.deepslateSilverFish) {
+                if (block == CreationBlock.oreRedstoneDeepslate) {
+                    do {
+                        relative_height = rand.nextFloat();
+                    }
+                    while (relative_height >= rand.nextFloat());
+                } else if (block == CreationBlock.oreDiamondDeepslate) {
+                    do {
+                        relative_height = rand.nextFloat();
+                    }
+                    while (relative_height >= rand.nextFloat());
+                } else {
+                    if (block != CreationBlock.oreLapisDeepslate) {
+                        Minecraft.setErrorMessage("WorldGenMinableMixin: unknown ore id " + this.minableBlockId);
+                        cir.setReturnValue(-1);
+                    }
+
+                    relative_height = (rand.nextFloat() + rand.nextFloat()) / 2.0F;
+                }
+            } else {
+                do {
+                    relative_height = rand.nextFloat();
+                }
+                while (relative_height >= rand.nextFloat());
             }
+
+            int min_height = this.getMinVeinHeight(world);
+            int height_range = this.getMaxVeinHeight(world) - min_height + 1;
+            cir.setReturnValue(min_height + (int) (relative_height * (float) height_range));
         }
     }
 }

@@ -1,5 +1,6 @@
 package mod.mitecreation.mixins.item;
 
+import mod.mitecreation.api.IItem;
 import mod.mitecreation.item.CreationItem;
 import mod.mitecreation.materil.CreationMaterial;
 import net.minecraft.*;
@@ -8,11 +9,16 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(value=Item.class)
-public class ItemMixin {
+@Mixin(value = Item.class)
+public abstract class ItemMixin implements IItem {
+    @Shadow public static Item reed;
+
+    @Shadow public abstract boolean hasEffect(ItemStack par1ItemStack);
+
+    @Shadow public static Item redstone;
     @Shadow
     @Final
-    private int itemID;
+    public int itemID;
 
     //@Redirect(method="<clinit>",at=@At(value="INVOKE", target="INVOKESTATIC net/minecraft/StatisticList.initStats()V"))
     //private static void injector(CallbackInfo callbackInfo){
@@ -23,7 +29,7 @@ public class ItemMixin {
     }
 
     @Shadow
-    public Item setTextureName(String string) {
+    protected Item setTextureName(String string) {
         return null;
     }
 
@@ -48,6 +54,7 @@ public class ItemMixin {
         return null;
     }
 
+    @Override
     public int getCookTime(int heat_level) {
         if(this.itemID == CreationItem.rawGoldNugget.itemID) {
             return getCookTimeA(heat_level);
@@ -58,58 +65,66 @@ public class ItemMixin {
         if(this.itemID == CreationItem.rawCopperNugget.itemID) {
             return getCookTimeA(heat_level);
         }
+        if(this.itemID == CreationItem.rawRustedIronNugget.itemID){
+            return getCookTimeB(heat_level);
+        }
         if(this.itemID == CreationItem.rustedIronNugget.itemID){
-            return getCookTimeA(heat_level);
+            return getCookTimeB(heat_level);
         }
         if(this.itemID == CreationItem.rawAncientMetalNugget.itemID){
             return getCookTimeB(heat_level);
         }
+        if(this.itemID == CreationItem.rawTungstenNugget.itemID){
+            return getCookTimeC(heat_level);
+        }
         if(this.itemID == CreationItem.rawMithrilNugget.itemID){
-            return getCookTimeB(heat_level);
+            return getCookTimeC(heat_level);
         }
         if(this.itemID == CreationItem.rawAdamantiumNugget.itemID){
-            return getCookTimeC(heat_level);
+            return getCookTimeD(heat_level);
         }
         return this.isBlock() ? 200 * (this.getAsItemBlock().getBlock().getMinHarvestLevel(-1) + 1) : 200;
     }
 
+    @Unique
     public int getCookTimeA(int heat_level){
-        if(heat_level == 1){
-            return 400;
-        } else if (heat_level == 2) {
-            return 200;
-        } else if (heat_level == 3) {
-            return 100;
-        } else if (heat_level == 4) {
-            return 25;
-        }
-        return -1;
+        return 400 >> heat_level;
     }
 
+    @Unique
     public int getCookTimeB(int heat_level){
-        if(heat_level == 1){
+        if (heat_level < 2) {
             return -1;
-        } else if (heat_level == 2) {
-            return 400;
-        } else if (heat_level == 3) {
-            return 200;
-        } else if (heat_level == 4) {
-            return 100;
+        } else {
+            return 800 >> heat_level;
         }
-        return -1;
     }
 
+    @Unique
     public int getCookTimeC(int heat_level){
-        if(heat_level == 1){
+        if (heat_level < 3) {
             return -1;
-        } else if (heat_level == 2) {
-            return -1;
-        } else if (heat_level == 3) {
-            return 400;
-        } else if (heat_level == 4) {
-            return 200;
+        } else {
+            return 1600 >> heat_level;
         }
-        return -1;
+    }
+
+    @Unique
+    public int getCookTimeD(int heat_level){
+        if (heat_level < 4) {
+            return -1;
+        } else {
+            return 3200 >> heat_level;
+        }
+    }
+
+    @Unique
+    public int getCookTimeE(int heat_level){
+        if (heat_level < 5) {
+            return -1;
+        } else {
+            return 6400 >> heat_level;
+        }
     }
 
     @Shadow
@@ -117,7 +132,7 @@ public class ItemMixin {
         return null;
     }
     @Shadow
-    private boolean isBlock() {
+    public boolean isBlock() {
         return false;
     }
 }

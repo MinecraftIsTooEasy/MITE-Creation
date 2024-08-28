@@ -33,7 +33,7 @@ public class CreationItem {
     public static final ItemRawNugget rawAdamantiumNugget = new ItemRawNugget(IdUtil.getNextItemID(), Material.adamantium);
 
     public static final ItemNugget tungstenNugget = createInstance(ItemNugget.class, new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten);
-    public static final Item ingotTungsten = createInstance(ItemIngot.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten).setXPReward(75);
+    public static final Item ingotTungsten = createInstance(ItemIngot.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten).setXPReward(25);
 
     public static final ItemWarHammer warHammerTungsten = createInstance(ItemWarHammer.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten);
     public static final ItemBattleAxe battleAxeTungsten = createInstance(ItemBattleAxe.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CreationMaterial.tungsten);

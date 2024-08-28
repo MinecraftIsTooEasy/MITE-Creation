@@ -43,13 +43,15 @@ public abstract class BiomeDecoratorMixin {
 
     @Unique
     private WorldGenMinable tungstenGen;
+//    Minecraft mc = Minecraft.getMinecraft();
+//    World world = mc.theWorld;
 
     @Inject(method = "<init>", at = @At("RETURN"))
     public void creationBiomeDecorator(BiomeGenBase par1BiomeGenBase, CallbackInfo ci) {
-//        if (this.currentWorld.isUnderworld()) {
+
+//        if (world.isUnderworld()) {
         if (par1BiomeGenBase.biomeID == 26) {
             this.gravelGen = new WorldGenMinable(CreationBlock.gravelDeepSlate.blockID, 32, CreationBlock.deepSlate.blockID);
-//            this.coalGen = new WorldGenMinable(CreationBlock.oreCoalDeepslate.blockID, 16, CreationBlock.deepSlate.blockID);
             this.copperGen = new WorldGenMinable(CreationBlock.oreCopperDeepslate.blockID, 6, CreationBlock.deepSlate.blockID);
             this.silverGen = new WorldGenMinable(CreationBlock.oreSilverDeepslate.blockID, 6, CreationBlock.deepSlate.blockID);
             this.goldGen = new WorldGenMinable(CreationBlock.oreGoldDeepslate.blockID, 4, CreationBlock.deepSlate.blockID);
@@ -64,11 +66,6 @@ public abstract class BiomeDecoratorMixin {
         }
 //        this.tungstenGen = new WorldGenMinable(CreationBlock.oreTungsten.blockID, 3);
     }
-
-//    @Inject(method = "<init>", at = @At("TAIL"))
-//    public void replace(BiomeGenBase par1BiomeGenBase, CallbackInfo ci) {
-//        this.gravelGen = new WorldGenMinable(CreationBlock.gravelDeepSlate.blockID, 32, Block.gravel.blockID);
-//    }
 
 
     @Inject(method = "generateOres", at = @At("HEAD"))

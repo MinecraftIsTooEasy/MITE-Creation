@@ -14,23 +14,6 @@ import static net.xiaoyu233.fml.util.ReflectHelper.dyCast;
 
 @Mixin(ItemArrow.class)
 public class ItemArrowMixin extends Item {
-
-    @Inject(method = "<clinit>",at = @At("RETURN"))
-    private static void injectClinit(CallbackInfo callback) {
-        material_types = new Material[]{
-                Material.flint, Material.obsidian, Material.copper, Material.silver, Material.gold, Material.iron,
-                Material.rusted_iron, Material.ancient_metal, CreationMaterial.tungsten, Material.mithril, Material.adamantium};
-    }
-
-    @Inject(method = "getChanceOfRecovery", at = @At("HEAD"), cancellable = true)
-    private void getChanceOfRecoveryCreation(CallbackInfoReturnable<Float> cir) {
-        if (ReflectHelper.dyCast(this) == CreationItem.arrowTungsten) {
-            cir.setReturnValue(0.8F);
-        } else {
-            cir.setReturnValue(0.0F);
-        }
-    }
-
     @Shadow
     @Final
     @Mutable
@@ -38,5 +21,20 @@ public class ItemArrowMixin extends Item {
     @Shadow
     @Final
     public Material arrowhead_material;
+
+    @Inject(method = "<clinit>()V", at = @At("RETURN"))
+    private static void addCreationArrow(CallbackInfo callback) {
+        Material[] original = material_types;
+        Material[] expanded = new Material[original.length + 1];
+        System.arraycopy(original, 0, expanded, 0, original.length);
+        expanded[original.length] = CreationMaterial.tungsten;
+        material_types = expanded;
+    }
+
+    @Inject(method = "getChanceOfRecovery", at = @At("HEAD"), cancellable = true)
+    private void getChanceOfRecoveryCreation(CallbackInfoReturnable<Float> cir) {
+        if (ReflectHelper.dyCast(this) == CreationItem.arrowTungsten)
+            cir.setReturnValue(0.8F);
+    }
 
 }

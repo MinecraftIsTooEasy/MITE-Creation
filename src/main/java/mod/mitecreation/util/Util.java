@@ -2,10 +2,11 @@ package mod.mitecreation.util;
 
 import net.minecraft.Item;
 import net.minecraft.ItemArmor;
+import net.xiaoyu233.fml.FishModLoader;
 
 public class Util {
 
-    public static final String modVerStr = "0.0.5-BETA";
+    public static final String modVerStr = FishModLoader.getModsMap().get("mite_creation").getMetadata().getVersion().toString();
     public static final int modVerNum = 5;
     private static int nextBlockID = 160;
     private static int nextItemID = 1283;
