@@ -402,7 +402,7 @@ public class CreationBlock extends Block {
         oreAdamantiumDeepslate = (new BlockAdamantiumOreDeepslate(IdUtil.getNextBlockID(), Material.adamantium, 4)).setHardness(4.0F).setStepSound(soundStoneFootstep)
                 .setUnlocalizedName("oreAdamantium").setTextureName("adamantium_ore");
 
-        oreTungstenDeepslate = (new BlockTungstenOreDeepslate(IdUtil.getNextBlockID(), CreationMaterial.tungsten, 4)).setHardness(3.25F).setStepSound(soundStoneFootstep)
+        oreTungstenDeepslate = (new BlockTungstenOreDeepslate(IdUtil.getNextBlockID(), CreationMaterial.tungsten, 3)).setHardness(3.25F).setStepSound(soundStoneFootstep)
                 .setUnlocalizedName("oreTungsten").setTextureName("tungsten_ore");
 
         oreGoldDeepslate = (new BlockGoldOreDeepslate(IdUtil.getNextBlockID(), Material.gold, 2)).setHardness(2.4F).setStepSound(soundStoneFootstep)
