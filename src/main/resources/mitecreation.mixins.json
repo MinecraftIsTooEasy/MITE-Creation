@@ -8,6 +8,7 @@
     "block.BlockGravelMixin",
     "block.BlockMixin",
     "block.BlockOreMixin",
+    "block.titleentity.TileEntityFurnaceMixin",
     "client.MinecraftMixin",
     "client.gui.GuiMainMenuMixin",
     "entity.EntityItemMixin",
