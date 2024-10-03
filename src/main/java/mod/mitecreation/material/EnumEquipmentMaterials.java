@@ -1,4 +1,4 @@
-package mod.mitecreation.materil;
+package mod.mitecreation.material;
 
 import com.chocohead.mm.api.ClassTinkerers;
 import net.minecraft.EnumEquipmentMaterial;

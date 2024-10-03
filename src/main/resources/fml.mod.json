@@ -5,11 +5,12 @@
   "depends": {
     "mite": "~1.6.4",
     "fishmodloader": ">=3.3.2",
-    "rusted_iron_core": ">=1.1.2"
+    "rusted_iron_core": ">=1.3.0"
   },
   "environment": "*",
   "name": "MITE Creation",
-  "description": "An extended MITE content mod",
+  "icon": "rusted_iron_ingot.png",
+  "description": "你曾记得很多",
   "authors": [
     "Xy_Lose",
     "Rusted Iron Ingot"

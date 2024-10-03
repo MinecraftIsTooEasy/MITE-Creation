@@ -1,9 +1,9 @@
 package mod.mitecreation.item;
 
 import mod.mitecreation.block.CreationBlock;
-import mod.mitecreation.materil.CreationMaterial;
+import mod.mitecreation.material.CreationMaterial;
 import mod.mitecreation.util.Util;
-import mod.rustedironcore.api.item.IngotItem;
+import moddedmite.rustedironcore.api.item.IngotItem;
 import net.minecraft.*;
 import net.xiaoyu233.fml.api.item.NuggetItem;
 import net.xiaoyu233.fml.reload.event.ItemRegistryEvent;

@@ -105,19 +105,6 @@ public class RecipesBlockExtend {
                 "###",
                 '#', CreationBlock.deepSlate);
 
-        //Work bench
-//        for (int i = 0; i < CreationBlock.creationWorkBench.getNumSubBlocks(); ++i) {
-            Material tool_material = CreationWorkbench.getToolMaterial(1);
-            for (int plank_subtype = 0; plank_subtype < 4; ++plank_subtype) {
-                register.registerShapedRecipe(new ItemStack(CreationBlock.creationWorkBench, 1, 1),
-                        true,
-                        "IL",
-                        "s#",
-                        'I', ItemIngot.getMatchingItem(ItemIngot.class, tool_material),
-                        'L', Item.leather,
-                        's', Item.stick,
-                        '#', new ItemStack(Block.planks, 1, plank_subtype));
-//            }
-        }
+        CreationBlock.tungstenWorkBench.registerSimpleRecipe(register);
     }
 }

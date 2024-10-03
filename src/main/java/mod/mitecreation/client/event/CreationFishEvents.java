@@ -18,7 +18,7 @@ import net.minecraft.*;
 import net.xiaoyu233.fml.reload.event.*;
 import net.xiaoyu233.fml.reload.utils.IdUtil;
 
-public class CreationEvents {
+public class CreationFishEvents {
 
     @Subscribe
     public void onItemRegister(ItemRegistryEvent event) {
@@ -65,4 +65,5 @@ public class CreationEvents {
     public void onPlayerLoggedIn(PlayerLoggedInEvent event) {
         event.getPlayer().sendChatToPlayer(ChatMessageComponent.createFromTranslationKey("[Client] ").appendComponent(ChatMessageComponent.createFromTranslationKey("MITE Creation Successful Load,Version: ").setColor(EnumChatFormatting.WHITE)).appendComponent(ChatMessageComponent.createFromText(Util.modVerStr)));
     }
+
 }

@@ -1,7 +1,7 @@
 package mod.mitecreation.mixins.item;
 
 import net.minecraft.*;
-import mod.mitecreation.materil.CreationMaterial;
+import mod.mitecreation.material.CreationMaterial;
 import mod.mitecreation.item.CreationItem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

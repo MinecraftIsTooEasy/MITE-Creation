@@ -1,6 +1,6 @@
 package mod.mitecreation;
 
-import mod.mitecreation.client.event.EventListeners;
+import mod.mitecreation.client.event.listener.EventListeners;
 import net.fabricmc.api.ModInitializer;
 
 public class MITECreationMod implements ModInitializer {

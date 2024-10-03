@@ -1,6 +1,6 @@
 package mod.mitecreation.block;
 
-import mod.mitecreation.materil.CreationMaterial;
+import mod.mitecreation.material.CreationMaterial;
 import net.minecraft.*;
 
 public class CreationWorkbench  extends BlockWorkbench {

@@ -1,4 +1,4 @@
-package mod.mitecreation.materil;
+package mod.mitecreation.material;
 
 import net.minecraft.EnumEquipmentMaterial;
 import net.minecraft.MapColor;

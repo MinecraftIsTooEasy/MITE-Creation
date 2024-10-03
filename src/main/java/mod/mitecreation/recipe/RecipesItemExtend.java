@@ -2,7 +2,7 @@ package mod.mitecreation.recipe;
 
 import mod.mitecreation.item.CreationItem;
 import mod.mitecreation.item.CreationItemFishingRod;
-import mod.mitecreation.materil.CreationMaterial;
+import mod.mitecreation.material.CreationMaterial;
 import net.minecraft.*;
 import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
 
