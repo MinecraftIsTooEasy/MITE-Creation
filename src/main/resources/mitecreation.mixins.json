@@ -20,6 +20,7 @@
     "item.ItemBowMixin",
     "item.ItemBucketMixin",
     "item.ItemCarrotOnAStickMixin",
+    "item.ItemCoinMixin",
     "item.ItemPickaxeMixin",
     "item.ItemStackMixin",
     "server.DedicatedServerMixin",

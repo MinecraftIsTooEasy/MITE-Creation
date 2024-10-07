@@ -2,7 +2,8 @@ package mod.mitecreation.client.event;
 
 import mod.mitecreation.client.event.listener.BeaconListener;
 import mod.mitecreation.client.event.listener.FurnaceListener;
-import mod.mitecreation.client.event.listener.PropertyRegistry;
+import mod.mitecreation.client.event.listener.
+        PropertyRegistry;
 import mod.mitecreation.item.CreationItem;
 import mod.mitecreation.material.CreationMaterial;
 import moddedmite.rustedironcore.api.event.Handlers;

@@ -104,14 +104,16 @@ public class BlockOreDeepslate extends BlockOre implements IBlockWithSubtypes {
                 quantity_dropped =7 + random.nextInt(4);
             }
         }
-        //if (metadata_dropped == -1) {
-        //    metadata_dropped = id_dropped == this.blockID ? this.getItemSubtype(blockBreakInfo.getMetadata()) : 0;
-        //}
-        //boolean bl2 = suppress_fortune = id_dropped == this.blockID && BitHelper.isBitSet(blockBreakInfo.getMetadata(), 1);
-        //if (id_dropped != -1 && blockBreakInfo.getMetadata() == 0) {
-        //    DedicatedServer.incrementTournamentScoringCounter(blockBreakInfo.getResponsiblePlayer(), Item.getItem(id_dropped));
-        //}
-        return super.dropBlockAsEntityItem(blockBreakInfo, id_dropped, metadata_dropped, quantity_dropped, 1);
+        if (metadata_dropped == -1) {
+            metadata_dropped = id_dropped == this.blockID ? this.getItemSubtype(blockBreakInfo.getMetadata()) : 0;
+        }
+        boolean bl2 = suppress_fortune = id_dropped == this.blockID && BitHelper.isBitSet(blockBreakInfo.getMetadata(), 1);
+        if (id_dropped != -1 && blockBreakInfo.getMetadata() == 0) {
+            DedicatedServer.incrementTournamentScoringCounter(blockBreakInfo.getResponsiblePlayer(), Item.getItem(id_dropped));
+        }
+        float chance = suppress_fortune ? 1.0F : 1.0F + (float)blockBreakInfo.getHarvesterFortune() * 0.1F * 3.0F;
+
+        return super.dropBlockAsEntityItem(blockBreakInfo, id_dropped, metadata_dropped, quantity_dropped, chance);
     }
 
     @Override

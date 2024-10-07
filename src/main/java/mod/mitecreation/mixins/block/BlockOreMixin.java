@@ -1,6 +1,8 @@
 package mod.mitecreation.mixins.block;
 
 import com.llamalad7.mixinextras.sugar.Local;
+import com.llamalad7.mixinextras.sugar.ref.LocalBooleanRef;
+import com.llamalad7.mixinextras.sugar.ref.LocalFloatRef;
 import com.llamalad7.mixinextras.sugar.ref.LocalIntRef;
 import mod.mitecreation.block.CreationBlock;
 import mod.mitecreation.item.CreationItem;
@@ -10,6 +12,7 @@ import java.util.Random;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(value=BlockOre.class)
 public class BlockOreMixin extends Block {
@@ -21,9 +24,9 @@ public class BlockOreMixin extends Block {
     @Inject(method = "dropBlockAsEntityItem", at = @At(value = "FIELD", target = "Lnet/minecraft/BlockOre;blockID:I", ordinal = 2))
     private void changeDrop(BlockBreakInfo info, CallbackInfoReturnable<Integer> cir, @Local(ordinal = 0) LocalIntRef id_dropped, @Local(ordinal = 2) LocalIntRef quantity_dropped) {
         if (info.wasExploded()) {
-            int pieceID = this.oreDropRawNuggetID(info.getMetadata());
-            if (pieceID != 0) {
-                id_dropped.set(pieceID);
+            int rawNuggetID = this.oreDropRawNuggetID(info.getMetadata());
+            if (rawNuggetID != 0) {
+                id_dropped.set(rawNuggetID);
                 quantity_dropped.set(1 + info.world.rand.nextInt(2));
             }
             return;
@@ -34,6 +37,15 @@ public class BlockOreMixin extends Block {
             quantity_dropped.set(7 + info.world.rand.nextInt(4));
         }
     }
+
+
+
+//    @Inject(method = "dropBlockAsEntityItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/Block;dropBlockAsEntityItem(Lnet/minecraft/BlockBreakInfo;IIIF)I"))
+//    private void chanceDrop(BlockBreakInfo info, CallbackInfoReturnable<Integer> cir, @Local LocalFloatRef chance, @Local LocalBooleanRef suppress_fortune) {
+//        if (!info.wasExploded()) {
+//            chance.set(suppress_fortune ? 1.0F : 1.0F + (float)info.getHarvesterFortune() * 0.1F);
+//        }
+//    }
 
     @Unique
     private int oreDropRawNuggetID(int metadata) {
@@ -50,8 +62,8 @@ public class BlockOreMixin extends Block {
         return 0;
     }
 
-//    @ModifyConstant(method = "dropBlockAsEntityItem", constant = @Constant(floatValue = 0.1f))
-//    private float moreFortune(float constant) {
-//        return constant * 2.0f;
-//    }
+    @ModifyConstant(method = "dropBlockAsEntityItem", constant = @Constant(floatValue = 0.1F))
+    private float moreFortune(float constant) {
+        return constant * 3.0F;
+    }
 }

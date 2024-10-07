@@ -189,8 +189,8 @@ public class RecipesItemExtend {
         registerFullMetalToolRecipe(register, CreationMaterial.tungsten);
         registerNuggetToIngotRecipe(register, tungstenNugget, CreationMaterial.tungsten);
 
-        ItemCoin[] coins = {coinRustedIron, coinIron, coinTungsten};
-        for (ItemCoin coin : coins) {
+        ItemCoin[] creationCoins = {coinRustedIron, coinIron, coinTungsten};
+        for (ItemCoin coin : creationCoins) {
             for (int num = 1; num <= 9; num++) {
                 register.registerShapelessRecipe(new ItemStack(coin.getNuggetPeer(), num), true, new ItemStack(coin, num)).difficulty(25);
             }
