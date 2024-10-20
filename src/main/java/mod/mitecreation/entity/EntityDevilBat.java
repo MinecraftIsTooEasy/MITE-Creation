@@ -12,9 +12,9 @@ public class EntityDevilBat extends EntityVampireBat {
 
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.setEntityAttribute(SharedMonsterAttributes.attackDamage, 6.0D);
-        this.setEntityAttribute(SharedMonsterAttributes.followRange, 128);
-        this.setEntityAttribute(SharedMonsterAttributes.maxHealth, 16);
+        this.setEntityAttribute(SharedMonsterAttributes.attackDamage, 3.0D);
+        this.setEntityAttribute(SharedMonsterAttributes.followRange, 64);
+        this.setEntityAttribute(SharedMonsterAttributes.maxHealth, 8);
     }
 
     protected void collideWithEntity(Entity entity) {
