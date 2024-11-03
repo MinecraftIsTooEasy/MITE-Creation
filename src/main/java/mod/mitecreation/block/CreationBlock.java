@@ -1,43 +1,45 @@
 package mod.mitecreation.block;
 
 import mod.mitecreation.block.ore.normal.*;
-import mod.mitecreation.item.CreationItem;
 import mod.mitecreation.material.CreationMaterial;
 import moddedmite.rustedironcore.api.block.*;
 import net.minecraft.*;
 import net.xiaoyu233.fml.api.block.AnvilBlock;
+import net.xiaoyu233.fml.api.block.StrongBoxBlock;
 import net.xiaoyu233.fml.reload.event.ItemRegistryEvent;
 import net.xiaoyu233.fml.reload.utils.IdUtil;
 
 import static mod.mitecreation.MITECreationMod.CreationNameSpace;
 
 public class CreationBlock extends Block {
-    //TODO deepslate step sound
-    public static final StepSound soundDeepslateFootstep = new StepSound("stone", 1.0F, 1.0F);
+//
+//    public static final StepSound soundDeepslateFootstep = new StepSound("stone", 1.0F, 1.0F);
+//
+//    public static final Block rustedIronBlock;
+//    public static final BlockAnvil anvilRustedIron;
+//    public static final Block oreTungsten;
+//    public static final Block blockTungsten;
+//    public static final Block fenceTungsten;
+//    public static final Block doorTungsten;
+//    public static final BlockAnvil anvilTungsten;
+//    public static final BlockDeepStaleBrick deepStaleBrick;
+//    public static final BLockDeepSlateMagma deepStaleMagma;
+//    public static final Block cobbleDeepStale;
+//    public static final Block stairsCobbleDeepSlate;
+//    public static final Block stairsDeepSlateBrick;
+//    public static final BlockSandGravel gravelSand;
+//    public static final BlockDeepSlateGravel gravelDeepSlate;
+//    public static final Block cobbleDeepStaleWall;
+//    public static final Block deepStaleBrickWall;
+//    public static final Block deepSlate;
+//    public static final BlockCobbleDeepSlateSlabGroup cobbledDeepStaleSingleSlab;
+//    public static final BlockDeepSlateDoubleSlab cobbledDeepStaleDoubleSlab;
+//    public static final BlockDeepSlateBrickSlabGroup deepStaleBrickSingleSlab;
+//    public static final BlockDeepSlateDoubleSlab deepStaleBrickDoubleSlab;
+//    public static final BlockAncientRelict ancientRelict;
+//    public static final WorkbenchBlock tungstenWorkBench;
 
-    public static final Block rustedIronBlock;
-    public static final BlockAnvil anvilRustedIron;
-    public static final Block oreTungsten;
-    public static final Block blockTungsten;
-    public static final Block fenceTungsten;
-    public static final Block doorTungsten;
-    public static final BlockAnvil anvilTungsten;
-    public static final BlockDeepStaleBrick deepStaleBrick;
-    public static final BLockDeepSlateMagma deepStaleMagma;
-    public static final Block cobbleDeepStale;
-    public static final Block stairsCobbleDeepSlate;
-    public static final Block stairsDeepSlateBrick;
-    public static final BlockSandGravel gravelSand;
-    public static final BlockDeepSlateGravel gravelDeepSlate;
-    public static final Block cobbleDeepStaleWall;
-    public static final Block deepStaleBrickWall;
-    public static final Block deepSlate;
-    public static final BlockCobbleDeepSlateSlabGroup cobbledDeepStaleSingleSlab;
-    public static final BlockDeepSlateDoubleSlab cobbledDeepStaleDoubleSlab;
-    public static final BlockDeepSlateBrickSlabGroup deepStaleBrickSingleSlab;
-    public static final BlockDeepSlateDoubleSlab deepStaleBrickDoubleSlab;
-    public static final BlockAncientRelict ancientRelict;
-    public static final WorkbenchBlock tungstenWorkBench;
+
 //    public static final Block oreIronPoor;
 //    public static final Block oreCoalPoor;
 //    public static final Block oreLapisPoor;
@@ -80,50 +82,55 @@ public class CreationBlock extends Block {
 //    public static final Block oreMithrilRichDeepslate;
 //    public static final Block oreAdamantiumRichDeepslate;
 //    public static final Block oreTungstenRichDeepslate;
-    public static final Block oreIronDeepslate;
-    public static final Block oreCoalDeepslate;
-    public static final Block oreLapisDeepslate;
-    public static final Block oreDiamondDeepslate;
-    public static final Block oreEmeraldDeepslate;
-    public static final Block oreCopperDeepslate;
-    public static final Block oreSilverDeepslate;
-    public static final Block oreMithrilDeepslate;
-    public static final Block oreAdamantiumDeepslate;
-    public static final Block oreTungstenDeepslate;
-    public static final Block oreGoldDeepslate;
-    public static final Block oreRedstoneDeepslate;
-    public static final BlockDeepslateSilverFish deepslateSilverFish;
 
-    protected CreationBlock(int par1, Material par2Material, BlockConstants constants) {
+
+//    public static final Block oreIronDeepslate;
+//    public static final Block oreCoalDeepslate;
+//    public static final Block oreLapisDeepslate;
+//    public static final Block oreDiamondDeepslate;
+//    public static final Block oreEmeraldDeepslate;
+//    public static final Block oreCopperDeepslate;
+//    public static final Block oreSilverDeepslate;
+//    public static final Block oreMithrilDeepslate;
+//    public static final Block oreAdamantiumDeepslate;
+//    public static final Block oreTungstenDeepslate;
+//    public static final Block oreGoldDeepslate;
+//    public static final Block oreRedstoneDeepslate;
+//    public static final BlockDeepslateSilverFish deepslateSilverFish;
+//    public static final Block chestTungsten;
+
+    public CreationBlock(int par1, Material par2Material, BlockConstants constants) {
         super(par1, par2Material, constants);
     }
 
-    public static void registerBlocks(ItemRegistryEvent registryEvent) {
-        registryEvent.registerItemBlock(CreationNameSpace, "rusted_iron_block", rustedIronBlock);
-        registryEvent.registerAnvil(CreationNameSpace, "rusted_iron_anvil", anvilRustedIron);
-        anvilRustedIron.stepSound = Block.soundAnvilFootstep;
-        registryEvent.registerAnvil(CreationNameSpace, "tungsten_anvil", anvilTungsten);
-        anvilTungsten.stepSound = Block.soundAnvilFootstep;
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/tungsten_ore", oreTungsten);
-        registryEvent.registerItemBlock(CreationNameSpace, "block/tungsten_block", blockTungsten);
-        registryEvent.registerItemBlock(CreationNameSpace, "bars/tungsten_bars", fenceTungsten);
-        registryEvent.registerItemBlock(CreationNameSpace, "door/door_tungsten", doorTungsten);
-        registryEvent.registerItemBlock(CreationNameSpace, "deepslate_brick", deepStaleBrick);
-        registryEvent.registerItemBlock(CreationNameSpace, "deepslate_brick_magma", deepStaleMagma);
-        registryEvent.registerItemBlock(CreationNameSpace, "cobble_deepslate", cobbleDeepStale);
-        registryEvent.registerItemBlock(CreationNameSpace, "cobble_deepslate_stairs", stairsCobbleDeepSlate);
-        registryEvent.registerItemBlock(CreationNameSpace, "deepslate_brick_stairs", stairsDeepSlateBrick);
-        registryEvent.registerItemBlock(CreationNameSpace, "cobble_deepslate_wall", cobbleDeepStaleWall);
-        registryEvent.registerItemBlock(CreationNameSpace, "deepslate_brick_wall", deepStaleBrickWall);
-        registryEvent.registerItemBlock(CreationNameSpace, "sand_gravel", gravelSand);
-        registryEvent.registerItemBlock(CreationNameSpace, "deepslate_gravel", gravelDeepSlate);
-        registryEvent.registerItemBlock(CreationNameSpace, "deepslate", deepSlate);
-        registryEvent.registerItemBlock(CreationNameSpace, "cobbledDeepslateSlab", cobbledDeepStaleSingleSlab);
-        registryEvent.registerItemBlock(CreationNameSpace, "cobbledDeepslateSlab", cobbledDeepStaleDoubleSlab);
-        registryEvent.registerItemBlock(CreationNameSpace, "deepslateBrickSlab", deepStaleBrickSingleSlab);
-        registryEvent.registerItemBlock(CreationNameSpace, "deepslateBrickSlab", deepStaleBrickDoubleSlab);
-        registryEvent.registerItemBlock(CreationNameSpace, "ancient_relict", ancientRelict);
-        registryEvent.registerItemBlock(CreationNameSpace, "toolbench.tungsten", tungstenWorkBench);
+//    public static void registerBlocks(ItemRegistryEvent registryEvent) {
+//        registryEvent.registerItemBlock(CreationNameSpace, "rusted_iron_block", rustedIronBlock);
+//        registryEvent.registerAnvil(CreationNameSpace, "rusted_iron_anvil", anvilRustedIron);
+//        anvilRustedIron.stepSound = Block.soundAnvilFootstep;
+//        registryEvent.registerAnvil(CreationNameSpace, "tungsten_anvil", anvilTungsten);
+//        anvilTungsten.stepSound = Block.soundAnvilFootstep;
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/tungsten_ore", oreTungsten);
+//        registryEvent.registerItemBlock(CreationNameSpace, "block/tungsten_block", blockTungsten);
+//        registryEvent.registerItemBlock(CreationNameSpace, "bars/tungsten_bars", fenceTungsten);
+//        registryEvent.registerItemBlock(CreationNameSpace, "door/door_tungsten", doorTungsten);
+//        registryEvent.registerItemBlock(CreationNameSpace, "deepslate_brick", deepStaleBrick);
+//        registryEvent.registerItemBlock(CreationNameSpace, "deepslate_brick_magma", deepStaleMagma);
+//        registryEvent.registerItemBlock(CreationNameSpace, "cobble_deepslate", cobbleDeepStale);
+//        registryEvent.registerItemBlock(CreationNameSpace, "cobble_deepslate_stairs", stairsCobbleDeepSlate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "deepslate_brick_stairs", stairsDeepSlateBrick);
+//        registryEvent.registerItemBlock(CreationNameSpace, "cobble_deepslate_wall", cobbleDeepStaleWall);
+//        registryEvent.registerItemBlock(CreationNameSpace, "deepslate_brick_wall", deepStaleBrickWall);
+//        registryEvent.registerItemBlock(CreationNameSpace, "sand_gravel", gravelSand);
+//        registryEvent.registerItemBlock(CreationNameSpace, "deepslate_gravel", gravelDeepSlate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "deepslate", deepSlate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "cobbledDeepslateSlab", cobbledDeepStaleSingleSlab);
+//        registryEvent.registerItemBlock(CreationNameSpace, "cobbledDeepslateSlab", cobbledDeepStaleDoubleSlab);
+//        registryEvent.registerItemBlock(CreationNameSpace, "deepslateBrickSlab", deepStaleBrickSingleSlab);
+//        registryEvent.registerItemBlock(CreationNameSpace, "deepslateBrickSlab", deepStaleBrickDoubleSlab);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ancient_relict", ancientRelict);
+//        registryEvent.registerItemBlock(CreationNameSpace, "toolbench.tungsten", tungstenWorkBench);
+
+
 //        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/iron_ore_poor", oreIronPoor);
 //        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/coal_ore_poor", oreCoalPoor);
 //        registryEvent.registerItemBlock(CreationNameSpace, "ore/poor/lapis_ore_poor", oreLapisPoor);
@@ -166,89 +173,95 @@ public class CreationBlock extends Block {
 //        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/mithril_ore_rich", oreMithrilRichDeepslate);
 //        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/adamantium_ore_rich", oreAdamantiumRichDeepslate);
 //        registryEvent.registerItemBlock(CreationNameSpace, "ore/rich/tungsten_ore_rich", oreTungstenRichDeepslate);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/iron_ore_normal", oreIronDeepslate);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/coal_ore_normal", oreCoalDeepslate);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/lapis_ore_normal", oreLapisDeepslate);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/diamond_ore_normal", oreDiamondDeepslate);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/emerald_ore_normal", oreEmeraldDeepslate);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/copper_ore_normal", oreCopperDeepslate);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/silver_ore_normal", oreSilverDeepslate);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/mithril_ore_normal", oreMithrilDeepslate);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/adamantium_ore_normal", oreAdamantiumDeepslate);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/tungsten_ore_normal", oreTungstenDeepslate);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/gold_ore_normal", oreGoldDeepslate);
-        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/redstone_ore_normal", oreRedstoneDeepslate);
-        registryEvent.registerItemBlock(CreationNameSpace, "monsterDeepslateEgg", deepslateSilverFish);
-    }
 
-    static {
-        rustedIronBlock = new BlockOreStorage(IdUtil.getNextBlockID(), Material.rusted_iron);
 
-        anvilRustedIron = new AnvilBlock(IdUtil.getNextBlockID(), Material.rusted_iron);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/iron_ore_normal", oreIronDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/coal_ore_normal", oreCoalDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/lapis_ore_normal", oreLapisDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/diamond_ore_normal", oreDiamondDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/emerald_ore_normal", oreEmeraldDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/copper_ore_normal", oreCopperDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/silver_ore_normal", oreSilverDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/mithril_ore_normal", oreMithrilDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/adamantium_ore_normal", oreAdamantiumDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/tungsten_ore_normal", oreTungstenDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/gold_ore_normal", oreGoldDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "ore/normal/redstone_ore_normal", oreRedstoneDeepslate);
+//        registryEvent.registerItemBlock(CreationNameSpace, "monsterDeepslateEgg", deepslateSilverFish);
+//        registryEvent.registerItemBlock(CreationNameSpace, "tungsten_chest", chestTungsten);
+//
+//    }
+//
+//    static {
+//        rustedIronBlock = new BlockOreStorage(IdUtil.getNextBlockID(), Material.rusted_iron);
+//
+//        anvilRustedIron = new AnvilBlock(IdUtil.getNextBlockID(), Material.rusted_iron);
+//
+//        oreTungsten = (new BlockOre(IdUtil.getNextBlockID(), CreationMaterial.tungsten, 4))
+//                .setHardness(3.25F).setResistance(15.0F);
+//
+//        blockTungsten = (new BlockOreStorage(IdUtil.getNextBlockID(), CreationMaterial.tungsten))
+//                .setStepSound(Block.soundMetalFootstep);
+//
+//        fenceTungsten = (new PaneBlock(IdUtil.getNextBlockID(), "bars/tungsten_bars", "bars/tungsten_bars", CreationMaterial.tungsten, false))
+//                .setStepSound(Block.soundMetalFootstep).setResistance(24.0F).setHardness(12.8F).setMinHarvestLevel(4);
+//
+//        doorTungsten = (new DoorBlock(IdUtil.getNextBlockID(), CreationMaterial.tungsten, () -> CreationItem.doorTungsten))
+//                .setStepSound(Block.soundMetalFootstep).setMinHarvestLevel(4);
+//
+//        anvilTungsten = new AnvilBlock(IdUtil.getNextBlockID(), CreationMaterial.tungsten);
+//
+//        deepStaleBrick = (BlockDeepStaleBrick) (new BlockDeepStaleBrick(IdUtil.getNextBlockID()))
+//                .setHardness(1.8F).setResistance(15.0F).setStepSound(soundDeepslateFootstep)
+//                .setUnlocalizedName("deepStaleBrick").setTextureName("deepstale_brick");
+//
+//        deepStaleMagma = (BLockDeepSlateMagma) (new BLockDeepSlateMagma(IdUtil.getNextBlockID()))
+//                .setHardness(1.8F).setResistance(15.0F).setStepSound(soundDeepslateFootstep)
+//                .setUnlocalizedName("deepStaleMagma").setTextureName("deepslatemagma");
+//
+//        cobbleDeepStale = (new CreationBlock(IdUtil.getNextBlockID(), Material.stone, new BlockConstants()))
+//                .setHardness(2.5F).setResistance(15.0F).setStepSound(soundDeepslateFootstep)
+//                .setUnlocalizedName("cobbleDeepStale").setCreativeTab(CreativeTabs.tabBlock).setTextureName("cobbledeepstale");
+//
+//        stairsCobbleDeepSlate = (new StairsBlock(IdUtil.getNextBlockID(), cobbleDeepStale, 0)).setUnlocalizedName("stairsDeepSlate");
+//
+//        stairsDeepSlateBrick = (new StairsBlock(IdUtil.getNextBlockID(), deepStaleBrick, 0)).setUnlocalizedName("stairsDeepSlateBrick");
+//
+//        cobbleDeepStaleWall = new WallBlock(IdUtil.getNextBlockID(), cobbleDeepStale).setHardness(2.5F).setResistance(15.0F)
+//                .setUnlocalizedName("cobbleDeepSlateWall");
+//
+//        deepStaleBrickWall = new WallBlock(IdUtil.getNextBlockID(), deepStaleBrick).setHardness(1.8F).setResistance(15.0F)
+//                .setUnlocalizedName("deepSlateBrickWall");
+//
+//        gravelSand = (BlockSandGravel) (new BlockSandGravel(IdUtil.getNextBlockID())).setHardness(0.6F)
+//                .setStepSound(soundSandFootstep).setUnlocalizedName("gravelSand").setCreativeTab(CreativeTabs.tabBlock)
+//                .setTextureName("gravelSand");
+//
+//        gravelDeepSlate = (BlockDeepSlateGravel) (new BlockDeepSlateGravel(IdUtil.getNextBlockID())).setHardness(0.8F)
+//                .setStepSound(soundSandFootstep).setUnlocalizedName("gravelDeepSlate").setCreativeTab(CreativeTabs.tabBlock)
+//                .setTextureName("gravelDeepSlate");
+//
+//        deepSlate = (new BlockDeepSlate(3348))
+//                .setHardness(3.0F).setResistance(15.0F).setStepSound(soundDeepslateFootstep).setUnlocalizedName("deepSlate").setTextureName("deepSlate");
+//
+//        cobbledDeepStaleSingleSlab = (BlockCobbleDeepSlateSlabGroup) (new BlockCobbleDeepSlateSlabGroup(IdUtil.getNextBlockID(), Material.stone))
+//                .setStepSound(soundDeepslateFootstep);
+//
+//        cobbledDeepStaleDoubleSlab = (BlockDeepSlateDoubleSlab) (new BlockDeepSlateDoubleSlab(IdUtil.getNextBlockID(), cobbledDeepStaleSingleSlab))
+//                .setStepSound(soundDeepslateFootstep);
+//
+//        deepStaleBrickSingleSlab = (BlockDeepSlateBrickSlabGroup) (new BlockDeepSlateBrickSlabGroup(IdUtil.getNextBlockID(), Material.stone))
+//                .setStepSound(soundDeepslateFootstep);
+//
+//        deepStaleBrickDoubleSlab = (BlockDeepSlateDoubleSlab) (new BlockDeepSlateDoubleSlab(IdUtil.getNextBlockID(), deepStaleBrickSingleSlab))
+//                .setStepSound(soundDeepslateFootstep);
+//
+//        ancientRelict = (BlockAncientRelict) new BlockAncientRelict(IdUtil.getNextBlockID()).setHardness(2.5F).setCreativeTab(CreativeTabs.tabBlock)
+//                .setStepSound(soundDeepslateFootstep).setUnlocalizedName("ancientRelict");
+//
+//        tungstenWorkBench = new WorkbenchBlock(IdUtil.getNextBlockID(), CreationMaterial.tungsten, 0.55F, Material.ancient_metal);
 
-        oreTungsten = (new BlockOre(IdUtil.getNextBlockID(), CreationMaterial.tungsten, 4))
-                .setHardness(3.25F).setResistance(15.0F);
 
-        blockTungsten = (new BlockOreStorage(IdUtil.getNextBlockID(), CreationMaterial.tungsten))
-                .setStepSound(Block.soundMetalFootstep);
-
-        fenceTungsten = (new PaneBlock(IdUtil.getNextBlockID(), "bars/tungsten_bars", "bars/tungsten_bars", CreationMaterial.tungsten, false))
-                .setStepSound(Block.soundMetalFootstep).setResistance(24.0F).setHardness(12.8F).setMinHarvestLevel(4);
-
-        doorTungsten = (new DoorBlock(IdUtil.getNextBlockID(), CreationMaterial.tungsten, () -> CreationItem.doorTungsten))
-                .setStepSound(Block.soundMetalFootstep).setMinHarvestLevel(4);
-
-        anvilTungsten = new AnvilBlock(IdUtil.getNextBlockID(), CreationMaterial.tungsten);
-
-        deepStaleBrick = (BlockDeepStaleBrick) (new BlockDeepStaleBrick(IdUtil.getNextBlockID()))
-                .setHardness(1.8F).setResistance(15.0F).setStepSound(soundDeepslateFootstep)
-                .setUnlocalizedName("deepStaleBrick").setTextureName("deepstale_brick");
-
-        deepStaleMagma = (BLockDeepSlateMagma) (new BLockDeepSlateMagma(IdUtil.getNextBlockID()))
-                .setHardness(1.8F).setResistance(15.0F).setStepSound(soundDeepslateFootstep)
-                .setUnlocalizedName("deepStaleMagma").setTextureName("deepslatemagma");
-
-        cobbleDeepStale = (new CreationBlock(IdUtil.getNextBlockID(), Material.stone, new BlockConstants()))
-                .setHardness(2.5F).setResistance(15.0F).setStepSound(soundDeepslateFootstep)
-                .setUnlocalizedName("cobbleDeepStale").setCreativeTab(CreativeTabs.tabBlock).setTextureName("cobbledeepstale");
-
-        stairsCobbleDeepSlate = (new StairsBlock(IdUtil.getNextBlockID(), cobbleDeepStale, 0)).setUnlocalizedName("stairsDeepSlate");
-
-        stairsDeepSlateBrick = (new StairsBlock(IdUtil.getNextBlockID(), deepStaleBrick, 0)).setUnlocalizedName("stairsDeepSlateBrick");
-
-        cobbleDeepStaleWall = new WallBlock(IdUtil.getNextBlockID(), cobbleDeepStale).setHardness(2.5F).setResistance(15.0F)
-                .setUnlocalizedName("cobbleDeepSlateWall");
-
-        deepStaleBrickWall = new WallBlock(IdUtil.getNextBlockID(), deepStaleBrick).setHardness(1.8F).setResistance(15.0F)
-                .setUnlocalizedName("deepSlateBrickWall");
-
-        gravelSand = (BlockSandGravel) (new BlockSandGravel(IdUtil.getNextBlockID())).setHardness(0.6F)
-                .setStepSound(soundSandFootstep).setUnlocalizedName("gravelSand").setCreativeTab(CreativeTabs.tabBlock)
-                .setTextureName("gravelSand");
-
-        gravelDeepSlate = (BlockDeepSlateGravel) (new BlockDeepSlateGravel(IdUtil.getNextBlockID())).setHardness(0.8F)
-                .setStepSound(soundSandFootstep).setUnlocalizedName("gravelDeepSlate").setCreativeTab(CreativeTabs.tabBlock)
-                .setTextureName("gravelDeepSlate");
-
-        deepSlate = (new BlockDeepSlate(3348))
-                .setHardness(3.0F).setResistance(15.0F).setStepSound(soundDeepslateFootstep).setUnlocalizedName("deepSlate").setTextureName("deepSlate");
-
-        cobbledDeepStaleSingleSlab = (BlockCobbleDeepSlateSlabGroup) (new BlockCobbleDeepSlateSlabGroup(IdUtil.getNextBlockID(), Material.stone))
-                .setStepSound(soundDeepslateFootstep);
-
-        cobbledDeepStaleDoubleSlab = (BlockDeepSlateDoubleSlab) (new BlockDeepSlateDoubleSlab(IdUtil.getNextBlockID(), cobbledDeepStaleSingleSlab))
-                .setStepSound(soundDeepslateFootstep);
-
-        deepStaleBrickSingleSlab = (BlockDeepSlateBrickSlabGroup) (new BlockDeepSlateBrickSlabGroup(IdUtil.getNextBlockID(), Material.stone))
-                .setStepSound(soundDeepslateFootstep);
-
-        deepStaleBrickDoubleSlab = (BlockDeepSlateDoubleSlab) (new BlockDeepSlateDoubleSlab(IdUtil.getNextBlockID(), deepStaleBrickSingleSlab))
-                .setStepSound(soundDeepslateFootstep);
-
-        ancientRelict = (BlockAncientRelict) new BlockAncientRelict(IdUtil.getNextBlockID()).setHardness(2.5F).setCreativeTab(CreativeTabs.tabBlock)
-                .setStepSound(soundDeepslateFootstep).setUnlocalizedName("ancientRelict");
-
-        tungstenWorkBench = new WorkbenchBlock(IdUtil.getNextBlockID(), CreationMaterial.tungsten, 0.55F, Material.ancient_metal);
 
 //        oreIronPoor = (new BlockIronPoorOre(IdUtil.getNextBlockID(), Material.iron, 2)).setHardness(3.0F).setStepSound(soundDeepslateFootstep)
 //                .setUnlocalizedName("oreIron").setTextureName("iron_ore");
@@ -375,44 +388,48 @@ public class CreationBlock extends Block {
 //
 //        oreTungstenRichDeepslate = (new BlockTungstenRichOreDeepslate(IdUtil.getNextBlockID(), CreationMaterial.tungsten, 4)).setHardness(3.25F).setStepSound(soundDeepslateFootstep)
 //                .setUnlocalizedName("oreTungsten").setTextureName("tungsten_ore");
+
+
+
+//        oreIronDeepslate = (new BlockIronOreDeepslate(IdUtil.getNextBlockID(), Material.iron, 2)).setHardness(3.0F).setStepSound(soundDeepslateFootstep)
+//                .setUnlocalizedName("oreIron").setTextureName("iron_ore");
 //
-        oreIronDeepslate = (new BlockIronOreDeepslate(IdUtil.getNextBlockID(), Material.iron, 2)).setHardness(3.0F).setStepSound(soundDeepslateFootstep)
-                .setUnlocalizedName("oreIron").setTextureName("iron_ore");
-
-        oreCoalDeepslate = (new BlockCoalOreDeepslate(IdUtil.getNextBlockID(), Material.coal, 2)).setHardness(1.2F).setStepSound(soundDeepslateFootstep)
-                .setUnlocalizedName("oreCoal").setTextureName("coal_ore");
-
-        oreLapisDeepslate = (new BlockLapisOreDeepslate(IdUtil.getNextBlockID(), Material.lapis_lazuli, 2)).setHardness(3.0F).setStepSound(soundDeepslateFootstep)
-                .setUnlocalizedName("oreLapis").setTextureName("lapis_ore");
-
-        oreDiamondDeepslate = (new BlockDiamondOreDeepslate(IdUtil.getNextBlockID(), Material.diamond, 4)).setHardness(3.0F).setStepSound(soundDeepslateFootstep)
-                .setUnlocalizedName("oreDiamond").setTextureName("diamond_ore");
-
-        oreEmeraldDeepslate = (new BlockEmeraldOreDeepslate(IdUtil.getNextBlockID(), Material.emerald, 3)).setHardness(3.0F).setStepSound(soundDeepslateFootstep)
-                .setUnlocalizedName("oreEmerald").setTextureName("emerald_ore");
-
-        oreCopperDeepslate = (new BlockCopperOreDeepslate(IdUtil.getNextBlockID(), Material.copper, 2)).setHardness(2.5F).setStepSound(soundDeepslateFootstep)
-                .setUnlocalizedName("oreCopper").setTextureName("copper_ore");
-
-        oreSilverDeepslate = (new BlockSilverOreDeepslate(IdUtil.getNextBlockID(), Material.silver, 2)).setHardness(2.5F).setStepSound(soundDeepslateFootstep)
-                .setUnlocalizedName("oreSilver").setTextureName("silver_ore");
-
-        oreMithrilDeepslate = (new BlockMithrilOreDeepslate(IdUtil.getNextBlockID(), Material.mithril, 3)).setHardness(3.5F).setStepSound(soundDeepslateFootstep)
-                .setUnlocalizedName("oreMithril").setTextureName("mithril_ore");
-
-        oreAdamantiumDeepslate = (new BlockAdamantiumOreDeepslate(IdUtil.getNextBlockID(), Material.adamantium, 4)).setHardness(4.0F).setStepSound(soundDeepslateFootstep)
-                .setUnlocalizedName("oreAdamantium").setTextureName("adamantium_ore");
-
-        oreTungstenDeepslate = (new BlockTungstenOreDeepslate(IdUtil.getNextBlockID(), CreationMaterial.tungsten, 3)).setHardness(3.25F).setStepSound(soundDeepslateFootstep)
-                .setUnlocalizedName("oreTungsten").setTextureName("tungsten_ore");
-
-        oreGoldDeepslate = (new BlockGoldOreDeepslate(IdUtil.getNextBlockID(), Material.gold, 2)).setHardness(2.4F).setStepSound(soundDeepslateFootstep)
-                .setUnlocalizedName("oreGold").setTextureName("gold_ore");
-
-        oreRedstoneDeepslate = (new BlockRedstoneOreDeepslate(IdUtil.getNextBlockID(), false)).setHardness(3.0F).setResistance(5.0F).setStepSound(soundDeepslateFootstep)
-                .setCreativeTab(CreativeTabs.tabBlock).setUnlocalizedName("oreRedstone").setTextureName("redstone_ore");
-
-        deepslateSilverFish = (BlockDeepslateSilverFish) (new BlockDeepslateSilverFish(IdUtil.getNextBlockID())).setHardness(1.0F).setUnlocalizedName("monsterDeepslateEgg");
-    }
+//        oreCoalDeepslate = (new BlockCoalOreDeepslate(IdUtil.getNextBlockID(), Material.coal, 2)).setHardness(1.2F).setStepSound(soundDeepslateFootstep)
+//                .setUnlocalizedName("oreCoal").setTextureName("coal_ore");
+//
+//        oreLapisDeepslate = (new BlockLapisOreDeepslate(IdUtil.getNextBlockID(), Material.lapis_lazuli, 2)).setHardness(3.0F).setStepSound(soundDeepslateFootstep)
+//                .setUnlocalizedName("oreLapis").setTextureName("lapis_ore");
+//
+//        oreDiamondDeepslate = (new BlockDiamondOreDeepslate(IdUtil.getNextBlockID(), Material.diamond, 4)).setHardness(3.0F).setStepSound(soundDeepslateFootstep)
+//                .setUnlocalizedName("oreDiamond").setTextureName("diamond_ore");
+//
+//        oreEmeraldDeepslate = (new BlockEmeraldOreDeepslate(IdUtil.getNextBlockID(), Material.emerald, 3)).setHardness(3.0F).setStepSound(soundDeepslateFootstep)
+//                .setUnlocalizedName("oreEmerald").setTextureName("emerald_ore");
+//
+//        oreCopperDeepslate = (new BlockCopperOreDeepslate(IdUtil.getNextBlockID(), Material.copper, 2)).setHardness(2.5F).setStepSound(soundDeepslateFootstep)
+//                .setUnlocalizedName("oreCopper").setTextureName("copper_ore");
+//
+//        oreSilverDeepslate = (new BlockSilverOreDeepslate(IdUtil.getNextBlockID(), Material.silver, 2)).setHardness(2.5F).setStepSound(soundDeepslateFootstep)
+//                .setUnlocalizedName("oreSilver").setTextureName("silver_ore");
+//
+//        oreMithrilDeepslate = (new BlockMithrilOreDeepslate(IdUtil.getNextBlockID(), Material.mithril, 3)).setHardness(3.5F).setStepSound(soundDeepslateFootstep)
+//                .setUnlocalizedName("oreMithril").setTextureName("mithril_ore");
+//
+//        oreAdamantiumDeepslate = (new BlockAdamantiumOreDeepslate(IdUtil.getNextBlockID(), Material.adamantium, 4)).setHardness(4.0F).setStepSound(soundDeepslateFootstep)
+//                .setUnlocalizedName("oreAdamantium").setTextureName("adamantium_ore");
+//
+//        oreTungstenDeepslate = (new BlockTungstenOreDeepslate(IdUtil.getNextBlockID(), CreationMaterial.tungsten, 3)).setHardness(3.25F).setStepSound(soundDeepslateFootstep)
+//                .setUnlocalizedName("oreTungsten").setTextureName("tungsten_ore");
+//
+//        oreGoldDeepslate = (new BlockGoldOreDeepslate(IdUtil.getNextBlockID(), Material.gold, 2)).setHardness(2.4F).setStepSound(soundDeepslateFootstep)
+//                .setUnlocalizedName("oreGold").setTextureName("gold_ore");
+//
+//        oreRedstoneDeepslate = (new BlockRedstoneOreDeepslate(IdUtil.getNextBlockID(), false)).setHardness(3.0F).setResistance(5.0F).setStepSound(soundDeepslateFootstep)
+//                .setCreativeTab(CreativeTabs.tabBlock).setUnlocalizedName("oreRedstone").setTextureName("redstone_ore");
+//
+//        deepslateSilverFish = (BlockDeepslateSilverFish) (new BlockDeepslateSilverFish(IdUtil.getNextBlockID())).setHardness(1.0F).setUnlocalizedName("monsterDeepslateEgg");
+//
+//        chestTungsten = new StrongBoxBlock(IdUtil.getNextBlockID(), CreationMaterial.tungsten).setStepSound(soundMetalFootstep).setUnlocalizedName("chestTungsten");
+//    }
 
 }

@@ -1,6 +1,6 @@
 package mod.mitecreation.block;
 
-import mod.mitecreation.item.CreationItem;
+import mod.mitecreation.init.RegistryInit;
 import net.minecraft.*;
 
 import java.util.Random;
@@ -33,19 +33,19 @@ public class BlockSandGravel extends BlockFalling {
                         id_dropped = Item.chipFlint.itemID;
                     }
                 } else if (rand.nextInt(3) > 0) {
-                    id_dropped = CreationItem.rawGoldNugget.itemID;
+                    id_dropped = RegistryInit.rawGoldNugget.itemID;
                 } else if (rand.nextInt(3) > 0) {
-                    id_dropped = CreationItem.rawCopperNugget.itemID;
+                    id_dropped = RegistryInit.rawCopperNugget.itemID;
                 } else if (rand.nextInt(3) > 0) {
-                    id_dropped = CreationItem.rawSilverNugget.itemID;
+                    id_dropped = RegistryInit.rawSilverNugget.itemID;
                 } else if (rand.nextInt(3) > 0) {
                     id_dropped = info.wasExploded() ? -1 : Item.shardObsidian.itemID;
                 } else if (rand.nextInt(3) > 0) {
                     id_dropped = info.wasExploded() ? -1 : Item.shardDiamond.itemID;
                 } else if (rand.nextInt(3) > 0) {
-                    id_dropped = CreationItem.rawMithrilNugget.itemID;
+                    id_dropped = RegistryInit.rawMithrilNugget.itemID;
                 } else {
-                    id_dropped = CreationItem.rawAdamantiumNugget.itemID;
+                    id_dropped = RegistryInit.rawAdamantiumNugget.itemID;
                 }
 
                 if (id_dropped != -1) {

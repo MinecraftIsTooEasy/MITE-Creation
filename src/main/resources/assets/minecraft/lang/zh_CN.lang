@@ -22,6 +22,7 @@ tile.rusted_iron_block.name=锈铁块
 tile.rusted_iron_anvil.intact.name=锈铁砧
 tile.rusted_iron_anvil.slightlyDamaged.name=轻微受损的锈铁砧
 tile.rusted_iron_anvil.veryDamaged.name=严重损坏的锈铁砧
+tile.rusted_iron_chest.name=锈铁保险箱
 
 item.tools/stone/stone_club.name=石棒
 item.tools/stone/stone_dagger.name=石短剑
@@ -43,6 +44,7 @@ item.armor/tungsten_chainmail_helmet.name=钨锁链头盔
 item.armor/tungsten_chainmail_chestplate.name=钨锁链胸甲
 item.armor/tungsten_chainmail_leggings.name=钨锁链护腿
 item.armor/tungsten_chainmail_boots.name=钨锁链靴子
+item.armor/horse/tungsten.name=钨马铠
 
 item.ingots/tungsten.name=钨锭
 item.nuggets/tungsten.name=钨粒
@@ -80,14 +82,18 @@ tile.tungsten_anvil.slightlyDamaged.name=轻微受损的钨砧
 tile.tungsten_anvil.veryDamaged.name=严重受损的钨砧
 tile.bars/tungsten_bars.name=钨栏杆
 tile.toolbench.tungsten.name=钨工作台
-tile.tungsten_chest.name=钨箱子
-tile.chestTungsten.name=钨箱子
+tile.tungsten_chest.name=钨保险箱
 
 item.tools/emerald/emerald_sword.name=[TEST]绿宝石剑
 item.tools/diamond/diamond_sword.name=[TEST]钻石剑
 
 tile.mushroom_luminous.name=微光蘑菇
 tile.sand_gravel.name=粗砾沙石
+
+tile.sand_stone_chest.name=沙石箱子
+tile.cobblestone_chest.name=圆石箱子
+tile.deepslate_brick_chest.name=深板岩砖箱子
+tile.nether_brick_chest.name=地狱岩砖箱子
 
 tile.deepslate.name=深板岩
 tile.deepslate_gravel.name=深层沙砾
@@ -152,17 +158,9 @@ entity.Spirit.name=阴魂
 entity.SpiderQueen.name=蛛后
 entity.DevilBat.name=恶魔蝙蝠
 
-containet.strongbox.rusted_iron=锈铁箱子
-container.strongbox.tungsten=钨箱子
+containet.strongbox.rusted_iron=锈铁保险箱
+container.strongbox.tungsten=钨保险箱
 
 material.stone.name=石头
 material.rustedIron.name=锈铁
 material.tungsten.name=钨
-
-item.gold_pan_empty.name=淘金盘
-item.gold_pan_sand.name=含有沙子淘金盘
-item.gold_pan_gravel.name=含有砂砾淘金盘
-item.gold_pan_clay.name=含有粘土淘金盘
-item.gold_pan_dirt.name=含有泥土淘金盘
-item.bake_clay.name=烤制粘土
-item.clay_brick.name=粘土砖

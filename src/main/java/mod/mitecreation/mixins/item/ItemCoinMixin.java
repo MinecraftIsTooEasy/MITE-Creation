@@ -1,9 +1,9 @@
 package mod.mitecreation.mixins.item;
 
+import mod.mitecreation.init.RegistryInit;
 import net.minecraft.Item;
 import net.minecraft.ItemCoin;
 import net.minecraft.Material;
-import mod.mitecreation.item.CreationItem;
 import mod.mitecreation.material.CreationMaterial;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -27,21 +27,21 @@ public class ItemCoinMixin extends Item {
     @Inject(method = "getForMaterial", at = @At("HEAD"), cancellable = true)
     private static void getForMaterialCreation(Material material, CallbackInfoReturnable<ItemCoin> cir) {
         if (material == Material.rusted_iron)
-            cir.setReturnValue(CreationItem.coinRustedIron);
+            cir.setReturnValue(RegistryInit.coinRustedIron);
         if (material == Material.iron)
-            cir.setReturnValue(CreationItem.coinIron);
+            cir.setReturnValue(RegistryInit.coinIron);
         if (material == CreationMaterial.tungsten)
-            cir.setReturnValue(CreationItem.coinTungsten);
+            cir.setReturnValue(RegistryInit.coinTungsten);
     }
 
     @Inject(method = "getNuggetPeer", at = @At("HEAD"), cancellable = true)
     private void getNuggetPeerCreation(CallbackInfoReturnable<Item> cir) {
         Material material = getExclusiveMaterial();
         if (material == Material.rusted_iron)
-            cir.setReturnValue(CreationItem.rustedIronNugget);
+            cir.setReturnValue(RegistryInit.rustedIronNugget);
         if (material == Material.iron)
             cir.setReturnValue(Item.ironNugget);
         if (material == CreationMaterial.tungsten)
-            cir.setReturnValue(CreationItem.tungstenNugget);
+            cir.setReturnValue(RegistryInit.tungstenNugget);
     }
 }

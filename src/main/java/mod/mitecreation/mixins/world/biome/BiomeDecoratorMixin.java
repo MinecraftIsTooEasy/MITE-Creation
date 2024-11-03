@@ -1,14 +1,15 @@
 package mod.mitecreation.mixins.world.biome;
 
-import mod.mitecreation.block.CreationBlock;
+import mod.mitecreation.init.RegistryInit;
 import net.minecraft.*;
-import net.xiaoyu233.fml.FishModLoader;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.Random;
 
 @Mixin(BiomeDecorator.class)
 public abstract class BiomeDecoratorMixin {
@@ -43,28 +44,26 @@ public abstract class BiomeDecoratorMixin {
 
     @Unique
     private WorldGenMinable tungstenGen;
-//    Minecraft mc = Minecraft.getMinecraft();
-//    World world = mc.theWorld;
+
 
     @Inject(method = "<init>", at = @At("RETURN"))
     public void creationBiomeDecorator(BiomeGenBase par1BiomeGenBase, CallbackInfo ci) {
-
-//        if (world.isUnderworld()) {
+//        if (currentWorld.isUnderworld()) {
         if (par1BiomeGenBase.biomeID == 26) {
-            this.gravelGen = new WorldGenMinable(CreationBlock.gravelDeepSlate.blockID, 32, CreationBlock.deepSlate.blockID);
-            this.copperGen = new WorldGenMinable(CreationBlock.oreCopperDeepslate.blockID, 6, CreationBlock.deepSlate.blockID);
-            this.silverGen = new WorldGenMinable(CreationBlock.oreSilverDeepslate.blockID, 6, CreationBlock.deepSlate.blockID);
-            this.goldGen = new WorldGenMinable(CreationBlock.oreGoldDeepslate.blockID, 4, CreationBlock.deepSlate.blockID);
-            this.ironGen = new WorldGenMinable(CreationBlock.oreIronDeepslate.blockID, 6, CreationBlock.deepSlate.blockID);
-            this.mithrilGen = new WorldGenMinable(CreationBlock.oreMithrilDeepslate.blockID, 3, CreationBlock.deepSlate.blockID);
-            this.adamantiteGen = new WorldGenMinable(CreationBlock.oreAdamantiumDeepslate.blockID, 3, CreationBlock.deepSlate.blockID);
-            this.redstoneGen = new WorldGenMinable(CreationBlock.oreRedstoneDeepslate.blockID, 5, CreationBlock.deepSlate.blockID);
-            this.diamondGen = new WorldGenMinable(CreationBlock.oreDiamondDeepslate.blockID, 3, CreationBlock.deepSlate.blockID);
-            this.lapisGen = new WorldGenMinable(CreationBlock.oreLapisDeepslate.blockID, 3, CreationBlock.deepSlate.blockID);
-//            this.silverfishGen = new WorldGenMinable(Block.silverfish.blockID, 3, CreationBlock.deepSlate.blockID);
-            this.tungstenGen = new WorldGenMinable(CreationBlock.oreTungstenDeepslate.blockID, 3, CreationBlock.deepSlate.blockID);
+            this.gravelGen = new WorldGenMinable(RegistryInit.gravelDeepSlate.blockID, 32, RegistryInit.deepSlate.blockID);
+            this.copperGen = new WorldGenMinable(RegistryInit.oreCopperDeepslate.blockID, 6, RegistryInit.deepSlate.blockID);
+            this.silverGen = new WorldGenMinable(RegistryInit.oreSilverDeepslate.blockID, 6, RegistryInit.deepSlate.blockID);
+            this.goldGen = new WorldGenMinable(RegistryInit.oreGoldDeepslate.blockID, 4, RegistryInit.deepSlate.blockID);
+            this.ironGen = new WorldGenMinable(RegistryInit.oreIronDeepslate.blockID, 6, RegistryInit.deepSlate.blockID);
+            this.mithrilGen = new WorldGenMinable(RegistryInit.oreMithrilDeepslate.blockID, 3, RegistryInit.deepSlate.blockID);
+            this.adamantiteGen = new WorldGenMinable(RegistryInit.oreAdamantiumDeepslate.blockID, 3, RegistryInit.deepSlate.blockID);
+            this.redstoneGen = new WorldGenMinable(RegistryInit.oreRedstoneDeepslate.blockID, 5, RegistryInit.deepSlate.blockID);
+            this.diamondGen = new WorldGenMinable(RegistryInit.oreDiamondDeepslate.blockID, 3, RegistryInit.deepSlate.blockID);
+            this.lapisGen = new WorldGenMinable(RegistryInit.oreLapisDeepslate.blockID, 3, RegistryInit.deepSlate.blockID);
+//            this.silverfishGen = new WorldGenMinable(Block.silverfish.blockID, 3, RegistryInit.deepSlate.blockID);
+            this.tungstenGen = new WorldGenMinable(RegistryInit.oreTungstenDeepslate.blockID, 3, RegistryInit.deepSlate.blockID);
         }
-//        this.tungstenGen = new WorldGenMinable(CreationBlock.oreTungsten.blockID, 3);
+//        this.tungstenGen = new WorldGenMinable(RegistryInit.oreTungsten.blockID, 3);
     }
 
 

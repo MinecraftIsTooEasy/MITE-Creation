@@ -1,14 +1,12 @@
 package mod.mitecreation.recipe;
 
-import mod.mitecreation.item.CreationItem;
+import mod.mitecreation.init.RegistryInit;
 import mod.mitecreation.item.CreationItemFishingRod;
 import mod.mitecreation.material.CreationMaterial;
 import net.minecraft.*;
 import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
 
-import static mod.mitecreation.block.CreationBlock.*;
-import static mod.mitecreation.block.CreationBlock.rustedIronBlock;
-import static mod.mitecreation.item.CreationItem.*;
+import static mod.mitecreation.init.RegistryInit.*;
 import static net.minecraft.Item.getMatchingItem;
 
 public class RecipesItemExtend {
@@ -197,10 +195,10 @@ public class RecipesItemExtend {
             register.registerShapelessRecipe(new ItemStack(coin), true, new ItemStack(coin.getNuggetPeer()));
         }
 
-        register.registerShapelessRecipe(new ItemStack(CreationItem.tungstenBucket, 1),
-                false, CreationItem.tungstenBucketStone).difficulty(100);
-        register.registerShapelessRecipe(new ItemStack(CreationItem.rustedIronBucketEmpty, 1),
-                false, CreationItem.rustedIronBucketStone).difficulty(100);
+        register.registerShapelessRecipe(new ItemStack(RegistryInit.tungstenBucket, 1),
+                false, RegistryInit.tungstenBucketStone).difficulty(100);
+        register.registerShapelessRecipe(new ItemStack(RegistryInit.rustedIronBucketEmpty, 1),
+                false, RegistryInit.rustedIronBucketStone).difficulty(100);
 
         register.registerShapelessRecipe(new ItemStack(rustedIronNugget,1),true,Item.arrowRustedIron);
         register.registerShapelessRecipe(new ItemStack(ingotRustedIron, 1), true, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget);
@@ -242,7 +240,7 @@ public class RecipesItemExtend {
         register.registerShapedRecipe(new ItemStack(Item.bootsChainRustedIron, 1), true, "Q@Q", "Q@Q", Character.valueOf('Q'), Item.chainRustedIron);
         register.registerShapedRecipe(new ItemStack(Item.legsChainRustedIron, 1), true, "QQQ", "Q@Q", "Q@Q", Character.valueOf('Q'), Item.chainRustedIron);
         register.registerShapedRecipe(new ItemStack(Item.plateChainRustedIron, 1), true, "Q@Q", "QQQ", "QQQ", Character.valueOf('Q'), Item.chainRustedIron);
-        register.registerShapedRecipe(new ItemStack(CreationItem.fishingRodRustedIron, 1), true, "  Q", " Q@", "QW@", Character.valueOf('Q'), Item.stick, Character.valueOf('@'), Item.silk, Character.valueOf('W'), CreationItem.rustedIronNugget);
+        register.registerShapedRecipe(new ItemStack(RegistryInit.fishingRodRustedIron, 1), true, "  Q", " Q@", "QW@", Character.valueOf('Q'), Item.stick, Character.valueOf('@'), Item.silk, Character.valueOf('W'), RegistryInit.rustedIronNugget);
 
         FurnaceRecipes.smelting().addSmelting(rawCopperNugget.itemID, new ItemStack(Item.copperNugget,1));
         Item.copperNugget.setXPReward(1);

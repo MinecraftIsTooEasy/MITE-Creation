@@ -1,6 +1,6 @@
 package mod.mitecreation.mixins.block;
 
-import mod.mitecreation.block.CreationBlock;
+import mod.mitecreation.init.RegistryInit;
 import net.minecraft.Block;
 import net.minecraft.Item;
 import net.minecraft.ItemSlab;
@@ -13,18 +13,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class BlockMixin {
     @Inject(method = "<clinit>", at = @At(value = "TAIL"))
     private static void creationDoubleSlab(CallbackInfo callback) {
-        Item.itemsList[CreationBlock.cobbledDeepStaleSingleSlab.blockID] =
-                (new ItemSlab(CreationBlock.cobbledDeepStaleSingleSlab, CreationBlock.cobbledDeepStaleDoubleSlab, false))
+        Item.itemsList[RegistryInit.cobbledDeepStaleSingleSlab.blockID] =
+                (new ItemSlab(RegistryInit.cobbledDeepStaleSingleSlab, RegistryInit.cobbledDeepStaleDoubleSlab, false))
                         .setUnlocalizedName("cobbledDeepslateSlab");
-        Item.itemsList[CreationBlock.cobbledDeepStaleDoubleSlab.blockID] =
-                (new ItemSlab(CreationBlock.cobbledDeepStaleSingleSlab, CreationBlock.cobbledDeepStaleDoubleSlab, true))
+        Item.itemsList[RegistryInit.cobbledDeepStaleDoubleSlab.blockID] =
+                (new ItemSlab(RegistryInit.cobbledDeepStaleSingleSlab, RegistryInit.cobbledDeepStaleDoubleSlab, true))
                         .setUnlocalizedName("cobbledDeepslateSlab");
 
-        Item.itemsList[CreationBlock.deepStaleBrickSingleSlab.blockID] =
-                (new ItemSlab(CreationBlock.deepStaleBrickSingleSlab, CreationBlock.deepStaleBrickDoubleSlab, false))
+        Item.itemsList[RegistryInit.deepStaleBrickSingleSlab.blockID] =
+                (new ItemSlab(RegistryInit.deepStaleBrickSingleSlab, RegistryInit.deepStaleBrickDoubleSlab, false))
                         .setUnlocalizedName("deepslateBrickSlab");
-        Item.itemsList[CreationBlock.deepStaleBrickDoubleSlab.blockID] =
-                (new ItemSlab(CreationBlock.deepStaleBrickSingleSlab, CreationBlock.deepStaleBrickDoubleSlab, true))
+        Item.itemsList[RegistryInit.deepStaleBrickDoubleSlab.blockID] =
+                (new ItemSlab(RegistryInit.deepStaleBrickSingleSlab, RegistryInit.deepStaleBrickDoubleSlab, true))
                         .setUnlocalizedName("deepslateBrickSlab");
     }
 }

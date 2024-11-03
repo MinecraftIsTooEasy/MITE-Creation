@@ -1,6 +1,6 @@
 package mod.mitecreation.mixins.block;
 
-import mod.mitecreation.item.CreationItem;
+import mod.mitecreation.init.RegistryInit;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -42,11 +42,11 @@ public abstract class BlockGravelMixin extends BlockFalling {
                 id_dropped = Item.chipFlint.itemID;
             }
         } else {
-            id_dropped = rand.nextInt(3) > 0 ? CreationItem.rawCopperNugget.itemID : (rand.nextInt(3) > 0 ? CreationItem.rawSilverNugget.itemID : (rand.nextInt(3) > 0 ? CreationItem.rawGoldNugget.itemID : (rand.nextInt(3) > 0 ? (info.wasExploded() ? -1 : Item.shardObsidian.itemID) : (rand.nextInt(3) > 0 ? (info.wasExploded() ? -1 : Item.shardEmerald.itemID) : (rand.nextInt(3) > 0 ? (info.wasExploded() ? -1 : Item.shardDiamond.itemID) : (rand.nextInt(3) > 0 ? CreationItem.rawMithrilNugget.itemID : CreationItem.rawAdamantiumNugget.itemID))))));
+            id_dropped = rand.nextInt(3) > 0 ? RegistryInit.rawCopperNugget.itemID : (rand.nextInt(3) > 0 ? RegistryInit.rawSilverNugget.itemID : (rand.nextInt(3) > 0 ? RegistryInit.rawGoldNugget.itemID : (rand.nextInt(3) > 0 ? (info.wasExploded() ? -1 : Item.shardObsidian.itemID) : (rand.nextInt(3) > 0 ? (info.wasExploded() ? -1 : Item.shardEmerald.itemID) : (rand.nextInt(3) > 0 ? (info.wasExploded() ? -1 : Item.shardDiamond.itemID) : (rand.nextInt(3) > 0 ? RegistryInit.rawMithrilNugget.itemID : RegistryInit.rawAdamantiumNugget.itemID))))));
         }
         if (this.isNetherGravel(info.getMetadata())) {
-            if (id_dropped == CreationItem.rawCopperNugget.itemID || id_dropped == CreationItem.rawSilverNugget.itemID || id_dropped == CreationItem.rawMithrilNugget.itemID || id_dropped == CreationItem.rawAdamantiumNugget.itemID) {
-                id_dropped = CreationItem.rawGoldNugget.itemID;
+            if (id_dropped == RegistryInit.rawCopperNugget.itemID || id_dropped == RegistryInit.rawSilverNugget.itemID || id_dropped == RegistryInit.rawMithrilNugget.itemID || id_dropped == RegistryInit.rawAdamantiumNugget.itemID) {
+                id_dropped = RegistryInit.rawGoldNugget.itemID;
             } else if (id_dropped == Item.shardObsidian.itemID || id_dropped == Item.shardEmerald.itemID || id_dropped == Item.shardDiamond.itemID) {
                 id_dropped = Item.shardNetherQuartz.itemID;
             }

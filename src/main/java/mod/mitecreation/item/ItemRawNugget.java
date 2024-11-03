@@ -5,7 +5,7 @@ import net.minecraft.Material;
 
 public class ItemRawNugget extends ItemNugget {
 
-    protected ItemRawNugget(int id, Material material) {
+    public ItemRawNugget(int id, Material material) {
         super(id, material);
         this.setMaxStackSize(32);
     }

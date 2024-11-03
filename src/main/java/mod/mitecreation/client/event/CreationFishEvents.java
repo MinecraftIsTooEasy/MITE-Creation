@@ -12,7 +12,6 @@ import mod.mitecreation.entity.EntitySpiderQueen;
 import mod.mitecreation.entity.EntitySpirit;
 import mod.mitecreation.recipe.FurnaceRecipesExtend;
 import mod.mitecreation.recipe.RecipesMITECreation;
-import mod.mitecreation.item.CreationItem;
 import mod.mitecreation.util.Util;
 import net.minecraft.*;
 import net.xiaoyu233.fml.reload.event.*;
@@ -22,8 +21,8 @@ public class CreationFishEvents {
 
     @Subscribe
     public void onItemRegister(ItemRegistryEvent event) {
-        CreationItem.itemRegister(event);
-        CreationBlock.registerBlocks(event);
+//        CreationItem.itemRegister(event);
+//        CreationBlock.registerBlocks(event);
     }
 
     @Subscribe

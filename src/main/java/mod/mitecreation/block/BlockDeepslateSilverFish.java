@@ -1,5 +1,6 @@
 package mod.mitecreation.block;
 
+import mod.mitecreation.init.RegistryInit;
 import net.minecraft.*;
 
 import java.util.Random;
@@ -16,32 +17,32 @@ public class BlockDeepslateSilverFish extends BlockSilverfish {
 
     public Icon getIcon(int par1, int par2) {
         if (par2 == 1) {
-            return CreationBlock.cobbleDeepStale.getBlockTextureFromSide(par1);
+            return RegistryInit.cobbleDeepStale.getBlockTextureFromSide(par1);
         } else if (par2 == 2) {
-            return CreationBlock.deepStaleBrick.getBlockTextureFromSide(par1);
+            return RegistryInit.deepStaleBrick.getBlockTextureFromSide(par1);
         }
-        return CreationBlock.deepSlate.getBlockTextureFromSide(par1);
+        return RegistryInit.deepSlate.getBlockTextureFromSide(par1);
     }
 
     public void registerIcons(IconRegister par1IconRegister) {
     }
 
     public static boolean getPosingIdByMetadata(int par0) {
-        return par0 == CreationBlock.deepSlate.blockID || par0 == CreationBlock.cobbleDeepStale.blockID || par0 == CreationBlock.deepStaleBrick.blockID;
+        return par0 == RegistryInit.deepSlate.blockID || par0 == RegistryInit.cobbleDeepStale.blockID || par0 == RegistryInit.deepStaleBrick.blockID;
     }
 
     public static int getMetadataForBlockType(int par0) {
-        return par0 == CreationBlock.cobbleDeepStale.blockID ? 1 : (par0 == CreationBlock.deepStaleBrick.blockID ? 2 : 0);
+        return par0 == RegistryInit.cobbleDeepStale.blockID ? 1 : (par0 == RegistryInit.deepStaleBrick.blockID ? 2 : 0);
     }
 
     public ItemStack createStackedBlock(int par1) {
-        Block var2 = CreationBlock.deepSlate;
+        Block var2 = RegistryInit.deepSlate;
         if (par1 == 1) {
-            var2 = CreationBlock.cobbleDeepStale;
+            var2 = RegistryInit.cobbleDeepStale;
         }
 
         if (par1 == 2) {
-            var2 = CreationBlock.deepStaleBrick;
+            var2 = RegistryInit.deepStaleBrick;
         }
 
         return new ItemStack(var2);

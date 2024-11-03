@@ -1,5 +1,6 @@
 package mod.mitecreation.block;
 
+import mod.mitecreation.init.RegistryInit;
 import net.minecraft.*;
 
 import java.util.List;
@@ -70,10 +71,10 @@ public class BlockDeepSlateDoubleSlab extends BlockDoubleSlab {
             if (this.blockMaterial == Material.wood) {
                 model_block = wood;
             } else if (this.blockMaterial == Material.stone) {
-                if (this.blockID == CreationBlock.cobbledDeepStaleSingleSlab.blockID || this.blockID == CreationBlock.cobbledDeepStaleDoubleSlab.blockID) {
-                    model_block = CreationBlock.deepStaleBrick;
-                } else if (this.blockID == CreationBlock.deepStaleBrickSingleSlab.blockID || this.blockID == CreationBlock.deepStaleBrickDoubleSlab.blockID) {
-                    model_block = CreationBlock.cobbleDeepStale;
+                if (this.blockID == RegistryInit.cobbledDeepStaleSingleSlab.blockID || this.blockID == RegistryInit.cobbledDeepStaleDoubleSlab.blockID) {
+                    model_block = RegistryInit.deepStaleBrick;
+                } else if (this.blockID == RegistryInit.deepStaleBrickSingleSlab.blockID || this.blockID == RegistryInit.deepStaleBrickDoubleSlab.blockID) {
+                    model_block = RegistryInit.cobbleDeepStale;
                 } else {
                     model_block = null;
                 }

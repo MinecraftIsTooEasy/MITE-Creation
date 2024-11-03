@@ -1,5 +1,6 @@
 package mod.mitecreation.block;
 
+import mod.mitecreation.init.RegistryInit;
 import net.minecraft.*;
 
 public class BlockDeepSlate extends Block {
@@ -10,6 +11,6 @@ public class BlockDeepSlate extends Block {
     }
 
     public int dropBlockAsEntityItem(BlockBreakInfo info) {
-        return this.dropBlockAsEntityItem(info, CreationBlock.cobbleDeepStale);
+        return this.dropBlockAsEntityItem(info, RegistryInit.cobbleDeepStale);
     }
 }

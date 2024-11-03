@@ -1,5 +1,6 @@
 package mod.mitecreation.block;
 
+import mod.mitecreation.init.RegistryInit;
 import net.minecraft.*;
 
 public class BlockDeepStaleBrick extends Block implements IBlockWithSubtypes {
@@ -48,7 +49,7 @@ public class BlockDeepStaleBrick extends Block implements IBlockWithSubtypes {
     }
 
     public int dropBlockAsEntityItem(BlockBreakInfo info) {
-        return info.wasExploded() ? this.dropBlockAsEntityItem(info, CreationBlock.cobbleDeepStale) : super.dropBlockAsEntityItem(info);
+        return info.wasExploded() ? this.dropBlockAsEntityItem(info, RegistryInit.cobbleDeepStale) : super.dropBlockAsEntityItem(info);
     }
 
     @Override

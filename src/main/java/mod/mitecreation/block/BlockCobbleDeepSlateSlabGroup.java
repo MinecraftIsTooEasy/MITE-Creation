@@ -1,5 +1,6 @@
 package mod.mitecreation.block;
 
+import mod.mitecreation.init.RegistryInit;
 import net.minecraft.*;
 
 public class BlockCobbleDeepSlateSlabGroup extends BlockSlab {
@@ -21,14 +22,14 @@ public class BlockCobbleDeepSlateSlabGroup extends BlockSlab {
         return types;
     }
 
-    @Override
-    public boolean isValidMetadata(int metadata) {
-        return metadata == 0;
-    }
+//    @Override
+//    public boolean isValidMetadata(int metadata) {
+//        return metadata == 0;
+//    }
 
     @Override
     public int getBlockSubtypeUnchecked(int metadata) {
-        return metadata & 1;
+        return metadata & 4;
     }
 
     @Override
@@ -39,9 +40,9 @@ public class BlockCobbleDeepSlateSlabGroup extends BlockSlab {
     @Override
     public Block getModelBlock(int metadata) {
         if (model_blocks == null) {
-            model_blocks = new Block[] {CreationBlock.cobbleDeepStale, CreationBlock.deepStaleBrick};
+            model_blocks = new Block[]{RegistryInit.cobbleDeepStale};
         }
-        return model_blocks[this.getBlockSubtype(metadata)];
+        return model_blocks[0];
     }
 
     @Override

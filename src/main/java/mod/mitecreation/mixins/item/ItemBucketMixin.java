@@ -1,6 +1,6 @@
 package mod.mitecreation.mixins.item;
 
-import mod.mitecreation.item.CreationItem;
+import mod.mitecreation.init.RegistryInit;
 import mod.mitecreation.material.CreationMaterial;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.*;
@@ -19,25 +19,25 @@ public class ItemBucketMixin extends ItemVessel {
     private static ItemVessel creationVessels(Material vessel_material, Material contents) {
         if (contents == null) {
             if (vessel_material == CreationMaterial.tungsten)
-                return CreationItem.tungstenBucket;
+                return RegistryInit.tungstenBucket;
             if (vessel_material == Material.wood)
-                return CreationItem.woodBucketEmpty;
+                return RegistryInit.woodBucketEmpty;
         } else if (contents == Material.water) {
             if (vessel_material == CreationMaterial.tungsten)
-                return CreationItem.tungstenBucketWater;
+                return RegistryInit.tungstenBucketWater;
             if (vessel_material == Material.wood)
-                return CreationItem.woodBucketWater;
+                return RegistryInit.woodBucketWater;
         } else if (contents == Material.lava) {
             if (vessel_material == CreationMaterial.tungsten)
-                return CreationItem.tungstenBucketLava;
+                return RegistryInit.tungstenBucketLava;
         } else if (contents == Material.milk) {
             if (vessel_material == CreationMaterial.tungsten)
-                return CreationItem.tungstenBucketMilk;
+                return RegistryInit.tungstenBucketMilk;
             if (vessel_material == Material.wood)
-                return CreationItem.woodBucketMilk;
+                return RegistryInit.woodBucketMilk;
         } else if (contents == Material.stone) {
             if (vessel_material == CreationMaterial.tungsten)
-                return CreationItem.tungstenBucketStone;
+                return RegistryInit.tungstenBucketStone;
         }
         return null;
     }

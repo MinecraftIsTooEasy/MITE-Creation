@@ -3,6 +3,7 @@ package mod.mitecreation.mixins.world;
 import com.llamalad7.mixinextras.sugar.Local;
 import mod.mitecreation.block.CreationBlock;
 import mod.mitecreation.block.ore.BlockOreDeepslate;
+import mod.mitecreation.init.RegistryInit;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -102,7 +103,7 @@ public abstract class WorldGenMinableMixin {
                     shift = At.Shift.AFTER),
             cancellable = true)
     public void generate(World world, Random rand, int x, int y, int z, boolean vein_size_increases_with_depth, CallbackInfoReturnable<Boolean> cir, @Local(ordinal = 4) int vein_size) {
-        boolean must_be_supported2 = world.isUnderworld() && this.getMinableBlockId() == CreationBlock.gravelDeepSlate.blockID;
+        boolean must_be_supported2 = world.isUnderworld() && this.getMinableBlockId() == RegistryInit.gravelDeepSlate.blockID;
         boolean is_dirt1 = this.minableBlockId == Block.dirt.blockID;
         this.growVein(world, rand, vein_size, x, y, z, must_be_supported2, is_dirt1);
     }
@@ -111,12 +112,12 @@ public abstract class WorldGenMinableMixin {
     @Inject(method = "getMinVeinHeight", at = @At(value = "INVOKE", target = "Lnet/minecraft/Minecraft;setErrorMessage(Ljava/lang/String;)V"), cancellable = true)
     private void creationMinVeinHeight(World world, CallbackInfoReturnable<Integer> cir) {
         Block block = Block.blocksList[this.minableBlockId];
-        if (block == CreationBlock.oreTungsten)
+        if (block == RegistryInit.oreTungsten)
             cir.setReturnValue(0);
         if (world.isUnderworld()) {
-            if (block == CreationBlock.oreAdamantiumDeepslate)
+            if (block == RegistryInit.oreAdamantiumDeepslate)
                 cir.setReturnValue(0);
-            if (block == CreationBlock.gravelDeepSlate)
+            if (block == RegistryInit.gravelDeepSlate)
                 cir.setReturnValue(170);
         }
     }
@@ -124,12 +125,12 @@ public abstract class WorldGenMinableMixin {
     @Inject(method = "getMaxVeinHeight", at = @At(value = "INVOKE", target = "Lnet/minecraft/Minecraft;setErrorMessage(Ljava/lang/String;)V"), cancellable = true)
     private void creationMaxVeinHeight(World world, CallbackInfoReturnable<Integer> cir) {
         Block block = Block.blocksList[this.minableBlockId];
-        if (block == CreationBlock.oreTungsten)
+        if (block == RegistryInit.oreTungsten)
             cir.setReturnValue(32);
         if (world.isUnderworld()) {
-            if (block == CreationBlock.oreAdamantiumDeepslate)
+            if (block == RegistryInit.oreAdamantiumDeepslate)
                 cir.setReturnValue(130);
-            if (block == CreationBlock.gravelDeepSlate)
+            if (block == RegistryInit.gravelDeepSlate)
                 cir.setReturnValue(0);
         }
     }
@@ -139,7 +140,7 @@ public abstract class WorldGenMinableMixin {
         Block block = Block.blocksList[this.minableBlockId];
         if (world.isUnderworld()) {
             if (world.underworld_y_offset != 0) {
-                if (block == CreationBlock.oreAdamantiumDeepslate) {
+                if (block == RegistryInit.oreAdamantiumDeepslate) {
                     cir.setReturnValue(rand.nextInt(16 + world.underworld_y_offset));
                     return;
                 }
@@ -158,13 +159,13 @@ public abstract class WorldGenMinableMixin {
                     relative_height = rand.nextFloat();
                 }
                 while (relative_height <= rand.nextFloat());
-            } else if (block == CreationBlock.gravelDeepSlate) {
+            } else if (block == RegistryInit.gravelDeepSlate) {
                 do {
                     relative_height = rand.nextFloat();
                 }
                 while (relative_height <= rand.nextFloat());
                 return;
-            } else if (block == CreationBlock.oreCopperDeepslate) {
+            } else if (block == RegistryInit.oreCopperDeepslate) {
                 if (rand.nextInt(2) == 0) {
                     relative_height = rand.nextFloat() * 0.6F + 0.4F;
                 } else {
@@ -173,39 +174,39 @@ public abstract class WorldGenMinableMixin {
                     }
                     while (relative_height >= rand.nextFloat());
                 }
-            } else if (block == CreationBlock.oreSilverDeepslate) {
+            } else if (block == RegistryInit.oreSilverDeepslate) {
                 do {
                     relative_height = rand.nextFloat();
                 }
                 while (relative_height >= rand.nextFloat());
-            } else if (block == CreationBlock.oreGoldDeepslate) {
+            } else if (block == RegistryInit.oreGoldDeepslate) {
                 do {
                     relative_height = rand.nextFloat();
                 }
                 while (relative_height >= rand.nextFloat());
-            } else if (block == CreationBlock.oreIronDeepslate) {
+            } else if (block == RegistryInit.oreIronDeepslate) {
                 do {
                     relative_height = rand.nextFloat();
                 }
                 while (relative_height >= rand.nextFloat());
-            } else if (block == CreationBlock.oreMithrilDeepslate) {
+            } else if (block == RegistryInit.oreMithrilDeepslate) {
                 do {
                     relative_height = rand.nextFloat();
                 }
                 while (relative_height >= rand.nextFloat());
-            } else if (block != CreationBlock.oreAdamantiumDeepslate && block != CreationBlock.deepslateSilverFish) {
-                if (block == CreationBlock.oreRedstoneDeepslate) {
+            } else if (block != RegistryInit.oreAdamantiumDeepslate && block != RegistryInit.deepslateSilverFish) {
+                if (block == RegistryInit.oreRedstoneDeepslate) {
                     do {
                         relative_height = rand.nextFloat();
                     }
                     while (relative_height >= rand.nextFloat());
-                } else if (block == CreationBlock.oreDiamondDeepslate) {
+                } else if (block == RegistryInit.oreDiamondDeepslate) {
                     do {
                         relative_height = rand.nextFloat();
                     }
                     while (relative_height >= rand.nextFloat());
                 } else {
-                    if (block != CreationBlock.oreLapisDeepslate) {
+                    if (block != RegistryInit.oreLapisDeepslate) {
                         Minecraft.setErrorMessage("WorldGenMinableMixin: unknown ore id " + this.minableBlockId);
                         cir.setReturnValue(-1);
                     }

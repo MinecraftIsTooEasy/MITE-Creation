@@ -1,5 +1,6 @@
 package mod.mitecreation.block;
 
+import mod.mitecreation.init.RegistryInit;
 import net.minecraft.*;
 
 import java.util.Random;
@@ -9,7 +10,7 @@ public class BLockDeepSlateMagma extends Block {
     public static final String[] STONE_MAGMA_TEXTURE_TYPES = new String[]{"deepslate_brick", "cobble_deepslate"};
     private Icon[] ICONS;
 
-    protected BLockDeepSlateMagma(int par1) {
+    public BLockDeepSlateMagma(int par1) {
         super(par1, Material.stone, new BlockConstants());
         this.setCreativeTab(CreativeTabs.tabBlock);
         this.setLightValue(0.75F);
@@ -51,7 +52,7 @@ public class BLockDeepSlateMagma extends Block {
     }
 
     public int dropBlockAsEntityItem(BlockBreakInfo info) {
-        return info.wasExploded() ? this.dropBlockAsEntityItem(info, CreationBlock.cobbleDeepStale) : super.dropBlockAsEntityItem(info);
+        return info.wasExploded() ? this.dropBlockAsEntityItem(info, RegistryInit.cobbleDeepStale) : super.dropBlockAsEntityItem(info);
     }
 
     public boolean updateTick(World par1World, int par2, int par3, int par4, Random par5Random) {

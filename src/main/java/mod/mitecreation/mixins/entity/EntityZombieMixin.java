@@ -1,6 +1,6 @@
 package mod.mitecreation.mixins.entity;
 
-import mod.mitecreation.item.CreationItem;
+import mod.mitecreation.init.RegistryInit;
 import mod.mitecreation.util.EntityZombieDropHelper;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
@@ -11,7 +11,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Mixin(EntityZombie.class)
@@ -47,8 +46,8 @@ public class EntityZombieMixin extends EntityAnimalWatcher {
                     shift = At.Shift.BEFORE),
             locals = LocalCapture.CAPTURE_FAILHARD)
     public void addRandomWeapon(CallbackInfo ci, List items) {
-        items.add(new RandomItemListEntry(CreationItem.clubStone, 1));
-        items.add(new RandomItemListEntry(CreationItem.daggerStone, 2));
+        items.add(new RandomItemListEntry(RegistryInit.clubStone, 1));
+        items.add(new RandomItemListEntry(RegistryInit.daggerStone, 2));
     }
 
     @Shadow

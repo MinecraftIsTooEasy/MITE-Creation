@@ -22,6 +22,7 @@ tile.rusted_iron_block.name=Block of Rusted Iron
 tile.rusted_iron_anvil.intact.name=Rusted Iron Anvil
 tile.rusted_iron_anvil.slightlyDamaged.name=Slightly Damaged Rusted Iron Anvil
 tile.rusted_iron_anvil.veryDamaged.name=Very Damaged Rusted Iron Anvil
+tile.rusted_iron_chest.name=Rusted Iron Strongbox
 
 item.raw_nuggets/rusted_iron.name=Raw Rusted Iron Nugget
 item.raw_nuggets/copper.name=Raw Copper Nugget
@@ -43,6 +44,7 @@ item.armor/tungsten_chainmail_helmet.name=Tungsten Chainmail Helmet
 item.armor/tungsten_chainmail_chestplate.name=Tungsten Chainmail Chestplate
 item.armor/tungsten_chainmail_leggings.name=Tungsten Chainmail Leggings
 item.armor/tungsten_chainmail_boots.name=Tungsten Chainmail Boots
+item.armor/horse/tungsten.name=Tungsten Horse Armor
 
 item.ingots/tungsten.name=Tungsten Ingot
 item.nuggets/tungsten.name=Tungsten Nugget
@@ -81,13 +83,17 @@ tile.tungsten_anvil.veryDamaged.name=Very Damaged Tungsten Anvil
 tile.bars/tungsten_bars.name=Tungsten Bars
 tile.toolbench.tungsten.name=Tungsten Toolbench
 tile.tungsten_chest.name=Tungsten Strongbox
-tile.chestTungsten.name=Tungsten Strongbox
 
 item.tools/emerald/emerald_sword.name=[TEST]Emerald Sword
 item.tools/diamond/diamond_sword.name=[TEST]Diamond Sword
 
 tile.mushroom_luminous.name=Luminous Mushroom
 tile.sand_gravel.name=Sand Gravel
+
+tile.sand_stone_chest.name=Sand Stone Chest
+tile.cobblestone_chest.name=Cobblestone Chest
+tile.deepslate_brick_chest.name=Deepslate Brick Chest
+tile.nether_brick_chest.name=Nether Brick Chest
 
 tile.deepslate.name=Deepslate
 tile.deepslate_gravel.name=Deepslate Gravel
@@ -135,11 +141,3 @@ container.strongbox.tungsten=Tungsten Strongbox
 material.stone.name=Stone
 material.rustedIron.name=Rusted Iron
 material.tungsten.name=Tungsten
-
-item.gold_pan_empty.name=Goldpan
-item.gold_pan_sand.name=Goldpan with sand
-item.gold_pan_gravel.name=Goldpan with gravel
-item.gold_pan_clay.name=Goldpan with clay
-item.gold_pan_dirt.name=Goldpan with dirt
-item.bake_clay.name=Bake clay
-item.clay_brick.name=Clay brick

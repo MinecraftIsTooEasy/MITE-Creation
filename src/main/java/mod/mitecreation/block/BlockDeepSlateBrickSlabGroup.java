@@ -1,5 +1,6 @@
 package mod.mitecreation.block;
 
+import mod.mitecreation.init.RegistryInit;
 import net.minecraft.Block;
 import net.minecraft.BlockSlab;
 import net.minecraft.Icon;
@@ -42,9 +43,9 @@ public class BlockDeepSlateBrickSlabGroup  extends BlockSlab {
     @Override
     public Block getModelBlock(int metadata) {
         if (model_blocks == null) {
-            model_blocks = new Block[] {CreationBlock.deepStaleBrick};
+            model_blocks = new Block[] {RegistryInit.deepStaleBrick};
         }
-        return CreationBlock.deepStaleBrick;
+        return RegistryInit.deepStaleBrick;
     }
 
     @Override

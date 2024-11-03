@@ -1,8 +1,6 @@
 package mod.mitecreation.recipe;
 
-import mod.mitecreation.block.CreationBlock;
-import mod.mitecreation.block.CreationWorkbench;
-import mod.mitecreation.item.CreationItem;
+import mod.mitecreation.init.RegistryInit;
 import net.minecraft.*;
 import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
 
@@ -14,97 +12,102 @@ public class RecipesBlockExtend {
 //
 //    public static void shapedRecipe(RecipeRegistryEvent register) {
         //Tungsten Recipes
-        register.registerShapedRecipe(new ItemStack(CreationBlock.anvilTungsten), true,
+        register.registerShapedRecipe(new ItemStack(RegistryInit.anvilTungsten), true,
                 "AAA",
                 " I ",
                 "III",
-                'A', CreationBlock.blockTungsten,
-                'I', CreationItem.ingotTungsten);
-        register.registerShapedRecipe(new ItemStack(CreationBlock.blockTungsten), true,
+                'A', RegistryInit.blockTungsten,
+                'I', RegistryInit.ingotTungsten);
+        register.registerShapedRecipe(new ItemStack(RegistryInit.blockTungsten), true,
                 "XXX",
                 "XXX",
                 "XXX",
-                'X', CreationItem.ingotTungsten);
-        register.registerShapedRecipe(new ItemStack(CreationBlock.fenceTungsten, 16), true,
+                'X', RegistryInit.ingotTungsten);
+        register.registerShapedRecipe(new ItemStack(RegistryInit.fenceTungsten, 16), true,
                 "XXX",
                 "XXX",
-                'X', CreationItem.ingotTungsten);
+                'X', RegistryInit.ingotTungsten);
+        register.registerShapedRecipe(new ItemStack(RegistryInit.chestTungsten, 1), true,
+                "XXX",
+                "X X",
+                "XXX",
+                'X', RegistryInit.ingotTungsten);
 
         //Deepslate Recipes
-        register.registerShapedRecipe(new ItemStack(CreationBlock.deepSlate, 2), true,
+        register.registerShapedRecipe(new ItemStack(RegistryInit.deepSlate, 2), true,
                 "##",
                 "##",
-                '#', CreationBlock.cobbleDeepStale);
-        register.registerShapedRecipe(new ItemStack(CreationBlock.cobbleDeepStaleWall, 8), true,
+                '#', RegistryInit.cobbleDeepStale);
+        register.registerShapedRecipe(new ItemStack(RegistryInit.cobbleDeepStaleWall, 8), true,
                 "###",
                 "###",
-                '#', CreationBlock.cobbleDeepStale);
-        register.registerShapedRecipe(new ItemStack(CreationBlock.cobbledDeepStaleSingleSlab, 6), true,
+                '#', RegistryInit.cobbleDeepStale);
+        register.registerShapedRecipe(new ItemStack(RegistryInit.cobbledDeepStaleSingleSlab, 6), true,
                 "###",
-                '#', CreationBlock.cobbleDeepStale);
-        register.registerShapedRecipe(new ItemStack(CreationBlock.deepStaleBrickWall, 8), true,
+                '#', RegistryInit.cobbleDeepStale);
+        register.registerShapedRecipe(new ItemStack(RegistryInit.deepStaleBrickWall, 8), true,
                 "###",
                 "###",
-                '#', CreationBlock.deepStaleBrick);
-        register.registerShapedRecipe(new ItemStack(CreationBlock.deepStaleBrickSingleSlab, 6), true,
+                '#', RegistryInit.deepStaleBrick);
+        register.registerShapedRecipe(new ItemStack(RegistryInit.deepStaleBrickSingleSlab, 6), true,
                 "###",
-                '#', CreationBlock.deepStaleBrick);
-        register.registerShapedRecipe(new ItemStack(CreationBlock.stairsCobbleDeepSlate, 4), true,
+                '#', RegistryInit.deepStaleBrick);
+        register.registerShapedRecipe(new ItemStack(RegistryInit.stairsCobbleDeepSlate, 4), true,
                 "#  ",
                 "## ",
                 "###",
-                '#', CreationBlock.cobbleDeepStale);
-        register.registerShapedRecipe(new ItemStack(CreationBlock.stairsCobbleDeepSlate, 4), true,
+                '#', RegistryInit.cobbleDeepStale);
+        register.registerShapedRecipe(new ItemStack(RegistryInit.stairsCobbleDeepSlate, 4), true,
                 "  #",
                 " ##",
                 "###",
-                '#', CreationBlock.cobbleDeepStale);
-        register.registerShapedRecipe(new ItemStack(CreationBlock.stairsDeepSlateBrick, 4), true,
+                '#', RegistryInit.cobbleDeepStale);
+        register.registerShapedRecipe(new ItemStack(RegistryInit.stairsDeepSlateBrick, 4), true,
                 "#  ",
                 "## ",
                 "###",
-                '#', CreationBlock.deepStaleBrick);
-        register.registerShapedRecipe(new ItemStack(CreationBlock.stairsDeepSlateBrick, 4), true,
+                '#', RegistryInit.deepStaleBrick);
+        register.registerShapedRecipe(new ItemStack(RegistryInit.stairsDeepSlateBrick, 4), true,
                 "  #",
                 " ##",
                 "###",
-                '#', CreationBlock.deepStaleBrick);
+                '#', RegistryInit.deepStaleBrick);
         register.registerShapedRecipe(new ItemStack(Block.furnaceIdle, 1), true,
                 "###",
                 "# #",
                 "###",
-                '#', CreationBlock.cobbleDeepStale);
+                '#', RegistryInit.cobbleDeepStale);
         register.registerShapedRecipe(new ItemStack(Block.dispenser, 1), true,
                 "###",
                 "#*#",
                 "#&#",
-                '#', CreationBlock.cobbleDeepStale,
+                '#', RegistryInit.cobbleDeepStale,
                 '*', Item.bow,
                 '&', Item.redstone);
         register.registerShapedRecipe(new ItemStack(Block.dropper, 1), true,
                 "###",
                 "# #",
                 "#&#",
-                '#', CreationBlock.cobbleDeepStale,
+                '#', RegistryInit.cobbleDeepStale,
                 '&', Item.redstone);
         register.registerShapedRecipe(new ItemStack(Block.pistonBase, 1), true,
                 "PPP",
                 "#I#",
                 "#R#",
                 'P', Block.planks,
-                '#', CreationBlock.cobbleDeepStale,
+                '#', RegistryInit.cobbleDeepStale,
                 'I', Item.ingotIron,
                 'R', Item.redstone);
         register.registerShapedRecipe(new ItemStack(Block.stoneButton, 1), true,
                 "#",
-                '#', CreationBlock.deepSlate);
+                '#', RegistryInit.deepSlate);
         register.registerShapedRecipe(new ItemStack(Block.pressurePlateStone, 1), true,
                 "##",
-                '#', CreationBlock.deepSlate);
+                '#', RegistryInit.deepSlate);
         register.registerShapedRecipe(new ItemStack(Block.stoneSingleSlab, 1), true,
                 "###",
-                '#', CreationBlock.deepSlate);
+                '#', RegistryInit.deepSlate);
 
-        CreationBlock.tungstenWorkBench.registerSimpleRecipe(register);
+        RegistryInit.tungstenWorkBench.registerSimpleRecipe(register);
     }
 }
