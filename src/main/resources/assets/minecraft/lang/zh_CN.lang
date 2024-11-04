@@ -83,6 +83,7 @@ tile.tungsten_anvil.veryDamaged.name=严重受损的钨砧
 tile.bars/tungsten_bars.name=钨栏杆
 tile.toolbench.tungsten.name=钨工作台
 tile.tungsten_chest.name=钨保险箱
+tile.door/door_tungsten.name=钨门
 
 item.tools/emerald/emerald_sword.name=[TEST]绿宝石剑
 item.tools/diamond/diamond_sword.name=[TEST]钻石剑
@@ -164,3 +165,8 @@ container.strongbox.tungsten=钨保险箱
 material.stone.name=石头
 material.rustedIron.name=锈铁
 material.tungsten.name=钨
+
+itemGroup.creationBlocks=MITE:创世 方块
+itemGroup.creationItems=MITE:创世 物品
+itemGroup.creationTools=MITE:创世 工具
+

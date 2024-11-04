@@ -1,4 +1,4 @@
-package mod.mitecreation;
+package mod.mitecreation.init;
 
 import net.fabricmc.loader.api.entrypoint.PreLaunchEntrypoint;
 import net.minecraft.EnumQuality;

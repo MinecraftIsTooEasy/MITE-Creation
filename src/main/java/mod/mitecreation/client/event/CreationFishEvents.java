@@ -1,8 +1,7 @@
 package mod.mitecreation.client.event;
 
 import com.google.common.eventbus.Subscribe;
-import mod.mitecreation.MITECreationMod;
-import mod.mitecreation.block.CreationBlock;
+import mod.mitecreation.init.MITECreationModInit;
 import mod.mitecreation.client.event.command.CommandProtection;
 import mod.mitecreation.client.render.RenderDevilBat;
 import mod.mitecreation.client.render.RenderSpiderQueen;
@@ -38,9 +37,9 @@ public class CreationFishEvents {
 
     @Subscribe
     public void onEntityRegister(EntityRegisterEvent event) {
-        event.register(EntitySpirit.class, MITECreationMod.CreationNameSpace, "Spirit", IdUtil.getNextEntityID(), 0xFFFFFFF, 0xFFAD0000);
-        event.register(EntitySpiderQueen.class, MITECreationMod.CreationNameSpace, "SpiderQueen", IdUtil.getNextEntityID(), 11013646, 0xFFAD1245);
-        event.register(EntityDevilBat.class, MITECreationMod.CreationNameSpace, "DevilBat", IdUtil.getNextEntityID(), 0x020000, 0x300000);
+        event.register(EntitySpirit.class, MITECreationModInit.CreationNameSpace, "Spirit", IdUtil.getNextEntityID(), 0xFFFFFFF, 0xFFAD0000);
+        event.register(EntitySpiderQueen.class, MITECreationModInit.CreationNameSpace, "SpiderQueen", IdUtil.getNextEntityID(), 11013646, 0xFFAD1245);
+        event.register(EntityDevilBat.class, MITECreationModInit.CreationNameSpace, "DevilBat", IdUtil.getNextEntityID(), 0x020000, 0x300000);
     }
 
     @Subscribe

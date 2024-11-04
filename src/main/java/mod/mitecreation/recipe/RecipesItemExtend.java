@@ -2,7 +2,8 @@ package mod.mitecreation.recipe;
 
 import mod.mitecreation.init.RegistryInit;
 import mod.mitecreation.item.CreationItemFishingRod;
-import mod.mitecreation.material.CreationMaterial;
+import mod.mitecreation.material.CreationMaterials;
+import mod.mitecreation.material.MaterialTungsten;
 import net.minecraft.*;
 import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
 
@@ -184,8 +185,8 @@ public class RecipesItemExtend {
         register.registerShapelessRecipe(new ItemStack(tungstenNugget, 9), true,
                 ingotTungsten);
 
-        registerFullMetalToolRecipe(register, CreationMaterial.tungsten);
-        registerNuggetToIngotRecipe(register, tungstenNugget, CreationMaterial.tungsten);
+        registerFullMetalToolRecipe(register, CreationMaterials.tungsten);
+        registerNuggetToIngotRecipe(register, tungstenNugget, CreationMaterials.tungsten);
 
         ItemCoin[] creationCoins = {coinRustedIron, coinIron, coinTungsten};
         for (ItemCoin coin : creationCoins) {

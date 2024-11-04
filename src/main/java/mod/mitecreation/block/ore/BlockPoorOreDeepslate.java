@@ -1,7 +1,6 @@
 package mod.mitecreation.block.ore;
 
 import mod.mitecreation.block.CreationBlock;
-import mod.mitecreation.item.CreationItem;
 import net.minecraft.*;
 
 import java.util.Random;

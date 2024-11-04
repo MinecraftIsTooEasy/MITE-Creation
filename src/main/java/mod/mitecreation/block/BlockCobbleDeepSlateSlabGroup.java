@@ -22,19 +22,17 @@ public class BlockCobbleDeepSlateSlabGroup extends BlockSlab {
         return types;
     }
 
-//    @Override
-//    public boolean isValidMetadata(int metadata) {
-//        return metadata == 0;
-//    }
+    public boolean isValidMetadata(int metadata) {
+        return metadata >= 0 && metadata < 16 && this.getBlockSubtypeUnchecked(metadata) != 2;
+    }
 
-    @Override
     public int getBlockSubtypeUnchecked(int metadata) {
-        return metadata & 4;
+        return metadata & 7;
     }
 
     @Override
     public float getBlockHardness(int metadata) {
-        return this.getModelBlock(metadata).getBlockHardness(metadata);
+        return this.getModelBlock(metadata).getBlockHardness(metadata) / 2;
     }
 
     @Override

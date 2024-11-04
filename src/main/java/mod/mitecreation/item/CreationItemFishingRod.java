@@ -1,6 +1,7 @@
 package mod.mitecreation.item;
 
-import mod.mitecreation.material.CreationMaterial;
+import mod.mitecreation.material.CreationMaterials;
+import mod.mitecreation.material.MaterialTungsten;
 import net.minecraft.Icon;
 import net.minecraft.IconRegister;
 import net.minecraft.ItemFishingRod;
@@ -31,7 +32,7 @@ public class CreationItemFishingRod extends ItemFishingRod {
         if (this.getHookMaterial() == Material.rusted_iron) {
             return 0;
         }
-        if (this.getHookMaterial() == CreationMaterial.tungsten) {
+        if (this.getHookMaterial() == CreationMaterials.tungsten) {
             return 1;
         }
         return -1;
@@ -40,7 +41,7 @@ public class CreationItemFishingRod extends ItemFishingRod {
     private Material getMaterialByOrdinal(int ordinal) {
         return switch (ordinal) {
             case 0 -> Material.rusted_iron;
-            case 1 -> CreationMaterial.tungsten;
+            case 1 -> CreationMaterials.tungsten;
             default -> Material.flint;
         };
     }

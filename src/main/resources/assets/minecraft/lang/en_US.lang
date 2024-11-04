@@ -83,6 +83,7 @@ tile.tungsten_anvil.veryDamaged.name=Very Damaged Tungsten Anvil
 tile.bars/tungsten_bars.name=Tungsten Bars
 tile.toolbench.tungsten.name=Tungsten Toolbench
 tile.tungsten_chest.name=Tungsten Strongbox
+tile.door/door_tungsten.name=Tungsten Door
 
 item.tools/emerald/emerald_sword.name=[TEST]Emerald Sword
 item.tools/diamond/diamond_sword.name=[TEST]Diamond Sword
@@ -141,3 +142,7 @@ container.strongbox.tungsten=Tungsten Strongbox
 material.stone.name=Stone
 material.rustedIron.name=Rusted Iron
 material.tungsten.name=Tungsten
+
+itemGroup.creationBlocks=MITE: Creation Blocks
+itemGroup.creationItems=MITE: Creation Items
+itemGroup.creationTools=MITE: Creation Tools

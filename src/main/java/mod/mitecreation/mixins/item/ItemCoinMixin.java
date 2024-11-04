@@ -1,10 +1,11 @@
 package mod.mitecreation.mixins.item;
 
 import mod.mitecreation.init.RegistryInit;
+import mod.mitecreation.material.CreationMaterials;
 import net.minecraft.Item;
 import net.minecraft.ItemCoin;
 import net.minecraft.Material;
-import mod.mitecreation.material.CreationMaterial;
+import mod.mitecreation.material.CreationMaterials;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -20,7 +21,7 @@ public class ItemCoinMixin extends Item {
             cir.setReturnValue(2);
         if (material == Material.iron)
             cir.setReturnValue(200);
-        if (material == CreationMaterial.tungsten)
+        if (material == CreationMaterials.tungsten)
             cir.setReturnValue(1250);
     }
 
@@ -30,7 +31,7 @@ public class ItemCoinMixin extends Item {
             cir.setReturnValue(RegistryInit.coinRustedIron);
         if (material == Material.iron)
             cir.setReturnValue(RegistryInit.coinIron);
-        if (material == CreationMaterial.tungsten)
+        if (material == CreationMaterials.tungsten)
             cir.setReturnValue(RegistryInit.coinTungsten);
     }
 
@@ -41,7 +42,7 @@ public class ItemCoinMixin extends Item {
             cir.setReturnValue(RegistryInit.rustedIronNugget);
         if (material == Material.iron)
             cir.setReturnValue(Item.ironNugget);
-        if (material == CreationMaterial.tungsten)
+        if (material == CreationMaterials.tungsten)
             cir.setReturnValue(RegistryInit.tungstenNugget);
     }
 }

@@ -1,15 +1,6 @@
 package mod.mitecreation.block;
 
-import mod.mitecreation.block.ore.normal.*;
-import mod.mitecreation.material.CreationMaterial;
-import moddedmite.rustedironcore.api.block.*;
 import net.minecraft.*;
-import net.xiaoyu233.fml.api.block.AnvilBlock;
-import net.xiaoyu233.fml.api.block.StrongBoxBlock;
-import net.xiaoyu233.fml.reload.event.ItemRegistryEvent;
-import net.xiaoyu233.fml.reload.utils.IdUtil;
-
-import static mod.mitecreation.MITECreationMod.CreationNameSpace;
 
 public class CreationBlock extends Block {
 //

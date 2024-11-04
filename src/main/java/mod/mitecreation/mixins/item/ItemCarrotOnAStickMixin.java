@@ -1,8 +1,8 @@
 package mod.mitecreation.mixins.item;
 
 import mod.mitecreation.init.RegistryInit;
+import mod.mitecreation.material.CreationMaterials;
 import net.minecraft.*;
-import mod.mitecreation.material.CreationMaterial;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,7 +23,7 @@ public class ItemCarrotOnAStickMixin extends Item implements IDamageableItem {
 
     @Inject(method = "getFishingRodItem", at = @At("HEAD"), cancellable = true)
     public void getFishingRodItem(CallbackInfoReturnable<ItemFishingRod> cir) {
-        if (this.hook_material == CreationMaterial.tungsten)
+        if (this.hook_material == CreationMaterials.tungsten)
             cir.setReturnValue(RegistryInit.fishingRodTungsten);
         if (this.hook_material == Material.rusted_iron)
             cir.setReturnValue(RegistryInit.fishingRodRustedIron);

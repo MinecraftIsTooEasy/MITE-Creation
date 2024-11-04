@@ -17,13 +17,14 @@
   ],
   "entrypoints": {
     "preLaunch": [
-      "mod.mitecreation.EarlyRiser"
+      "mod.mitecreation.init.EarlyRiser"
     ],
     "main": [
-      "mod.mitecreation.MITECreationMod"
+      "mod.mitecreation.init.MITECreationModInit"
     ],
     "registry": [
-      "mod.mitecreation.init.RegistryInit"]
+      "mod.mitecreation.init.RegistryInit"
+    ]
   },
   "mixins": [
     "mitecreation.mixins.json"

@@ -10,7 +10,7 @@
 //import net.xiaoyu233.fml.reload.utils.IdUtil;
 //
 //import static net.xiaoyu233.fml.util.ReflectHelper.createInstance;
-//import static mod.mitecreation.MITECreationMod.CreationNameSpace;
+//import static mod.mitecreation.init.MITECreationMod.CreationNameSpace;
 //
 //@SuppressWarnings("ConstantConditions")
 //public class CreationItem {

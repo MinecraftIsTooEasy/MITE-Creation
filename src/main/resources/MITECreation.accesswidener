@@ -83,3 +83,5 @@ accessible method net/minecraft/EnumDirection isWest ()Z
 accessible method net/minecraft/EnumDirection isEast ()Z
 
 accessible field net/minecraft/ItemHorseArmor effective_material Lnet/minecraft/Material;
+
+accessible method net/minecraft/Material setRequiresTool ()Lnet/minecraft/Material;

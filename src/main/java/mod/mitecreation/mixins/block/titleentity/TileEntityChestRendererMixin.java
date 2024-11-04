@@ -1,6 +1,7 @@
 package mod.mitecreation.mixins.block.titleentity;
 
-import mod.mitecreation.material.CreationMaterial;
+import mod.mitecreation.material.CreationMaterials;
+import mod.mitecreation.material.MaterialTungsten;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -41,7 +42,7 @@ public class TileEntityChestRendererMixin extends TileEntitySpecialRenderer {
             )}
     )
     private void injectGetCreationChestTexture(TileEntityChest par1TileEntityChest, double par2, double par4, double par6, float par8, CallbackInfo callbackInfo){
-        if (par1TileEntityChest.getBlockMaterial() == CreationMaterial.tungsten) {
+        if (par1TileEntityChest.getBlockMaterial() == CreationMaterials.tungsten) {
             this.bindTexture(RES_TUNGSTEN_SINGLE);
         }
     }
