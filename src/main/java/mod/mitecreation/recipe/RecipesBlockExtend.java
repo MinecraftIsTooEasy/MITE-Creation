@@ -1,7 +1,9 @@
 package mod.mitecreation.recipe;
 
 import mod.mitecreation.init.RegistryInit;
-import net.minecraft.*;
+import net.minecraft.Block;
+import net.minecraft.Item;
+import net.minecraft.ItemStack;
 import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
 
 public class RecipesBlockExtend {

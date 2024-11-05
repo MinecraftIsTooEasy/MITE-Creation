@@ -1,7 +1,6 @@
 package mod.mitecreation.mixins.block;
 
 import mod.mitecreation.material.CreationMaterials;
-import mod.mitecreation.material.MaterialTungsten;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

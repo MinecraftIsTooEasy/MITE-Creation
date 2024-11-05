@@ -1,8 +1,14 @@
 package mod.mitecreation.mixins.world;
 
 import mod.mitecreation.init.RegistryInit;
-import net.minecraft.*;
-import org.spongepowered.asm.mixin.*;
+import net.minecraft.WeightedRandomChestContent;
+import net.minecraft.World;
+import net.minecraft.WorldGenDungeons;
+import net.minecraft.WorldGenerator;
+import org.spongepowered.asm.mixin.Final;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Mutable;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;

@@ -2,8 +2,12 @@ package mod.mitecreation.mixins.item;
 
 import mod.mitecreation.init.RegistryInit;
 import mod.mitecreation.material.CreationMaterials;
-import net.minecraft.*;
-import org.spongepowered.asm.mixin.*;
+import net.minecraft.ItemBucket;
+import net.minecraft.ItemVessel;
+import net.minecraft.Material;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;

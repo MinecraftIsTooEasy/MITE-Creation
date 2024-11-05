@@ -1,7 +1,9 @@
 package mod.mitecreation.block.ore.normal;
 
 import mod.mitecreation.block.ore.BlockOreDeepslate;
-import net.minecraft.*;
+import net.minecraft.Icon;
+import net.minecraft.IconRegister;
+import net.minecraft.Material;
 
 public class BlockGoldOreDeepslate extends BlockOreDeepslate {
     public static final String[] ORE_TEXTURE_TYPES = new String[]{"deepslate", "deepslate"};

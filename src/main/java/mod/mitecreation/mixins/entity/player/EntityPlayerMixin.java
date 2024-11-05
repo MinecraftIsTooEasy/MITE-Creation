@@ -1,6 +1,8 @@
 package mod.mitecreation.mixins.entity.player;
 
-import net.minecraft.*;
+import net.minecraft.EntityLivingBase;
+import net.minecraft.EntityPlayer;
+import net.minecraft.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 

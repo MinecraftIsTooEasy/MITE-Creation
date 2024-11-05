@@ -1,8 +1,8 @@
-package mod.mitecreation.block;
-
-import net.minecraft.*;
-
-public class CreationBlock extends Block {
+//package mod.mitecreation.block;
+//
+//import net.minecraft.*;
+//
+//public class CreationBlock extends Block {
 //
 //    public static final StepSound soundDeepslateFootstep = new StepSound("stone", 1.0F, 1.0F);
 //
@@ -90,9 +90,9 @@ public class CreationBlock extends Block {
 //    public static final BlockDeepslateSilverFish deepslateSilverFish;
 //    public static final Block chestTungsten;
 
-    public CreationBlock(int par1, Material par2Material, BlockConstants constants) {
-        super(par1, par2Material, constants);
-    }
+//    public CreationBlock(int par1, Material par2Material, BlockConstants constants) {
+//        super(par1, par2Material, constants);
+//    }
 
 //    public static void registerBlocks(ItemRegistryEvent registryEvent) {
 //        registryEvent.registerItemBlock(CreationNameSpace, "rusted_iron_block", rustedIronBlock);
@@ -423,4 +423,4 @@ public class CreationBlock extends Block {
 //        chestTungsten = new StrongBoxBlock(IdUtil.getNextBlockID(), CreationMaterial.tungsten).setStepSound(soundMetalFootstep).setUnlocalizedName("chestTungsten");
 //    }
 
-}
+//}

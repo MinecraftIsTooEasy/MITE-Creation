@@ -1,9 +1,11 @@
 package mod.mitecreation.material;
 
-import huix.glacier.api.extension.material.GlacierMaterial;
 import huix.glacier.api.extension.material.*;
-import net.minecraft.*;
 import mod.mitecreation.init.RegistryInit;
+import net.minecraft.Item;
+import net.minecraft.ItemCoin;
+import net.minecraft.ItemIngot;
+import net.minecraft.ItemNugget;
 
 public class MaterialTungsten extends GlacierMaterial implements
         IArmorMaterial, IArrowMaterial, ICoinMaterial, IComboMaterial, IToolMaterial, IRepairableMaterial {

@@ -1,7 +1,10 @@
 package mod.mitecreation.mixins.entity;
 
 import mod.mitecreation.init.RegistryInit;
-import net.minecraft.*;
+import net.minecraft.AchievementList;
+import net.minecraft.EntityItem;
+import net.minecraft.EntityPlayer;
+import net.minecraft.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

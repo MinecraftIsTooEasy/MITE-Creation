@@ -12,7 +12,7 @@ import java.util.Random;
 public abstract class BlockGravelMixin extends BlockFalling {
 
     protected BlockGravelMixin(int par1, Material par2Material, BlockConstants constants) {
-        super(par1, par2Material,constants);
+        super(par1, par2Material, constants);
     }
 
     @Overwrite

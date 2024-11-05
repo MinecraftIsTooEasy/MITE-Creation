@@ -1,7 +1,9 @@
 package mod.mitecreation.mixins.item;
 
 import mod.mitecreation.material.CreationMaterials;
-import net.minecraft.*;
+import net.minecraft.ItemPickaxe;
+import net.minecraft.ItemTool;
+import net.minecraft.Material;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

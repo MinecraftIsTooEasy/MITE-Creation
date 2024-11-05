@@ -23,7 +23,7 @@ public class FurnaceListener implements IFurnaceUpdateListener {
 
         if (heat_level == 4 && item_id == RegistryInit.rawGoldNugget.itemID ||
                 heat_level == 4 && item_id == RegistryInit.rawCopperNugget.itemID ||
-                heat_level == 2 && item_id == RegistryInit.rawSilverNugget.itemID)
+                heat_level == 4 && item_id == RegistryInit.rawSilverNugget.itemID)
             speed_bonus = 8;
 
         if (heat_level == 5 && item_id == RegistryInit.rawGoldNugget.itemID ||

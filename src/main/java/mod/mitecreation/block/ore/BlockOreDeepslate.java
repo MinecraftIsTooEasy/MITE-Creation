@@ -1,18 +1,10 @@
 package mod.mitecreation.block.ore;
 
-import com.llamalad7.mixinextras.sugar.Local;
-import com.llamalad7.mixinextras.sugar.ref.LocalIntRef;
-import mod.mitecreation.block.CreationBlock;
 import mod.mitecreation.init.RegistryInit;
 import net.minecraft.*;
-import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Random;
 
-import static mod.mitecreation.block.CreationBlock.*;
 
 public class BlockOreDeepslate extends BlockOre implements IBlockWithSubtypes {
     public Material vein_material;

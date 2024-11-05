@@ -6,51 +6,41 @@ import net.minecraft.BlockSlab;
 import net.minecraft.Icon;
 import net.minecraft.Material;
 
-public class BlockDeepSlateBrickSlabGroup  extends BlockSlab {
-
-    private static String[] types = new String[]{"deepSlateBrick"};
-    private static Block[] model_blocks;
+public class BlockDeepSlateBrickSlabGroup extends BlockSlab {
+    protected final Block modelBlock = RegistryInit.deepStaleBrick;
+    protected final int modelBlockMetadata = 0;
+    protected final String name = "deepSlateBrick";
 
     public BlockDeepSlateBrickSlabGroup(int id, Material material) {
         super(id, material);
     }
 
     @Override
+    public float getBlockHardness(int metadata) {
+        return modelBlock.getBlockHardness(metadata) / 2.0F;
+    }
+    @Override
     public int getGroup() {
         return 112;
     }
-
     @Override
     public String[] getTypes() {
-        return types;
+        return new String[]{name};
     }
-
     @Override
     public boolean isValidMetadata(int metadata) {
-        return metadata == 0;
+        return metadata == 0 || metadata == 8;
     }
-
     @Override
     public int getBlockSubtypeUnchecked(int metadata) {
-        return metadata & 1;
+        return 0;
     }
-
     @Override
-    public float getBlockHardness(int metadata) {
-        return this.getModelBlock(metadata).getBlockHardness(metadata);
+    public Icon getIcon(int par1, int par2) {
+        return this.modelBlock.getIcon(par1, this.modelBlockMetadata);
     }
-
     @Override
     public Block getModelBlock(int metadata) {
-        if (model_blocks == null) {
-            model_blocks = new Block[] {RegistryInit.deepStaleBrick};
-        }
-        return RegistryInit.deepStaleBrick;
-    }
-
-    @Override
-    public Icon getIcon(int side, int metadata) {
-        Block model_block = this.getModelBlock(metadata & 1);
-        return model_block.getIcon(side, model_block.getBlockSubtypeUnchecked(metadata & 1));
+        return modelBlock;
     }
 }

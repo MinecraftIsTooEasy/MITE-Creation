@@ -6,8 +6,6 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
-import static org.lwjgl.opengl.GL11.*;
-
 public class RenderSpirit extends RenderLiving {
 
     private ModelEnderman endermanModel;

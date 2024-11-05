@@ -1,7 +1,9 @@
 package mod.mitecreation.mixins.world.biome;
 
 import mod.mitecreation.entity.EntitySpiderQueen;
-import net.minecraft.*;
+import net.minecraft.BiomeGenBase;
+import net.minecraft.BiomeGenUnderworld;
+import net.minecraft.SpawnListEntry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

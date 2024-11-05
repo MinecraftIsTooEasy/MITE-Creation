@@ -1,16 +1,17 @@
 package mod.mitecreation.mixins.world;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import mod.mitecreation.block.CreationBlock;
 import mod.mitecreation.block.ore.BlockOreDeepslate;
 import mod.mitecreation.init.RegistryInit;
-import net.minecraft.*;
+import net.minecraft.Block;
+import net.minecraft.Minecraft;
+import net.minecraft.World;
+import net.minecraft.WorldGenMinable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.util.Random;
 

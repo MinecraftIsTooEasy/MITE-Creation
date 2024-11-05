@@ -1,7 +1,6 @@
 package mod.mitecreation.item;
 
 import mod.mitecreation.material.CreationMaterials;
-import mod.mitecreation.material.MaterialTungsten;
 import net.minecraft.Icon;
 import net.minecraft.IconRegister;
 import net.minecraft.ItemFishingRod;

@@ -1,15 +1,16 @@
 package mod.mitecreation.mixins.world.biome;
 
 import mod.mitecreation.init.RegistryInit;
-import net.minecraft.*;
+import net.minecraft.BiomeDecorator;
+import net.minecraft.BiomeGenBase;
+import net.minecraft.World;
+import net.minecraft.WorldGenMinable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.Random;
 
 @Mixin(BiomeDecorator.class)
 public abstract class BiomeDecoratorMixin {

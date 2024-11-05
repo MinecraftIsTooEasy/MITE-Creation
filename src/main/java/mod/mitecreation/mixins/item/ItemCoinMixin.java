@@ -5,7 +5,6 @@ import mod.mitecreation.material.CreationMaterials;
 import net.minecraft.Item;
 import net.minecraft.ItemCoin;
 import net.minecraft.Material;
-import mod.mitecreation.material.CreationMaterials;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

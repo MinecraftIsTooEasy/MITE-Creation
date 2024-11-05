@@ -1,7 +1,9 @@
 package mod.mitecreation.mixins.entity;
 
 import mod.mitecreation.init.RegistryInit;
-import net.minecraft.*;
+import net.minecraft.EntityHorse;
+import net.minecraft.Item;
+import net.minecraft.ItemHorseArmor;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.Shadow;
@@ -17,9 +19,6 @@ public class EntityHorseMixin {
     @Shadow
     @Mutable
     private static String[] horseArmorTextures = new String[0];
-    @Shadow
-    @Mutable
-    private static final String[] field_110273_bx = new String[]{"", "cop", "sil", "goo", "meo", "dio", "ada", "anc"};
     @Shadow
     @Mutable
     private static String[] horseTextures = new String[0];

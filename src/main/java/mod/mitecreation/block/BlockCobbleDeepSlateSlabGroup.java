@@ -1,51 +1,46 @@
 package mod.mitecreation.block;
 
 import mod.mitecreation.init.RegistryInit;
-import net.minecraft.*;
+import net.minecraft.Block;
+import net.minecraft.BlockSlab;
+import net.minecraft.Icon;
+import net.minecraft.Material;
 
 public class BlockCobbleDeepSlateSlabGroup extends BlockSlab {
-
-    private static String[] types = new String[]{"cobbledDeepSlate"};
-    private static Block[] model_blocks;
+    protected final Block modelBlock = RegistryInit.cobbleDeepStale;
+    protected final int modelBlockMetadata = 0;
+    protected final String name = "cobbledDeepSlate";
 
     public BlockCobbleDeepSlateSlabGroup(int id, Material material) {
         super(id, material);
     }
 
     @Override
+    public float getBlockHardness(int metadata) {
+        return modelBlock.getBlockHardness(metadata) / 2.0F;
+    }
+    @Override
     public int getGroup() {
         return 111;
     }
-
     @Override
     public String[] getTypes() {
-        return types;
+        return new String[]{name};
     }
-
-    public boolean isValidMetadata(int metadata) {
-        return metadata >= 0 && metadata < 16 && this.getBlockSubtypeUnchecked(metadata) != 2;
-    }
-
-    public int getBlockSubtypeUnchecked(int metadata) {
-        return metadata & 7;
-    }
-
     @Override
-    public float getBlockHardness(int metadata) {
-        return this.getModelBlock(metadata).getBlockHardness(metadata) / 2;
+    public boolean isValidMetadata(int metadata) {
+        return metadata == 0 || metadata == 8;
     }
-
+    @Override
+    public int getBlockSubtypeUnchecked(int metadata) {
+        return 0;
+    }
+    @Override
+    public Icon getIcon(int par1, int par2) {
+        return this.modelBlock.getIcon(par1, this.modelBlockMetadata);
+    }
     @Override
     public Block getModelBlock(int metadata) {
-        if (model_blocks == null) {
-            model_blocks = new Block[]{RegistryInit.cobbleDeepStale};
-        }
-        return model_blocks[0];
-    }
-
-    @Override
-    public Icon getIcon(int side, int metadata) {
-        Block model_block = this.getModelBlock(metadata & 1);
-        return model_block.getIcon(side, model_block.getBlockSubtypeUnchecked(metadata & 1));
+        return modelBlock;
     }
 }

@@ -1,7 +1,6 @@
 package mod.mitecreation.block.ore.normal;
 
 import mod.mitecreation.block.ore.BlockOreDeepslate;
-import mod.mitecreation.block.ore.BlockPoorOre;
 import net.minecraft.Icon;
 import net.minecraft.IconRegister;
 import net.minecraft.Material;

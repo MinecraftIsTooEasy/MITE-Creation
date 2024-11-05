@@ -1,6 +1,8 @@
 package mod.mitecreation.block.ore.normal;
 
-import net.minecraft.*;
+import net.minecraft.BlockRedstoneOre;
+import net.minecraft.Icon;
+import net.minecraft.IconRegister;
 
 public class BlockRedstoneOreDeepslate extends BlockRedstoneOre {
     public static final String[] ORE_TEXTURE_TYPES = new String[]{"deepslate", "deepslate"};

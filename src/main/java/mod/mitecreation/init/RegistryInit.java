@@ -4,18 +4,21 @@ import huix.glacier.api.entrypoint.IGameRegistry;
 import huix.glacier.api.registry.MinecraftRegistry;
 import mod.mitecreation.block.*;
 import mod.mitecreation.block.ore.normal.*;
+import mod.mitecreation.client.audio.StepSoundDeepslateBrick;
+import mod.mitecreation.client.audio.StepSoundExtend;
 import mod.mitecreation.creativetab.CreativeTabsCreationBlock;
 import mod.mitecreation.creativetab.CreativeTabsCreationItem;
 import mod.mitecreation.creativetab.CreativeTabsCreationTool;
 import mod.mitecreation.item.CreationItemFishingRod;
 import mod.mitecreation.item.ItemRawNugget;
 import mod.mitecreation.material.CreationMaterials;
+import mod.mitecreation.util.Constant;
 import moddedmite.rustedironcore.api.block.*;
 import moddedmite.rustedironcore.api.item.IngotItem;
 import net.minecraft.*;
 import net.xiaoyu233.fml.api.block.AnvilBlock;
 import net.xiaoyu233.fml.api.block.StrongBoxBlock;
-import net.xiaoyu233.fml.api.item.*;
+import net.xiaoyu233.fml.api.item.NuggetItem;
 import net.xiaoyu233.fml.reload.utils.IdUtil;
 
 import static net.minecraft.Block.*;
@@ -26,9 +29,10 @@ public class RegistryInit implements IGameRegistry {
     public static final CreativeTabs tabCreationItem = new CreativeTabsCreationItem();
     public static final CreativeTabs tabCreationTool = new CreativeTabsCreationTool();
     //TODO deepslate step sound
-    public static final StepSound soundDeepslateFootstep = new StepSound("deepslate", 1.0F, 1.0F);
+    public static final StepSound soundDeepslateFootstep = new StepSoundExtend("deepslate", 1.0F, 1.0F);
+    public static final StepSound soundDeepslateBrickFootstep = new StepSoundDeepslateBrick("deepslate_bricks", 1.0F, 1.0F);
 
-    public static final MinecraftRegistry registry = new MinecraftRegistry("Creation").initAutoItemRegister();
+    public static final MinecraftRegistry registry = new MinecraftRegistry(Constant.CreationNameSpace).initAutoItemRegister();
     
     public static Block rustedIronBlock;
     public static final BlockAnvil anvilRustedIron;
@@ -132,6 +136,17 @@ public class RegistryInit implements IGameRegistry {
 
     @Override
     public void onGameRegistry() {
+        //Register Items Heat Level
+        registry.registerItemHeatLevel(rawCopperNugget.itemID, 1);
+        registry.registerItemHeatLevel(rawSilverNugget.itemID, 1);
+        registry.registerItemHeatLevel(rawGoldNugget.itemID, 1);
+        registry.registerItemHeatLevel(rawRustedIronNugget.itemID, 2);
+        registry.registerItemHeatLevel(rustedIronNugget.itemID, 2);
+        registry.registerItemHeatLevel(rawAncientMetalNugget.itemID, 2);
+        registry.registerItemHeatLevel(rawMithrilNugget.itemID, 3);
+        registry.registerItemHeatLevel(rawTungstenNugget.itemID, 3);
+        registry.registerItemHeatLevel(rawAdamantiumNugget.itemID, 4);
+
         //Register Items
         registry.registerItem("coins/iron", coinIron);
         registry.registerItem("coins/rusted_iron", coinRustedIron);
@@ -253,26 +268,28 @@ public class RegistryInit implements IGameRegistry {
         anvilTungsten = (BlockAnvil) new AnvilBlock(IdUtil.getNextBlockID(), CreationMaterials.tungsten).setStepSound(soundAnvilFootstep).setCreativeTab(tabCreationBlock);
 
         deepStaleBrick = (BlockDeepStaleBrick) (new BlockDeepStaleBrick(IdUtil.getNextBlockID()))
-                .setHardness(1.8F).setResistance(15.0F).setStepSound(soundDeepslateFootstep)
+                .setHardness(1.8F).setResistance(15.0F).setStepSound(soundDeepslateBrickFootstep)
                 .setUnlocalizedName("deepStaleBrick").setTextureName("deepstale_brick").setCreativeTab(tabCreationBlock);
 
         deepStaleMagma = (BLockDeepSlateMagma) (new BLockDeepSlateMagma(IdUtil.getNextBlockID()))
                 .setHardness(1.8F).setResistance(15.0F).setStepSound(soundDeepslateFootstep)
                 .setUnlocalizedName("deepStaleMagma").setTextureName("deepslatemagma").setCreativeTab(tabCreationBlock);
 
-        cobbleDeepStale = (new CreationBlock(IdUtil.getNextBlockID(), Material.stone, new BlockConstants()))
+        cobbleDeepStale = (new BlockCobbledDeepSlate(IdUtil.getNextBlockID()))
                 .setHardness(2.5F).setResistance(15.0F).setStepSound(soundDeepslateFootstep)
                 .setUnlocalizedName("cobbleDeepStale").setCreativeTab(CreativeTabs.tabBlock).setTextureName("cobbledeepstale").setCreativeTab(tabCreationBlock);
 
-        stairsCobbleDeepSlate = (new StairsBlock(IdUtil.getNextBlockID(), cobbleDeepStale, 0)).setUnlocalizedName("stairsDeepSlate").setCreativeTab(tabCreationBlock);
+        stairsCobbleDeepSlate = (new StairsBlock(IdUtil.getNextBlockID(), cobbleDeepStale, 0))
+                .setUnlocalizedName("stairsDeepSlate").setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
 
-        stairsDeepSlateBrick = (new StairsBlock(IdUtil.getNextBlockID(), deepStaleBrick, 0)).setUnlocalizedName("stairsDeepSlateBrick").setCreativeTab(tabCreationBlock);
+        stairsDeepSlateBrick = (new StairsBlock(IdUtil.getNextBlockID(), deepStaleBrick, 0))
+                .setUnlocalizedName("stairsDeepSlateBrick").setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
 
         cobbleDeepStaleWall = new WallBlock(IdUtil.getNextBlockID(), cobbleDeepStale).setHardness(2.5F).setResistance(15.0F)
-                .setUnlocalizedName("cobbleDeepSlateWall").setCreativeTab(tabCreationBlock);
+                .setUnlocalizedName("cobbleDeepSlateWall").setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
 
         deepStaleBrickWall = new WallBlock(IdUtil.getNextBlockID(), deepStaleBrick).setHardness(1.8F).setResistance(15.0F)
-                .setUnlocalizedName("deepSlateBrickWall").setCreativeTab(tabCreationBlock);
+                .setUnlocalizedName("deepSlateBrickWall").setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
 
         gravelSand = (BlockSandGravel) (new BlockSandGravel(IdUtil.getNextBlockID())).setHardness(0.6F)
                 .setStepSound(soundSandFootstep).setUnlocalizedName("gravelSand").setCreativeTab(CreativeTabs.tabBlock)
@@ -292,15 +309,16 @@ public class RegistryInit implements IGameRegistry {
                 .setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
 
         deepStaleBrickSingleSlab = (BlockDeepSlateBrickSlabGroup) (new BlockDeepSlateBrickSlabGroup(IdUtil.getNextBlockID(), Material.stone))
-                .setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+                .setStepSound(soundDeepslateBrickFootstep).setCreativeTab(tabCreationBlock);
 
         deepStaleBrickDoubleSlab = (BlockDeepSlateDoubleSlab) (new BlockDeepSlateDoubleSlab(IdUtil.getNextBlockID(), deepStaleBrickSingleSlab))
-                .setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+                .setStepSound(soundDeepslateBrickFootstep).setCreativeTab(tabCreationBlock);
 
         ancientRelict = (BlockAncientRelict) new BlockAncientRelict(IdUtil.getNextBlockID()).setHardness(2.5F).setCreativeTab(CreativeTabs.tabBlock)
                 .setStepSound(soundDeepslateFootstep).setUnlocalizedName("ancientRelict").setCreativeTab(tabCreationBlock);
 
-        tungstenWorkBench = new WorkbenchBlock(IdUtil.getNextBlockID(), CreationMaterials.tungsten, 0.55F, Material.ancient_metal);
+        tungstenWorkBench = (WorkbenchBlock) new WorkbenchBlock(IdUtil.getNextBlockID(), CreationMaterials.tungsten, 0.55F, Material.ancient_metal)
+                .setStepSound(soundWoodFootstep).setCreativeTab(tabCreationBlock);
         oreIronDeepslate = (new BlockIronOreDeepslate(IdUtil.getNextBlockID(), Material.iron, 2)).setHardness(3.0F).setStepSound(soundDeepslateFootstep)
                 .setUnlocalizedName("oreIron").setTextureName("iron_ore").setCreativeTab(tabCreationBlock);
 
@@ -337,7 +355,7 @@ public class RegistryInit implements IGameRegistry {
         oreRedstoneDeepslate = (new BlockRedstoneOreDeepslate(IdUtil.getNextBlockID(), false)).setHardness(3.0F).setResistance(5.0F).setStepSound(soundDeepslateFootstep)
                 .setCreativeTab(CreativeTabs.tabBlock).setUnlocalizedName("oreRedstone").setTextureName("redstone_ore").setCreativeTab(tabCreationBlock);
 
-        deepslateSilverFish = (BlockDeepslateSilverFish) (new BlockDeepslateSilverFish(IdUtil.getNextBlockID())).setHardness(1.0F).setUnlocalizedName("monsterDeepslateEgg").setCreativeTab(tabCreationBlock);
+        deepslateSilverFish = (BlockDeepslateSilverFish) (new BlockDeepslateSilverFish(IdUtil.getNextBlockID())).setHardness(1.0F).setUnlocalizedName("monsterDeepslateEgg").setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
 
         chestTungsten = new StrongBoxBlock(IdUtil.getNextBlockID(), CreationMaterials.tungsten).setStepSound(soundMetalFootstep).setUnlocalizedName("chestTungsten").setCreativeTab(tabCreationBlock);
     }

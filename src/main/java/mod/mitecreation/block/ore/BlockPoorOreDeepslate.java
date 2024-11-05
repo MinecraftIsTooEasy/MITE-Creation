@@ -1,11 +1,6 @@
 package mod.mitecreation.block.ore;
 
-import mod.mitecreation.block.CreationBlock;
 import net.minecraft.*;
-
-import java.util.Random;
-
-import static mod.mitecreation.block.CreationBlock.*;
 
 public class BlockPoorOreDeepslate extends BlockOre implements IBlockWithSubtypes {
     public Material vein_material;

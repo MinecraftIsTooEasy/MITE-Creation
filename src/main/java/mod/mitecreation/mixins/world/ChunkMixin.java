@@ -1,14 +1,11 @@
 package mod.mitecreation.mixins.world;
 
-import com.llamalad7.mixinextras.sugar.Local;
-import mod.mitecreation.block.CreationBlock;
 import net.minecraft.*;
-import net.xiaoyu233.fml.FishModLoader;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.*;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(Chunk.class)
 public abstract class ChunkMixin {

@@ -1,6 +1,8 @@
 package mod.mitecreation.client.render;
 
-import net.minecraft.*;
+import net.minecraft.EntityLivingBase;
+import net.minecraft.ModelArachnid;
+import net.minecraft.RenderArachnid;
 import org.lwjgl.opengl.GL11;
 
 public class RenderSpiderQueen extends RenderArachnid {

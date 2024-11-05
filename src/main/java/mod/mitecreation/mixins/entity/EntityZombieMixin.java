@@ -1,11 +1,10 @@
 package mod.mitecreation.mixins.entity;
 
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import mod.mitecreation.init.RegistryInit;
 import mod.mitecreation.util.EntityZombieDropHelper;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -15,28 +14,19 @@ import java.util.List;
 
 @Mixin(EntityZombie.class)
 public class EntityZombieMixin extends EntityAnimalWatcher {
-    @Shadow
-    Item[] rare_drops_villager;
 
     public EntityZombieMixin(World par1World) {
         super(par1World);
     }
 
-    /**
-     * @author
-     * @reason
-     */
-    @Overwrite
-    protected void dropFewItems(boolean recently_hit_by_player, DamageSource damage_source) {
-        if (this.rand.nextFloat() < (recently_hit_by_player ? 0.5F : 0.25F)) {
-            this.dropItem(Item.rottenFlesh.itemID, 1);
-        }
-
-        if (recently_hit_by_player && !this.has_taken_massive_fall_damage && this.rand.nextInt(this.getBaseChanceOfRareDrop()) < 5 + damage_source.getLootingModifier() * 2) {
-            Item[] rare_drops = this.isVillager() ? this.rare_drops_villager : EntityZombieDropHelper.rare_drops_standard;
-            this.dropItem(rare_drops[this.rand.nextInt(rare_drops.length)].itemID, 1);
-        }
-
+    @ModifyExpressionValue(
+            method = "dropFewItems",
+            at = @At(
+                    value = "FIELD",
+                    target = "Lnet/minecraft/EntityZombie;rare_drops_standard:[Lnet/minecraft/Item;"
+            ))
+    private Item[] dropRawNuggets(Item[] original) {
+        return EntityZombieDropHelper.rare_drops_standard;
     }
 
     @Inject(
@@ -50,8 +40,4 @@ public class EntityZombieMixin extends EntityAnimalWatcher {
         items.add(new RandomItemListEntry(RegistryInit.daggerStone, 2));
     }
 
-    @Shadow
-    public boolean isVillager() {
-        return false;
-    }
 }

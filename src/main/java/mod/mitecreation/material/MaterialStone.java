@@ -1,6 +1,6 @@
 package mod.mitecreation.material;
 
-import huix.glacier.api.extension.material.*;
+import huix.glacier.api.extension.material.GlacierMaterial;
 
 public class MaterialStone extends GlacierMaterial {
     public MaterialStone() {
