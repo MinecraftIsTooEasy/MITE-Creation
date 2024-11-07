@@ -1,12 +1,13 @@
 {
   "required": true,
-  "package": "mod.mitecreation.mixins",
+  "package": "mod.mitecreation.mixin",
   "compatibilityLevel": "JAVA_17",
   "target": "DEFAULT",
   "minVersion": "0.8.3",
   "mixins": [
     "block.BlockGravelMixin",
     "block.BlockMixin",
+    "block.BlockOperationMixin",
     "block.BlockOreMixin",
     "block.BlockStrongboxMixin",
     "block.titleentity.TileEntityChestRendererMixin",
@@ -23,15 +24,17 @@
     "item.ItemCoinMixin",
     "item.ItemHorseArmorMixin",
     "item.ItemPickaxeMixin",
+    "material.MaterialMixin",
     "server.DedicatedServerMixin",
+    "server.PlayerControllerMPMixin",
     "util.ChestItemRenderHelperMixin",
-    "world.ChunkMixin",
     "world.WorldGenDungeonsMixin",
     "world.WorldGenMinableMixin",
     "world.WorldMixin",
     "world.biome.BiomeDecoratorMixin",
     "world.biome.BiomeHellMixin",
-    "world.biome.BiomeUnderworldMixin"
+    "world.biome.BiomeUnderworldMixin",
+    "world.chunk.ChunkMixin"
   ],
   "injectors": {
     "defaultRequire": 1

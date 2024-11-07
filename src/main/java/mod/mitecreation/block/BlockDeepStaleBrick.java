@@ -49,7 +49,7 @@ public class BlockDeepStaleBrick extends Block implements IBlockWithSubtypes {
     }
 
     public int dropBlockAsEntityItem(BlockBreakInfo info) {
-        return info.wasExploded() ? this.dropBlockAsEntityItem(info, RegistryInit.cobbleDeepStale) : super.dropBlockAsEntityItem(info);
+        return info.wasExploded() ? this.dropBlockAsEntityItem(info, RegistryInit.cobbledDeepStale) : super.dropBlockAsEntityItem(info);
     }
 
     @Override

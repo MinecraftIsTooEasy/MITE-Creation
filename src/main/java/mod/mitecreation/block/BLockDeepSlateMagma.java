@@ -52,7 +52,7 @@ public class BLockDeepSlateMagma extends Block {
     }
 
     public int dropBlockAsEntityItem(BlockBreakInfo info) {
-        return info.wasExploded() ? this.dropBlockAsEntityItem(info, RegistryInit.cobbleDeepStale) : super.dropBlockAsEntityItem(info);
+        return info.wasExploded() ? this.dropBlockAsEntityItem(info, RegistryInit.cobbledDeepStale) : super.dropBlockAsEntityItem(info);
     }
 
     public boolean updateTick(World par1World, int par2, int par3, int par4, Random par5Random) {

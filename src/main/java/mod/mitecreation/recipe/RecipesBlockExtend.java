@@ -39,14 +39,14 @@ public class RecipesBlockExtend {
         register.registerShapedRecipe(new ItemStack(RegistryInit.deepSlate, 2), true,
                 "##",
                 "##",
-                '#', RegistryInit.cobbleDeepStale);
+                '#', RegistryInit.cobbledDeepStale);
         register.registerShapedRecipe(new ItemStack(RegistryInit.cobbleDeepStaleWall, 8), true,
                 "###",
                 "###",
-                '#', RegistryInit.cobbleDeepStale);
+                '#', RegistryInit.cobbledDeepStale);
         register.registerShapedRecipe(new ItemStack(RegistryInit.cobbledDeepStaleSingleSlab, 6), true,
                 "###",
-                '#', RegistryInit.cobbleDeepStale);
+                '#', RegistryInit.cobbledDeepStale);
         register.registerShapedRecipe(new ItemStack(RegistryInit.deepStaleBrickWall, 8), true,
                 "###",
                 "###",
@@ -58,12 +58,12 @@ public class RecipesBlockExtend {
                 "#  ",
                 "## ",
                 "###",
-                '#', RegistryInit.cobbleDeepStale);
+                '#', RegistryInit.cobbledDeepStale);
         register.registerShapedRecipe(new ItemStack(RegistryInit.stairsCobbleDeepSlate, 4), true,
                 "  #",
                 " ##",
                 "###",
-                '#', RegistryInit.cobbleDeepStale);
+                '#', RegistryInit.cobbledDeepStale);
         register.registerShapedRecipe(new ItemStack(RegistryInit.stairsDeepSlateBrick, 4), true,
                 "#  ",
                 "## ",
@@ -78,26 +78,26 @@ public class RecipesBlockExtend {
                 "###",
                 "# #",
                 "###",
-                '#', RegistryInit.cobbleDeepStale);
+                '#', RegistryInit.cobbledDeepStale);
         register.registerShapedRecipe(new ItemStack(Block.dispenser, 1), true,
                 "###",
                 "#*#",
                 "#&#",
-                '#', RegistryInit.cobbleDeepStale,
+                '#', RegistryInit.cobbledDeepStale,
                 '*', Item.bow,
                 '&', Item.redstone);
         register.registerShapedRecipe(new ItemStack(Block.dropper, 1), true,
                 "###",
                 "# #",
                 "#&#",
-                '#', RegistryInit.cobbleDeepStale,
+                '#', RegistryInit.cobbledDeepStale,
                 '&', Item.redstone);
         register.registerShapedRecipe(new ItemStack(Block.pistonBase, 1), true,
                 "PPP",
                 "#I#",
                 "#R#",
                 'P', Block.planks,
-                '#', RegistryInit.cobbleDeepStale,
+                '#', RegistryInit.cobbledDeepStale,
                 'I', Item.ingotIron,
                 'R', Item.redstone);
         register.registerShapedRecipe(new ItemStack(Block.stoneButton, 1), true,

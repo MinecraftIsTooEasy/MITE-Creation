@@ -12,12 +12,11 @@ public class BlockDeepslateSilverFish extends BlockSilverfish {
         super(par1);
         this.setHardness(1.0F);
         this.setTickRandomly(true);
-        this.setCreativeTab(CreativeTabs.tabDecorations);
     }
 
     public Icon getIcon(int par1, int par2) {
         if (par2 == 1) {
-            return RegistryInit.cobbleDeepStale.getBlockTextureFromSide(par1);
+            return RegistryInit.cobbledDeepStale.getBlockTextureFromSide(par1);
         } else if (par2 == 2) {
             return RegistryInit.deepStaleBrick.getBlockTextureFromSide(par1);
         }
@@ -28,17 +27,17 @@ public class BlockDeepslateSilverFish extends BlockSilverfish {
     }
 
     public static boolean getPosingIdByMetadata(int par0) {
-        return par0 == RegistryInit.deepSlate.blockID || par0 == RegistryInit.cobbleDeepStale.blockID || par0 == RegistryInit.deepStaleBrick.blockID;
+        return par0 == RegistryInit.deepSlate.blockID || par0 == RegistryInit.cobbledDeepStale.blockID || par0 == RegistryInit.deepStaleBrick.blockID;
     }
 
     public static int getMetadataForBlockType(int par0) {
-        return par0 == RegistryInit.cobbleDeepStale.blockID ? 1 : (par0 == RegistryInit.deepStaleBrick.blockID ? 2 : 0);
+        return par0 == RegistryInit.cobbledDeepStale.blockID ? 1 : (par0 == RegistryInit.deepStaleBrick.blockID ? 2 : 0);
     }
 
     public ItemStack createStackedBlock(int par1) {
         Block var2 = RegistryInit.deepSlate;
         if (par1 == 1) {
-            var2 = RegistryInit.cobbleDeepStale;
+            var2 = RegistryInit.cobbledDeepStale;
         }
 
         if (par1 == 2) {

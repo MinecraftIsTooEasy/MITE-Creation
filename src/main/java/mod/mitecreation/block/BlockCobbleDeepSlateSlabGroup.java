@@ -7,7 +7,7 @@ import net.minecraft.Icon;
 import net.minecraft.Material;
 
 public class BlockCobbleDeepSlateSlabGroup extends BlockSlab {
-    protected final Block modelBlock = RegistryInit.cobbleDeepStale;
+    protected final Block modelBlock = RegistryInit.cobbledDeepStale;
     protected final int modelBlockMetadata = 0;
     protected final String name = "cobbledDeepSlate";
 

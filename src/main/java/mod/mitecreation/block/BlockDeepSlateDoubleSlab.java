@@ -74,7 +74,7 @@ public class BlockDeepSlateDoubleSlab extends BlockDoubleSlab {
                 if (this.blockID == RegistryInit.cobbledDeepStaleSingleSlab.blockID || this.blockID == RegistryInit.cobbledDeepStaleDoubleSlab.blockID) {
                     model_block = RegistryInit.deepStaleBrick;
                 } else if (this.blockID == RegistryInit.deepStaleBrickSingleSlab.blockID || this.blockID == RegistryInit.deepStaleBrickDoubleSlab.blockID) {
-                    model_block = RegistryInit.cobbleDeepStale;
+                    model_block = RegistryInit.cobbledDeepStale;
                 } else {
                     model_block = null;
                 }
