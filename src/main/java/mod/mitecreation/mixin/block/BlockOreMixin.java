@@ -3,7 +3,7 @@ package mod.mitecreation.mixin.block;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalIntRef;
-import mod.mitecreation.init.RegistryInit;
+import mod.mitecreation.init.CTRegistryInit;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -37,16 +37,16 @@ public class BlockOreMixin extends Block {
 
     @Unique
     private int oreDropRawNuggetID(int metadata) {
-        if (this == Block.oreCopper) return RegistryInit.rawCopperNugget.itemID;
-        if (this == Block.oreSilver) return RegistryInit.rawSilverNugget.itemID;
-        if (this == Block.oreIron) return RegistryInit.rawRustedIronNugget.itemID;
-        if (this == Block.oreGold) return RegistryInit.rawGoldNugget.itemID;
-        if (this == Block.oreMithril) return RegistryInit.rawMithrilNugget.itemID;
-        if (this == Block.oreAdamantium) return RegistryInit.rawAdamantiumNugget.itemID;
+        if (this == Block.oreCopper) return CTRegistryInit.rawCopperNugget.itemID;
+        if (this == Block.oreSilver) return CTRegistryInit.rawSilverNugget.itemID;
+        if (this == Block.oreIron) return CTRegistryInit.rawRustedIronNugget.itemID;
+        if (this == Block.oreGold) return CTRegistryInit.rawGoldNugget.itemID;
+        if (this == Block.oreMithril) return CTRegistryInit.rawMithrilNugget.itemID;
+        if (this == Block.oreAdamantium) return CTRegistryInit.rawAdamantiumNugget.itemID;
         if (this == Block.oreNetherQuartz) return Item.shardNetherQuartz.itemID;
         if (this == Block.oreDiamond) return Item.shardDiamond.itemID;
         if (this == Block.oreEmerald) return Item.shardEmerald.itemID;
-        if (this == RegistryInit.oreTungsten) return RegistryInit.rawTungstenNugget.itemID;
+        if (this == CTRegistryInit.oreTungsten) return CTRegistryInit.rawTungstenNugget.itemID;
         return 0;
     }
 

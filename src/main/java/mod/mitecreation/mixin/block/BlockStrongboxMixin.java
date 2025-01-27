@@ -1,6 +1,7 @@
 package mod.mitecreation.mixin.block;
 
-import mod.mitecreation.material.CreationMaterials;
+import mod.mitecreation.init.CreationModInit;
+import mod.mitecreation.material.CTMaterials;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -15,8 +16,8 @@ public class BlockStrongboxMixin extends Block {
 
     @Inject(method = {"registerIcons(Lnet/minecraft/IconRegister;)V"}, at = {@At("RETURN")})
     private void injectTextureInit(IconRegister register, CallbackInfo callbackInfo) {
-        if (this.blockMaterial == CreationMaterials.tungsten) {
-            this.blockIcon = register.registerIcon("block/tungsten_block");
+        if (this.blockMaterial == CTMaterials.tungsten) {
+            this.blockIcon = register.registerIcon(CreationModInit.RESOURCEID + "block/tungsten_block");
         }
     }
 }

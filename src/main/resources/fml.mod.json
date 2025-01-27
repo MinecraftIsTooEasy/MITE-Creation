@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "id": "mite_creation",
+  "id": "creation",
   "version": "${version}",
   "depends": {
-    "mite": "~1.6.4",
-    "fishmodloader": ">=3.3.2",
-    "rusted_iron_core": ">=1.3.5"
+    "minecraft": "1.6.4-mite",
+    "fishmodloader": ">=3.4.1",
+    "rusted_iron_core": ">=1.3.9"
   },
   "environment": "*",
-  "name": "MITE Creation",
-  "icon": "rusted_iron_ingot.png",
+  "name": "Creation",
+  "icon": "creation.icon.icon.png",
   "description": "你曾记得很多",
   "authors": [
     "Xy_Lose",
@@ -17,13 +17,13 @@
   ],
   "entrypoints": {
     "preLaunch": [
-      "mod.mitecreation.init.EarlyRiser"
+      "mod.mitecreation.init.CTEarlyRiser"
     ],
     "main": [
-      "mod.mitecreation.init.MITECreationModInit"
+      "mod.mitecreation.init.CreationModInit"
     ],
     "registry": [
-      "mod.mitecreation.init.RegistryInit"
+      "mod.mitecreation.init.CTRegistryInit"
     ]
   },
   "mixins": [

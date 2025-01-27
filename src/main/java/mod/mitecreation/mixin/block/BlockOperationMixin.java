@@ -1,6 +1,6 @@
 package mod.mitecreation.mixin.block;
 
-import mod.mitecreation.init.RegistryInit;
+import mod.mitecreation.init.CTRegistryInit;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -20,7 +20,7 @@ public class BlockOperationMixin {
     @Inject(method = "perform", at = @At("HEAD"))
     public void perform(WorldServer world, CallbackInfo ci) {
         Block block = world.getBlock(this.x, this.y, this.z);
-         if (this.type == EnumBlockOperation.spawn_silverfish && block == RegistryInit.deepslateSilverFish) {
+         if (this.type == EnumBlockOperation.spawn_silverfish && block == CTRegistryInit.deepslateSilverFish) {
             world.watchAnimal(-1, this.x, this.y, this.z, -2);
             int metadata = world.getBlockMetadata(this.x, this.y, this.z);
             world.destroyBlock((new BlockBreakInfo(world, this.x, this.y, this.z)).setSilverfish((EntityPlayer)this.object), false);

@@ -1,16 +1,18 @@
 package mod.mitecreation.client.event;
 
 import com.google.common.eventbus.Subscribe;
-import mod.mitecreation.client.event.command.CommandProtection;
-import mod.mitecreation.client.render.RenderDevilBat;
-import mod.mitecreation.client.render.RenderSpiderQueen;
-import mod.mitecreation.client.render.RenderSpirit;
-import mod.mitecreation.entity.EntityDevilBat;
-import mod.mitecreation.entity.EntitySpiderQueen;
-import mod.mitecreation.entity.EntitySpirit;
-import mod.mitecreation.recipe.FurnaceRecipesExtend;
-import mod.mitecreation.recipe.RecipesMITECreation;
-import mod.mitecreation.util.Constant;
+import mod.mitecreation.client.audio.CTSounds;
+import mod.mitecreation.client.event.command.CommandCTDimensionTP;
+import mod.mitecreation.client.event.command.CommandCTProtection;
+import mod.mitecreation.client.render.RenderCTDevilBat;
+import mod.mitecreation.client.render.RenderCTSpiderQueen;
+import mod.mitecreation.client.render.RenderCTSpirit;
+import mod.mitecreation.entity.EntityCTDevilBat;
+import mod.mitecreation.entity.EntityCTSpiderQueen;
+import mod.mitecreation.entity.EntityCTSpirit;
+import mod.mitecreation.init.CreationModInit;
+import mod.mitecreation.recipe.CTFurnaceRecipesExtend;
+import mod.mitecreation.recipe.CTRecipes;
 import net.minecraft.ChatMessageComponent;
 import net.minecraft.EnumChatFormatting;
 import net.xiaoyu233.fml.reload.event.*;
@@ -26,72 +28,48 @@ public class CreationFishEvents {
 
     @Subscribe
     public void onRecipeRegister(RecipeRegistryEvent event) {
-        FurnaceRecipesExtend.furnaceRecipeRegister();
-        RecipesMITECreation.registerRecipes(event);
+        CTFurnaceRecipesExtend.furnaceRecipeRegister();
+        CTRecipes.registerRecipes(event);
     }
 
     @Subscribe
     public void onCommandRegister(CommandRegisterEvent event) {
-        event.register(new CommandProtection());
+        event.register(new CommandCTProtection());
+        event.register(new CommandCTDimensionTP());
     }
 
     @Subscribe
     public void onEntityRegister(EntityRegisterEvent event) {
-        event.register(EntitySpirit.class, Constant.CreationNameSpace, "Spirit", IdUtil.getNextEntityID(), 0xFFFFFFF, 0xFFAD0000);
-        event.register(EntitySpiderQueen.class, Constant.CreationNameSpace, "SpiderQueen", IdUtil.getNextEntityID(), 11013646, 0xFFAD1245);
-        event.register(EntityDevilBat.class, Constant.CreationNameSpace, "DevilBat", IdUtil.getNextEntityID(), 0x020000, 0x300000);
+        event.register(EntityCTSpirit.class, CreationModInit.NAMESPACE, "Spirit", IdUtil.getNextEntityID(), 0xFFFFFFF, 0xFFAD0000);
+        event.register(EntityCTSpiderQueen.class, CreationModInit.NAMESPACE, "SpiderQueen", IdUtil.getNextEntityID(), 11013646, 0xFFAD1245);
+        event.register(EntityCTDevilBat.class, CreationModInit.NAMESPACE, "DevilBat", IdUtil.getNextEntityID(), 0x020000, 0x300000);
     }
 
     @Subscribe
     public void onEntityRendererRegister(EntityRendererRegistryEvent event) {
-        event.register(EntitySpiderQueen.class, new RenderSpiderQueen(1.5F));
-        event.register(EntitySpirit.class, new RenderSpirit());
-        event.register(EntityDevilBat.class, new RenderDevilBat());
+        event.register(EntityCTSpiderQueen.class, new RenderCTSpiderQueen(1.5F));
+        event.register(EntityCTSpirit.class, new RenderCTSpirit());
+        event.register(EntityCTDevilBat.class, new RenderCTDevilBat());
     }
 
     @Subscribe
     public void onSoundsRegister(SoundsRegisterEvent event) {
-//        event.register("records/imported/eutopia.ogg");
-        event.register("sound/imported/mob/spirit/hit.ogg");
-        event.register("sound/imported/mob/spirit/death.ogg");
-        event.register("sound/imported/mob/spirit/idle.ogg");
-        event.register("sound/imported/mob/spirit/scream.ogg");
-        event.register("sound/imported/mob/spirit/stare.ogg");
-        event.register("sound/step/deepslate1.ogg");
-        event.register("sound/step/deepslate2.ogg");
-        event.register("sound/step/deepslate3.ogg");
-        event.register("sound/step/deepslate4.ogg");
-        event.register("sound/step/deepslate5.ogg");
-        event.register("sound/step/deepslate6.ogg");
-        event.register("sound/step/deepslate6.ogg");
-        event.register("sound/dig/deepslate1.ogg");
-        event.register("sound/dig/deepslate2.ogg");
-        event.register("sound/dig/deepslate3.ogg");
-        event.register("sound/dig/deepslate4.ogg");
-        event.register("sound/place/deepslate1.ogg");
-        event.register("sound/place/deepslate2.ogg");
-        event.register("sound/place/deepslate3.ogg");
-        event.register("sound/place/deepslate4.ogg");
-        event.register("sound/place/deepslate5.ogg");
-        event.register("sound/place/deepslate6.ogg");
-        event.register("sound/place/deepslate6.ogg");
-        event.register("sound/step/deepslate_bricks1.ogg");
-        event.register("sound/step/deepslate_bricks2.ogg");
-        event.register("sound/step/deepslate_bricks3.ogg");
-        event.register("sound/step/deepslate_bricks4.ogg");
-        event.register("sound/step/deepslate_bricks5.ogg");
-        event.register("sound/place/deepslate_bricks1.ogg");
-        event.register("sound/place/deepslate_bricks2.ogg");
-        event.register("sound/place/deepslate_bricks3.ogg");
-        event.register("sound/place/deepslate_bricks4.ogg");
-        event.register("sound/place/deepslate_bricks5.ogg");
-        event.register("sound/place/deepslate_bricks6.ogg");
-        event.register("sound/place/deepslate_bricks6.ogg");
+//        event.register("records/imported/eutopia");
+        event.registerSound(CTSounds.spiritHit);
+        event.registerSound(CTSounds.spiritDeath);
+        event.registerSound(CTSounds.spiritIdle);
+        event.registerSound(CTSounds.spiritScream);
+        event.registerSound(CTSounds.spiritStare);
+        event.registerSound(CTSounds.deepslateStep, 6);
+        event.registerSound(CTSounds.deepslateDig, 4);
+        event.registerSound(CTSounds.deepslatePlace, 6);
+        event.registerSound(CTSounds.deepslateBricksStep, 5);
+        event.registerSound(CTSounds.deepslateBricksPlace, 6);
     }
 
     @Subscribe
     public void onPlayerLoggedIn(PlayerLoggedInEvent event) {
-        event.getPlayer().sendChatToPlayer(ChatMessageComponent.createFromTranslationKey("[Client] ").appendComponent(ChatMessageComponent.createFromTranslationKey( Constant.CreationModName + "Successfully Load,Version: ").setColor(EnumChatFormatting.WHITE)).appendComponent(ChatMessageComponent.createFromText(Constant.modVerStr)));
+        event.getPlayer().sendChatToPlayer(ChatMessageComponent.createFromTranslationKey("[" + CreationModInit.NAME + "] ").appendComponent(ChatMessageComponent.createFromTranslationKey( CreationModInit.NAMESPACE + " Successfully Load,Version: ").setColor(EnumChatFormatting.WHITE)).appendComponent(ChatMessageComponent.createFromText(CreationModInit.VERSION)));
     }
 
 }

@@ -1,0 +1,148 @@
+curse.fearOfElemental.name=Fear Of Elemental
+curse.fearOfElemental.desc=You've become fearful of earth elemental & fire elemental|and have difficulty striking them|in melee combat.
+
+item.rawRustedIronNugget.name=Raw Rusted Iron Nugget
+item.rawCopperNugget.name=Raw Copper Nugget
+item.rawSilverNugget.name=Raw Silver Nugget
+item.rawGoldNugget.name=Raw Gold Nugget
+item.rawAncientMetalNugget.name=Raw Ancient Metal Nugget
+item.rawTungstenNugget.name=Raw Tungsten Nugget
+item.rawMithrilNugget.name=Raw Mithril Nugget
+item.rawAdamantiumNugget.name=Raw Adamantium Nugget
+
+item.woodBucketEmpty.name=Wooden Bucket
+item.woodBucketWater.name=Wooden Bucket of Water
+item.woodBucketMilk.name=Wooden Bucket of Milk
+
+item.peach.name=Peach
+item.shovelPeachWood.name=Peach Wood Shovel
+item.swordPeachWood.name=Peach Wood Sword
+
+item.clubStone.name=Stone Club
+item.daggerStone.name=Stone Dagger
+
+tile.rustedIronBlock.name=Block of Rusted Iron
+tile.anvilRustedIron.intact.name=Rusted Iron Anvil
+tile.anvilRustedIron.slightlyDamaged.name=Slightly Damaged Rusted Iron Anvil
+tile.anvilRustedIron.veryDamaged.name=Very Damaged Rusted Iron Anvil
+tile.chestRustedIron.name=Rusted Iron Strongbox
+item.rustedIronNugget.name=Rusted Iron Nugget
+item.ingotRustedIron.name=Rusted Iron Ingot
+item.coinRustedIron.name=Rusted Iron Coin
+item.fishingRodRustedIron.name=Fishing Rod
+item.rustedIronBucketEmpty.name=Rusted Iron Bucket
+item.rustedIronBucketWater.name=Rusted Iron Bucket of Water
+item.rustedIronBucketLava.name=Rusted Iron Bucket of Lava
+item.rustedIronBucketStone.name=Rusted Iron Bucket of Stone
+item.rustedIronBucketMilk.name=Rusted Iron Bucket of Milk
+
+item.coinIron.name=Iron Coin
+
+tile.oreTungsten.name=Tungsten Ore
+tile.blockTungsten.name=Block of Tungsten
+tile.anvilTungsten.intact.name=Tungsten Anvil
+tile.anvilTungsten.slightlyDamaged.name=Slightly Damaged Tungsten Anvil
+tile.anvilTungsten.veryDamaged.name=Very Damaged Tungsten Anvil
+tile.fenceTungsten.name=Tungsten Bars
+tile.toolbench.tungsten.name=Tungsten Toolbench
+tile.chestTungsten.name=Tungsten Strongbox
+tile.doorTungsten.name=Tungsten Door
+item.doorTungsten.name=Tungsten Door
+item.tungstenNugget.name=Tungsten Nugget
+item.ingotTungsten.name=Tungsten Ingot
+item.axeTungsten.name=Tungsten Axe
+item.pickaxeTungsten.name=Tungsten Pickaxe
+item.daggerTungsten.name=Tungsten Dagger
+item.hatchetTungsten.name=Tungsten Hatchet
+item.battleAxeTungsten.name=Tungsten Battle Axe
+item.hoeTungsten.name=Tungsten Hoe
+item.knifeTungsten.name=Tungsten Knife
+item.mattockTungsten.name=Tungsten Mattock
+item.scytheTungsten.name=Tungsten Scythe
+item.shearsTungsten.name=Tungsten Shears
+item.shovelTungsten.name=Tungsten Shovel
+item.swordTungsten.name=Tungsten Sword
+item.warHammerTungsten.name=Tungsten War Hammer
+item.chainTungsten.name=Tungsten Chain
+item.coinTungsten.name=Tungsten Coin
+item.arrowTungsten.name=Tungsten Arrow
+item.fishingRodTungsten.name=Fishing Rod
+item.helmetTungsten.name=Tungsten Helmet
+item.plateTungsten.name=Tungsten Chestplate
+item.legsTungsten.name=Tungsten Leggings
+item.bootsTungsten.name=Tungsten Boots
+item.helmetChainTungsten.name=Tungsten Chainmail Helmet
+item.plateChainTungsten.name=Tungsten Chainmail Chestplate
+item.legsChainTungsten.name=Tungsten Chainmail Leggings
+item.bootsChainTungsten.name=Tungsten Chainmail Boots
+item.horseArmorTungsten.name=Tungsten Horse Armor
+item.tungstenBucket.name=Tungsten Bucket
+item.tungstenBucketWater.name=Tungsten Bucket of Water
+item.tungstenBucketLava.name=Tungsten Bucket of Lava
+item.tungstenBucketStone.name=Tungsten Bucket of Stone
+item.tungstenBucketMilk.name=Tungsten Bucket of Milk
+
+item.swordEmerald.name=[TEST]Emerald Sword
+item.swordDiamond.name=[TEST]Diamond Sword
+
+tile.mushroom_luminous.name=Luminous Mushroom
+tile.gravelSand.name=Sand Gravel
+
+tile.sand_stone_chest.name=Sand Stone Chest
+tile.cobblestone_chest.name=Cobblestone Chest
+tile.deepslate_brick_chest.name=Deepslate Brick Chest
+tile.nether_brick_chest.name=Nether Brick Chest
+
+tile.peachPlanks.name=Peach Planks
+tile.peachLogs.name=Peach Logs
+tile.peachLeaves.peach.name=Peach Leaves
+tile.peachSapling.name=Peach Sapling
+tile.peachPlanksSlab.peachPlanks.name=Peach Planks Slab
+tile.stairsPeachPlanks.name=Peach Planks Stairs
+
+tile.deepSlate.name=Deepslate
+tile.gravelDeepSlate.name=Deepslate Gravel
+tile.cobbledDeepStale.name=Cobbled Deepslate
+tile.cobbedDeepStaleMagma.name=Magma Cobbled Deepslate
+tile.deepStaleBrick.default.name=Deepslate Brick
+tile.deepStaleBrick.name=Deepslate Brick
+tile.deepStaleBrick.mossy.name=Mossy Deepslate Brick
+tile.deepStaleBrick.cracked.name=Cracked Deepslate Brick
+tile.deepStaleBrick.chiseled.name=Chiseled Deepslate Brick
+tile.deepStaleMagma.name=Magma Deepslate Brick
+tile.ancientRelict.name=Ancient Relict
+tile.cobbledDeepslateSlab.cobbledDeepSlate.name=Cobbled Deepslate Slab
+tile.deepslateBrickSlab.deepSlateBrick.name=Deepslate Brick Slab
+tile.cobbleDeepStaleWall.name=Cobbled Deepslate Wall
+tile.deepStaleBrickWall.name=Deepslate Brick Wall
+tile.stairsCobbleDeepSlate.name=Cobbled Deepslate Stairs
+tile.stairsDeepSlateBrick.name=Deepslate Brick Stairs
+tile.monsterDeepslateEgg.name=Deepslate Monster Egg
+
+tile.oreIronDeepslate.name=Deepslate Iron Ore
+tile.oreCoalDeepslate.name=Deepslate Coal Ore
+tile.oreLapisDeepslate.name=Deepslate Lapis Ore
+tile.oreDiamondDeepslate.name=Deepslate Diamond Ore
+tile.oreEmeraldDeepslate.name=Deepslate Emerald Ore
+tile.oreCopperDeepslate.name=Deepslate Copper Ore
+tile.oreSilverDeepslate.name=Deepslate Silver Ore
+tile.oreMithrilDeepslate.name=Deepslate Mithril Ore
+tile.oreAdamantiumDeepslate.name=Deepslate Adamantium Ore
+tile.oreTungstenDeepslate.name=Deepslate Tungsten Ore
+tile.oreGoldDeepslate.name=Deepslate Gold Ore
+tile.oreRedstoneDeepslate.name=Deepslate Redstone Ore
+
+entity.Spirit.name=Evil Spirit
+entity.SpiderQueen.name=Spider Queen
+entity.DevilBat.name=Devil Bat
+
+containet.strongbox.rusted_iron=Rusted Iron Strongbox
+container.strongbox.tungsten=Tungsten Strongbox
+
+material.stone.name=Stone
+material.rustedIron.name=Rusted Iron
+material.tungsten.name=Tungsten
+
+itemGroup.creationBlocks=MITE: Creation Blocks
+itemGroup.creationItems=MITE: Creation Items
+itemGroup.creationTools=MITE: Creation Tools

@@ -1,8 +1,8 @@
 package mod.mitecreation.mixin.entity;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import mod.mitecreation.init.RegistryInit;
-import mod.mitecreation.util.EntityZombieDropHelper;
+import mod.mitecreation.init.CTRegistryInit;
+import mod.mitecreation.util.CTEntityZombieDropHelper;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -26,7 +26,7 @@ public class EntityZombieMixin extends EntityAnimalWatcher {
                     target = "Lnet/minecraft/EntityZombie;rare_drops_standard:[Lnet/minecraft/Item;"
             ))
     private Item[] dropRawNuggets(Item[] original) {
-        return EntityZombieDropHelper.rare_drops_standard;
+        return CTEntityZombieDropHelper.rare_drops_standard;
     }
 
     @Inject(
@@ -36,8 +36,8 @@ public class EntityZombieMixin extends EntityAnimalWatcher {
                     shift = At.Shift.BEFORE),
             locals = LocalCapture.CAPTURE_FAILHARD)
     public void addRandomWeapon(CallbackInfo ci, List items) {
-        items.add(new RandomItemListEntry(RegistryInit.clubStone, 1));
-        items.add(new RandomItemListEntry(RegistryInit.daggerStone, 2));
+        items.add(new RandomItemListEntry(CTRegistryInit.clubStone, 1));
+        items.add(new RandomItemListEntry(CTRegistryInit.daggerStone, 2));
     }
 
 }

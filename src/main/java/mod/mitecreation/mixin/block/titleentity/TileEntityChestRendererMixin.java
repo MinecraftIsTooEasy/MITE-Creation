@@ -1,6 +1,6 @@
 package mod.mitecreation.mixin.block.titleentity;
 
-import mod.mitecreation.material.CreationMaterials;
+import mod.mitecreation.material.CTMaterials;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(TileEntityChestRenderer.class)
 public class TileEntityChestRendererMixin extends TileEntitySpecialRenderer {
     @Unique
-    private static final ResourceLocation RES_TUNGSTEN_SINGLE = new ResourceLocation("textures/entity/chest/tungsten_single.png");
+    private static final ResourceLocation RES_TUNGSTEN_SINGLE = new ResourceLocation("creation", "textures/entity/chest/tungsten_single.png");
 
     @Override
     @Shadow
@@ -41,7 +41,7 @@ public class TileEntityChestRendererMixin extends TileEntitySpecialRenderer {
             )}
     )
     private void injectGetCreationChestTexture(TileEntityChest par1TileEntityChest, double par2, double par4, double par6, float par8, CallbackInfo callbackInfo){
-        if (par1TileEntityChest.getBlockMaterial() == CreationMaterials.tungsten) {
+        if (par1TileEntityChest.getBlockMaterial() == CTMaterials.tungsten) {
             this.bindTexture(RES_TUNGSTEN_SINGLE);
         }
     }

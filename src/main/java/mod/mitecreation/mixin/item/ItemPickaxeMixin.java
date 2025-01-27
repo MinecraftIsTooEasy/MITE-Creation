@@ -1,6 +1,6 @@
 package mod.mitecreation.mixin.item;
 
-import mod.mitecreation.material.CreationMaterials;
+import mod.mitecreation.material.CTMaterials;
 import net.minecraft.ItemPickaxe;
 import net.minecraft.ItemTool;
 import net.minecraft.Material;
@@ -17,6 +17,6 @@ public abstract class ItemPickaxeMixin extends ItemTool {
 
     @Inject(method = "<init>",at = @At("RETURN"))
     public void creatonInjectInit(CallbackInfo callbackInfo) {
-        this.addMaterialsEffectiveAgainst(new Material[]{CreationMaterials.tungsten});
+        this.addMaterialsEffectiveAgainst(new Material[]{CTMaterials.tungsten});
     }
 }

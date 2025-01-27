@@ -5,6 +5,7 @@
   "target": "DEFAULT",
   "minVersion": "0.8.3",
   "mixins": [
+    "block.BlockFireMixin",
     "block.BlockGravelMixin",
     "block.BlockMixin",
     "block.BlockOperationMixin",
@@ -13,6 +14,8 @@
     "block.titleentity.TileEntityChestRendererMixin",
     "client.MinecraftMixin",
     "client.gui.GuiMainMenuMixin",
+    "client.render.RenderGlobalMixin",
+    "entity.EntityDamageSourceMixin",
     "entity.EntityHorseMixin",
     "entity.EntityItemMixin",
     "entity.EntitySkeletonMixin",
@@ -24,17 +27,24 @@
     "item.ItemCoinMixin",
     "item.ItemHorseArmorMixin",
     "item.ItemPickaxeMixin",
+    "item.ItemStackMixin",
     "material.MaterialMixin",
-    "server.DedicatedServerMixin",
     "server.PlayerControllerMPMixin",
     "util.ChestItemRenderHelperMixin",
+    "world.MapGenStructureIOMixin",
+    "world.MapGenVillageMixin",
     "world.WorldGenDungeonsMixin",
     "world.WorldGenMinableMixin",
     "world.WorldMixin",
+    "world.WorldProviderMixin",
     "world.biome.BiomeDecoratorMixin",
+    "world.biome.BiomeGenSnowMixin",
+    "world.biome.BiomeGenTaigaMixin",
     "world.biome.BiomeHellMixin",
     "world.biome.BiomeUnderworldMixin",
-    "world.chunk.ChunkMixin"
+    "world.chunk.ChunkMixin",
+    "world.chunk.ChunkProviderFlatMixin",
+    "world.chunk.ChunkProviderGenerateMixin"
   ],
   "injectors": {
     "defaultRequire": 1

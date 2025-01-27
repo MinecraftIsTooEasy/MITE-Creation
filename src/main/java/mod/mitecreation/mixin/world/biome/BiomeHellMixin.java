@@ -1,7 +1,7 @@
 package mod.mitecreation.mixin.world.biome;
 
-import mod.mitecreation.entity.EntityDevilBat;
-import mod.mitecreation.entity.EntitySpirit;
+import mod.mitecreation.entity.EntityCTDevilBat;
+import mod.mitecreation.entity.EntityCTSpirit;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,7 +19,7 @@ public class BiomeHellMixin extends BiomeGenBase {
         this.spawnableMonsterList.add(new SpawnListEntry(EntityInfernalCreeper.class, 20, 1, 3));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityDemonSpider.class, 20, 1, 4));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityHellhound.class, 20, 1, 4));
-        this.spawnableMonsterList.add(new SpawnListEntry(EntitySpirit.class, 5, 1, 2));
-        this.spawnableCaveCreatureList.add(new SpawnListEntry(EntityDevilBat.class, 1, 2, 2));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityCTSpirit.class, 5, 1, 2));
+        this.spawnableCaveCreatureList.add(new SpawnListEntry(EntityCTDevilBat.class, 1, 2, 2));
     }
 }

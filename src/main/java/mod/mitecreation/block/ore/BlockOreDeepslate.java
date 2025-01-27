@@ -1,6 +1,6 @@
 package mod.mitecreation.block.ore;
 
-import mod.mitecreation.init.RegistryInit;
+import mod.mitecreation.init.CTRegistryInit;
 import net.minecraft.*;
 
 import java.util.Random;
@@ -40,16 +40,16 @@ public class BlockOreDeepslate extends BlockOre implements IBlockWithSubtypes {
         int metadata_dropped = 0;
         int quantity_dropped = 1;
         if (blockBreakInfo.wasExploded()) {
-            if (this == RegistryInit.oreEmeraldDeepslate) {
+            if (this == CTRegistryInit.oreEmeraldDeepslate) {
                 id_dropped = Item.shardEmerald.itemID;
-            } else if (this == RegistryInit.oreDiamondDeepslate) {
+            } else if (this == CTRegistryInit.oreDiamondDeepslate) {
                 id_dropped = Item.shardDiamond.itemID;
-            } else if (this == RegistryInit.oreLapisDeepslate) {
+            } else if (this == CTRegistryInit.oreLapisDeepslate) {
                 id_dropped = Item.dyePowder.itemID;
                 metadata_dropped = 4;
                 quantity_dropped = 3 + blockBreakInfo.world.rand.nextInt(3);
             } else {
-                id_dropped = this == oreNetherQuartz ? Item.shardNetherQuartz.itemID : (this == RegistryInit.oreCoalDeepslate ? -1 : this.blockID);
+                id_dropped = this == oreNetherQuartz ? Item.shardNetherQuartz.itemID : (this == CTRegistryInit.oreCoalDeepslate ? -1 : this.blockID);
             }
         } else {
             //if (blockBreakInfo.wasHarvestedByPlayer() && blockBreakInfo.getResponsiblePlayer().worldObj.areSkillsEnabled() && !blockBreakInfo.getResponsiblePlayer().hasSkill(Skill.MINING)) {
@@ -58,41 +58,41 @@ public class BlockOreDeepslate extends BlockOre implements IBlockWithSubtypes {
             if (!blockBreakInfo.wasHarvestedByPlayer()) {
                 return super.dropBlockAsEntityItem(blockBreakInfo);
             }
-            if (this == RegistryInit.oreCoalDeepslate) {
+            if (this == CTRegistryInit.oreCoalDeepslate) {
                 id_dropped = Item.coal.itemID;
-            } else if (this == RegistryInit.oreDiamondDeepslate) {
+            } else if (this == CTRegistryInit.oreDiamondDeepslate) {
                 id_dropped = Item.shardDiamond.itemID;
                 quantity_dropped =7 + random.nextInt(4);
-            } else if (this == RegistryInit.oreLapisDeepslate) {
+            } else if (this == CTRegistryInit.oreLapisDeepslate) {
                 id_dropped = Item.dyePowder.itemID;
                 metadata_dropped = 4;
                 quantity_dropped = 3 + blockBreakInfo.world.rand.nextInt(3);
-            } else if (this == RegistryInit.oreEmeraldDeepslate) {
+            } else if (this == CTRegistryInit.oreEmeraldDeepslate) {
                 id_dropped = Item.shardEmerald.itemID;
                 quantity_dropped =7 + random.nextInt(4);
             } else {
-                id_dropped = this == RegistryInit.oreEmeraldDeepslate ? Item.emerald.itemID : (this == oreNetherQuartz ? Item.netherQuartz.itemID : this.blockID);
+                id_dropped = this == CTRegistryInit.oreEmeraldDeepslate ? Item.emerald.itemID : (this == oreNetherQuartz ? Item.netherQuartz.itemID : this.blockID);
             }
-            if (this == RegistryInit.oreCopperDeepslate) {
-                id_dropped = RegistryInit.rawCopperNugget.itemID;
+            if (this == CTRegistryInit.oreCopperDeepslate) {
+                id_dropped = CTRegistryInit.rawCopperNugget.itemID;
                 quantity_dropped =7 + random.nextInt(4);
-            } else if (this == RegistryInit.oreIronDeepslate) {
-                id_dropped = RegistryInit.rawRustedIronNugget.itemID;
+            } else if (this == CTRegistryInit.oreIronDeepslate) {
+                id_dropped = CTRegistryInit.rawRustedIronNugget.itemID;
                 quantity_dropped =7 + random.nextInt(4);
-            } else if (this == RegistryInit.oreSilverDeepslate) {
-                id_dropped = RegistryInit.rawSilverNugget.itemID;
+            } else if (this == CTRegistryInit.oreSilverDeepslate) {
+                id_dropped = CTRegistryInit.rawSilverNugget.itemID;
                 quantity_dropped =7 + random.nextInt(4);
-            } else if (this == RegistryInit.oreGoldDeepslate) {
-                id_dropped = RegistryInit.rawGoldNugget.itemID;
+            } else if (this == CTRegistryInit.oreGoldDeepslate) {
+                id_dropped = CTRegistryInit.rawGoldNugget.itemID;
                 quantity_dropped =7 + random.nextInt(4);
-            } else if (this == RegistryInit.oreTungstenDeepslate) {
-                id_dropped = RegistryInit.rawTungstenNugget.itemID;
+            } else if (this == CTRegistryInit.oreTungstenDeepslate) {
+                id_dropped = CTRegistryInit.rawTungstenNugget.itemID;
                 quantity_dropped =7 + random.nextInt(4);
-            } else if (this == RegistryInit.oreMithrilDeepslate) {
-                id_dropped = RegistryInit.rawMithrilNugget.itemID;
+            } else if (this == CTRegistryInit.oreMithrilDeepslate) {
+                id_dropped = CTRegistryInit.rawMithrilNugget.itemID;
                 quantity_dropped =7 + random.nextInt(4);
-            } else if (this == RegistryInit.oreAdamantiumDeepslate) {
-                id_dropped = RegistryInit.rawAdamantiumNugget.itemID;
+            } else if (this == CTRegistryInit.oreAdamantiumDeepslate) {
+                id_dropped = CTRegistryInit.rawAdamantiumNugget.itemID;
                 quantity_dropped =7 + random.nextInt(4);
             }
         }

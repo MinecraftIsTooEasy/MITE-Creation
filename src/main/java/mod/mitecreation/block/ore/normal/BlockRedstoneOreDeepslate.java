@@ -1,12 +1,12 @@
 package mod.mitecreation.block.ore.normal;
 
-import mod.mitecreation.init.RegistryInit;
+import mod.mitecreation.init.CTRegistryInit;
 import net.minecraft.*;
 
 import java.util.Random;
 
-import static mod.mitecreation.init.RegistryInit.oreRedstoneDeepslate;
-import static mod.mitecreation.init.RegistryInit.oreRedstoneDeepslateGlowing;
+import static mod.mitecreation.init.CTRegistryInit.oreRedstoneDeepslate;
+import static mod.mitecreation.init.CTRegistryInit.oreRedstoneDeepslateGlowing;
 
 public class BlockRedstoneOreDeepslate extends Block {
     public static final String[] ORE_TEXTURE_TYPES = new String[]{"deepslate", "deepslate"};
@@ -153,7 +153,7 @@ public class BlockRedstoneOreDeepslate extends Block {
     }
 
     public ItemStack createStackedBlock(int par1) {
-        return new ItemStack(RegistryInit.oreRedstoneDeepslate);
+        return new ItemStack(CTRegistryInit.oreRedstoneDeepslate);
     }
 
     public String getNameDisambiguationForReferenceFile(int metadata) {

@@ -1,6 +1,6 @@
 package mod.mitecreation.mixin.world.biome;
 
-import mod.mitecreation.entity.EntitySpiderQueen;
+import mod.mitecreation.entity.EntityCTSpiderQueen;
 import net.minecraft.BiomeGenBase;
 import net.minecraft.BiomeGenUnderworld;
 import net.minecraft.SpawnListEntry;
@@ -17,7 +17,7 @@ public class BiomeUnderworldMixin extends BiomeGenBase {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     public void creationUnderWorldMobSpawnableAdd(CallbackInfo callbackInfo) {
-        this.spawnableMonsterList.add(new SpawnListEntry(EntitySpiderQueen.class, 5, 1, 1));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityCTSpiderQueen.class, 5, 1, 1));
     }
 
 }

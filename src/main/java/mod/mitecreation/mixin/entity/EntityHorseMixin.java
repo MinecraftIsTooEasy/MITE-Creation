@@ -1,6 +1,6 @@
 package mod.mitecreation.mixin.entity;
 
-import mod.mitecreation.init.RegistryInit;
+import mod.mitecreation.init.CTRegistryInit;
 import net.minecraft.EntityHorse;
 import net.minecraft.Item;
 import net.minecraft.ItemHorseArmor;
@@ -34,7 +34,7 @@ public class EntityHorseMixin {
 
     @Inject(method = "<clinit>", at = @At("TAIL"))
     private static void addCreationHorseArmor(CallbackInfo ci) {
-        armors = new ItemHorseArmor[]{null, Item.horseArmorCopper, Item.horseArmorSilver, Item.horseArmorGold, Item.horseArmorIron, Item.horseArmorMithril, Item.horseArmorAdamantium, Item.horseArmorAncientMetal, RegistryInit.horseArmorTungsten};
+        armors = new ItemHorseArmor[]{null, Item.horseArmorCopper, Item.horseArmorSilver, Item.horseArmorGold, Item.horseArmorIron, Item.horseArmorMithril, Item.horseArmorAdamantium, Item.horseArmorAncientMetal, CTRegistryInit.horseArmorTungsten};
         horseArmorTextures = new String[armors.length];
 
         for(int i = 0; i < armors.length; ++i) {

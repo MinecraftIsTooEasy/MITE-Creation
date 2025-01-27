@@ -1,6 +1,6 @@
 package mod.mitecreation.mixin.util;
 
-import mod.mitecreation.init.RegistryInit;
+import mod.mitecreation.init.CTRegistryInit;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -15,12 +15,12 @@ public class ChestItemRenderHelperMixin {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     public void ChestItemRenderHelper(CallbackInfo ci) {
-        this.tungstenChest = new TileEntityChest(EnumChestType.strongbox, RegistryInit.chestTungsten);
+        this.tungstenChest = new TileEntityChest(EnumChestType.strongbox, CTRegistryInit.chestTungsten);
     }
 
     @Inject(method = "renderChest", at = @At("RETURN"))
     public void renderChest(Block par1Block, int par2, float par3, CallbackInfo ci) {
-        if (par1Block.blockID == RegistryInit.chestTungsten.blockID) {
+        if (par1Block.blockID == CTRegistryInit.chestTungsten.blockID) {
             TileEntityRenderer.instance.renderTileEntityAt(this.tungstenChest, 0.0, 0.0, 0.0, 0.0F);
         }
     }

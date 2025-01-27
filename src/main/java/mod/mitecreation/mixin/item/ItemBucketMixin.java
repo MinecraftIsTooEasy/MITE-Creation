@@ -1,7 +1,7 @@
 package mod.mitecreation.mixin.item;
 
-import mod.mitecreation.init.RegistryInit;
-import mod.mitecreation.material.CreationMaterials;
+import mod.mitecreation.init.CTRegistryInit;
+import mod.mitecreation.material.CTMaterials;
 import net.minecraft.ItemBucket;
 import net.minecraft.ItemVessel;
 import net.minecraft.Material;
@@ -22,26 +22,26 @@ public class ItemBucketMixin extends ItemVessel {
     @Unique
     private static ItemVessel creationVessels(Material vessel_material, Material contents) {
         if (contents == null) {
-            if (vessel_material == CreationMaterials.tungsten)
-                return RegistryInit.tungstenBucket;
+            if (vessel_material == CTMaterials.tungsten)
+                return CTRegistryInit.tungstenBucket;
             if (vessel_material == Material.wood)
-                return RegistryInit.woodBucketEmpty;
+                return CTRegistryInit.woodBucketEmpty;
         } else if (contents == Material.water) {
-            if (vessel_material == CreationMaterials.tungsten)
-                return RegistryInit.tungstenBucketWater;
+            if (vessel_material == CTMaterials.tungsten)
+                return CTRegistryInit.tungstenBucketWater;
             if (vessel_material == Material.wood)
-                return RegistryInit.woodBucketWater;
+                return CTRegistryInit.woodBucketWater;
         } else if (contents == Material.lava) {
-            if (vessel_material == CreationMaterials.tungsten)
-                return RegistryInit.tungstenBucketLava;
+            if (vessel_material == CTMaterials.tungsten)
+                return CTRegistryInit.tungstenBucketLava;
         } else if (contents == Material.milk) {
-            if (vessel_material == CreationMaterials.tungsten)
-                return RegistryInit.tungstenBucketMilk;
+            if (vessel_material == CTMaterials.tungsten)
+                return CTRegistryInit.tungstenBucketMilk;
             if (vessel_material == Material.wood)
-                return RegistryInit.woodBucketMilk;
+                return CTRegistryInit.woodBucketMilk;
         } else if (contents == Material.stone) {
-            if (vessel_material == CreationMaterials.tungsten)
-                return RegistryInit.tungstenBucketStone;
+            if (vessel_material == CTMaterials.tungsten)
+                return CTRegistryInit.tungstenBucketStone;
         }
         return null;
     }

@@ -1,6 +1,6 @@
 package mod.mitecreation.mixin.inventory.slot;
 
-import mod.mitecreation.item.ItemRawNugget;
+import mod.mitecreation.item.ItemCTRawNugget;
 import net.minecraft.Item;
 import net.minecraft.Slot;
 import org.spongepowered.asm.mixin.Mixin;
@@ -12,6 +12,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class SlotMixin {
     @Inject(method = "isLargeItem", at = @At("TAIL"), cancellable = true)
     private static void addRawNuggetToLargeItem(Item item, CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue(item instanceof ItemRawNugget);
+        cir.setReturnValue(item instanceof ItemCTRawNugget);
     }
 }

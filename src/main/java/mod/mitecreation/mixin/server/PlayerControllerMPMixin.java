@@ -1,6 +1,6 @@
 package mod.mitecreation.mixin.server;
 
-import mod.mitecreation.init.RegistryInit;
+import mod.mitecreation.init.CTRegistryInit;
 import net.minecraft.Block;
 import net.minecraft.Minecraft;
 import net.minecraft.PlayerControllerMP;
@@ -23,7 +23,7 @@ public abstract class PlayerControllerMPMixin {
     private void addCreationBlock(int x, int y, int z, CallbackInfoReturnable<Boolean> cir) {
      if (this.auto_harvest_block != null && this.mc.thePlayer.hasFoodEnergy() && !this.mc.thePlayer.isDead && !this.mc.thePlayer.inBed() && !this.autoHarvestModeHasExpired()) {
          Block block = this.mc.theWorld.getBlock(x, y, z);
-         if (this.auto_harvest_block == RegistryInit.oreRedstoneDeepslateGlowing && block == RegistryInit.oreRedstoneDeepslate) {
+         if (this.auto_harvest_block == CTRegistryInit.oreRedstoneDeepslateGlowing && block == CTRegistryInit.oreRedstoneDeepslate) {
              cir.setReturnValue(true);
          }
      }

@@ -1,7 +1,7 @@
 package mod.mitecreation.creativetab;
 
 import huix.glacier.api.extension.creativetab.GlacierCreativeTabs;
-import mod.mitecreation.init.RegistryInit;
+import mod.mitecreation.init.CTRegistryInit;
 import net.minecraft.Item;
 
 public class CreativeTabsCreationItem extends GlacierCreativeTabs {
@@ -11,6 +11,6 @@ public class CreativeTabsCreationItem extends GlacierCreativeTabs {
 
     @Override
     public Item getTabIconItem() {
-        return RegistryInit.coinIron;
+        return CTRegistryInit.coinIron;
     }
 }

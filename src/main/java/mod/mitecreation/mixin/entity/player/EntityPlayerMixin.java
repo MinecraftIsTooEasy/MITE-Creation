@@ -1,10 +1,12 @@
 package mod.mitecreation.mixin.entity.player;
 
-import net.minecraft.EntityLivingBase;
-import net.minecraft.EntityPlayer;
-import net.minecraft.World;
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
+import com.llamalad7.mixinextras.sugar.Local;
+import mod.mitecreation.material.CTMaterials;
+import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(value= EntityPlayer.class)
 public abstract class EntityPlayerMixin extends EntityLivingBase {
@@ -12,6 +14,18 @@ public abstract class EntityPlayerMixin extends EntityLivingBase {
     public EntityPlayerMixin(World par1World) {
         super(par1World);
     }
+
+    @ModifyReturnValue(method = "calcRawMeleeDamageVs(Lnet/minecraft/Entity;ZZ)F", at = @At("TAIL"))
+    public float calcRawMeleeDamageVs(float original, @Local(argsOnly = true) Entity target) {
+        Item held_item = this.getHeldItemStack() == null ? null : this.getHeldItemStack().getItem();
+        if (held_item != null) {
+            if (target instanceof EntityLivingBase && (target).isEntityUndead() && held_item.hasMaterial(CTMaterials.peachWood)) {
+                original *= 1.25f;
+            }
+        }
+        return original;
+    }
+
 
 //    public float getProtection(DamageSource damageSource, boolean par2, boolean par3, boolean par4, boolean par5) {
 //        float protection = 0.0f;

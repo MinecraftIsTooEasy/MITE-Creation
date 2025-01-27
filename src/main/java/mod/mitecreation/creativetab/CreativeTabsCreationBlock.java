@@ -1,7 +1,7 @@
 package mod.mitecreation.creativetab;
 
 import huix.glacier.api.extension.creativetab.GlacierCreativeTabs;
-import mod.mitecreation.init.RegistryInit;
+import mod.mitecreation.init.CTRegistryInit;
 
 public class CreativeTabsCreationBlock extends GlacierCreativeTabs {
     public CreativeTabsCreationBlock() {
@@ -10,6 +10,6 @@ public class CreativeTabsCreationBlock extends GlacierCreativeTabs {
 
     @Override
     public int getTabIconItemIndex() {
-        return RegistryInit.rustedIronBlock.blockID;
+        return CTRegistryInit.rustedIronBlock.blockID;
     }
 }

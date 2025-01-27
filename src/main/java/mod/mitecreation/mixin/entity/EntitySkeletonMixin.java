@@ -1,6 +1,6 @@
 package mod.mitecreation.mixin.entity;
 
-import mod.mitecreation.init.RegistryInit;
+import mod.mitecreation.init.CTRegistryInit;
 import net.minecraft.EntitySkeleton;
 import net.minecraft.Item;
 import net.minecraft.ItemStack;
@@ -20,9 +20,9 @@ public class EntitySkeletonMixin {
     public void addRandomWeapon(CallbackInfo ci) {
         Random random = new Random();
         if (random.nextInt(4) == 0)
-            this.setCurrentItemOrArmor(0, new ItemStack(this.getSkeletonType() == 2 ? RegistryInit.clubStone : Item.bow).randomizeForMob(ReflectHelper.dyCast(this), true));
+            this.setCurrentItemOrArmor(0, new ItemStack(this.getSkeletonType() == 2 ? CTRegistryInit.clubStone : Item.bow).randomizeForMob(ReflectHelper.dyCast(this), true));
         if (random.nextInt(4) == 0)
-            this.setCurrentItemOrArmor(0, new ItemStack(this.getSkeletonType() == 2 ? RegistryInit.daggerStone : Item.bow).randomizeForMob(ReflectHelper.dyCast(this), true));
+            this.setCurrentItemOrArmor(0, new ItemStack(this.getSkeletonType() == 2 ? CTRegistryInit.daggerStone : Item.bow).randomizeForMob(ReflectHelper.dyCast(this), true));
     }
 
     @Shadow

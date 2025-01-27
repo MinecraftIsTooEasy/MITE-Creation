@@ -1,6 +1,6 @@
 package mod.mitecreation.mixin.entity;
 
-import mod.mitecreation.init.RegistryInit;
+import mod.mitecreation.init.CTRegistryInit;
 import net.minecraft.AchievementList;
 import net.minecraft.EntityItem;
 import net.minecraft.EntityPlayer;
@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 public class EntityItemMixin {
     @Inject(method = "onCollideWithPlayer", at = @At(value = "INVOKE", target = "Lnet/minecraft/EntityItem;playSound(Ljava/lang/String;FF)V"), locals = LocalCapture.CAPTURE_FAILSOFT)
     private void achievements(EntityPlayer par1EntityPlayer, CallbackInfo ci, boolean was_empty_handed_before, ItemStack var2, int var3) {
-        if (var2.itemID == RegistryInit.rawCopperNugget.itemID || var2.itemID == RegistryInit.rawSilverNugget.itemID || var2.itemID == RegistryInit.rawGoldNugget.itemID || var2.itemID == RegistryInit.rawRustedIronNugget.itemID || var2.itemID == RegistryInit.rawTungstenNugget.itemID || var2.itemID == RegistryInit.rawMithrilNugget.itemID || var2.itemID == RegistryInit.rawAdamantiumNugget.itemID)
+        if (var2.itemID == CTRegistryInit.rawCopperNugget.itemID || var2.itemID == CTRegistryInit.rawSilverNugget.itemID || var2.itemID == CTRegistryInit.rawGoldNugget.itemID || var2.itemID == CTRegistryInit.rawRustedIronNugget.itemID || var2.itemID == CTRegistryInit.rawTungstenNugget.itemID || var2.itemID == CTRegistryInit.rawMithrilNugget.itemID || var2.itemID == CTRegistryInit.rawAdamantiumNugget.itemID)
             par1EntityPlayer.triggerAchievement(AchievementList.nuggets);
     }
 }
