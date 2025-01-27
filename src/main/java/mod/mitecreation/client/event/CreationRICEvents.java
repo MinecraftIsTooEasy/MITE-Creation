@@ -38,5 +38,7 @@ public class CreationRICEvents extends Handlers {
         ArmorModel.register(new CTArmorModelListener());
         PlayerAttribute.register(new CTPlayerAttributeListener());
         BiomeGenerate.register(new CTBiomeGenerateListener());
+        Structure.register(new CTStructureRegister());
+        StructureNBT.register(new CTStructureNBTRegister());
     }
 }
