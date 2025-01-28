@@ -9,7 +9,7 @@ import java.util.function.Consumer;
 public class CTStructureNBTRegister implements Consumer<StructureNBTRegisterEvent> {
     @Override
     public void accept(StructureNBTRegisterEvent structureNBTRegisterEvent) {
-        structureNBTRegisterEvent.registerStructureStart(StructureCTRuinsStart.class, "Ruin");
-        structureNBTRegisterEvent.registerStructureComponent(ComponentCTRuins.class, "Ruin");
+        structureNBTRegisterEvent.registerStructureStart(StructureCTRuinsStart.class, "Ruins");
+        structureNBTRegisterEvent.registerStructureComponent(ComponentCTRuins.class, "Ruins");
     }
 }

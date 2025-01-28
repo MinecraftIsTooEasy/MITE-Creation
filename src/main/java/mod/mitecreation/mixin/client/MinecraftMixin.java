@@ -1,5 +1,6 @@
 package mod.mitecreation.mixin.client;
 
+import mod.mitecreation.client.event.CreationRICEvents;
 import net.minecraft.Minecraft;
 import net.minecraft.RenderManager;
 import org.spongepowered.asm.mixin.Mixin;

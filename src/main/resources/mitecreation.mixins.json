@@ -31,7 +31,6 @@
     "material.MaterialMixin",
     "server.PlayerControllerMPMixin",
     "util.ChestItemRenderHelperMixin",
-    "world.MapGenStructureIOMixin",
     "world.MapGenVillageMixin",
     "world.WorldGenDungeonsMixin",
     "world.WorldGenMinableMixin",
@@ -43,8 +42,7 @@
     "world.biome.BiomeHellMixin",
     "world.biome.BiomeUnderworldMixin",
     "world.chunk.ChunkMixin",
-    "world.chunk.ChunkProviderFlatMixin",
-    "world.chunk.ChunkProviderGenerateMixin"
+    "world.chunk.ChunkProviderFlatMixin"
   ],
   "injectors": {
     "defaultRequire": 1
