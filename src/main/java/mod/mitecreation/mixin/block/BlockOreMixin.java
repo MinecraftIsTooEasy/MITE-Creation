@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = BlockOre.class, priority = 2000)
@@ -54,4 +55,5 @@ public class BlockOreMixin extends Block {
     private int moreFortuneCreation(int original) {
         return (int) (original  * 3.0F);
     }
+
 }

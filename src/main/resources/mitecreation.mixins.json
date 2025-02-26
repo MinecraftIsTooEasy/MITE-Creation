@@ -36,6 +36,7 @@
     "world.WorldGenMinableMixin",
     "world.WorldMixin",
     "world.WorldProviderMixin",
+    "world.WorldProviderUnderworldMixin",
     "world.biome.BiomeDecoratorMixin",
     "world.biome.BiomeGenSnowMixin",
     "world.biome.BiomeGenTaigaMixin",

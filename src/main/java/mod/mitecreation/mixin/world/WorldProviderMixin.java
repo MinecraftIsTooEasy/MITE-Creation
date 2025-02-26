@@ -1,5 +1,6 @@
 package mod.mitecreation.mixin.world;
 
+import cn.tesseract.underbiome.world.WorldProviderUnderbiome;
 import net.minecraft.*;
 import mod.mitecreation.world.dimesion.WorldProviderCTRedSky;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,5 +15,7 @@ public class WorldProviderMixin {
         if (par0 == 9) {
             cir.setReturnValue(new WorldProviderCTRedSky());
         }
+        if (par0 == -2)
+            cir.setReturnValue(new WorldProviderUnderbiome());
     }
 }
