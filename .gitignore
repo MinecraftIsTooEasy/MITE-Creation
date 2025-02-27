@@ -32,3 +32,4 @@ bin/
 .gradle/
 .idea/
 build/
+run/
