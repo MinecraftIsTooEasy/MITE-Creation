@@ -11,10 +11,7 @@ public class CTBiomeGenerateListener implements IBiomeGenerateListener {
     @Override
     public int onLayerHills(GenLayer genLayer, int original) {
         if (original == BiomeGenBase.forestHills.biomeID) {
-            return switch ((int) (genLayer.chunkSeed % 3L)) {
-//                case 0 -> CTBiomes.TAOYUAN.biomeID;
-                default -> CTBiomes.TAOYUAN.biomeID;
-            };
+            return CTBiomes.TAOYUAN.biomeID;
         }
         if (original == BiomeGenBase.forest.biomeID) {
             return CTBiomes.TAOYUAN.biomeID;

@@ -113,24 +113,30 @@ public class ChunkProviderUnderbiome implements IChunkProvider {
     public void replaceBlocksForBiome(int par1, int par2, byte[] blocks) {
         for (int var7 = 0; var7 < 16; ++var7) {
             for (int var8 = 0; var8 < 16; ++var8) {
-                for(int var15 = 127; var15 >= 0; --var15){
+                for(int var15 = 127; var15 >= 0; --var15) {
                     //if(worldObj.getBlock(par1+var7,y,par2+var8) == null && worldObj.getBlock(par1+var7,y-1,par2+var8) != Block.mycelium && worldObj.getBlock(par1+var7,y,par2+var8) != null){
                     //    worldObj.setBlock(par1+var7,y-1,par2+var8,Block.mycelium.blockID);
                     //    worldObj.setBlock(par1+var7,y-2,par2+var8,Block.dirt.blockID);
                     //}
-                    BiomeGenBase biome = biomesForGeneration[var8 + var7*16];
+                    BiomeGenBase biome = biomesForGeneration[var8 + var7 * 16];
                     if (biome == BiomeGenBase.underworld) continue;
                     this.hellRNG.nextDouble();
                     this.hellRNG.nextDouble();
                     this.hellRNG.nextDouble();
                     int var16 = (var8 * 16 + var7) * 128 + var15;
-                    if(biome == CTBiomes.UNDERGARDEN){
-                        if(blocks[var16] == 0 && blocks[var16-1] != Block.mycelium.blockID && blocks[var16-1] != Block.waterStill.blockID && blocks[var16-1] != 0){
-                            blocks[var16-1] = (byte) Block.mycelium.blockID;
-                            if(blocks[var16-3] == 0) continue;
-                            blocks[var16-2] = (byte) Block.dirt.blockID;
-                        }
+                    if (biome != null && blocks[var16] == 0 && blocks[var16 - 1] != biome.topBlock && blocks[var16 - 1] != Block.waterStill.blockID && blocks[var16 - 1] != 0) {
+                        blocks[var16 - 1] = biome.topBlock;
+                        if (blocks[var16 - 3] == 0) continue;
+                        blocks[var16 - 2] = biome.fillerBlock;
                     }
+
+//                    if (biome == CTBiomes.UNDERGARDEN) {
+//                        if (blocks[var16] == 0 && blocks[var16 - 1] != Block.mycelium.blockID && blocks[var16 - 1] != Block.waterStill.blockID && blocks[var16 - 1] != 0) {
+//                            blocks[var16 - 1] = (byte) Block.mycelium.blockID;
+//                            if (blocks[var16 - 3] == 0) continue;
+//                            blocks[var16 - 2] = (byte) Block.dirt.blockID;
+//                        }
+//                    }
                     // if(worldObj.getBlock(par1+var7,y,par2+var8) == null){
                     //    System.out.println(blocks[(var7<<4|var8)<<7|y]); =1
                     //}

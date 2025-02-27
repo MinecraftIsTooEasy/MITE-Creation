@@ -54,7 +54,7 @@ public class CTOreGenerationRegistry implements Consumer<OreGenerationRegisterEv
                 .setMinVeinHeight((world, minableWorldGen) -> 0)
                 .setMaxVeinHeight((world, minableWorldGen) -> 255)
                 .setRandomVeinHeight(MinableWorldGen.Common);
-        MinableWorldGen deepslateTungstenGen = new MinableWorldGen(CTRegistryInit.oreTungsten.blockID, 3, CTRegistryInit.deepSlate.blockID)
+        MinableWorldGen deepslateTungstenGen = new MinableWorldGen(CTRegistryInit.oreTungstenDeepslate.blockID, 3, CTRegistryInit.deepSlate.blockID)
                 .setMinVeinHeight((world, minableWorldGen) -> 0)
                 .setMaxVeinHeight((world, minableWorldGen) -> 255)
                 .setRandomVeinHeight(MinableWorldGen.Common);
