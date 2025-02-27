@@ -21,7 +21,7 @@ repositories {
 loom {
 	accessWidenerPath = file("src/main/resources/MITECreation.accesswidener")
 	mergedMinecraftJar()
-	setFML(new File("/home/liangmingguang/MITE R196懒人整合包(fml3.4.1推荐,解压即玩)/.minecraft/libraries/net/xiaoyu233/fishmodloader/fishmodloader/v3.4.1/fishmodloader-v3.4.1.jar"))
+	setFML(new File("libs\\fishmodloader-v3.4.1.jar"))
 	mods {
 		"MITE-Creation" {
 			sourceSet sourceSets.main
@@ -31,18 +31,18 @@ loom {
 }
 
 runClient{
-	args("--username", "Infiltrator8776", "--session", "eyJraWQiOiJhYzg0YSIsImFsZyI6IkhTMjU2In0.eyJ4dWlkIjoiMjUzNTQ2OTY4NTQ2MTQyMCIsImFnZyI6IkFkdWx0Iiwic3ViIjoiNjgzYjIwZWQtNDhiOS00OWI1LTgxNTgtZjE4YTA1ZWZkOTdhIiwiYXV0aCI6IlhCT1giLCJucyI6ImRlZmF1bHQiLCJyb2xlcyI6W10sImlzcyI6ImF1dGhlbnRpY2F0aW9uIiwiZmxhZ3MiOlsidHdvZmFjdG9yYXV0aCIsIm1zYW1pZ3JhdGlvbl9zdGFnZTQiLCJvcmRlcnNfMjAyMiIsIm11bHRpcGxheWVyIl0sInByb2ZpbGVzIjp7Im1jIjoiMmY4NzA0OWEtODRiZi00ZjIxLWE4ZDAtYmEwMGNkMzNiOGJjIn0sInBsYXRmb3JtIjoiVU5LTk9XTiIsInl1aWQiOiJiMzY2OGI5ODYwNmU2MjVmYjI2OTU5NDAxZDRiY2FkZCIsIm5iZiI6MTczOTAyMDkxNCwiZXhwIjoxNzM5MTA3MzE0LCJpYXQiOjE3MzkwMjA5MTR9.Md_i7m8b09tyos60_ba8p54oLBEotKr53i3JX04AEew","--accessToken eyJraWQiOiJhYzg0YSIsImFsZyI6IkhTMjU2In0.eyJ4dWlkIjoiMjUzNTQ2OTY4NTQ2MTQyMCIsImFnZyI6IkFkdWx0Iiwic3ViIjoiNjgzYjIwZWQtNDhiOS00OWI1LTgxNTgtZjE4YTA1ZWZkOTdhIiwiYXV0aCI6IlhCT1giLCJucyI6ImRlZmF1bHQiLCJyb2xlcyI6W10sImlzcyI6ImF1dGhlbnRpY2F0aW9uIiwiZmxhZ3MiOlsidHdvZmFjdG9yYXV0aCIsIm1zYW1pZ3JhdGlvbl9zdGFnZTQiLCJvcmRlcnNfMjAyMiIsIm11bHRpcGxheWVyIl0sInByb2ZpbGVzIjp7Im1jIjoiMmY4NzA0OWEtODRiZi00ZjIxLWE4ZDAtYmEwMGNkMzNiOGJjIn0sInBsYXRmb3JtIjoiVU5LTk9XTiIsInl1aWQiOiJiMzY2OGI5ODYwNmU2MjVmYjI2OTU5NDAxZDRiY2FkZCIsIm5iZiI6MTczOTAyMDkxNCwiZXhwIjoxNzM5MTA3MzE0LCJpYXQiOjE3MzkwMjA5MTR9.Md_i7m8b09tyos60_ba8p54oLBEotKr53i3JX04AEew", "--uuid 2f87049a84bf4f21a8d0ba00cd33b8bc", "--width", 854, "--height", 480)
+	args("--username", "dev", "--session", "a.a.a.a", "--width", 854, "--height", 480)
+//	args("--username", "Infiltrator8776", "--session", "eyJraWQiOiJhYzg0YSIsImFsZyI6IkhTMjU2In0.eyJ4dWlkIjoiMjUzNTQ2OTY4NTQ2MTQyMCIsImFnZyI6IkFkdWx0Iiwic3ViIjoiNjgzYjIwZWQtNDhiOS00OWI1LTgxNTgtZjE4YTA1ZWZkOTdhIiwiYXV0aCI6IlhCT1giLCJucyI6ImRlZmF1bHQiLCJyb2xlcyI6W10sImlzcyI6ImF1dGhlbnRpY2F0aW9uIiwiZmxhZ3MiOlsidHdvZmFjdG9yYXV0aCIsIm1zYW1pZ3JhdGlvbl9zdGFnZTQiLCJvcmRlcnNfMjAyMiIsIm11bHRpcGxheWVyIl0sInByb2ZpbGVzIjp7Im1jIjoiMmY4NzA0OWEtODRiZi00ZjIxLWE4ZDAtYmEwMGNkMzNiOGJjIn0sInBsYXRmb3JtIjoiVU5LTk9XTiIsInl1aWQiOiJiMzY2OGI5ODYwNmU2MjVmYjI2OTU5NDAxZDRiY2FkZCIsIm5iZiI6MTczOTAyMDkxNCwiZXhwIjoxNzM5MTA3MzE0LCJpYXQiOjE3MzkwMjA5MTR9.Md_i7m8b09tyos60_ba8p54oLBEotKr53i3JX04AEew","--accessToken eyJraWQiOiJhYzg0YSIsImFsZyI6IkhTMjU2In0.eyJ4dWlkIjoiMjUzNTQ2OTY4NTQ2MTQyMCIsImFnZyI6IkFkdWx0Iiwic3ViIjoiNjgzYjIwZWQtNDhiOS00OWI1LTgxNTgtZjE4YTA1ZWZkOTdhIiwiYXV0aCI6IlhCT1giLCJucyI6ImRlZmF1bHQiLCJyb2xlcyI6W10sImlzcyI6ImF1dGhlbnRpY2F0aW9uIiwiZmxhZ3MiOlsidHdvZmFjdG9yYXV0aCIsIm1zYW1pZ3JhdGlvbl9zdGFnZTQiLCJvcmRlcnNfMjAyMiIsIm11bHRpcGxheWVyIl0sInByb2ZpbGVzIjp7Im1jIjoiMmY4NzA0OWEtODRiZi00ZjIxLWE4ZDAtYmEwMGNkMzNiOGJjIn0sInBsYXRmb3JtIjoiVU5LTk9XTiIsInl1aWQiOiJiMzY2OGI5ODYwNmU2MjVmYjI2OTU5NDAxZDRiY2FkZCIsIm5iZiI6MTczOTAyMDkxNCwiZXhwIjoxNzM5MTA3MzE0LCJpYXQiOjE3MzkwMjA5MTR9.Md_i7m8b09tyos60_ba8p54oLBEotKr53i3JX04AEew", "--uuid 2f87049a84bf4f21a8d0ba00cd33b8bc", "--width", 854, "--height", 480)
 }
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings loom.fmlMCPMappings()
-//	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	implementation files("libs\\emi-1.1.20-SNAPSHOT+1.6.4-MITE+fish-dev.jar")
 	implementation files("libs\\RustedIronCore-1.3.9.jar")
 	implementation files("libs\\RustedIronCore-1.3.9-sources.jar")
-	implementation files("libs\\fastutil-8.5.12.jar")
+//	implementation files("libs\\fastutil-8.5.12.jar")
 	implementation files(loom.getFML().toPath())
 }
 
