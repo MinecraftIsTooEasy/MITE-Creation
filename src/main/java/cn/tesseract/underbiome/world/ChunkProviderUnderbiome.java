@@ -118,16 +118,18 @@ public class ChunkProviderUnderbiome implements IChunkProvider {
                     //    worldObj.setBlock(par1+var7,y-1,par2+var8,Block.mycelium.blockID);
                     //    worldObj.setBlock(par1+var7,y-2,par2+var8,Block.dirt.blockID);
                     //}
-                    BiomeGenBase biome = biomesForGeneration[var8 + var7 * 16];
+                    BiomeGenBase biome = biomesForGeneration[var8 + var7*16];
                     if (biome == BiomeGenBase.underworld) continue;
                     this.hellRNG.nextDouble();
                     this.hellRNG.nextDouble();
                     this.hellRNG.nextDouble();
                     int var16 = (var8 * 16 + var7) * 128 + var15;
-                    if (biome != null && blocks[var16] == 0 && blocks[var16 - 1] != biome.topBlock && blocks[var16 - 1] != Block.waterStill.blockID && blocks[var16 - 1] != 0) {
-                        blocks[var16 - 1] = biome.topBlock;
-                        if (blocks[var16 - 3] == 0) continue;
-                        blocks[var16 - 2] = biome.fillerBlock;
+                    if(biome == CTBiomes.UNDERGARDEN){
+                        if(blocks[var16] == 0 && blocks[var16-1] != Block.mycelium.blockID && blocks[var16-1] != Block.waterStill.blockID && blocks[var16-1] != 0){
+                            blocks[var16-1] = (byte) Block.mycelium.blockID;
+                            if(blocks[var16-3] == 0) continue;
+                            blocks[var16-2] = (byte) Block.dirt.blockID;
+                        }
                     }
 
 //                    if (biome == CTBiomes.UNDERGARDEN) {
