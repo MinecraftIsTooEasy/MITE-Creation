@@ -79,6 +79,7 @@ public class CTRegistryInit implements IGameRegistry {
     public static final BlockCTPeachPlanksDoubleSlab peachPlanksDoubleSlab;
     public static final Block stairsPeachPlanks;
     public static final BlockCTSnowBerry snowBerry;
+    public static final Block basalt;
 
     public static final ItemCoin coinIron = (ItemCoin) createInstance(ItemCoin.class, new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), Material.iron).setCreativeTab(tabCreationItem);
     public static final ItemCoin coinRustedIron = (ItemCoin) createInstance(ItemCoin.class, new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), Material.rusted_iron).setCreativeTab(tabCreationItem);
@@ -293,6 +294,7 @@ public class CTRegistryInit implements IGameRegistry {
         registerBlock(peachPlanksDoubleSlab, "peachPlanksDoubleSlab", "peachPlanksDoubleSlab");
         registerBlock(stairsPeachPlanks, "peach_planks_stairs", "stairsPeachPlanks");
         registerBlock(snowBerry, "bushes", "sonwBerry");
+        registerBlock(basalt,"basalt","basalt");
     }
 
     static {
@@ -342,5 +344,6 @@ public class CTRegistryInit implements IGameRegistry {
         peachPlanksDoubleSlab = (BlockCTPeachPlanksDoubleSlab) (new BlockCTPeachPlanksDoubleSlab(IdUtil.getNextBlockID(), peachPlanksSingleSlab)).setStepSound(soundWoodFootstep).setCreativeTab(tabCreationBlock);
         stairsPeachPlanks = (new StairsBlock(IdUtil.getNextBlockID(), peachPlanks, 0)).setStepSound(soundWoodFootstep).setCreativeTab(tabCreationBlock);
         snowBerry = (BlockCTSnowBerry) (new BlockCTSnowBerry(IdUtil.getNextBlockID())).setHardness(0.05F).setStepSound(soundGrassFootstep).setCreativeTab(tabCreationBlock);
+        basalt = new BlockStone(IdUtil.getNextBlockID()).setHardness(2.5f).setResistance(10.0f).setStepSound(soundStoneFootstep);
     }
 }

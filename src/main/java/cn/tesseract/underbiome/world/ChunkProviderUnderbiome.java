@@ -1,6 +1,6 @@
 package cn.tesseract.underbiome.world;
 
-import mod.mitecreation.init.CTRegistryInit;
+import mod.mitecreation.world.gen.WorldGenFault;
 import mod.mitecreation.world.biome.CTBiomes;
 import net.minecraft.*;
 
@@ -15,6 +15,7 @@ public class ChunkProviderUnderbiome implements IChunkProvider {
     public NoiseGeneratorOctaves netherNoiseGen6;
     public NoiseGeneratorOctaves netherNoiseGen7;
     private final World worldObj;
+    private final WorldGenFault faultGenerator = new WorldGenFault();
     private BiomeGenBase[] biomesForGeneration;
     private double[] noiseField;
     double[] noiseData1;
@@ -114,10 +115,6 @@ public class ChunkProviderUnderbiome implements IChunkProvider {
         for (int var7 = 0; var7 < 16; ++var7) {
             for (int var8 = 0; var8 < 16; ++var8) {
                 for(int var15 = 127; var15 >= 0; --var15) {
-                    //if(worldObj.getBlock(par1+var7,y,par2+var8) == null && worldObj.getBlock(par1+var7,y-1,par2+var8) != Block.mycelium && worldObj.getBlock(par1+var7,y,par2+var8) != null){
-                    //    worldObj.setBlock(par1+var7,y-1,par2+var8,Block.mycelium.blockID);
-                    //    worldObj.setBlock(par1+var7,y-2,par2+var8,Block.dirt.blockID);
-                    //}
                     BiomeGenBase biome = biomesForGeneration[var8 + var7*16];
                     if (biome == BiomeGenBase.underworld) continue;
                     this.hellRNG.nextDouble();
@@ -132,25 +129,6 @@ public class ChunkProviderUnderbiome implements IChunkProvider {
                         }
                     }
 
-//                    if (biome == CTBiomes.UNDERGARDEN) {
-//                        if (blocks[var16] == 0 && blocks[var16 - 1] != Block.mycelium.blockID && blocks[var16 - 1] != Block.waterStill.blockID && blocks[var16 - 1] != 0) {
-//                            blocks[var16 - 1] = (byte) Block.mycelium.blockID;
-//                            if (blocks[var16 - 3] == 0) continue;
-//                            blocks[var16 - 2] = (byte) Block.dirt.blockID;
-//                        }
-//                    }
-                    // if(worldObj.getBlock(par1+var7,y,par2+var8) == null){
-                    //    System.out.println(blocks[(var7<<4|var8)<<7|y]); =1
-                    //}
-
-                    /*
-                    for (int var15 = 127; var15 >= 0; --var15) {
-                    int var16 = (var8 * 16 + var7) * 128 + var15;
-
-                    if (blocks[var16] == 1)
-                        blocks[var16] = (byte) (biomegenbase == BiomeGenBase.hell ? Block.netherrack.blockID : Block.whiteStone.blockID);
-                    }
-                     */
                 }
             }
         }
@@ -173,14 +151,13 @@ public class ChunkProviderUnderbiome implements IChunkProvider {
             biomesForGeneration = worldObj.getWorldChunkManager().loadBlockGeneratorData(biomesForGeneration, par1 * 16, par2 * 16, 16, 16);
             this.replaceBlocksForBiome(par1, par2, var3);
             ChunkProviderGenerate.placeRandomCobwebs(par1, par2, var3, this.hellRNG);
+            this.faultGenerator.generate(this,worldObj,par1,par2,var3);
             Chunk var4 = new Chunk(this.worldObj, var3, par1, par2);
             BiomeGenBase[] var5 = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(null, par1 * 16, par2 * 16, 16, 16);
             byte[] var6 = var4.getBiomeArray();
-
             for (int var7 = 0; var7 < var6.length; ++var7) {
                 var6[var7] = (byte) var5[var7].biomeID;
             }
-
             var4.generateHeightMap(false);
             var4.resetRelightChecks();
             return var4;

@@ -1,7 +1,9 @@
 package mod.mitecreation.util;
 
 import mod.mitecreation.init.CTRegistryInit;
+import mod.mitecreation.world.biome.BiomeCTFault;
 import mod.mitecreation.world.biome.BiomeCTUndergarden;
+import mod.mitecreation.world.biome.CTBiomes;
 import net.minecraft.*;
 
 import java.util.List;
@@ -14,7 +16,7 @@ public class Utils {
         for(int x = chunk_origin_x; x < chunk_origin_x + 16; ++x) {
             for(int z = chunk_origin_z; z < chunk_origin_z + 16; ++z) {
                 random.setSeed(world.getSeed());
-                for(int i =0;i < 256;++i) {
+                for(int i =0;i < 128;++i) {
                     var y = i + world.underworld_y_offset;
                     if (world.isAirBlock(x, y + 1, z)) {
                         Block block = world.getBlock(x, y, z);
@@ -36,16 +38,17 @@ public class Utils {
 
     public static boolean CTUndergardenRegenerateDeepslate(BiomeCTUndergarden undergarden, World world, Random random, int chunk_origin_x, int chunk_origin_z){
         random = new Random();
-        ChunkPostField deepSlate_posts = new ChunkPostField(114514,world.getHashedSeed(),24,0.2f);
+        ChunkPostField deepSlate_posts = new ChunkPostField(114514,world.getHashedSeed(),16,0.2f);
         for(int x = chunk_origin_x; x < chunk_origin_x + 16; ++x) {
             for(int z = chunk_origin_z; z < chunk_origin_z + 16; ++z) {
+                if (world.getBiomeGenForCoords(x,z) != CTBiomes.UNDERGARDEN) continue;
                 List posts = deepSlate_posts.getNearbyPostsForBlockCoords(x, z);
                 for(int i = 0; i < posts.size(); ++i) {
                     ChunkPost post = (ChunkPost)posts.get(i);
                     if (!(post.getDistanceSqFromBlockCoords(x, z) > (double)(deepSlate_posts.getPostMaxRadiusOfEffectSq())) ) {
                         random.setSeed(post.getSeed());
                         random.nextInt();
-                        for(int i2 =0;i2 < 256;++i2) {
+                        for(int i2 =0;i2 < 128;++i2) {
                             var y = i2 + world.underworld_y_offset;
                             if (world.getBlock(x,y,z) == Block.mycelium) {
                                 world.setBlock(x,y,z,CTRegistryInit.deepSlate.blockID);
@@ -58,4 +61,24 @@ public class Utils {
         }
         return true;
     }
+
+    public static boolean CTFaultGenerateBasalt(BiomeCTFault fault, World world, Random random, int chunk_origin_x, int chunk_origin_z){
+        for(int x = chunk_origin_x; x < chunk_origin_x + 16; ++x) {
+            for(int z = chunk_origin_z; z < chunk_origin_z + 16; ++z) {
+                for(int i2 =0;i2 < 256;++i2) {
+                    var y = i2 + world.underworld_y_offset;
+                    if(world.getBiomeGenForCoords(x,z) == fault){
+                        if (world.getBlock(x,y,z) != CTRegistryInit.deepSlate && world.getBlock(x,y-1,z) == CTRegistryInit.deepSlate){
+                            world.setBlock(x,y-1,z,CTRegistryInit.basalt.blockID);
+                            if (!world.isAirBlock(x,y-1,z)){
+                                world.setBlock(x,y-2,z,CTRegistryInit.basalt.blockID);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
 }
