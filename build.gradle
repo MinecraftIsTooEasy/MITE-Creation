@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 plugins {
 	id 'fml-loom' version '0.1.local'
 	id 'maven-publish'
@@ -61,6 +63,8 @@ tasks.withType(JavaCompile).configureEach {
 java {
 	withSourcesJar()
 
+	version += "-" + new SimpleDateFormat("yyyyMMdd").format(new Date())
+	if (project.dev) version += "-dev"
 	sourceCompatibility = JavaVersion.VERSION_17
 	targetCompatibility = JavaVersion.VERSION_17
 }

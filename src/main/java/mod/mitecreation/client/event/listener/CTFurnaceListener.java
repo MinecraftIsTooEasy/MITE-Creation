@@ -57,7 +57,7 @@ public class CTFurnaceListener implements IFurnaceUpdateListener {
 
         if (heat_level == 5 && item_id == CTRegistryInit.rawAdamantiumNugget.itemID)
             speed_bonus = 2;
-        original *= speed_bonus;
+        original *= speed_bonus * 2;
         return original;
     }
 

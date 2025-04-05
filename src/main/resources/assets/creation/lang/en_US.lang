@@ -14,6 +14,8 @@ item.woodBucketEmpty.name=Wooden Bucket
 item.woodBucketWater.name=Wooden Bucket of Water
 item.woodBucketMilk.name=Wooden Bucket of Milk
 
+item.snowBerries.name=Snow Berries
+item.snowBerryStew.name=Snow Berry Stew
 item.peach.name=Peach
 item.shovelPeachWood.name=Peach Wood Shovel
 item.swordPeachWood.name=Peach Wood Sword
@@ -97,7 +99,7 @@ tile.peachPlanks.name=Peach Planks
 tile.peachLogs.name=Peach Logs
 tile.peachLeaves.peach.name=Peach Leaves
 tile.peachSapling.name=Peach Sapling
-tile.peachPlanksSlab.peachPlanks.name=Peach Planks Slab
+tile.woodSlab.peachWood.name=Peach Planks Slab
 tile.stairsPeachPlanks.name=Peach Planks Stairs
 
 tile.deepSlate.name=Deepslate
@@ -142,6 +144,10 @@ container.strongbox.tungsten=Tungsten Strongbox
 material.stone.name=Stone
 material.rustedIron.name=Rusted Iron
 material.tungsten.name=Tungsten
+
+biome.taoyuan.name=Tao Yuan
+biome.fault.name=Fault Between Dims
+biome.undergarden.name=Under Garden
 
 itemGroup.creationBlocks=MITE: Creation Blocks
 itemGroup.creationItems=MITE: Creation Items

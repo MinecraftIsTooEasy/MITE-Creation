@@ -290,8 +290,8 @@ public class CTRegistryInit implements IGameRegistry {
         registerBlock(peachWood, "log", "peachLogs");
         registerBlock(peachLeaves, "leaves_peach", "peachLeaves");
         registerBlock(peachSapling, "sapling", "peachSapling");
-        registerBlock(peachPlanksSingleSlab, "peachPlanksSingleSlab", "peachPlanksSingleSlab");
-        registerBlock(peachPlanksDoubleSlab, "peachPlanksDoubleSlab", "peachPlanksDoubleSlab");
+        registerBlock(peachPlanksSingleSlab, "wood", "woodSlab");
+        registerBlock(peachPlanksDoubleSlab, "wood", "woodSlab");
         registerBlock(stairsPeachPlanks, "peach_planks_stairs", "stairsPeachPlanks");
         registerBlock(snowBerry, "bushes", "sonwBerry");
         registerBlock(basalt,"basalt","basalt");
