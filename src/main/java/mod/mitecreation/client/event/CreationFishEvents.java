@@ -20,11 +20,11 @@ import net.xiaoyu233.fml.reload.utils.IdUtil;
 
 public class CreationFishEvents {
 
-    @Subscribe
-    public void onItemRegister(ItemRegistryEvent event) {
+//    @Subscribe
+//    public void onItemRegister(ItemRegistryEvent event) {
 //        CreationItem.itemRegister(event);
 //        CreationBlock.registerBlocks(event);
-    }
+//    }
 
     @Subscribe
     public void onRecipeRegister(RecipeRegistryEvent event) {

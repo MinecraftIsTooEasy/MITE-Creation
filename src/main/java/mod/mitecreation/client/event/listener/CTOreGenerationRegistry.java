@@ -13,23 +13,23 @@ public class CTOreGenerationRegistry implements Consumer<OreGenerationRegisterEv
         MinableWorldGen deepGravelGen = new MinableWorldGen(CTRegistryInit.gravelDeepSlate.blockID, 32, CTRegistryInit.deepSlate.blockID)
                 .setMinVeinHeight((world, minableWorldGen) -> 0)
                 .setMaxVeinHeight((world, minableWorldGen) -> 255)
-                .setRandomVeinHeight(MinableWorldGen.Common);
+                .setRandomVeinHeight(MinableWorldGen.STANDARD_RANDOM_HEIGHT);
         MinableWorldGen deepslateIronGen = new MinableWorldGen(CTRegistryInit.oreIronDeepslate.blockID, 6, CTRegistryInit.deepSlate.blockID)
                 .setMinVeinHeight((world, minableWorldGen) -> 0)
                 .setMaxVeinHeight((world, minableWorldGen) -> 255)
-                .setRandomVeinHeight(MinableWorldGen.Common);
+                .setRandomVeinHeight(MinableWorldGen.STANDARD_RANDOM_HEIGHT);
         MinableWorldGen deepslateCopperGen = new MinableWorldGen(CTRegistryInit.oreCopperDeepslate.blockID, 6, CTRegistryInit.deepSlate.blockID)
                 .setMinVeinHeight((world, minableWorldGen) -> 0)
                 .setMaxVeinHeight((world, minableWorldGen) -> 255)
-                .setRandomVeinHeight(MinableWorldGen.Common);
+                .setRandomVeinHeight(MinableWorldGen.STANDARD_RANDOM_HEIGHT);
         MinableWorldGen deepslateSilverGen = new MinableWorldGen(CTRegistryInit.oreSilverDeepslate.blockID, 6, CTRegistryInit.deepSlate.blockID)
                 .setMinVeinHeight((world, minableWorldGen) -> 0)
                 .setMaxVeinHeight((world, minableWorldGen) -> 255)
-                .setRandomVeinHeight(MinableWorldGen.Common);
+                .setRandomVeinHeight(MinableWorldGen.STANDARD_RANDOM_HEIGHT);
         MinableWorldGen deepslateMithrilGen = new MinableWorldGen(CTRegistryInit.oreMithrilDeepslate.blockID, 3, CTRegistryInit.deepSlate.blockID)
                 .setMinVeinHeight((world, minableWorldGen) -> 0)
                 .setMaxVeinHeight((world, minableWorldGen) -> 255)
-                .setRandomVeinHeight(MinableWorldGen.Common);
+                .setRandomVeinHeight(MinableWorldGen.STANDARD_RANDOM_HEIGHT);
         MinableWorldGen deepslateAdamantiteGen = new MinableWorldGen(CTRegistryInit.oreAdamantiumDeepslate.blockID, 3, CTRegistryInit.deepSlate.blockID)
                 .setMinVeinHeight((world, minableWorldGen) -> 0)
                 .setMaxVeinHeight((world, minableWorldGen) -> 136)
@@ -37,27 +37,27 @@ public class CTOreGenerationRegistry implements Consumer<OreGenerationRegisterEv
         MinableWorldGen deepslateGoldGen = new MinableWorldGen(CTRegistryInit.oreGoldDeepslate.blockID, 4, CTRegistryInit.deepSlate.blockID)
                 .setMinVeinHeight((world, minableWorldGen) -> 0)
                 .setMaxVeinHeight((world, minableWorldGen) -> 255)
-                .setRandomVeinHeight(MinableWorldGen.Common);
+                .setRandomVeinHeight(MinableWorldGen.STANDARD_RANDOM_HEIGHT);
         MinableWorldGen deepslateRedstoneGen = new MinableWorldGen(CTRegistryInit.oreRedstoneDeepslate.blockID, 5, CTRegistryInit.deepSlate.blockID)
                 .setMinVeinHeight((world, minableWorldGen) -> 0)
                 .setMaxVeinHeight((world, minableWorldGen) -> 255)
-                .setRandomVeinHeight(MinableWorldGen.Common);
+                .setRandomVeinHeight(MinableWorldGen.STANDARD_RANDOM_HEIGHT);
         MinableWorldGen deepslateDiamondGen = new MinableWorldGen(CTRegistryInit.oreDiamondDeepslate.blockID, 3, CTRegistryInit.deepSlate.blockID)
                 .setMinVeinHeight((world, minableWorldGen) -> 0)
                 .setMaxVeinHeight((world, minableWorldGen) -> 255)
-                .setRandomVeinHeight(MinableWorldGen.Common);
+                .setRandomVeinHeight(MinableWorldGen.STANDARD_RANDOM_HEIGHT);
         MinableWorldGen deepslateLapisGen = new MinableWorldGen(CTRegistryInit.oreLapisDeepslate.blockID, 3, CTRegistryInit.deepSlate.blockID)
                 .setMinVeinHeight((world, minableWorldGen) -> 0)
                 .setMaxVeinHeight((world, minableWorldGen) -> 255)
-                .setRandomVeinHeight(MinableWorldGen.Common);
+                .setRandomVeinHeight(MinableWorldGen.STANDARD_RANDOM_HEIGHT);
         MinableWorldGen deepslateSilverfishGen = new MinableWorldGen(CTRegistryInit.deepslateSilverFish.blockID, 3, CTRegistryInit.deepSlate.blockID)
                 .setMinVeinHeight((world, minableWorldGen) -> 0)
                 .setMaxVeinHeight((world, minableWorldGen) -> 255)
-                .setRandomVeinHeight(MinableWorldGen.Common);
+                .setRandomVeinHeight(MinableWorldGen.STANDARD_RANDOM_HEIGHT);
         MinableWorldGen deepslateTungstenGen = new MinableWorldGen(CTRegistryInit.oreTungstenDeepslate.blockID, 3, CTRegistryInit.deepSlate.blockID)
                 .setMinVeinHeight((world, minableWorldGen) -> 0)
                 .setMaxVeinHeight((world, minableWorldGen) -> 255)
-                .setRandomVeinHeight(MinableWorldGen.Common);
+                .setRandomVeinHeight(MinableWorldGen.STANDARD_RANDOM_HEIGHT);
 
         event.register(Dimension.UNDERWORLD, deepGravelGen, 20);
         event.register(Dimension.UNDERWORLD, deepslateIronGen, 60, true);

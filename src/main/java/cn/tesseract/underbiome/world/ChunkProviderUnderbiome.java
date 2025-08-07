@@ -15,7 +15,7 @@ public class ChunkProviderUnderbiome implements IChunkProvider {
     public NoiseGeneratorOctaves netherNoiseGen6;
     public NoiseGeneratorOctaves netherNoiseGen7;
     private final World worldObj;
-    private final WorldGenFault faultGenerator = new WorldGenFault();
+//    private final WorldGenFault faultGenerator = new WorldGenFault();
     private BiomeGenBase[] biomesForGeneration;
     private double[] noiseField;
     double[] noiseData1;
@@ -151,7 +151,7 @@ public class ChunkProviderUnderbiome implements IChunkProvider {
             biomesForGeneration = worldObj.getWorldChunkManager().loadBlockGeneratorData(biomesForGeneration, par1 * 16, par2 * 16, 16, 16);
             this.replaceBlocksForBiome(par1, par2, var3);
             ChunkProviderGenerate.placeRandomCobwebs(par1, par2, var3, this.hellRNG);
-            this.faultGenerator.generate(this,worldObj,par1,par2,var3);
+//            this.faultGenerator.generate(this,worldObj,par1,par2,var3);
             Chunk var4 = new Chunk(this.worldObj, var3, par1, par2);
             BiomeGenBase[] var5 = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(null, par1 * 16, par2 * 16, 16, 16);
             byte[] var6 = var4.getBiomeArray();

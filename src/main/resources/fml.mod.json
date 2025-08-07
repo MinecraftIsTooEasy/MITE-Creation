@@ -9,7 +9,7 @@
   },
   "environment": "*",
   "name": "Creation",
-  "icon": "creation.icon.icon.png",
+  "icon": "assets/creation/icon/icon.png",
   "description": "你曾记得很多",
   "authors": [
     "Xy_Lose",

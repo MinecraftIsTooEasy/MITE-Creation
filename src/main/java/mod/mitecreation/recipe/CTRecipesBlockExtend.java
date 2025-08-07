@@ -7,7 +7,7 @@ import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
 public class CTRecipesBlockExtend {
 
     public static void registerRecipes(RecipeRegistryEvent register) {
-//Tungsten Recipes
+    //Tungsten Recipes
         register.registerShapedRecipe(new ItemStack(CTRegistryInit.anvilTungsten), true,
                 "AAA",
                 " I ",
@@ -30,7 +30,7 @@ public class CTRecipesBlockExtend {
                 'X', CTRegistryInit.ingotTungsten);
         CTRegistryInit.tungstenWorkBench.registerSimpleRecipe(register);
 
-//Deepslate Recipes
+    //Deepslate Recipes
         register.registerShapedRecipe(new ItemStack(CTRegistryInit.deepSlate, 2), true,
                 "##",
                 "##",
@@ -113,7 +113,7 @@ public class CTRecipesBlockExtend {
                 "###",
                 '#', CTRegistryInit.deepSlate);
 
-//Peach Wood Recipe
+    //Peach Wood Recipe
         register.registerShapedRecipe(new ItemStack(Block.fenceGate, 1), true,
                 "#W#",
                 "#W#",
