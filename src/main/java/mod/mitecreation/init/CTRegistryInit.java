@@ -18,7 +18,7 @@ import moddedmite.rustedironcore.api.item.IngotItem;
 import net.minecraft.*;
 import net.xiaoyu233.fml.api.block.StrongBoxBlock;
 import net.xiaoyu233.fml.api.item.NuggetItem;
-import net.xiaoyu233.fml.reload.utils.IdUtil;
+import net.xiaoyu233.fml.reload.utils.IDAllocator;
 
 import static net.minecraft.Block.*;
 import static net.xiaoyu233.fml.util.ReflectHelper.createInstance;
@@ -28,11 +28,12 @@ public class CTRegistryInit implements IGameRegistry {
     public static final CreativeTabs tabCreationItem = new CreativeTabsCreationItem();
     public static final CreativeTabs tabCreationTool = new CreativeTabsCreationTool();
 
-    public static final StepSound soundDeepslateFootstep = new CTStepSound(CreationModInit.RESOURCEID + "deepslate", 1.0F, 1.0F);
-    public static final StepSound soundDeepslateBrickFootstep = new CTStepSoundDeepslateBrick(CreationModInit.RESOURCEID + "deepslate_bricks", 1.0F, 1.0F);
+    public static final StepSound soundDeepslateFootstep = new CTStepSound(CreationModInit.RESOURCE_ID + "deepslate", 1.0F, 1.0F);
+    public static final StepSound soundDeepslateBrickFootstep = new CTStepSoundDeepslateBrick(CreationModInit.RESOURCE_ID + "deepslate_bricks", 1.0F, 1.0F);
 
     public static final MinecraftRegistry registry = new MinecraftRegistry(CreationModInit.NAMESPACE).initAutoItemRegister();
-    
+    public static IDAllocator allocatorCT = new IDAllocator(CreationModInit.ID, 128 , 256);
+
     public static Block rustedIronBlock;
     public static final BlockAnvil anvilRustedIron;
     public static final Block oreTungsten;
@@ -81,90 +82,98 @@ public class CTRegistryInit implements IGameRegistry {
     public static final BlockCTSnowBerry snowBerry;
     public static final Block basalt;
 
-    public static final ItemCoin coinIron = (ItemCoin) createInstance(ItemCoin.class, new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), Material.iron).setCreativeTab(tabCreationItem);
-    public static final ItemCoin coinRustedIron = (ItemCoin) createInstance(ItemCoin.class, new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), Material.rusted_iron).setCreativeTab(tabCreationItem);
-    public static final NuggetItem rustedIronNugget = (NuggetItem) new NuggetItem(IdUtil.getNextItemID(), Material.rusted_iron).setCreativeTab(tabCreationItem);
-    public static final IngotItem ingotRustedIron = (IngotItem) new IngotItem(IdUtil.getNextItemID(), Material.rusted_iron).setMaxStackSize(8).setCreativeTab(tabCreationItem);
-    public static ItemCTFishingRod fishingRodRustedIron = (ItemCTFishingRod)(new ItemCTFishingRod(IdUtil.getNextItemID(), Material.rusted_iron)).setUnlocalizedName("fishingRod").setCreativeTab(tabCreationTool);
-    public static final ItemCTRawNugget rawRustedIronNugget = (ItemCTRawNugget) new ItemCTRawNugget(IdUtil.getNextItemID(), Material.rusted_iron).setCreativeTab(tabCreationItem);
-    public static final ItemCTRawNugget rawCopperNugget = (ItemCTRawNugget) new ItemCTRawNugget(IdUtil.getNextItemID(), Material.copper).setCreativeTab(tabCreationItem);
-    public static final ItemCTRawNugget rawSilverNugget = (ItemCTRawNugget) new ItemCTRawNugget(IdUtil.getNextItemID(), Material.silver).setCreativeTab(tabCreationItem);
-    public static final ItemCTRawNugget rawGoldNugget = (ItemCTRawNugget) new ItemCTRawNugget(IdUtil.getNextItemID(), Material.gold).setCreativeTab(tabCreationItem);
-    public static final ItemCTRawNugget rawAncientMetalNugget = (ItemCTRawNugget) new ItemCTRawNugget(IdUtil.getNextItemID(), Material.ancient_metal).setCreativeTab(tabCreationItem);
-    public static final ItemCTRawNugget rawTungstenNugget = (ItemCTRawNugget) new ItemCTRawNugget(IdUtil.getNextItemID(), CTMaterials.tungsten).setCreativeTab(tabCreationItem);
-    public static final ItemCTRawNugget rawMithrilNugget = (ItemCTRawNugget) new ItemCTRawNugget(IdUtil.getNextItemID(), Material.mithril).setCreativeTab(tabCreationItem);
-    public static final ItemCTRawNugget rawAdamantiumNugget = (ItemCTRawNugget) new ItemCTRawNugget(IdUtil.getNextItemID(), Material.adamantium).setCreativeTab(tabCreationItem);
-    public static final ItemNugget tungstenNugget = (ItemNugget) createInstance(ItemNugget.class, new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), CTMaterials.tungsten).setCreativeTab(tabCreationItem);
-    public static final Item ingotTungsten = createInstance(ItemIngot.class,new Class[]{int.class, Material.class},IdUtil.getNextItemID(), CTMaterials.tungsten).setXPReward(25).setCreativeTab(tabCreationItem);
-    public static final ItemWarHammer warHammerTungsten = (ItemWarHammer) createInstance(ItemWarHammer.class, new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
-    public static final ItemBattleAxe battleAxeTungsten = (ItemBattleAxe) createInstance(ItemBattleAxe.class, new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
-    public static final ItemSword swordTungsten = (ItemSword) createInstance(ItemSword.class, new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
-    public static final ItemDagger daggerTungsten = (ItemDagger) createInstance(ItemDagger.class, new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
-    public static final ItemPickaxe pickaxeTungsten = (ItemPickaxe) createInstance(ItemPickaxe.class, new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
-    public static final ItemShovel shovelTungsten = (ItemShovel) createInstance(ItemShovel.class, new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
-    public static final ItemAxe axeTungsten = (ItemAxe) createInstance(ItemAxe.class, new Class[]{int.class, Material.class},IdUtil.getNextItemID(), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
-    public static final ItemHoe hoeTungsten = (ItemHoe) createInstance(ItemHoe.class, new Class[]{int.class ,Material.class},IdUtil.getNextItemID(), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
-    public static final ItemKnife knifeTungsten = (ItemKnife) createInstance(ItemKnife.class, new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
-    public static final ItemMattock mattockTungsten = (ItemMattock) createInstance(ItemMattock.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
-    public static final ItemScythe scytheTungsten = (ItemScythe) createInstance(ItemScythe.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
-    public static final ItemShears shearsTungsten = (ItemShears) createInstance(ItemShears.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
-    public static final ItemHatchet hatchetTungsten = (ItemHatchet) createInstance(ItemHatchet.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
-    public static ItemCTFishingRod fishingRodTungsten = (ItemCTFishingRod)(new ItemCTFishingRod(IdUtil.getNextItemID(), CTMaterials.tungsten)).setUnlocalizedName("fishingRod").setCreativeTab(tabCreationTool);
-    public static final ItemArmor helmetTungsten = (ItemArmor) new ItemHelmet(IdUtil.getNextItemID(), CTMaterials.tungsten,false).setCreativeTab(tabCreationTool);
-    public static final ItemArmor helmetChainTungsten = (ItemArmor) new ItemHelmet(IdUtil.getNextItemID(), CTMaterials.tungsten,true).setCreativeTab(tabCreationTool);
-    public static final ItemArmor plateTungsten = (ItemArmor) new ItemCuirass(IdUtil.getNextItemID(), CTMaterials.tungsten,false).setCreativeTab(tabCreationTool);
-    public static final ItemArmor plateChainTungsten = (ItemArmor) new ItemCuirass(IdUtil.getNextItemID(), CTMaterials.tungsten,true).setCreativeTab(tabCreationTool);
-    public static final ItemArmor legsTungsten = (ItemArmor) new ItemLeggings(IdUtil.getNextItemID(), CTMaterials.tungsten,false).setCreativeTab(tabCreationTool);
-    public static final ItemArmor legsChainTungsten = (ItemArmor) new ItemLeggings(IdUtil.getNextItemID(), CTMaterials.tungsten,true).setCreativeTab(tabCreationTool);
-    public static final ItemArmor bootsTungsten = (ItemArmor) new ItemBoots(IdUtil.getNextItemID(), CTMaterials.tungsten,false).setCreativeTab(tabCreationTool);
-    public static final ItemArmor bootsChainTungsten = (ItemArmor) new ItemBoots(IdUtil.getNextItemID(), CTMaterials.tungsten,true).setCreativeTab(tabCreationTool);
-    public static final Item doorTungstenItem = new ItemDoor(IdUtil.getNextItemID(), CTMaterials.tungsten).setCreativeTab(tabCreationBlock);
-    public static final ItemChain chainTungsten = (ItemChain) createInstance(ItemChain.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CTMaterials.tungsten).setCreativeTab(tabCreationItem);
-    public static final ItemCoin coinTungsten = (ItemCoin) createInstance(ItemCoin.class, new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), CTMaterials.tungsten).setCreativeTab(tabCreationItem);
-    public static final ItemArrow arrowTungsten = (ItemArrow) new ItemArrow(IdUtil.getNextItemID(), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
-    public static final ItemBucket tungstenBucket = (ItemBucket) new ItemBucket(IdUtil.getNextItemID(), CTMaterials.tungsten, null).setCreativeTab(tabCreationTool);
-    public static final ItemBucket tungstenBucketWater = (ItemBucket) new ItemBucket(IdUtil.getNextItemID(), CTMaterials.tungsten, Material.water).setContainerItem(tungstenBucket).setCreativeTab(tabCreationTool);
-    public static final ItemBucket tungstenBucketLava = (ItemBucket) new ItemBucket(IdUtil.getNextItemID(), CTMaterials.tungsten, Material.lava).setContainerItem(tungstenBucket).setCreativeTab(tabCreationTool);
-    public static final ItemBucket tungstenBucketStone = (ItemBucket) new ItemBucket(IdUtil.getNextItemID(), CTMaterials.tungsten, Material.stone).setContainerItem(tungstenBucket).setCreativeTab(tabCreationTool);
-    public static final ItemBucketMilk tungstenBucketMilk = (ItemBucketMilk) (new ItemBucketMilk(IdUtil.getNextItemID(), CTMaterials.tungsten)).setContainerItem(tungstenBucket).setCreativeTab(tabCreationTool);
+    public static final ItemCoin coinIron = (ItemCoin) createInstance(ItemCoin.class, new Class[]{int.class, Material.class}, getItemID("coinIron"), Material.iron).setCreativeTab(tabCreationItem);
+    public static final ItemCoin coinRustedIron = (ItemCoin) createInstance(ItemCoin.class, new Class[]{int.class, Material.class}, getItemID("coinRustedIron"), Material.rusted_iron).setCreativeTab(tabCreationItem);
+    public static final NuggetItem rustedIronNugget = (NuggetItem) new NuggetItem(getItemID("rustedIronNugget"), Material.rusted_iron).setCreativeTab(tabCreationItem);
+    public static final IngotItem ingotRustedIron = (IngotItem) new IngotItem(getItemID("ingotRustedIron"), Material.rusted_iron).setMaxStackSize(8).setCreativeTab(tabCreationItem);
+    public static ItemCTFishingRod fishingRodRustedIron = (ItemCTFishingRod)(new ItemCTFishingRod(getItemID("fishingRodRustedIron"), Material.rusted_iron)).setUnlocalizedName("fishingRod").setCreativeTab(tabCreationTool);
+    public static final ItemCTRawNugget rawRustedIronNugget = (ItemCTRawNugget) new ItemCTRawNugget(getItemID("rawRustedIronNugget"), Material.rusted_iron).setCreativeTab(tabCreationItem);
+    public static final ItemCTRawNugget rawCopperNugget = (ItemCTRawNugget) new ItemCTRawNugget(getItemID("rawCopperNugget"), Material.copper).setCreativeTab(tabCreationItem);
+    public static final ItemCTRawNugget rawSilverNugget = (ItemCTRawNugget) new ItemCTRawNugget(getItemID("rawSilverNugget"), Material.silver).setCreativeTab(tabCreationItem);
+    public static final ItemCTRawNugget rawGoldNugget = (ItemCTRawNugget) new ItemCTRawNugget(getItemID("rawGoldNugget"), Material.gold).setCreativeTab(tabCreationItem);
+    public static final ItemCTRawNugget rawAncientMetalNugget = (ItemCTRawNugget) new ItemCTRawNugget(getItemID("rawAncientMetalNugget"), Material.ancient_metal).setCreativeTab(tabCreationItem);
+    public static final ItemCTRawNugget rawTungstenNugget = (ItemCTRawNugget) new ItemCTRawNugget(getItemID("rawTungstenNugget"), CTMaterials.tungsten).setCreativeTab(tabCreationItem);
+    public static final ItemCTRawNugget rawMithrilNugget = (ItemCTRawNugget) new ItemCTRawNugget(getItemID("rawMithrilNugget"), Material.mithril).setCreativeTab(tabCreationItem);
+    public static final ItemCTRawNugget rawAdamantiumNugget = (ItemCTRawNugget) new ItemCTRawNugget(getItemID("rawAdamantiumNugget"), Material.adamantium).setCreativeTab(tabCreationItem);
+    public static final ItemNugget tungstenNugget = (ItemNugget) createInstance(ItemNugget.class, new Class[]{int.class, Material.class}, getItemID("tungstenNugget"), CTMaterials.tungsten).setCreativeTab(tabCreationItem);
+    public static final Item ingotTungsten = createInstance(ItemIngot.class,new Class[]{int.class, Material.class},getItemID("ingotTungsten"), CTMaterials.tungsten).setXPReward(25).setCreativeTab(tabCreationItem);
+    public static final ItemWarHammer warHammerTungsten = (ItemWarHammer) createInstance(ItemWarHammer.class, new Class[]{int.class, Material.class}, getItemID("warHammerTungsten"), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
+    public static final ItemBattleAxe battleAxeTungsten = (ItemBattleAxe) createInstance(ItemBattleAxe.class, new Class[]{int.class, Material.class}, getItemID("battleAxeTungsten"), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
+    public static final ItemSword swordTungsten = (ItemSword) createInstance(ItemSword.class, new Class[]{int.class, Material.class}, getItemID("swordTungsten"), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
+    public static final ItemDagger daggerTungsten = (ItemDagger) createInstance(ItemDagger.class, new Class[]{int.class, Material.class}, getItemID("daggerTungsten"), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
+    public static final ItemPickaxe pickaxeTungsten = (ItemPickaxe) createInstance(ItemPickaxe.class, new Class[]{int.class, Material.class}, getItemID("pickaxeTungsten"), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
+    public static final ItemShovel shovelTungsten = (ItemShovel) createInstance(ItemShovel.class, new Class[]{int.class, Material.class}, getItemID("shovelTungsten"), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
+    public static final ItemAxe axeTungsten = (ItemAxe) createInstance(ItemAxe.class, new Class[]{int.class, Material.class},getItemID("axeTungsten"), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
+    public static final ItemHoe hoeTungsten = (ItemHoe) createInstance(ItemHoe.class, new Class[]{int.class ,Material.class},getItemID("hoeTungsten"), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
+    public static final ItemKnife knifeTungsten = (ItemKnife) createInstance(ItemKnife.class, new Class[]{int.class, Material.class}, getItemID("knifeTungsten"), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
+    public static final ItemMattock mattockTungsten = (ItemMattock) createInstance(ItemMattock.class,new Class[]{int.class,Material.class},getItemID("mattockTungsten"), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
+    public static final ItemScythe scytheTungsten = (ItemScythe) createInstance(ItemScythe.class,new Class[]{int.class,Material.class},getItemID("scytheTungsten"), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
+    public static final ItemShears shearsTungsten = (ItemShears) createInstance(ItemShears.class,new Class[]{int.class,Material.class},getItemID("shearsTungsten"), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
+    public static final ItemHatchet hatchetTungsten = (ItemHatchet) createInstance(ItemHatchet.class,new Class[]{int.class,Material.class},getItemID("hatchetTungsten"), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
+    public static ItemCTFishingRod fishingRodTungsten = (ItemCTFishingRod)(new ItemCTFishingRod(getItemID("fishingRodTungsten"), CTMaterials.tungsten)).setUnlocalizedName("fishingRod").setCreativeTab(tabCreationTool);
+    public static final ItemArmor helmetTungsten = (ItemArmor) new ItemHelmet(getItemID("helmetTungsten"), CTMaterials.tungsten,false).setCreativeTab(tabCreationTool);
+    public static final ItemArmor helmetChainTungsten = (ItemArmor) new ItemHelmet(getItemID("helmetChainTungsten"), CTMaterials.tungsten,true).setCreativeTab(tabCreationTool);
+    public static final ItemArmor plateTungsten = (ItemArmor) new ItemCuirass(getItemID("plateTungsten"), CTMaterials.tungsten,false).setCreativeTab(tabCreationTool);
+    public static final ItemArmor plateChainTungsten = (ItemArmor) new ItemCuirass(getItemID("plateChainTungsten"), CTMaterials.tungsten,true).setCreativeTab(tabCreationTool);
+    public static final ItemArmor legsTungsten = (ItemArmor) new ItemLeggings(getItemID("legsTungsten"), CTMaterials.tungsten,false).setCreativeTab(tabCreationTool);
+    public static final ItemArmor legsChainTungsten = (ItemArmor) new ItemLeggings(getItemID("legsChainTungsten"), CTMaterials.tungsten,true).setCreativeTab(tabCreationTool);
+    public static final ItemArmor bootsTungsten = (ItemArmor) new ItemBoots(getItemID("bootsTungsten"), CTMaterials.tungsten,false).setCreativeTab(tabCreationTool);
+    public static final ItemArmor bootsChainTungsten = (ItemArmor) new ItemBoots(getItemID("bootsChainTungsten"), CTMaterials.tungsten,true).setCreativeTab(tabCreationTool);
+    public static final Item doorTungstenItem = new ItemDoor(getItemID("doorTungstenItem"), CTMaterials.tungsten).setCreativeTab(tabCreationBlock);
+    public static final ItemChain chainTungsten = (ItemChain) createInstance(ItemChain.class,new Class[]{int.class,Material.class},getItemID("chainTungsten"), CTMaterials.tungsten).setCreativeTab(tabCreationItem);
+    public static final ItemCoin coinTungsten = (ItemCoin) createInstance(ItemCoin.class, new Class[]{int.class, Material.class}, getItemID("coinTungsten"), CTMaterials.tungsten).setCreativeTab(tabCreationItem);
+    public static final ItemArrow arrowTungsten = (ItemArrow) new ItemArrow(getItemID("arrowTungsten"), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
+    public static final ItemBucket tungstenBucket = (ItemBucket) new ItemBucket(getItemID("tungstenBucket"), CTMaterials.tungsten, null).setCreativeTab(tabCreationTool);
+    public static final ItemBucket tungstenBucketWater = (ItemBucket) new ItemBucket(getItemID("tungstenBucketWater"), CTMaterials.tungsten, Material.water).setContainerItem(tungstenBucket).setCreativeTab(tabCreationTool);
+    public static final ItemBucket tungstenBucketLava = (ItemBucket) new ItemBucket(getItemID("tungstenBucketLava"), CTMaterials.tungsten, Material.lava).setContainerItem(tungstenBucket).setCreativeTab(tabCreationTool);
+    public static final ItemBucket tungstenBucketStone = (ItemBucket) new ItemBucket(getItemID("tungstenBucketStone"), CTMaterials.tungsten, Material.stone).setContainerItem(tungstenBucket).setCreativeTab(tabCreationTool);
+    public static final ItemBucketMilk tungstenBucketMilk = (ItemBucketMilk) (new ItemBucketMilk(getItemID("tungstenBucketMilk"), CTMaterials.tungsten)).setContainerItem(tungstenBucket).setCreativeTab(tabCreationTool);
 //    public static final Item rustedIronItemBlock = new ItemBlock(rustedIronBlock).setMaxStackSize(4).setCreativeTab(tabCreationBlock);
-    public static final ItemClub clubStone = (ItemClub) createInstance(ItemClub.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CTMaterials.stone).setCreativeTab(tabCreationTool);
-    public static final ItemDagger daggerStone = (ItemDagger) createInstance(ItemDagger.class,new Class[]{int.class,Material.class},IdUtil.getNextItemID(), CTMaterials.stone).setCreativeTab(tabCreationTool);
-    public static final ItemBucket woodBucketEmpty = (ItemBucket) new ItemBucket(IdUtil.getNextItemID(), Material.wood,null).setCreativeTab(tabCreationTool);
-    public static final ItemBucket woodBucketWater = (ItemBucket) new ItemBucket(IdUtil.getNextItemID(), Material.wood, Material.water).setContainerItem(woodBucketEmpty).setCreativeTab(tabCreationTool);
-    public static final ItemBucketMilk woodBucketMilk = (ItemBucketMilk) new ItemBucketMilk(IdUtil.getNextItemID(), Material.wood).setContainerItem(woodBucketEmpty).setCreativeTab(tabCreationTool);
-    public static final ItemBucket rustedIronBucketEmpty = (ItemBucket) new ItemBucket(IdUtil.getNextItemID(), Material.rusted_iron, null).setCreativeTab(tabCreationTool);
-    public static final ItemBucket rustedIronBucketWater = (ItemBucket) new ItemBucket(IdUtil.getNextItemID(), Material.rusted_iron, Material.water).setContainerItem(rustedIronBucketEmpty).setCreativeTab(tabCreationTool);
-    public static final ItemBucket rustedIronBucketLava = (ItemBucket)new ItemBucket(IdUtil.getNextItemID(), Material.rusted_iron, Material.lava).setContainerItem(rustedIronBucketEmpty).setCreativeTab(tabCreationTool);
-    public static final ItemBucket rustedIronBucketStone = (ItemBucket) new ItemBucket(IdUtil.getNextItemID(), Material.rusted_iron, Material.stone).setContainerItem(rustedIronBucketEmpty).setCreativeTab(tabCreationTool);
-    public static final ItemBucketMilk rustedIronBucketMilk = (ItemBucketMilk) (new ItemBucketMilk(IdUtil.getNextItemID(), Material.rusted_iron)).setContainerItem(rustedIronBucketEmpty).setCreativeTab(tabCreationTool);
-    public static final ItemSword swordEmerald = (ItemSword) createInstance(ItemSword.class ,new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), Material.emerald).setCreativeTab(tabCreationTool);
-    public static final ItemSword swordDiamond = (ItemSword) createInstance(ItemSword.class, new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), Material.diamond).setCreativeTab(tabCreationTool);
-    public static final ItemHorseArmor horseArmorTungsten = (ItemHorseArmor) createInstance(ItemHorseArmor.class,new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
-    public static final ItemFood peach = (ItemFood) (new ItemFood(IdUtil.getNextItemID(), Material.fruit, 2, 1, 1000, false, false, true, "peach")).setPlantProduct().setCreativeTab(tabCreationItem);
-    public static final ItemShovel shovelPeachWood = (ItemShovel) createInstance(ItemShovel.class, new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), CTMaterials.peachWood).setCreativeTab(tabCreationTool);
-    public static final ItemSword swordPeachWood = (ItemSword) createInstance(ItemSword.class, new Class[]{int.class, Material.class}, IdUtil.getNextItemID(), CTMaterials.peachWood).setCreativeTab(tabCreationTool);
-    public static final ItemFood snowBerries = (ItemFood) (new ItemFood(IdUtil.getNextItemID(), Material.fruit, 1, 2, 500, false, false, true, "snow_berries")).setPotionEffect(Potion.poison.id, 10, 0, 0.4F).setPlantProduct().setCreativeTab(tabCreationItem);
-    public static final ItemCTSnowBerryBowl snowBerryPorridge = (ItemCTSnowBerryBowl) (new ItemCTSnowBerryBowl(IdUtil.getNextItemID(), Material.fruit, "snow_berry_stew")).setFoodValue(3, 2, 250, false, false, true).setPlantProduct().setCreativeTab(tabCreationItem);
+    public static final ItemClub clubStone = (ItemClub) createInstance(ItemClub.class,new Class[]{int.class,Material.class},getItemID("clubStone"), CTMaterials.stone).setCreativeTab(tabCreationTool);
+    public static final ItemDagger daggerStone = (ItemDagger) createInstance(ItemDagger.class,new Class[]{int.class,Material.class},getItemID("daggerStone"), CTMaterials.stone).setCreativeTab(tabCreationTool);
+    public static final ItemBucket woodBucketEmpty = (ItemBucket) new ItemBucket(getItemID("woodBucketEmpty"), Material.wood,null).setCreativeTab(tabCreationTool);
+    public static final ItemBucket woodBucketWater = (ItemBucket) new ItemBucket(getItemID("woodBucketWater"), Material.wood, Material.water).setContainerItem(woodBucketEmpty).setCreativeTab(tabCreationTool);
+    public static final ItemBucketMilk woodBucketMilk = (ItemBucketMilk) new ItemBucketMilk(getItemID("woodBucketMilk"), Material.wood).setContainerItem(woodBucketEmpty).setCreativeTab(tabCreationTool);
+    public static final ItemBucket rustedIronBucketEmpty = (ItemBucket) new ItemBucket(getItemID("rustedIronBucketEmpty"), Material.rusted_iron, null).setCreativeTab(tabCreationTool);
+    public static final ItemBucket rustedIronBucketWater = (ItemBucket) new ItemBucket(getItemID("rustedIronBucketWater"), Material.rusted_iron, Material.water).setContainerItem(rustedIronBucketEmpty).setCreativeTab(tabCreationTool);
+    public static final ItemBucket rustedIronBucketLava = (ItemBucket)new ItemBucket(getItemID("rustedIronBucketLava"), Material.rusted_iron, Material.lava).setContainerItem(rustedIronBucketEmpty).setCreativeTab(tabCreationTool);
+    public static final ItemBucket rustedIronBucketStone = (ItemBucket) new ItemBucket(getItemID("rustedIronBucketStone"), Material.rusted_iron, Material.stone).setContainerItem(rustedIronBucketEmpty).setCreativeTab(tabCreationTool);
+    public static final ItemBucketMilk rustedIronBucketMilk = (ItemBucketMilk) (new ItemBucketMilk(getItemID("rustedIronBucketMilk"), Material.rusted_iron)).setContainerItem(rustedIronBucketEmpty).setCreativeTab(tabCreationTool);
+    public static final ItemSword swordEmerald = (ItemSword) createInstance(ItemSword.class ,new Class[]{int.class, Material.class}, getItemID("swordEmerald"), Material.emerald).setCreativeTab(tabCreationTool);
+    public static final ItemSword swordDiamond = (ItemSword) createInstance(ItemSword.class, new Class[]{int.class, Material.class}, getItemID("swordDiamond"), Material.diamond).setCreativeTab(tabCreationTool);
+    public static final ItemHorseArmor horseArmorTungsten = (ItemHorseArmor) createInstance(ItemHorseArmor.class,new Class[]{int.class, Material.class}, getItemID("horseArmorTungsten"), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
+    public static final ItemFood peach = (ItemFood) (new ItemFood(getItemID("peach"), Material.fruit, 2, 1, 1000, false, false, true, "peach")).setPlantProduct().setCreativeTab(tabCreationItem);
+    public static final ItemShovel shovelPeachWood = (ItemShovel) createInstance(ItemShovel.class, new Class[]{int.class, Material.class}, getItemID("shovelPeachWood"), CTMaterials.peachWood).setCreativeTab(tabCreationTool);
+    public static final ItemSword swordPeachWood = (ItemSword) createInstance(ItemSword.class, new Class[]{int.class, Material.class}, getItemID("swordPeachWood"), CTMaterials.peachWood).setCreativeTab(tabCreationTool);
+    public static final ItemFood snowBerries = (ItemFood) (new ItemFood(getItemID("snowBerries"), Material.fruit, 1, 2, 500, false, false, true, "snow_berries")).setPotionEffect(Potion.poison.id, 10, 0, 0.4F).setPlantProduct().setCreativeTab(tabCreationItem);
+    public static final ItemCTSnowBerryBowl snowBerryPorridge = (ItemCTSnowBerryBowl) (new ItemCTSnowBerryBowl(getItemID("snowBerryPorridge"), Material.fruit, "snow_berry_stew")).setFoodValue(3, 2, 250, false, false, true).setPlantProduct().setCreativeTab(tabCreationItem);
 
     private void registerItem(String resource, String name, Item item) {
-        resource = CreationModInit.RESOURCEID + resource;
+        resource = CreationModInit.RESOURCE_ID + resource;
         registry.registerItem(resource, name, item);
     }
 
     private void registerBlock(Block block, String resource, String name) {
-        resource = CreationModInit.RESOURCEID + resource;
+        resource = CreationModInit.RESOURCE_ID + resource;
         registry.registerBlock(block, resource, name);
     }
 
     private void registerBlock(Block block, String resource) {
-        resource = CreationModInit.RESOURCEID + resource;
+        resource = CreationModInit.RESOURCE_ID + resource;
         registry.registerBlock(block, resource);
     }
 
     private void registerBlockAnvil(BlockAnvil block, String resource, String name) {
-        resource = CreationModInit.RESOURCEID + resource;
+        resource = CreationModInit.RESOURCE_ID + resource;
         registry.registerBlockAnvil(block, resource, name);
+    }
+
+    private static int getItemID(String name) {
+        return allocatorCT.getItemId(name);
+    }
+
+    public static int getBlockID(String name) {
+        return allocatorCT.getBlockId(name);
     }
 
     @Override
@@ -298,52 +307,52 @@ public class CTRegistryInit implements IGameRegistry {
     }
 
     static {
-        rustedIronBlock = new BlockOreStorage(IdUtil.getNextBlockID(), Material.rusted_iron).setCreativeTab(tabCreationBlock);
-        anvilRustedIron = (BlockAnvil) new BlockCTAnvil(IdUtil.getNextBlockID(), Material.rusted_iron).setStepSound(soundAnvilFootstep).setCreativeTab(tabCreationBlock);
-        oreTungsten = (new BlockOre(IdUtil.getNextBlockID(), CTMaterials.tungsten, 4)).setHardness(3.25F).setResistance(15.0F).setCreativeTab(tabCreationBlock);
-        blockTungsten = (new BlockOreStorage(IdUtil.getNextBlockID(), CTMaterials.tungsten)).setStepSound(soundMetalFootstep).setCreativeTab(tabCreationBlock);
-        fenceTungsten = (new PaneBlock(IdUtil.getNextBlockID(), CreationModInit.RESOURCEID + "bars/tungsten_bars", CreationModInit.RESOURCEID + "bars/tungsten_bars", CTMaterials.tungsten, false)).setStepSound(soundMetalFootstep).setResistance(24.0F).setHardness(12.8F).setMinHarvestLevel(4).setCreativeTab(tabCreationBlock);
-        doorTungsten = (new DoorBlock(IdUtil.getNextBlockID(), CTMaterials.tungsten, () -> Item.getItem(CTRegistryInit.doorTungsten))).setStepSound(soundMetalFootstep).setMinHarvestLevel(4).setCreativeTab(tabCreationBlock);
-        anvilTungsten = (BlockAnvil) new BlockCTAnvil(IdUtil.getNextBlockID(), CTMaterials.tungsten).setStepSound(soundAnvilFootstep).setCreativeTab(tabCreationBlock);
-        deepStaleBrick = (BlockCTDeepStaleBrick) (new BlockCTDeepStaleBrick(IdUtil.getNextBlockID())).setHardness(1.8F).setResistance(15.0F).setStepSound(soundDeepslateBrickFootstep).setCreativeTab(tabCreationBlock);
-        deepStaleMagma = (BLockCTDeepSlateMagma) (new BLockCTDeepSlateMagma(IdUtil.getNextBlockID())).setHardness(1.8F).setResistance(15.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        cobbledDeepStale = (new BlockCTCobbledDeepSlate(IdUtil.getNextBlockID())).setHardness(2.5F).setResistance(15.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        stairsCobbleDeepSlate = (new StairsBlock(IdUtil.getNextBlockID(), cobbledDeepStale, 0)).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        stairsDeepSlateBrick = (new StairsBlock(IdUtil.getNextBlockID(), deepStaleBrick, 0)).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        cobbleDeepStaleWall = new WallBlock(IdUtil.getNextBlockID(), cobbledDeepStale).setHardness(2.5F).setResistance(15.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        deepStaleBrickWall = new WallBlock(IdUtil.getNextBlockID(), deepStaleBrick).setHardness(1.8F).setResistance(15.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        gravelSand = (BlockCTSandGravel) (new BlockCTSandGravel(IdUtil.getNextBlockID())).setHardness(0.6F).setStepSound(soundSandFootstep).setCreativeTab(tabCreationBlock);
-        gravelDeepSlate = (BlockCTDeepSlateGravel) (new BlockCTDeepSlateGravel(IdUtil.getNextBlockID())).setHardness(0.8F).setStepSound(soundSandFootstep).setCreativeTab(tabCreationBlock);
-        deepSlate = (new BlockCTDeepSlate(3348)).setHardness(3.0F).setResistance(15.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        cobbledDeepStaleSingleSlab = (BlockCTCobbleDeepSlateSlabGroup) (new BlockCTCobbleDeepSlateSlabGroup(IdUtil.getNextBlockID(), Material.stone)).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        cobbledDeepStaleDoubleSlab = (BlockCTDeepSlateDoubleSlab) (new BlockCTDeepSlateDoubleSlab(IdUtil.getNextBlockID(), cobbledDeepStaleSingleSlab)).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        deepStaleBrickSingleSlab = (BlockCTDeepSlateBrickSlabGroup) (new BlockCTDeepSlateBrickSlabGroup(IdUtil.getNextBlockID(), Material.stone)).setStepSound(soundDeepslateBrickFootstep).setCreativeTab(tabCreationBlock);
-        deepStaleBrickDoubleSlab = (BlockCTDeepSlateDoubleSlab) (new BlockCTDeepSlateDoubleSlab(IdUtil.getNextBlockID(), deepStaleBrickSingleSlab)).setStepSound(soundDeepslateBrickFootstep).setCreativeTab(tabCreationBlock);
-        ancientRelict = (BlockCTAncientRelict) new BlockCTAncientRelict(IdUtil.getNextBlockID()).setHardness(2.5F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        tungstenWorkBench = (WorkbenchBlock) new BlockCTWorkbench(IdUtil.getNextBlockID(), CTMaterials.tungsten, 0.55F, Material.ancient_metal).setStepSound(soundWoodFootstep).setCreativeTab(tabCreationBlock);
-        oreIronDeepslate = (new BlockIronOreDeepslate(IdUtil.getNextBlockID(), Material.iron, 2)).setHardness(3.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        oreCoalDeepslate = (new BlockCoalOreDeepslate(IdUtil.getNextBlockID(), Material.coal, 2)).setHardness(1.2F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        oreLapisDeepslate = (new BlockLapisOreDeepslate(IdUtil.getNextBlockID(), Material.lapis_lazuli, 2)).setHardness(3.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        oreDiamondDeepslate = (new BlockDiamondOreDeepslate(IdUtil.getNextBlockID(), Material.diamond, 4)).setHardness(3.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        oreEmeraldDeepslate = (new BlockEmeraldOreDeepslate(IdUtil.getNextBlockID(), Material.emerald, 3)).setHardness(3.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        oreCopperDeepslate = (new BlockCopperOreDeepslate(IdUtil.getNextBlockID(), Material.copper, 2)).setHardness(2.5F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        oreSilverDeepslate = (new BlockSilverOreDeepslate(IdUtil.getNextBlockID(), Material.silver, 2)).setHardness(2.5F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        oreMithrilDeepslate = (new BlockMithrilOreDeepslate(IdUtil.getNextBlockID(), Material.mithril, 3)).setHardness(3.5F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        oreAdamantiumDeepslate = (new BlockAdamantiumOreDeepslate(IdUtil.getNextBlockID(), Material.adamantium, 4)).setHardness(4.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        oreTungstenDeepslate = (new BlockTungstenOreDeepslate(IdUtil.getNextBlockID(), CTMaterials.tungsten, 3)).setHardness(3.25F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        oreGoldDeepslate = (new BlockGoldOreDeepslate(IdUtil.getNextBlockID(), Material.gold, 2)).setHardness(2.4F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        oreRedstoneDeepslate = (new BlockRedstoneOreDeepslate(IdUtil.getNextBlockID(), false)).setHardness(3.0F).setResistance(5.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        deepslateSilverFish = (BlockCTDeepslateSilverFish) (new BlockCTDeepslateSilverFish(IdUtil.getNextBlockID())).setHardness(1.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
-        chestTungsten = new StrongBoxBlock(IdUtil.getNextBlockID(), CTMaterials.tungsten).setStepSound(soundMetalFootstep).setCreativeTab(tabCreationBlock);
-        oreRedstoneDeepslateGlowing = (new BlockRedstoneOreDeepslate(IdUtil.getNextBlockID(), false)).setHardness(3.0F).setResistance(5.0F).setLightValue(0.625F).setStepSound(soundDeepslateFootstep);
-        peachPlanks = (BlockCTWood) (new BlockCTWood(IdUtil.getNextBlockID())).setResistance(5.0F).setStepSound(soundWoodFootstep);
-        peachWood = (BlockCTLog) (new BlockCTLog(IdUtil.getNextBlockID())).setStepSound(soundWoodFootstep);
-        peachLeaves = (BlockCTLeaves) (new BlockCTLeaves(IdUtil.getNextBlockID())).setHardness(0.2f).setLightOpacity(1).setStepSound(soundGrassFootstep);
-        peachSapling = (new BlockCTSapling(IdUtil.getNextBlockID())).setHardness(0.02F).setStepSound(soundGrassFootstep);
-        peachPlanksSingleSlab = (BlockCTPeachPlanksSlabGroup) (new BlockCTPeachPlanksSlabGroup(IdUtil.getNextBlockID(), Material.wood)).setStepSound(soundWoodFootstep).setCreativeTab(tabCreationBlock);
-        peachPlanksDoubleSlab = (BlockCTPeachPlanksDoubleSlab) (new BlockCTPeachPlanksDoubleSlab(IdUtil.getNextBlockID(), peachPlanksSingleSlab)).setStepSound(soundWoodFootstep).setCreativeTab(tabCreationBlock);
-        stairsPeachPlanks = (new StairsBlock(IdUtil.getNextBlockID(), peachPlanks, 0)).setStepSound(soundWoodFootstep).setCreativeTab(tabCreationBlock);
-        snowBerry = (BlockCTSnowBerry) (new BlockCTSnowBerry(IdUtil.getNextBlockID())).setHardness(0.05F).setStepSound(soundGrassFootstep).setCreativeTab(tabCreationBlock);
-        basalt = new BlockStone(IdUtil.getNextBlockID()).setHardness(2.5f).setResistance(10.0f).setStepSound(soundStoneFootstep);
+        rustedIronBlock = new BlockOreStorage(getBlockID("rustedIronBlock"), Material.rusted_iron).setCreativeTab(tabCreationBlock);
+        anvilRustedIron = (BlockAnvil) new BlockCTAnvil(getBlockID("anvilRustedIron"), Material.rusted_iron).setStepSound(soundAnvilFootstep).setCreativeTab(tabCreationBlock);
+        oreTungsten = (new BlockOre(getBlockID("oreTungsten"), CTMaterials.tungsten, 4)).setHardness(3.25F).setResistance(15.0F).setCreativeTab(tabCreationBlock);
+        blockTungsten = (new BlockOreStorage(getBlockID("blockTungsten"), CTMaterials.tungsten)).setStepSound(soundMetalFootstep).setCreativeTab(tabCreationBlock);
+        fenceTungsten = (new PaneBlock(getBlockID("fenceTungsten"), CreationModInit.RESOURCE_ID + "bars/tungsten_bars", CreationModInit.RESOURCE_ID + "bars/tungsten_bars", CTMaterials.tungsten, false)).setStepSound(soundMetalFootstep).setResistance(24.0F).setHardness(12.8F).setMinHarvestLevel(4).setCreativeTab(tabCreationBlock);
+        doorTungsten = (new DoorBlock(getBlockID("doorTungsten"), CTMaterials.tungsten, () -> Item.getItem(CTRegistryInit.doorTungsten))).setStepSound(soundMetalFootstep).setMinHarvestLevel(4).setCreativeTab(tabCreationBlock);
+        anvilTungsten = (BlockAnvil) new BlockCTAnvil(getBlockID("anvilTungsten"), CTMaterials.tungsten).setStepSound(soundAnvilFootstep).setCreativeTab(tabCreationBlock);
+        deepStaleBrick = (BlockCTDeepStaleBrick) (new BlockCTDeepStaleBrick(getBlockID("deepStaleBrick"))).setHardness(1.8F).setResistance(15.0F).setStepSound(soundDeepslateBrickFootstep).setCreativeTab(tabCreationBlock);
+        deepStaleMagma = (BLockCTDeepSlateMagma) (new BLockCTDeepSlateMagma(getBlockID("deepStaleMagma"))).setHardness(1.8F).setResistance(15.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        cobbledDeepStale = (new BlockCTCobbledDeepSlate(getBlockID("cobbledDeepStale"))).setHardness(2.5F).setResistance(15.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        stairsCobbleDeepSlate = (new StairsBlock(getBlockID("stairsCobbleDeepSlate"), cobbledDeepStale, 0)).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        stairsDeepSlateBrick = (new StairsBlock(getBlockID("stairsDeepSlateBrick"), deepStaleBrick, 0)).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        cobbleDeepStaleWall = new WallBlock(getBlockID("cobbleDeepStaleWall"), cobbledDeepStale).setHardness(2.5F).setResistance(15.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        deepStaleBrickWall = new WallBlock(getBlockID("deepStaleBrickWall"), deepStaleBrick).setHardness(1.8F).setResistance(15.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        gravelSand = (BlockCTSandGravel) (new BlockCTSandGravel(getBlockID("gravelSand"))).setHardness(0.6F).setStepSound(soundSandFootstep).setCreativeTab(tabCreationBlock);
+        gravelDeepSlate = (BlockCTDeepSlateGravel) (new BlockCTDeepSlateGravel(getBlockID("gravelDeepSlate"))).setHardness(0.8F).setStepSound(soundSandFootstep).setCreativeTab(tabCreationBlock);
+        deepSlate = (new BlockCTDeepSlate(getBlockID("deepSlate"))).setHardness(3.0F).setResistance(15.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        cobbledDeepStaleSingleSlab = (BlockCTCobbleDeepSlateSlabGroup) (new BlockCTCobbleDeepSlateSlabGroup(getBlockID("cobbledDeepStaleSingleSlab"), Material.stone)).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        cobbledDeepStaleDoubleSlab = (BlockCTDeepSlateDoubleSlab) (new BlockCTDeepSlateDoubleSlab(getBlockID("cobbledDeepStaleDoubleSlab"), cobbledDeepStaleSingleSlab)).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        deepStaleBrickSingleSlab = (BlockCTDeepSlateBrickSlabGroup) (new BlockCTDeepSlateBrickSlabGroup(getBlockID("deepStaleBrickSingleSlab"), Material.stone)).setStepSound(soundDeepslateBrickFootstep).setCreativeTab(tabCreationBlock);
+        deepStaleBrickDoubleSlab = (BlockCTDeepSlateDoubleSlab) (new BlockCTDeepSlateDoubleSlab(getBlockID("deepStaleBrickDoubleSlab"), deepStaleBrickSingleSlab)).setStepSound(soundDeepslateBrickFootstep).setCreativeTab(tabCreationBlock);
+        ancientRelict = (BlockCTAncientRelict) new BlockCTAncientRelict(getBlockID("ancientRelict")).setHardness(2.5F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        tungstenWorkBench = (WorkbenchBlock) new BlockCTWorkbench(getBlockID("tungstenWorkBench"), CTMaterials.tungsten, 0.55F, Material.ancient_metal).setStepSound(soundWoodFootstep).setCreativeTab(tabCreationBlock);
+        oreIronDeepslate = (new BlockIronOreDeepslate(getBlockID("oreIronDeepslate"), Material.iron, 2)).setHardness(3.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        oreCoalDeepslate = (new BlockCoalOreDeepslate(getBlockID("oreCoalDeepslate"), Material.coal, 2)).setHardness(1.2F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        oreLapisDeepslate = (new BlockLapisOreDeepslate(getBlockID("oreLapisDeepslate"), Material.lapis_lazuli, 2)).setHardness(3.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        oreDiamondDeepslate = (new BlockDiamondOreDeepslate(getBlockID("oreDiamondDeepslate"), Material.diamond, 4)).setHardness(3.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        oreEmeraldDeepslate = (new BlockEmeraldOreDeepslate(getBlockID("oreEmeraldDeepslate"), Material.emerald, 3)).setHardness(3.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        oreCopperDeepslate = (new BlockCopperOreDeepslate(getBlockID("oreCopperDeepslate"), Material.copper, 2)).setHardness(2.5F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        oreSilverDeepslate = (new BlockSilverOreDeepslate(getBlockID("oreSilverDeepslate"), Material.silver, 2)).setHardness(2.5F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        oreMithrilDeepslate = (new BlockMithrilOreDeepslate(getBlockID("oreMithrilDeepslate"), Material.mithril, 3)).setHardness(3.5F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        oreAdamantiumDeepslate = (new BlockAdamantiumOreDeepslate(getBlockID("oreAdamantiumDeepslate"), Material.adamantium, 4)).setHardness(4.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        oreTungstenDeepslate = (new BlockTungstenOreDeepslate(getBlockID("oreTungstenDeepslate"), CTMaterials.tungsten, 3)).setHardness(3.25F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        oreGoldDeepslate = (new BlockGoldOreDeepslate(getBlockID("oreGoldDeepslate"), Material.gold, 2)).setHardness(2.4F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        oreRedstoneDeepslate = (new BlockRedstoneOreDeepslate(getBlockID("oreRedstoneDeepslate"), false)).setHardness(3.0F).setResistance(5.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        deepslateSilverFish = (BlockCTDeepslateSilverFish) (new BlockCTDeepslateSilverFish(getBlockID("deepslateSilverFish"))).setHardness(1.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
+        chestTungsten = new StrongBoxBlock(getBlockID("chestTungsten"), CTMaterials.tungsten).setStepSound(soundMetalFootstep).setCreativeTab(tabCreationBlock);
+        oreRedstoneDeepslateGlowing = (new BlockRedstoneOreDeepslate(getBlockID("oreRedstoneDeepslateGlowing"), false)).setHardness(3.0F).setResistance(5.0F).setLightValue(0.625F).setStepSound(soundDeepslateFootstep);
+        peachPlanks = (BlockCTWood) (new BlockCTWood(getBlockID("peachPlanks"))).setResistance(5.0F).setStepSound(soundWoodFootstep);
+        peachWood = (BlockCTLog) (new BlockCTLog(getBlockID("peachWood"))).setStepSound(soundWoodFootstep);
+        peachLeaves = (BlockCTLeaves) (new BlockCTLeaves(getBlockID("peachLeaves"))).setHardness(0.2f).setLightOpacity(1).setStepSound(soundGrassFootstep);
+        peachSapling = (new BlockCTSapling(getBlockID("peachSapling"))).setHardness(0.02F).setStepSound(soundGrassFootstep);
+        peachPlanksSingleSlab = (BlockCTPeachPlanksSlabGroup) (new BlockCTPeachPlanksSlabGroup(getBlockID("peachPlanksSingleSlab"), Material.wood)).setStepSound(soundWoodFootstep).setCreativeTab(tabCreationBlock);
+        peachPlanksDoubleSlab = (BlockCTPeachPlanksDoubleSlab) (new BlockCTPeachPlanksDoubleSlab(getBlockID("peachPlanksDoubleSlab"), peachPlanksSingleSlab)).setStepSound(soundWoodFootstep).setCreativeTab(tabCreationBlock);
+        stairsPeachPlanks = (new StairsBlock(getBlockID("stairsPeachPlanks"), peachPlanks, 0)).setStepSound(soundWoodFootstep).setCreativeTab(tabCreationBlock);
+        snowBerry = (BlockCTSnowBerry) (new BlockCTSnowBerry(getBlockID("snowBerry"))).setHardness(0.05F).setStepSound(soundGrassFootstep).setCreativeTab(tabCreationBlock);
+        basalt = new BlockStone(getBlockID("basalt")).setHardness(2.5f).setResistance(10.0f).setStepSound(soundStoneFootstep);
     }
 }

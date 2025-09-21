@@ -1,4 +1,4 @@
-package mod.mitecreation.client.event.listener;
+package mod.mitecreation.event.listener;
 
 import mod.mitecreation.world.biome.CTBiomes;
 import moddedmite.rustedironcore.api.event.listener.IBiomeGenerateListener;

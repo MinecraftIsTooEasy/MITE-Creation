@@ -1,24 +1,29 @@
 package mod.mitecreation.init;
 
-import mod.mitecreation.client.event.listener.CTEventListeners;
+import mod.mitecreation.event.CreationEvents;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.ResourceLocation;
 import net.xiaoyu233.fml.FishModLoader;
 import net.xiaoyu233.fml.ModResourceManager;
+import net.xiaoyu233.fml.reload.event.MITEEvents;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class CreationModInit implements ModInitializer {
     public static final String ID = "creation";
-    public static final String RESOURCEID = "creation:";
-    public static final String NAMESPACE = "Creation";
-    public static final String NAME = "MITE: Creation";
+    public static final String RESOURCE_ID = ID + ":";
+    public static final String NAMESPACE = FishModLoader.getModsMap().get(ID).getMetadata().getName();
     public static final String VERSION = FishModLoader.getModsMap().get(ID).getMetadata().getVersion().toString();
-    public static final String MODEL_DIR = RESOURCEID + "textures/model/";
-    public static final String GUI_DIR = RESOURCEID + "textures/gui/";
-    public static final String ENVRIO_DIR = RESOURCEID + "textures/environment/";
-    public static final String ARMOR_DIR = RESOURCEID + "textures/armor/";
+    public static final ResourceLocation MODEL_DIR = new ResourceLocation(RESOURCE_ID, "textures/model/");
+    public static final ResourceLocation GUI_DIR = new ResourceLocation(RESOURCE_ID,  "textures/gui/");
+    public static final ResourceLocation ENVRIO_DIR = new ResourceLocation(RESOURCE_ID, "textures/environment/");
+    public static final ResourceLocation ARMOR_DIR = new ResourceLocation(RESOURCE_ID, "textures/item/armor/");
+    public static final Logger LOGGER = LogManager.getLogger(NAMESPACE);
 
     @Override
     public void onInitialize() {
-        CTEventListeners.registerAllEvents();
+        MITEEvents.MITE_EVENT_BUS.register(new CreationEvents());
+        CreationEvents.register();
         ModResourceManager.addResourcePackDomain(ID);
     }
 }

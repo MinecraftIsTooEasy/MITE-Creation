@@ -27,7 +27,7 @@ public class BlockCTWorkbench extends WorkbenchBlock {
 
     public void registerIcons(IconRegister par1IconRegister) {
         this.workbench_icon_top = par1IconRegister.registerIcon("crafting_table_top");
-        this.my_front_icon = par1IconRegister.registerIcon(CreationModInit.RESOURCEID + "crafting_table/" + this.getMaterial().name + "/front");
-        this.my_side_icon = par1IconRegister.registerIcon(CreationModInit.RESOURCEID + "crafting_table/" + this.getMaterial().name + "/side");
+        this.my_front_icon = par1IconRegister.registerIcon(CreationModInit.RESOURCE_ID + "crafting_table/" + this.getMaterial().name + "/front");
+        this.my_side_icon = par1IconRegister.registerIcon(CreationModInit.RESOURCE_ID + "crafting_table/" + this.getMaterial().name + "/side");
     }
 }

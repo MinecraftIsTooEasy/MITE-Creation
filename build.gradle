@@ -23,7 +23,7 @@ repositories {
 loom {
 	accessWidenerPath = file("src/main/resources/MITECreation.accesswidener")
 	mergedMinecraftJar()
-	setFML(new File("libs\\FishModLoader-v3.4.1.jar"))
+	setFML(new File("D:\\Projects\\IDEA\\Minecraft\\MITE\\FishModLoader-v3.5.0-all.jar"))
 	mods {
 		"MITE-Creation" {
 			sourceSet sourceSets.main
@@ -41,9 +41,10 @@ dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings loom.fmlMCPMappings()
 
-	implementation files("libs\\emi-1.1.20+1.6.4-MITE+fish.jar")
-	implementation files("libs\\RustedIronCore-1.3.9.jar")
-	implementation files("libs\\RustedIronCore-1.3.9-sources.jar")
+	implementation files("D:\\Projects\\IDEA\\Minecraft\\MITE\\emi-1.1.23+1.6.4-MITE+fish.jar")
+	implementation files("D:\\Projects\\IDEA\\Minecraft\\MITE\\RustedIronCore-1.4.0.jar")
+//	implementation files("D:\\Projects\\IDEA\\Minecraft\\MITE\\RustedIronCore-1.3.9-sources.jar")
+	compileOnly files("D:\\Projects\\IDEA\\Minecraft\\MITE\\MiTE-Renewed.R198-1.jar")
 	implementation("it.unimi.dsi:fastutil:8.5.12")
 	implementation files(loom.getFML().toPath())
 }

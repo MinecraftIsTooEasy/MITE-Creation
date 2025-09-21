@@ -14,17 +14,11 @@ import java.util.Random;
 @Mixin(WorldGenMinable.class)
 public abstract class WorldGenMinableMixin {
 
+    @Shadow public abstract int getMinableBlockId();
+    @Shadow public abstract int growVein(World world, Random rand, int blocks_to_grow, int x, int y, int z, boolean must_be_supported, boolean is_dirt);
+
     @WrapOperation(method = "generate(Lnet/minecraft/World;Ljava/util/Random;IIIZ)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/WorldGenMinable;growVein(Lnet/minecraft/World;Ljava/util/Random;IIIIZZ)I"))
     private int prohibitGravelFromGeneratingOnTop(WorldGenMinable instance, World dx, Random dy, int dz, int axis, int attempts, int i, boolean world, boolean rand, Operation<Integer> original) {
         return this.growVein(dx, dy, dz, axis, attempts, i, dx.isUnderworld() && this.getMinableBlockId() == CTRegistryInit.gravelDeepSlate.blockID, rand);
-    }
-    @Shadow
-    public int getMinableBlockId() {
-        return 0;
-    }
-
-    @Shadow
-    public int growVein(World world, Random rand, int blocks_to_grow, int x, int y, int z, boolean must_be_supported, boolean is_dirt) {
-        return 0;
     }
 }

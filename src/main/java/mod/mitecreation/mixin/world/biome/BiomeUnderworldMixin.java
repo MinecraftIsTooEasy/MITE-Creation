@@ -22,7 +22,7 @@ public class BiomeUnderworldMixin extends BiomeGenBase {
         this.spawnableMonsterList.add(new SpawnListEntry(EntityCTSpiderQueen.class, 5, 1, 1));
     }
 
-    @Redirect(method = "decorate",at =@At(value = "INVOKE",target = "net/minecraft/BiomeGenUnderworld.placeMycelium(Lnet/minecraft/World;II)V"))
+    @Redirect(method = "decorate", at = @At(value = "INVOKE",target = "net/minecraft/BiomeGenUnderworld.placeMycelium(Lnet/minecraft/World;II)V"))
     private void doNotPlaceMycelium(BiomeGenUnderworld instance, World dy, int post, int y){
         //do nothing
     }

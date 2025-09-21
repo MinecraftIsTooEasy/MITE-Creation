@@ -18,8 +18,7 @@ public class CTStepSound extends StepSound {
             String[] splitSound = sound.split(":");
             this.namespace = splitSound[0];
             this.modSoundName = splitSound[1];
-        }
-        else {
+        } else {
             this.namespace = "minecraft";
             this.modSoundName = sound;
         }
@@ -41,8 +40,7 @@ public class CTStepSound extends StepSound {
     public String getPlaceSound() {
         if (this.hasSeparatePlaceSound) {
             return this.namespace + ":block." + this.modSoundName + ".place";
-        }
-        else {
+        } else {
             return this.getBreakSound();
         }
     }

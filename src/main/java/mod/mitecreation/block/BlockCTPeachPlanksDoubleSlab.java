@@ -5,6 +5,8 @@ import net.minecraft.*;
 
 import java.util.List;
 
+import static mod.mitecreation.init.CTRegistryInit.getBlockID;
+
 public class BlockCTPeachPlanksDoubleSlab extends BlockDoubleSlab {
     private BlockSlab single_slab;
 
@@ -19,7 +21,7 @@ public class BlockCTPeachPlanksDoubleSlab extends BlockDoubleSlab {
 
     private BlockSlab getSingleSlab() {
         if (this.single_slab == null) {
-            this.single_slab = (BlockSlab)Block.getBlock(this.blockID + 1);
+            this.single_slab = (BlockSlab)Block.getBlock(getBlockID("peachPlanksSingleSlab"));
         }
         return this.single_slab;
     }

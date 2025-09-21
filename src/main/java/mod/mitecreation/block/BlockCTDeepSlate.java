@@ -31,9 +31,9 @@ public class BlockCTDeepSlate extends Block {
 
     @Override
     public void registerIcons(IconRegister par1IconRegister) {
-        this.side_icon = par1IconRegister.registerIcon(CreationModInit.RESOURCEID + "deepslate");
-        this.top_icon = par1IconRegister.registerIcon(CreationModInit.RESOURCEID + "deepslate_top");
-        this.bottom_icon = par1IconRegister.registerIcon(CreationModInit.RESOURCEID + "deepslate_bottom");
+        this.side_icon = par1IconRegister.registerIcon(CreationModInit.RESOURCE_ID + "deepslate");
+        this.top_icon = par1IconRegister.registerIcon(CreationModInit.RESOURCE_ID + "deepslate_top");
+        this.bottom_icon = par1IconRegister.registerIcon(CreationModInit.RESOURCE_ID + "deepslate_bottom");
     }
 
 }

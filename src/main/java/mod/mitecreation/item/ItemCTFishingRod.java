@@ -19,7 +19,7 @@ public class ItemCTFishingRod extends ItemFishingRod {
     public void registerIcons(IconRegister par1IconRegister) {
         this.castIcon = par1IconRegister.registerIcon("fishing_rod_cast");
         for (int i = 0; i < this.uncastIcons.length; ++i) {
-            this.uncastIcons[i] = par1IconRegister.registerIcon(CreationModInit.RESOURCEID + "fishing_rods/" + this.getMaterialByOrdinal(i).name + "_uncast");
+            this.uncastIcons[i] = par1IconRegister.registerIcon(CreationModInit.RESOURCE_ID + "fishing_rods/" + this.getMaterialByOrdinal(i).name + "_uncast");
         }
     }
 

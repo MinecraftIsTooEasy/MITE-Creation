@@ -1,4 +1,4 @@
-package mod.mitecreation.client.event.listener;
+package mod.mitecreation.event.listener;
 
 import mod.mitecreation.init.CTRegistryInit;
 import mod.mitecreation.material.CTMaterials;

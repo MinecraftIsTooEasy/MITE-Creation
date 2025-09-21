@@ -255,7 +255,7 @@ public class BlockCTLeaves extends BlockLeaves {
         for (int var2 = 0; var2 < LEAF_TEXTURE.length; ++var2) {
             this.iconArray[var2] = new Icon[LEAF_TEXTURE[var2].length];
             for (int var3 = 0; var3 < LEAF_TEXTURE[var2].length; ++var3) {
-                this.iconArray[var2][var3] = par1IconRegister.registerIcon(CreationModInit.RESOURCEID + LEAF_TEXTURE[var2][var3]);
+                this.iconArray[var2][var3] = par1IconRegister.registerIcon(CreationModInit.RESOURCE_ID + LEAF_TEXTURE[var2][var3]);
             }
         }
     }
