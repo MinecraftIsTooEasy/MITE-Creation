@@ -18,7 +18,7 @@ import moddedmite.rustedironcore.api.item.IngotItem;
 import net.minecraft.*;
 import net.xiaoyu233.fml.api.block.StrongBoxBlock;
 import net.xiaoyu233.fml.api.item.NuggetItem;
-import net.xiaoyu233.fml.reload.utils.IDAllocator;
+import net.xiaoyu233.fml.reload.utils.IdUtil;
 
 import static net.minecraft.Block.*;
 import static net.xiaoyu233.fml.util.ReflectHelper.createInstance;
@@ -32,7 +32,6 @@ public class CTRegistryInit implements IGameRegistry {
     public static final StepSound soundDeepslateBrickFootstep = new CTStepSoundDeepslateBrick(CreationModInit.RESOURCE_ID + "deepslate_bricks", 1.0F, 1.0F);
 
     public static final MinecraftRegistry registry = new MinecraftRegistry(CreationModInit.NAMESPACE).initAutoItemRegister();
-    public static IDAllocator allocatorCT = new IDAllocator(CreationModInit.ID, 128 , 256);
 
     public static Block rustedIronBlock;
     public static final BlockAnvil anvilRustedIron;
@@ -169,11 +168,11 @@ public class CTRegistryInit implements IGameRegistry {
     }
 
     private static int getItemID(String name) {
-        return allocatorCT.getItemId(name);
+        return IdUtil.getNextItemID();
     }
 
     public static int getBlockID(String name) {
-        return allocatorCT.getBlockId(name);
+        return IdUtil.getNextBlockID();
     }
 
     @Override

@@ -201,5 +201,79 @@ public class CTRecipesBlockExtend {
                 "X",
                 '#', CTRegistryInit.peachPlanks,
                 'X', Item.stick);
+
+
+        register.registerShapedRecipe(new ItemStack(CTRegistryInit.oreAdamantiumDeepslate, 4), false,
+                "#X#",
+                "X#X",
+                "#X#",
+                '#', Block.stone,
+                'X', Block.oreAdamantium);
+        register.registerShapedRecipe(new ItemStack(CTRegistryInit.oreCoalDeepslate, 4), false,
+                "#X#",
+                "X#X",
+                "#X#",
+                '#', Block.stone,
+                'X', Block.oreCoal);
+        register.registerShapedRecipe(new ItemStack(CTRegistryInit.oreCopperDeepslate, 4), false,
+                "#X#",
+                "X#X",
+                "#X#",
+                '#', Block.stone,
+                'X', Block.oreCopper);
+        register.registerShapedRecipe(new ItemStack(CTRegistryInit.oreDiamondDeepslate, 4), false,
+                "#X#",
+                "X#X",
+                "#X#",
+                '#', Block.stone,
+                'X', Block.oreDiamond);
+        register.registerShapedRecipe(new ItemStack(CTRegistryInit.oreGoldDeepslate, 4), false,
+                "#X#",
+                "X#X",
+                "#X#",
+                '#', Block.stone,
+                'X', Block.oreGold);
+        register.registerShapedRecipe(new ItemStack(CTRegistryInit.oreEmeraldDeepslate, 4), false,
+                "#X#",
+                "X#X",
+                "#X#",
+                '#', Block.stone,
+                'X', Block.oreEmerald);
+        register.registerShapedRecipe(new ItemStack(CTRegistryInit.oreIronDeepslate, 4), false,
+                "#X#",
+                "X#X",
+                "#X#",
+                '#', Block.stone,
+                'X', Block.oreIron);
+        register.registerShapedRecipe(new ItemStack(CTRegistryInit.oreTungsten, 4), false,
+                "#X#",
+                "X#X",
+                "#X#",
+                '#', Block.stone,
+                'X', CTRegistryInit.oreTungsten);
+        register.registerShapedRecipe(new ItemStack(CTRegistryInit.oreRedstoneDeepslate, 4), false,
+                "#X#",
+                "X#X",
+                "#X#",
+                '#', Block.stone,
+                'X', Block.oreRedstone);
+        register.registerShapedRecipe(new ItemStack(CTRegistryInit.oreLapisDeepslate, 4), false,
+                "#X#",
+                "X#X",
+                "#X#",
+                '#', Block.stone,
+                'X', Block.oreLapis);
+        register.registerShapedRecipe(new ItemStack(CTRegistryInit.oreSilverDeepslate, 4), false,
+                "#X#",
+                "X#X",
+                "#X#",
+                '#', Block.stone,
+                'X', Block.oreSilver);
+        register.registerShapedRecipe(new ItemStack(CTRegistryInit.oreMithrilDeepslate, 4), false,
+                "#X#",
+                "X#X",
+                "#X#",
+                '#', Block.stone,
+                'X', Block.oreMithril);
     }
 }

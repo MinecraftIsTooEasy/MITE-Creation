@@ -23,7 +23,7 @@ repositories {
 loom {
 	accessWidenerPath = file("src/main/resources/MITECreation.accesswidener")
 	mergedMinecraftJar()
-	setFML(new File("D:\\Projects\\IDEA\\Minecraft\\MITE\\FishModLoader-v3.5.0-all.jar"))
+	setFML(new File("D:\\Projects\\IDEA\\Minecraft\\MITE\\FishModLoader-v3.4.2.jar"))
 	mods {
 		"MITE-Creation" {
 			sourceSet sourceSets.main

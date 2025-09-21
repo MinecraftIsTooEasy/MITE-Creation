@@ -22,7 +22,7 @@ public class BlockCTDeepSlateDoubleSlab extends BlockDoubleSlab {
 
     private BlockSlab getSingleSlab() {
         if (this.single_slab == null) {
-            this.single_slab = (BlockSlab)Block.getBlock(getBlockID("cobbledDeepStaleSingleSlab"));
+            this.single_slab = (BlockSlab)Block.getBlock(CTRegistryInit.cobbledDeepStaleSingleSlab.blockID);
         }
         return this.single_slab;
     }
