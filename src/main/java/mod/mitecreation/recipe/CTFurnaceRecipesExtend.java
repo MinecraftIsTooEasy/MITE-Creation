@@ -35,7 +35,7 @@ public class CTFurnaceRecipesExtend {
         FurnaceRecipes.smelting().addSmelting(CTRegistryInit.oreSilverDeepslate.blockID, new ItemStack(Item.ingotSilver));
         FurnaceRecipes.smelting().addSmelting(CTRegistryInit.oreGoldDeepslate.blockID, new ItemStack(Item.ingotGold));
         FurnaceRecipes.smelting().addSmelting(CTRegistryInit.oreIronDeepslate.blockID, new ItemStack(Item.ingotIron));
-        FurnaceRecipes.smelting().addSmelting(Block.oreMithril.blockID, new ItemStack(Item.ingotMithril));
+        FurnaceRecipes.smelting().addSmelting(CTRegistryInit.oreMithrilDeepslate.blockID, new ItemStack(Item.ingotMithril));
         FurnaceRecipes.smelting().addSmelting(CTRegistryInit.oreAdamantiumDeepslate.blockID, new ItemStack(Item.ingotAdamantium));
     }
 }

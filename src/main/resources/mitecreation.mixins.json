@@ -18,6 +18,7 @@
     "entity.EntityDamageSourceMixin",
     "entity.EntityHorseMixin",
     "entity.EntityItemMixin",
+    "entity.EntityLivingBaseMixin",
     "entity.EntitySkeletonMixin",
     "entity.EntityZombieMixin",
     "entity.player.EntityPlayerMixin",
