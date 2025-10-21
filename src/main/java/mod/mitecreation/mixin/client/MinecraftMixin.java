@@ -9,9 +9,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Minecraft.class)
 public class MinecraftMixin {
-    @Inject(method = "runTick", at = @At("HEAD"))
+    @Inject(method = "runTick", at = @At(value = "FIELD", target = "Lnet/minecraft/RenderManager;field_85095_o:Z", shift = At.Shift.AFTER, ordinal = 1))
     private void disableHitBox(CallbackInfo ci) {
-        if (!Minecraft.inDevMode() && RenderManager.field_85095_o) {
+        if (!Minecraft.inDevMode()) {
             RenderManager.field_85095_o = false;
         }
     }

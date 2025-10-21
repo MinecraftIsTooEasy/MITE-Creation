@@ -29,6 +29,7 @@
     "item.ItemPickaxeMixin",
     "item.ItemStackMixin",
     "material.MaterialMixin",
+    "recipe.RecipesMITEMixin",
     "server.PlayerControllerMPMixin",
     "util.ChestItemRenderHelperMixin",
     "world.MapGenVillageMixin",
