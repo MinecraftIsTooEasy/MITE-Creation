@@ -10,8 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ChestItemRenderHelper.class)
 public class ChestItemRenderHelperMixin {
-    @Unique
-    private TileEntityChest tungstenChest;
+    @Unique private TileEntityChest tungstenChest;
 
     @Inject(method = "<init>", at = @At("RETURN"))
     public void ChestItemRenderHelper(CallbackInfo ci) {

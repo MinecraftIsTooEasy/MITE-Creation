@@ -15,14 +15,11 @@ import mod.mitecreation.event.listener.compat.CTHandpanRecipes;
 import mod.mitecreation.init.CTRegistryInit;
 import mod.mitecreation.init.CreationModInit;
 import mod.mitecreation.material.CTMaterials;
-import mod.mitecreation.recipe.CTFurnaceRecipesExtend;
-import mod.mitecreation.recipe.CTRecipes;
 import moddedmite.rustedironcore.api.event.Handlers;
 import moddedmite.rustedironcore.api.event.handler.GravelDropHandler;
 import moddedmite.rustedironcore.api.event.listener.IArrowRegisterListener;
-import net.minecraft.ChatMessageComponent;
-import net.minecraft.EnumChatFormatting;
-import net.minecraft.Material;
+import moddedmite.rustedironcore.api.event.listener.IPlayerEventListener;
+import net.minecraft.*;
 import net.xiaoyu233.fml.FishModLoader;
 import net.xiaoyu233.fml.reload.event.*;
 import net.xiaoyu233.fml.reload.utils.IdUtil;
@@ -31,12 +28,6 @@ import java.lang.reflect.Method;
 import java.util.function.Consumer;
 
 public class CreationEvents extends Handlers {
-
-    @Subscribe
-    public void onRecipeRegister(RecipeRegistryEvent event) {
-        CTFurnaceRecipesExtend.furnaceRecipeRegister();
-        CTRecipes.registerRecipes(event);
-    }
 
     @Subscribe
     public void onCommandRegister(CommandRegisterEvent event) {
@@ -73,11 +64,6 @@ public class CreationEvents extends Handlers {
         event.registerSound(CTSounds.deepslateBricksPlace, 6);
     }
 
-    @Subscribe
-    public void onPlayerLoggedIn(PlayerLoggedInEvent event) {
-        event.getPlayer().sendChatToPlayer(ChatMessageComponent.createFromText("[" + CreationModInit.NAMESPACE + "] ").appendComponent(ChatMessageComponent.createFromTranslationKey( CreationModInit.NAMESPACE + " Successfully Load,Version: ").setColor(EnumChatFormatting.WHITE)).appendComponent(ChatMessageComponent.createFromText(CreationModInit.VERSION)));
-    }
-
     public static void register() {
         FurnaceUpdate.register(new CTFurnaceListener());
         BeaconUpdate.register(new CTBeaconListener());
@@ -107,6 +93,13 @@ public class CreationEvents extends Handlers {
         BiomeGenerate.register(new CTBiomeGenerateListener());
         Structure.register(new CTStructureRegister());
         StructureNBT.register(new CTStructureNBTRegister());
+        Achievement.register(new CTAchievementListener());
+        PlayerEvent.register(new IPlayerEventListener() {
+            @Override
+            public void onPlayerLoggedIn(moddedmite.rustedironcore.api.event.events.PlayerLoggedInEvent event) {
+                event.player().sendChatToPlayer(ChatMessageComponent.createFromText("[" + CreationModInit.NAMESPACE + "] ").appendComponent(ChatMessageComponent.createFromTranslationKey( CreationModInit.NAMESPACE + " Successfully Load,Version: ").setColor(EnumChatFormatting.WHITE)).appendComponent(ChatMessageComponent.createFromText(CreationModInit.VERSION)));
+            }
+        });
         registerHandpanRecipesCompat();
     }
 

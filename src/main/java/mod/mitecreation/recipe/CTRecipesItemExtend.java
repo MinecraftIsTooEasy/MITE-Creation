@@ -3,6 +3,7 @@ package mod.mitecreation.recipe;
 import mod.mitecreation.init.CTRegistryInit;
 import mod.mitecreation.item.ItemCTFishingRod;
 import mod.mitecreation.material.CTMaterials;
+import moddedmite.rustedironcore.api.event.events.CraftingRecipeRegisterEvent;
 import net.minecraft.*;
 import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
 
@@ -11,7 +12,7 @@ import static net.minecraft.Item.getMatchingItem;
 
 public class CTRecipesItemExtend {
 
-    public static void registerBasicToolRecipes(RecipeRegistryEvent register, Material material) {
+    public static void registerBasicToolRecipes(CraftingRecipeRegisterEvent register, Material material) {
         Item item = getMatchingItem(ItemIngot.class, material);
         register.registerShapedRecipe(new ItemStack(getMatchingItem(ItemSword.class, material)), true,
                 "A",
@@ -57,7 +58,7 @@ public class CTRecipesItemExtend {
         registerArmorRecipe(register,item,material);
     }
 
-    public static void registerMITEToolRecipe(RecipeRegistryEvent register, Material material) {
+    public static void registerMITEToolRecipe(CraftingRecipeRegisterEvent register, Material material) {
         Item item = Item.getMatchingItem(ItemIngot.class, material);
         Item item_nugget = getMatchingItem(ItemNugget.class, item.getExclusiveMaterial());
         Item item_chain = Item.getMatchingItem(ItemChain.class, material);
@@ -118,7 +119,7 @@ public class CTRecipesItemExtend {
                 "AA",
                 'A', item);
     }
-    public static void registerArmorRecipe(RecipeRegistryEvent register, Item item, Material material){
+    public static void registerArmorRecipe(CraftingRecipeRegisterEvent register, Item item, Material material){
         if(item instanceof ItemChain) {
             register.registerShapedRecipe(new ItemStack(ItemArmor.getMatchingArmor(ItemHelmet.class, material,true)),true,
                     "AAA",
@@ -160,7 +161,7 @@ public class CTRecipesItemExtend {
         }
     }
 
-    public static void registerNuggetToIngotRecipe(RecipeRegistryEvent register, Item item, Material material) {
+    public static void registerNuggetToIngotRecipe(CraftingRecipeRegisterEvent register, Item item, Material material) {
         register.registerShapedRecipe(new ItemStack(getMatchingItem(ItemIngot.class, material)), true,
                 "AAA",
                 "AAA",
@@ -169,12 +170,12 @@ public class CTRecipesItemExtend {
     }
 
 
-        public static void registerFullMetalToolRecipe(RecipeRegistryEvent register, Material material) {
+        public static void registerFullMetalToolRecipe(CraftingRecipeRegisterEvent register, Material material) {
         registerBasicToolRecipes(register, material);
         registerMITEToolRecipe(register, material);
     }
 
-    public static void registerRecipes(RecipeRegistryEvent register) {
+    public static void registerRecipes(CraftingRecipeRegisterEvent register) {
         register.registerShapelessRecipe(new ItemStack(ingotTungsten, 9), true,
                 blockTungsten);
         register.registerShapelessRecipe(new ItemStack(ingotRustedIron, 9), true,

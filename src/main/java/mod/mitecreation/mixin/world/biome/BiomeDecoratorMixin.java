@@ -1,6 +1,5 @@
 package mod.mitecreation.mixin.world.biome;
 
-import com.llamalad7.mixinextras.sugar.Local;
 import mod.mitecreation.init.CTRegistryInit;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;

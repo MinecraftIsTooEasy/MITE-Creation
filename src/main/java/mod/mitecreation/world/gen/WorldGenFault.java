@@ -6,9 +6,9 @@ import net.minecraft.MapGenRavine;
 
 public class WorldGenFault extends MapGenRavine {
 
-//    @Override
-//    public boolean isGenAllowedInBiome(BiomeGenBase biome) {
-//        return biome == CTBiomes.FAULT;
-//    }
+    @Override
+    public boolean isGenAllowedInBiome(BiomeGenBase biome) {
+        return biome == CTBiomes.FAULT;
+    }
 
 }

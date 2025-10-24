@@ -19,10 +19,9 @@ public class MapGenCTRuins extends MapGenStructure {
 
     public MapGenCTRuins(Map par1Map) {
         this();
-        Iterator var2 = par1Map.entrySet().iterator();
 
-        while (var2.hasNext()) {
-            Map.Entry var3 = (Map.Entry) var2.next();
+        for (Object o : par1Map.entrySet()) {
+            Map.Entry var3 = (Map.Entry) o;
 
             if ((var3.getKey()).equals("distance")) {
                 this.maxDistanceBetweenScatteredFeatures = MathHelper.parseIntWithDefaultAndMax((String) var3.getValue(), this.maxDistanceBetweenScatteredFeatures, this.minDistanceBetweenScatteredFeatures + 1);
@@ -56,10 +55,9 @@ public class MapGenCTRuins extends MapGenStructure {
 
         if (var3 == var5 && var4 == var6) {
             BiomeGenBase var8 = this.worldObj.getWorldChunkManager().getBiomeGenAt(var3 * 16 + 8, var4 * 16 + 8);
-            Iterator var9 = biomelist.iterator();
 
-            while (var9.hasNext()) {
-                BiomeGenBase var10 = (BiomeGenBase) var9.next();
+            for (Object o : biomelist) {
+                BiomeGenBase var10 = (BiomeGenBase) o;
 
                 if (var8 == var10) {
                     return true;
@@ -77,7 +75,7 @@ public class MapGenCTRuins extends MapGenStructure {
     public boolean func_143030_a(int par1, int par2, int par3) {
         StructureStart var4 = this.func_143028_c(par1, par2, par3);
 
-        if (var4 != null && var4 instanceof StructureCTRuinsStart && !var4.getComponents().isEmpty()) {
+        if (var4 instanceof StructureCTRuinsStart && !var4.getComponents().isEmpty()) {
             StructureComponent var5 = (StructureComponent) var4.getComponents().getFirst();
             return var5 instanceof ComponentCTRuins;
         } else {

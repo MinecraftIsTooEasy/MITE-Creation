@@ -37,7 +37,7 @@ public class EntityHorseMixin {
         armors = new ItemHorseArmor[]{null, Item.horseArmorCopper, Item.horseArmorSilver, Item.horseArmorGold, Item.horseArmorIron, Item.horseArmorMithril, Item.horseArmorAdamantium, Item.horseArmorAncientMetal, CTRegistryInit.horseArmorTungsten};
         horseArmorTextures = new String[armors.length];
 
-        for(int i = 0; i < armors.length; ++i) {
+        for (int i = 0; i < armors.length; ++i) {
             horseArmorTextures[i] = armors[i] == null ? null : "textures/entity/horse/armor/horse_armor_" + armors[i].effective_material.name + ".png";
         }
 

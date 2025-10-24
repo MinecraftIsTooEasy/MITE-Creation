@@ -22,7 +22,7 @@ public class CTPropertyRegistry implements Runnable {
         MaterialProperties.PeerCoinXP.register(CTMaterials.tungsten, 1250);
 
         MaterialProperties.BucketMeltingChance.register(Material.rusted_iron, 0.24F);
-        MaterialProperties.BucketMeltingChance.register(CTMaterials.tungsten, 0.04F);
+//        MaterialProperties.BucketMeltingChance.register(CTMaterials.tungsten, 0.04F);
 
         ItemProperties.HeatLevelRequired.register(CTRegistryInit.rawCopperNugget, 1);
         ItemProperties.HeatLevelRequired.register(CTRegistryInit.rawSilverNugget, 1);

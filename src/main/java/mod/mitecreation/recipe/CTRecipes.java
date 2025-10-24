@@ -1,9 +1,9 @@
 package mod.mitecreation.recipe;
 
-import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
+import moddedmite.rustedironcore.api.event.events.CraftingRecipeRegisterEvent;
 
 public class CTRecipes {
-    public static void registerRecipes(RecipeRegistryEvent event) {
+    public static void registerRecipes(CraftingRecipeRegisterEvent event) {
         CTRecipesBlockExtend.registerRecipes(event);
         CTRecipesItemExtend.registerRecipes(event);
     }

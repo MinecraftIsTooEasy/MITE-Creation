@@ -24,7 +24,8 @@ public class EntityZombieMixin extends EntityAnimalWatcher {
             at = @At(
                     value = "FIELD",
                     target = "Lnet/minecraft/EntityZombie;rare_drops_standard:[Lnet/minecraft/Item;"
-            ))
+            )
+    )
     private Item[] dropRawNuggets(Item[] original) {
         return CTEntityZombieDropHelper.rare_drops_standard;
     }
@@ -32,8 +33,7 @@ public class EntityZombieMixin extends EntityAnimalWatcher {
     @Inject(
             method = "addRandomWeapon",
             at = @At(value = "INVOKE",
-                    target = "Lnet/minecraft/WeightedRandom;getRandomItem(Ljava/util/Random;Ljava/util/Collection;)Lnet/minecraft/WeightedRandomItem;",
-                    shift = At.Shift.BEFORE),
+                    target = "Lnet/minecraft/WeightedRandom;getRandomItem(Ljava/util/Random;Ljava/util/Collection;)Lnet/minecraft/WeightedRandomItem;"),
             locals = LocalCapture.CAPTURE_FAILHARD)
     public void addRandomWeapon(CallbackInfo ci, List items) {
         items.add(new RandomItemListEntry(CTRegistryInit.clubStone, 1));

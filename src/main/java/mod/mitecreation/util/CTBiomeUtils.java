@@ -9,14 +9,14 @@ import net.minecraft.*;
 import java.util.List;
 import java.util.Random;
 
-public class Utils {
+public class CTBiomeUtils {
 
-    public static boolean decorateCTUndergarden(BiomeCTUndergarden undergarden, World world, Random random, int chunk_origin_x, int chunk_origin_z){
+    public static boolean decorateCTUndergarden(BiomeCTUndergarden undergarden, World world, Random random, int chunk_origin_x, int chunk_origin_z) {
         random = new Random(world.getSeed());
-        for(int x = chunk_origin_x; x < chunk_origin_x + 16; ++x) {
-            for(int z = chunk_origin_z; z < chunk_origin_z + 16; ++z) {
+        for (int x = chunk_origin_x; x < chunk_origin_x + 16; ++x) {
+            for (int z = chunk_origin_z; z < chunk_origin_z + 16; ++z) {
                 random.setSeed(world.getSeed());
-                for(int i =0;i < 128;++i) {
+                for (int i =0;i < 128;++i) {
                     var y = i + world.underworld_y_offset;
                     if (world.isAirBlock(x, y + 1, z)) {
                         Block block = world.getBlock(x, y, z);
@@ -36,7 +36,7 @@ public class Utils {
         return true;
     }
 
-    public static boolean CTUndergardenRegenerateDeepslate(BiomeCTUndergarden undergarden, World world, Random random, int chunk_origin_x, int chunk_origin_z){
+    public static boolean CTUndergardenRegenerateDeepslate(BiomeCTUndergarden undergarden, World world, Random random, int chunk_origin_x, int chunk_origin_z) {
         random = new Random();
         ChunkPostField deepSlate_posts = new ChunkPostField(114514,world.getHashedSeed(),16,0.2f);
         for(int x = chunk_origin_x; x < chunk_origin_x + 16; ++x) {

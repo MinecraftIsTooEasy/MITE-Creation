@@ -1,12 +1,13 @@
 package mod.mitecreation.recipe;
 
 import mod.mitecreation.init.CTRegistryInit;
+import moddedmite.rustedironcore.api.event.events.CraftingRecipeRegisterEvent;
 import net.minecraft.*;
 import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
 
 public class CTRecipesBlockExtend {
 
-    public static void registerRecipes(RecipeRegistryEvent register) {
+    public static void registerRecipes(CraftingRecipeRegisterEvent register) {
     //Tungsten Recipes
         register.registerShapedRecipe(new ItemStack(CTRegistryInit.anvilTungsten), true,
                 "AAA",

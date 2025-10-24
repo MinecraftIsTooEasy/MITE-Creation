@@ -20,21 +20,6 @@ import java.util.Random;
 @Mixin(WorldGenDungeons.class)
 public abstract class WorldGenDungeonsMixin extends WorldGenerator {
 
-    @Mutable
-    @Final
-    @Shadow
-    private static WeightedRandomChestContent[] field_111189_a;
-
-    @Inject(method = "<clinit>", at = @At("TAIL"))
-    private static void addLootCreation(CallbackInfo ci) {
-        field_111189_a = WeightedRandomChestContent.func_92080_a(field_111189_a,
-                new WeightedRandomChestContent(CTRegistryInit.coinRustedIron.itemID, 0, 1, 4, 10),
-                new WeightedRandomChestContent(CTRegistryInit.rawRustedIronNugget.itemID, 0, 1, 4, 10),
-                new WeightedRandomChestContent(CTRegistryInit.rustedIronNugget.itemID, 0, 1, 4, 5),
-                new WeightedRandomChestContent(CTRegistryInit.ingotRustedIron.itemID, 0, 1, 2, 2)
-        );
-    }
-
     @Inject(
             method = "generate",
             at = @At(

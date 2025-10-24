@@ -13,7 +13,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ItemBucket.class)
-public class ItemBucketMixin extends ItemVessel {
+public abstract class ItemBucketMixin extends ItemVessel {
+
+    @Shadow public abstract ItemVessel getPeerForContents(Material material);
+    @Shadow public abstract ItemVessel getPeerForVesselMaterial(Material material);
 
     public ItemBucketMixin(int id, Material vessel_material, Material contents_material, int standard_volume, int max_stack_size_empty, int max_stack_size_full, String texture) {
         super(id, vessel_material, contents_material, standard_volume, max_stack_size_empty, max_stack_size_full, texture);
@@ -60,14 +63,4 @@ public class ItemBucketMixin extends ItemVessel {
             cir.setReturnValue(0.24F);
         }
     }
-
-    @Shadow
-    public ItemVessel getPeerForContents(Material material) {
-        return null;
-    }
-    @Shadow
-    public ItemVessel getPeerForVesselMaterial(Material material) {
-        return null;
-    }
-
 }

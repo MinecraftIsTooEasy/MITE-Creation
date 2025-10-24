@@ -2,7 +2,7 @@ package mod.mitecreation.world.biome;
 
 import cn.tesseract.underbiome.biome.BiomeGenUnderBase;
 import mod.mitecreation.entity.EntityCTSpiderQueen;
-import mod.mitecreation.util.Utils;
+import mod.mitecreation.util.CTBiomeUtils;
 import moddedmite.rustedironcore.api.world.BiomeAPI;
 import net.minecraft.*;
 
@@ -23,7 +23,7 @@ public class BiomeCTFault extends BiomeGenUnderBase {
 
     @Override
     public void decorate(World world, Random random, int chunk_origin_x, int chunk_origin_z) {
-        Utils.CTFaultGenerateBasalt(this,world,random,chunk_origin_x,chunk_origin_z);
+        CTBiomeUtils.CTFaultGenerateBasalt(this,world,random,chunk_origin_x,chunk_origin_z);
         super.decorate(world,random,chunk_origin_x,chunk_origin_z);
     }
 

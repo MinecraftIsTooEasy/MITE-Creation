@@ -1,5 +1,6 @@
 package mod.mitecreation.client.audio;
 
+import net.minecraft.ResourceLocation;
 import net.minecraft.StepSound;
 
 public class CTStepSound extends StepSound {
@@ -7,21 +8,14 @@ public class CTStepSound extends StepSound {
     public final String modSoundName;
     public final boolean hasSeparatePlaceSound;
 
-    public CTStepSound(String sound, float volume, float pitch) {
+    public CTStepSound(ResourceLocation sound, float volume, float pitch) {
         this(sound, volume, pitch, false);
     }
 
-    public CTStepSound(String sound, float volume, float pitch, boolean hasSeparatePlaceSound) {
-        super(sound, volume, pitch);
-
-        if (sound.contains(":")) {
-            String[] splitSound = sound.split(":");
-            this.namespace = splitSound[0];
-            this.modSoundName = splitSound[1];
-        } else {
-            this.namespace = "minecraft";
-            this.modSoundName = sound;
-        }
+    public CTStepSound(ResourceLocation sound, float volume, float pitch, boolean hasSeparatePlaceSound) {
+        super(sound.toString(), volume, pitch);
+        this.namespace = sound.getResourceDomain();
+        this.modSoundName = sound.getResourcePath();
 
         this.hasSeparatePlaceSound = hasSeparatePlaceSound;
     }

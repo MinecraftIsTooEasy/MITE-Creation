@@ -8,7 +8,7 @@ import net.minecraft.ItemIngot;
 import net.minecraft.ItemNugget;
 
 public class MaterialCTTungsten extends GlacierMaterial implements
-        IArmorMaterial, IArrowMaterial, ICoinMaterial, IComboMaterial, IToolMaterial, IRepairableMaterial {
+        IArmorMaterial, IArrowMaterial, ICoinMaterial, IComboMaterial, IToolMaterial, IRepairableMaterial, IBucketMaterial {
     public MaterialCTTungsten() {
         super(EnumCTMaterials.tungsten);
     }
@@ -30,7 +30,7 @@ public class MaterialCTTungsten extends GlacierMaterial implements
 
     @Override
     public int getExperienceValue() {
-        return 6000;
+        return 1250;
     }
 
     @Override
@@ -61,5 +61,10 @@ public class MaterialCTTungsten extends GlacierMaterial implements
     @Override
     public Item getRepairItem() {
         return CTRegistryInit.tungstenNugget;
+    }
+
+    @Override
+    public float getMeltingChance() {
+        return 0.04F;
     }
 }

@@ -10,15 +10,11 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ItemCarrotOnAStick.class)
-public class ItemCarrotOnAStickMixin extends Item implements IDamageableItem {
+public abstract class ItemCarrotOnAStickMixin extends Item implements IDamageableItem {
 
-    @Shadow
-    protected Material hook_material;
+    @Shadow protected Material hook_material;
 
-    @Shadow
-    public int getNumComponentsForDurability() {
-        return 0;
-    }
+    @Shadow public abstract int getNumComponentsForDurability();
 
 
     @Inject(method = "getFishingRodItem", at = @At("HEAD"), cancellable = true)

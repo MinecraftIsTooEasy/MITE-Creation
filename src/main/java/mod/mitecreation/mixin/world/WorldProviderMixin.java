@@ -12,9 +12,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class WorldProviderMixin {
     @Inject(method = "getProviderForDimension", at = @At("HEAD"), cancellable = true)
     private static void getProviderForDimension(int par0, CallbackInfoReturnable<WorldProvider> cir) {
-        if (par0 == 9) {
-            cir.setReturnValue(new WorldProviderCTRedSky());
-        }
+//        if (par0 == 9) {
+//            cir.setReturnValue(new WorldProviderCTRedSky());
+//        }
         if (par0 == -2)
             cir.setReturnValue(new WorldProviderUnderbiome());
     }

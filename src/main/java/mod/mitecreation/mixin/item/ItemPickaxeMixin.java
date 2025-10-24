@@ -15,7 +15,7 @@ public abstract class ItemPickaxeMixin extends ItemTool {
         super(par1, material);
     }
 
-    @Inject(method = "<init>",at = @At("RETURN"))
+    @Inject(method = "<init>", at = @At("RETURN"))
     public void creatonInjectInit(CallbackInfo callbackInfo) {
         this.addMaterialsEffectiveAgainst(new Material[]{CTMaterials.tungsten});
     }

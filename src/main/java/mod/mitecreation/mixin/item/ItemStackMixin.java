@@ -16,7 +16,7 @@ import java.util.List;
 public class ItemStackMixin {
     @Inject(method = "getTooltip", at = @At(value = "INVOKE", target = "Lnet/minecraft/ItemTool;getToolMaterial()Lnet/minecraft/Material;"), locals = LocalCapture.CAPTURE_FAILHARD)
     private void addPeachWoodUndeadBonus(EntityPlayer par1EntityPlayer, boolean par2, Slot slot, CallbackInfoReturnable<List> cir, ArrayList var3, Item var4, String var5, boolean is_map, Multimap var16, ItemTool tool) {
-        if (par2 && var4 instanceof ItemTool && (tool = (ItemTool) var4).getToolMaterial() == CTMaterials.peachWood) {
+        if (par2 && var4 instanceof ItemTool && ((ItemTool) var4).getToolMaterial() == CTMaterials.peachWood) {
             var3.add((EnumChatFormatting.WHITE) + Translator.get("item.tooltip.bonusVsUndead"));
         }
     }

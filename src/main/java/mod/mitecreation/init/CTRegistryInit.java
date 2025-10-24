@@ -28,8 +28,8 @@ public class CTRegistryInit implements IGameRegistry {
     public static final CreativeTabs tabCreationItem = new CreativeTabsCreationItem();
     public static final CreativeTabs tabCreationTool = new CreativeTabsCreationTool();
 
-    public static final StepSound soundDeepslateFootstep = new CTStepSound(CreationModInit.RESOURCE_ID + "deepslate", 1.0F, 1.0F);
-    public static final StepSound soundDeepslateBrickFootstep = new CTStepSoundDeepslateBrick(CreationModInit.RESOURCE_ID + "deepslate_bricks", 1.0F, 1.0F);
+    public static final StepSound soundDeepslateFootstep = new CTStepSound(new ResourceLocation(CreationModInit.ID, "deepslate"), 1.0F, 1.0F);
+    public static final StepSound soundDeepslateBrickFootstep = new CTStepSoundDeepslateBrick(new ResourceLocation(CreationModInit.ID, "deepslate_bricks"), 1.0F, 1.0F);
 
     public static final MinecraftRegistry registry = new MinecraftRegistry(CreationModInit.NAMESPACE).initAutoItemRegister();
     public static IDAllocator allocatorCT = new IDAllocator(CreationModInit.ID, 128 , 256);
@@ -110,7 +110,7 @@ public class CTRegistryInit implements IGameRegistry {
     public static final ItemScythe scytheTungsten = (ItemScythe) createInstance(ItemScythe.class,new Class[]{int.class,Material.class},getItemID("scytheTungsten"), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
     public static final ItemShears shearsTungsten = (ItemShears) createInstance(ItemShears.class,new Class[]{int.class,Material.class},getItemID("shearsTungsten"), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
     public static final ItemHatchet hatchetTungsten = (ItemHatchet) createInstance(ItemHatchet.class,new Class[]{int.class,Material.class},getItemID("hatchetTungsten"), CTMaterials.tungsten).setCreativeTab(tabCreationTool);
-    public static ItemCTFishingRod fishingRodTungsten = (ItemCTFishingRod)(new ItemCTFishingRod(getItemID("fishingRodTungsten"), CTMaterials.tungsten)).setUnlocalizedName("fishingRod").setCreativeTab(tabCreationTool);
+    public static ItemCTFishingRod fishingRodTungsten = (ItemCTFishingRod) (new ItemCTFishingRod(getItemID("fishingRodTungsten"), CTMaterials.tungsten)).setUnlocalizedName("fishingRod").setCreativeTab(tabCreationTool);
     public static final ItemArmor helmetTungsten = (ItemArmor) new ItemHelmet(getItemID("helmetTungsten"), CTMaterials.tungsten,false).setCreativeTab(tabCreationTool);
     public static final ItemArmor helmetChainTungsten = (ItemArmor) new ItemHelmet(getItemID("helmetChainTungsten"), CTMaterials.tungsten,true).setCreativeTab(tabCreationTool);
     public static final ItemArmor plateTungsten = (ItemArmor) new ItemCuirass(getItemID("plateTungsten"), CTMaterials.tungsten,false).setCreativeTab(tabCreationTool);
@@ -322,7 +322,7 @@ public class CTRegistryInit implements IGameRegistry {
         cobbleDeepStaleWall = new WallBlock(getBlockID("cobbleDeepStaleWall"), cobbledDeepStale).setHardness(2.5F).setResistance(15.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
         deepStaleBrickWall = new WallBlock(getBlockID("deepStaleBrickWall"), deepStaleBrick).setHardness(1.8F).setResistance(15.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
         gravelSand = (BlockCTSandGravel) (new BlockCTSandGravel(getBlockID("gravelSand"))).setHardness(0.6F).setStepSound(soundSandFootstep).setCreativeTab(tabCreationBlock);
-        gravelDeepSlate = (BlockCTDeepSlateGravel) (new BlockCTDeepSlateGravel(getBlockID("gravelDeepSlate"))).setHardness(0.8F).setStepSound(soundSandFootstep).setCreativeTab(tabCreationBlock);
+        gravelDeepSlate = (BlockCTDeepSlateGravel) (new BlockCTDeepSlateGravel(getBlockID("gravelDeepSlate"))).setHardness(0.8F).setStepSound(soundGravelFootstep).setCreativeTab(tabCreationBlock);
         deepSlate = (new BlockCTDeepSlate(getBlockID("deepSlate"))).setHardness(3.0F).setResistance(15.0F).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
         cobbledDeepStaleSingleSlab = (BlockCTCobbleDeepSlateSlabGroup) (new BlockCTCobbleDeepSlateSlabGroup(getBlockID("cobbledDeepStaleSingleSlab"), Material.stone)).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
         cobbledDeepStaleDoubleSlab = (BlockCTDeepSlateDoubleSlab) (new BlockCTDeepSlateDoubleSlab(getBlockID("cobbledDeepStaleDoubleSlab"), cobbledDeepStaleSingleSlab)).setStepSound(soundDeepslateFootstep).setCreativeTab(tabCreationBlock);
