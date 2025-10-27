@@ -3,11 +3,10 @@ package mod.mitecreation.recipe;
 import mod.mitecreation.init.CTRegistryInit;
 import moddedmite.rustedironcore.api.event.events.CraftingRecipeRegisterEvent;
 import net.minecraft.*;
-import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
 
 public class CTRecipesBlockExtend {
 
-    public static void registerRecipes(CraftingRecipeRegisterEvent register) {
+    public static void registerBlockRecipes(CraftingRecipeRegisterEvent register) {
     //Tungsten Recipes
         register.registerShapedRecipe(new ItemStack(CTRegistryInit.anvilTungsten), true,
                 "AAA",
@@ -146,22 +145,9 @@ public class CTRecipesBlockExtend {
                 "###",
                 "###",
                 '#', CTRegistryInit.peachPlanks);
-        register.registerShapedRecipe(new ItemStack(Item.sign, 1), true,
-                "#",
-                "/",
-                '#', CTRegistryInit.peachPlanksSingleSlab,
-                '/', Item.stick);
         register.registerShapedRecipe(new ItemStack(CTRegistryInit.peachPlanks, 4, 0), true,
                 "#",
                 '#', new ItemStack(CTRegistryInit.peachWood, 1, 0));
-        register.registerShapedRecipe(new ItemStack(Item.stick, 4), true,
-                "#",
-                "#",
-                '#', CTRegistryInit.peachPlanks);
-        register.registerShapedRecipe(new ItemStack(Item.bowlEmpty, 4), true,
-                "# #",
-                " # ",
-                '#', CTRegistryInit.peachPlanks);
         register.registerShapedRecipe(new ItemStack(CTRegistryInit.stairsPeachPlanks, 4), true,
                 "#  ",
                 "## ",
@@ -180,27 +166,10 @@ public class CTRecipesBlockExtend {
         register.registerShapedRecipe(new ItemStack(Block.pressurePlatePlanks, 1), true,
                 "##",
                 '#', CTRegistryInit.peachPlanks);
-        register.registerShapedRecipe(new ItemStack(Item.bed, 1), true,
-                "###",
-                "XXX",
-                '#', Block.cloth,
-                'X', CTRegistryInit.peachPlanks);
         register.registerShapedRecipe(new ItemStack(Block.chest, 1), true,
                 "###",
                 "# #",
                 "###",
                 '#', CTRegistryInit.peachPlanks);
-        register.registerShapedRecipe(new ItemStack(CTRegistryInit.swordPeachWood, 1), true,
-                "#",
-                "#",
-                "X",
-                '#', CTRegistryInit.peachPlanks,
-                'X', Item.stick);
-        register.registerShapedRecipe(new ItemStack(CTRegistryInit.shovelPeachWood, 1), true,
-                "#",
-                "X",
-                "X",
-                '#', CTRegistryInit.peachPlanks,
-                'X', Item.stick);
     }
 }

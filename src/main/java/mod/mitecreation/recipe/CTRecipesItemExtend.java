@@ -5,7 +5,6 @@ import mod.mitecreation.item.ItemCTFishingRod;
 import mod.mitecreation.material.CTMaterials;
 import moddedmite.rustedironcore.api.event.events.CraftingRecipeRegisterEvent;
 import net.minecraft.*;
-import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
 
 import static mod.mitecreation.init.CTRegistryInit.*;
 import static net.minecraft.Item.getMatchingItem;
@@ -20,42 +19,42 @@ public class CTRecipesItemExtend {
                 "S",
                 'A', item,
                 'S', Item.stick);
-        register.registerShapedRecipe(new ItemStack(getMatchingItem(ItemHoe.class, material)),true,
+        register.registerShapedRecipe(new ItemStack(getMatchingItem(ItemHoe.class, material)), true,
                 "AA",
                 "S ",
                 "S ",
-                'A',item,
-                'S',Item.stick);
-        register.registerShapedRecipe(new ItemStack(getMatchingItem(ItemAxe.class, material)),true,
+                'A', item,
+                'S', Item.stick);
+        register.registerShapedRecipe(new ItemStack(getMatchingItem(ItemAxe.class, material)), true,
                 "AA",
                 "SA",
                 "S ",
-                'A',item,
-                'S',Item.stick);
-        register.registerShapedRecipe(new ItemStack(getMatchingItem(ItemShovel.class, material)),true,
+                'A', item,
+                'S', Item.stick);
+        register.registerShapedRecipe(new ItemStack(getMatchingItem(ItemShovel.class, material)), true,
                 "A",
                 "S",
                 "S",
-                'A',item,
-                'S',Item.stick);
-        register.registerShapedRecipe(new ItemStack(getMatchingItem(ItemPickaxe.class, material)),true,
+                'A', item,
+                'S', Item.stick);
+        register.registerShapedRecipe(new ItemStack(getMatchingItem(ItemPickaxe.class, material)), true,
                 "AAA",
                 " S ",
                 " S ",
-                'A',item,
-                'S',Item.stick);
-        register.registerShapedRecipe(new ItemStack(getMatchingItem(ItemCTFishingRod.class, material)),true,
+                'A', item,
+                'S', Item.stick);
+        register.registerShapedRecipe(new ItemStack(getMatchingItem(ItemCTFishingRod.class, material)), true,
                 "  S",
                 " SG",
                 "SAG",
-                'A',getMatchingItem(ItemNugget.class,item.getExclusiveMaterial()),
-                'S',Item.stick,
-                'G',Item.silk);
-        register.registerShapedRecipe(new ItemStack(getMatchingItem(ItemShears.class, material)),true,
+                'A', getMatchingItem(ItemNugget.class, item.getExclusiveMaterial()),
+                'S', Item.stick,
+                'G', Item.silk);
+        register.registerShapedRecipe(new ItemStack(getMatchingItem(ItemShears.class, material)), true,
                 "A ",
                 " A",
-                'A',item);
-        registerArmorRecipe(register,item,material);
+                'A', item);
+        registerArmorRecipe(register, item, material);
     }
 
     public static void registerMITEToolRecipe(CraftingRecipeRegisterEvent register, Material material) {
@@ -119,45 +118,46 @@ public class CTRecipesItemExtend {
                 "AA",
                 'A', item);
     }
-    public static void registerArmorRecipe(CraftingRecipeRegisterEvent register, Item item, Material material){
-        if(item instanceof ItemChain) {
-            register.registerShapedRecipe(new ItemStack(ItemArmor.getMatchingArmor(ItemHelmet.class, material,true)),true,
+
+    public static void registerArmorRecipe(CraftingRecipeRegisterEvent register, Item item, Material material) {
+        if (item instanceof ItemChain) {
+            register.registerShapedRecipe(new ItemStack(ItemArmor.getMatchingArmor(ItemHelmet.class, material, true)), true,
                     "AAA",
                     "A A",
-                    'A',item);
-            register.registerShapedRecipe(new ItemStack(ItemArmor.getMatchingArmor(ItemCuirass.class, material,true)),true,
+                    'A', item);
+            register.registerShapedRecipe(new ItemStack(ItemArmor.getMatchingArmor(ItemCuirass.class, material, true)), true,
                     "A A",
                     "AAA",
                     "AAA",
-                    'A',item);
-            register.registerShapedRecipe(new ItemStack(ItemArmor.getMatchingArmor(ItemLeggings.class, material,true)),true,
+                    'A', item);
+            register.registerShapedRecipe(new ItemStack(ItemArmor.getMatchingArmor(ItemLeggings.class, material, true)), true,
                     "AAA",
                     "A A",
                     "A A",
-                    'A',item);
-            register.registerShapedRecipe(new ItemStack(ItemArmor.getMatchingArmor(ItemBoots.class, material,true)),true,
+                    'A', item);
+            register.registerShapedRecipe(new ItemStack(ItemArmor.getMatchingArmor(ItemBoots.class, material, true)), true,
                     "A A",
                     "A A",
-                    'A',item);
+                    'A', item);
         } else {
-            register.registerShapedRecipe(new ItemStack(ItemArmor.getMatchingArmor(ItemHelmet.class, material,false)),true,
+            register.registerShapedRecipe(new ItemStack(ItemArmor.getMatchingArmor(ItemHelmet.class, material, false)), true,
                     "AAA",
                     "A A",
-                    'A',item);
-            register.registerShapedRecipe(new ItemStack(ItemArmor.getMatchingArmor(ItemCuirass.class, material,false)),true,
+                    'A', item);
+            register.registerShapedRecipe(new ItemStack(ItemArmor.getMatchingArmor(ItemCuirass.class, material, false)), true,
                     "A A",
                     "AAA",
                     "AAA",
-                    'A',item);
-            register.registerShapedRecipe(new ItemStack(ItemArmor.getMatchingArmor(ItemLeggings.class, material,false)),true,
+                    'A', item);
+            register.registerShapedRecipe(new ItemStack(ItemArmor.getMatchingArmor(ItemLeggings.class, material, false)), true,
                     "AAA",
                     "A A",
                     "A A",
-                    'A',item);
-            register.registerShapedRecipe(new ItemStack(ItemArmor.getMatchingArmor(ItemBoots.class, material,false)),true,
+                    'A', item);
+            register.registerShapedRecipe(new ItemStack(ItemArmor.getMatchingArmor(ItemBoots.class, material, false)), true,
                     "A A",
                     "A A",
-                    'A',item);
+                    'A', item);
         }
     }
 
@@ -170,23 +170,27 @@ public class CTRecipesItemExtend {
     }
 
 
-        public static void registerFullMetalToolRecipe(CraftingRecipeRegisterEvent register, Material material) {
+    public static void registerFullMetalToolRecipe(CraftingRecipeRegisterEvent register, Material material) {
         registerBasicToolRecipes(register, material);
         registerMITEToolRecipe(register, material);
     }
 
-    public static void registerRecipes(CraftingRecipeRegisterEvent register) {
-        register.registerShapelessRecipe(new ItemStack(ingotTungsten, 9), true,
-                blockTungsten);
-        register.registerShapelessRecipe(new ItemStack(ingotRustedIron, 9), true,
-                rustedIronBlock);
-        register.registerShapelessRecipe(new ItemStack(rustedIronNugget, 9), true,
-                ingotRustedIron);
-        register.registerShapelessRecipe(new ItemStack(tungstenNugget, 9), true,
-                ingotTungsten);
+    public static void registerItemRecipes(CraftingRecipeRegisterEvent register) {
+        register.registerShapelessRecipe(new ItemStack(ingotTungsten, 9),
+                true, blockTungsten);
+        register.registerShapelessRecipe(new ItemStack(ingotRustedIron, 9),
+                true, rustedIronBlock);
+        register.registerShapelessRecipe(new ItemStack(rustedIronNugget, 9),
+                true, ingotRustedIron);
+        register.registerShapelessRecipe(new ItemStack(tungstenNugget, 9),
+                true, ingotTungsten);
 
         registerFullMetalToolRecipe(register, CTMaterials.tungsten);
         registerNuggetToIngotRecipe(register, tungstenNugget, CTMaterials.tungsten);
+
+        registerPeachWoodRecipes(register);
+        registerRustedIronRecipes(register);
+        registerWildcardRecipe(register);
 
         ItemCoin[] creationCoins = {coinRustedIron, coinIron, coinTungsten};
         for (ItemCoin coin : creationCoins) {
@@ -201,6 +205,43 @@ public class CTRecipesItemExtend {
         register.registerShapelessRecipe(new ItemStack(CTRegistryInit.rustedIronBucketEmpty, 1),
                 false, CTRegistryInit.rustedIronBucketStone).difficulty(100);
 
+    }
+
+    private static void registerPeachWoodRecipes(CraftingRecipeRegisterEvent register) {
+        //peach wood recipes
+        register.registerShapedRecipe(new ItemStack(Item.sign, 1), true,
+                "#",
+                "/",
+                '#', CTRegistryInit.peachPlanksSingleSlab,
+                '/', Item.stick);
+        register.registerShapedRecipe(new ItemStack(Item.stick, 4), true,
+                "#",
+                "#",
+                '#', CTRegistryInit.peachPlanks);
+        register.registerShapedRecipe(new ItemStack(Item.bowlEmpty, 4), true,
+                "# #",
+                " # ",
+                '#', CTRegistryInit.peachPlanks);
+        register.registerShapedRecipe(new ItemStack(Item.bed, 1), true,
+                "###",
+                "XXX",
+                '#', Block.cloth,
+                'X', CTRegistryInit.peachPlanks);
+        register.registerShapedRecipe(new ItemStack(CTRegistryInit.swordPeachWood, 1), true,
+                "#",
+                "#",
+                "X",
+                '#', CTRegistryInit.peachPlanks,
+                'X', Item.stick);
+        register.registerShapedRecipe(new ItemStack(CTRegistryInit.shovelPeachWood, 1), true,
+                "#",
+                "X",
+                "X",
+                '#', CTRegistryInit.peachPlanks,
+                'X', Item.stick);
+    }
+
+    private static void registerRustedIronRecipes(CraftingRecipeRegisterEvent register) {
         register.registerShapelessRecipe(new ItemStack(rustedIronNugget,1),true,Item.arrowRustedIron);
         register.registerShapelessRecipe(new ItemStack(ingotRustedIron, 1), true, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget, rustedIronNugget);
         register.registerShapelessRecipe(new ItemStack(rustedIronNugget, 9), true, ingotRustedIron);
@@ -243,8 +284,20 @@ public class CTRecipesItemExtend {
         register.registerShapedRecipe(new ItemStack(Item.plateChainRustedIron, 1), true, "Q@Q", "QQQ", "QQQ", Character.valueOf('Q'), Item.chainRustedIron);
         register.registerShapedRecipe(new ItemStack(CTRegistryInit.fishingRodRustedIron, 1), true, "  Q", " Q@", "QW@", Character.valueOf('Q'), Item.stick, Character.valueOf('@'), Item.silk, Character.valueOf('W'), CTRegistryInit.rustedIronNugget);
 
-        for (int i = 0; i < Block.blocksList.length; i++) {
-            Block block = Block.getBlock(i);
+    }
+
+
+        private static void registerWildcardRecipe(CraftingRecipeRegisterEvent register) {
+        for (Block block : Block.blocksList) {
+            // wood bucket recipe
+            if (block instanceof BlockWood wood) {
+                register.registerShapedRecipe(new ItemStack(woodBucketEmpty, 1), true,
+                        "# #",
+                        " # ",
+                        '#', wood);
+            }
+
+            // snow berry porridge recipe
             if ((block instanceof BlockFlower || block instanceof BlockFlowerMulti) && !(block instanceof BlockDeadBush)) {
                 register.registerShapedRecipe(new ItemStack(snowBerryPorridge, 1), true,
                         "SF",
@@ -254,22 +307,5 @@ public class CTRecipesItemExtend {
                         'S', snowBerries);
             }
         }
-
-        FurnaceRecipes.smelting().addSmelting(rawCopperNugget.itemID, new ItemStack(Item.copperNugget,1));
-        Item.copperNugget.setXPReward(1);
-        FurnaceRecipes.smelting().addSmelting(rawSilverNugget.itemID, new ItemStack(Item.silverNugget,1));
-        Item.silverNugget.setXPReward(1);
-        FurnaceRecipes.smelting().addSmelting(rawGoldNugget.itemID, new ItemStack(Item.goldNugget,1));
-        Item.goldNugget.setXPReward(2);
-        FurnaceRecipes.smelting().addSmelting(rustedIronNugget.itemID, new ItemStack(Item.ironNugget,1));
-        Item.ironNugget.setXPReward(1);
-        FurnaceRecipes.smelting().addSmelting(rawRustedIronNugget.itemID, new ItemStack(Item.ironNugget,1));
-        Item.ironNugget.setXPReward(1);
-        FurnaceRecipes.smelting().addSmelting(rawAncientMetalNugget.itemID, new ItemStack(Item.ancientMetalNugget,1));
-        Item.ancientMetalNugget.setXPReward(2);
-        FurnaceRecipes.smelting().addSmelting(rawMithrilNugget.itemID, new ItemStack(Item.mithrilNugget,1));
-        Item.mithrilNugget.setXPReward(4);
-        FurnaceRecipes.smelting().addSmelting(rawAdamantiumNugget.itemID, new ItemStack(Item.adamantiumNugget,1));
-        Item.adamantiumNugget.setXPReward(10);
     }
 }

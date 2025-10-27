@@ -1,4 +1,4 @@
-package mod.mitecreation.event.command;
+package mod.mitecreation.command;
 
 import net.minecraft.*;
 

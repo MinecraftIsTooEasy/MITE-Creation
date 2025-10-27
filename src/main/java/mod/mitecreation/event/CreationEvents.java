@@ -2,8 +2,8 @@ package mod.mitecreation.event;
 
 import com.google.common.eventbus.Subscribe;
 import mod.mitecreation.client.audio.CTSounds;
-import mod.mitecreation.event.command.CommandCTDimensionTP;
-import mod.mitecreation.event.command.CommandCTProtection;
+import mod.mitecreation.command.CommandCTDimensionTP;
+import mod.mitecreation.command.CommandCTProtection;
 import mod.mitecreation.client.render.RenderCTDevilBat;
 import mod.mitecreation.client.render.RenderCTSpiderQueen;
 import mod.mitecreation.client.render.RenderCTSpirit;
@@ -100,6 +100,7 @@ public class CreationEvents extends Handlers {
                 event.player().sendChatToPlayer(ChatMessageComponent.createFromText("[" + CreationModInit.NAMESPACE + "] ").appendComponent(ChatMessageComponent.createFromTranslationKey( CreationModInit.NAMESPACE + " Successfully Load,Version: ").setColor(EnumChatFormatting.WHITE)).appendComponent(ChatMessageComponent.createFromText(CreationModInit.VERSION)));
             }
         });
+        Crafting.register(new CTCraftingRegistry());
         registerHandpanRecipesCompat();
     }
 
