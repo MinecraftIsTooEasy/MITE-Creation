@@ -17,7 +17,7 @@ public class BlockStrongboxMixin extends Block {
     @Inject(method = {"registerIcons(Lnet/minecraft/IconRegister;)V"}, at = {@At("RETURN")})
     private void injectTextureInit(IconRegister register, CallbackInfo callbackInfo) {
         if (this.blockMaterial == CTMaterials.tungsten) {
-            this.blockIcon = register.registerIcon(CreationModInit.RESOURCE_ID + "block/tungsten_block");
+            this.blockIcon = register.registerIcon(CreationModInit.COLON_ID + "block/tungsten_block");
         }
     }
 }

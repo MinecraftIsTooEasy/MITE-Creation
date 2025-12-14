@@ -9,8 +9,8 @@ import java.util.Random;
 public class BiomeCTTaoyuan extends BiomeGenBase {
     protected WorldGenCTPeachTrees worldGeneratorPeachTrees;
 
-    public BiomeCTTaoyuan(int par1) {
-        super(par1);
+    public BiomeCTTaoyuan(int id) {
+        super(id);
         this.worldGeneratorPeachTrees = new WorldGenCTPeachTrees(false, 6, 0, 0, false);
         this.theBiomeDecorator.treesPerChunk = 10;
         this.theBiomeDecorator.flowersPerChunk = 10;
@@ -18,8 +18,6 @@ public class BiomeCTTaoyuan extends BiomeGenBase {
         this.theBiomeDecorator.reedsPerChunk = 3;
         this.theBiomeDecorator.clayPerChunk = 1;
         this.theBiomeDecorator.waterlilyPerChunk = 1;
-        this.topBlock = (byte) Block.grass.blockID;
-        this.fillerBlock = (byte) Block.dirt.blockID;
         this.spawnableMonsterList.clear();
         this.spawnableMonsterList.add(new SpawnListEntry(EntitySpider.class, 70, 1, 2));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityZombie.class, 90, 1, 4));

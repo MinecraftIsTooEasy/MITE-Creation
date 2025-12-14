@@ -1,6 +1,7 @@
 package mod.mitecreation.mixin.world.chunk;
 
 import mod.mitecreation.init.CTRegistryInit;
+import mod.mitecreation.world.biome.CTBiomes;
 import net.minecraft.*;
 import net.xiaoyu233.fml.util.ReflectHelper;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,9 +16,11 @@ public abstract class ChunkMixin {
     @Shadow public World worldObj;
     @Shadow private byte[] blockBiomeArray;
 
+
     @Inject(method = "<init>(Lnet/minecraft/World;[BII)V", at = @At("TAIL"))
-    private void replaceStoneWithDeepslate(World par1World, byte[] par2ArrayOfByte, int par3, int par4, CallbackInfo ci) {
-        if (par1World.isUnderworld() && !(ReflectHelper.dyCast(this) instanceof EmptyChunk)) {
+    private void replaceStoneWithDeepslate(World world, byte[] blocks, int x, int y, CallbackInfo ci) {
+        BiomeGenBase biome = world.getBiomeGenForCoords(x * 16, y * 16);
+        if (world.isUnderworld() && !(ReflectHelper.dyCast(this) instanceof EmptyChunk)) {
             for (ExtendedBlockStorage storageArray : this.storageArrays) {
                 for (int var7 = 0; var7 < 16; ++var7) {
                     for (int var8 = 0; var8 < 16; ++var8) {

@@ -1,16 +1,15 @@
 package mod.mitecreation.world.biome;
 
-import cn.tesseract.underbiome.biome.BiomeGenUnderBase;
 import mod.mitecreation.entity.EntityCTSpiderQueen;
 import mod.mitecreation.util.CTBiomeUtils;
 import moddedmite.rustedironcore.api.world.BiomeAPI;
 import net.minecraft.*;
 import java.util.Random;
 
-public class BiomeCTUndergarden extends BiomeGenUnderBase {
+public class BiomeCTUndergarden extends BiomeGenUnderworld {
 
-    public BiomeCTUndergarden(int par1) {
-        super(par1);
+    public BiomeCTUndergarden(int id) {
+        super(id);
         this.topBlock = (byte) Block.mycelium.blockID;
         this.fillerBlock = (byte) Block.dirt.blockID;
         this.theBiomeDecorator.surface_mushrooms_per_chunk = 10;
@@ -24,8 +23,9 @@ public class BiomeCTUndergarden extends BiomeGenUnderBase {
 
     @Override
     public void decorate(World world, Random random, int chunk_origin_x, int chunk_origin_z) {
-        CTBiomeUtils.CTUndergardenRegenerateDeepslate(this,world,random,chunk_origin_x,chunk_origin_z);
-        CTBiomeUtils.decorateCTUndergarden(this,world,random,chunk_origin_x,chunk_origin_z);
-        super.decorate(world,random,chunk_origin_x,chunk_origin_z);
+//        CTBiomeUtils.decorateCTUndergarden(this, world, random, chunk_origin_x, chunk_origin_z);
+        CTBiomeUtils.CTUndergardenRegenerateDeepslate(this, world, random, chunk_origin_x, chunk_origin_z);
+        CTBiomeUtils.decorateCTUndergardenMushroom(this, world, random, chunk_origin_x, chunk_origin_z);
+        super.decorate(world, random, chunk_origin_x, chunk_origin_z);
     }
 }

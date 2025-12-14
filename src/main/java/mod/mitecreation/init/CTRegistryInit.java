@@ -18,7 +18,7 @@ import moddedmite.rustedironcore.api.item.IngotItem;
 import net.minecraft.*;
 import net.xiaoyu233.fml.api.block.StrongBoxBlock;
 import net.xiaoyu233.fml.api.item.NuggetItem;
-import net.xiaoyu233.fml.reload.utils.IDAllocator;
+import net.xiaoyu233.fml.reload.utils.IdUtil;
 
 import static net.minecraft.Block.*;
 import static net.xiaoyu233.fml.util.ReflectHelper.createInstance;
@@ -32,7 +32,7 @@ public class CTRegistryInit implements IGameRegistry {
     public static final StepSound soundDeepslateBrickFootstep = new CTStepSoundDeepslateBrick(new ResourceLocation(CreationModInit.ID, "deepslate_bricks"), 1.0F, 1.0F);
 
     public static final MinecraftRegistry registry = new MinecraftRegistry(CreationModInit.NAMESPACE).initAutoItemRegister();
-    public static IDAllocator allocatorCT = new IDAllocator(CreationModInit.ID, 128 , 256);
+//    public static IDAllocator allocatorCT = new IDAllocator(CreationModInit.ID, 128 , 256);
 
     public static Block rustedIronBlock;
     public static final BlockAnvil anvilRustedIron;
@@ -147,47 +147,48 @@ public class CTRegistryInit implements IGameRegistry {
     public static final ItemSword swordPeachWood = createInstance(ItemSword.class, new Class[]{int.class, Material.class}, getItemID("swordPeachWood"), CTMaterials.peachWood);
     public static final ItemFood snowBerries = (new ItemFood(getItemID("snowBerries"), Material.fruit, 1, 2, 500, false, false, true, "snow_berries")).setPotionEffect(Potion.poison.id, 10, 0, 0.4F).setPlantProduct();
     public static final ItemCTSnowBerryBowl snowBerryPorridge = (ItemCTSnowBerryBowl) (new ItemCTSnowBerryBowl(getItemID("snowBerryPorridge"), Material.fruit, "snow_berry_stew")).setFoodValue(3, 2, 250, false, false, true).setPlantProduct();
+    public static final Item fragsDecayCreeper = (new Item(getItemID("fragsDecayCreeper"), Material.frags, CreationModInit.COLON_ID + "frag/decay_creeper"));
 
     private void registerItem(String resource, String name, Item item) {
-        resource = CreationModInit.RESOURCE_ID + resource;
+        resource = CreationModInit.COLON_ID + resource;
         item.setCreativeTab(tabCreationItem);
         registry.registerItem(resource, name, item);
     }
     private void registerItemTool(String resource, String name, Item item) {
-        resource = CreationModInit.RESOURCE_ID + resource;
+        resource = CreationModInit.COLON_ID + resource;
         item.setCreativeTab(tabCreationTool);
         registry.registerItem(resource, name, item);
     }
 
     private void registerBlock(Block block, String resource, String name) {
-        resource = CreationModInit.RESOURCE_ID + resource;
+        resource = CreationModInit.COLON_ID + resource;
         block.setCreativeTab(tabCreationBlock);
         registry.registerBlock(block, resource, name);
     }
 
     private void registerBlock(Block block, String resource, String name, CreativeTabs creativeTab) {
-        resource = CreationModInit.RESOURCE_ID + resource;
+        resource = CreationModInit.COLON_ID + resource;
         block.setCreativeTab(creativeTab);
         registry.registerBlock(block, resource, name);
     }
 
     private void registerBlock(Block block, String resource) {
-        resource = CreationModInit.RESOURCE_ID + resource;
+        resource = CreationModInit.COLON_ID + resource;
         registry.registerBlock(block, resource);
     }
 
     private void registerBlockAnvil(BlockAnvil block, String resource, String name) {
-        resource = CreationModInit.RESOURCE_ID + resource;
+        resource = CreationModInit.COLON_ID + resource;
         block.setCreativeTab(tabCreationBlock);
         registry.registerBlockAnvil(block, resource, name);
     }
 
     private static int getItemID(String name) {
-        return allocatorCT.getItemId(name);
+        return IdUtil.getNextItemID();
     }
 
     public static int getBlockID(String name) {
-        return allocatorCT.getBlockId(name);
+        return IdUtil.getNextBlockID();
     }
 
     @Override
@@ -278,6 +279,7 @@ public class CTRegistryInit implements IGameRegistry {
         registerItemTool("tools/peach_wood/peach_wood_sword", "swordPeachWood", swordPeachWood);
         registerItem("food/snow_berries", "snowBerries", snowBerries);
         registerItem("bowl/snow_berry", "snowBerryStew", snowBerryPorridge);
+        registerItem("frag/decay_creeper", "frags_decay_creeper", fragsDecayCreeper);
 
         //Register Blocks
         registerBlock(rustedIronBlock, "rusted_iron_block", "rustedIronBlock");
@@ -334,7 +336,7 @@ public class CTRegistryInit implements IGameRegistry {
         anvilRustedIron = (BlockAnvil) new BlockCTAnvil(getBlockID("anvilRustedIron"), Material.rusted_iron).setStepSound(soundAnvilFootstep);
         oreTungsten = (new BlockOre(getBlockID("oreTungsten"), CTMaterials.tungsten, 4)).setHardness(3.25F).setResistance(15.0F);
         blockTungsten = (new BlockOreStorage(getBlockID("blockTungsten"), CTMaterials.tungsten)).setStepSound(soundMetalFootstep);
-        fenceTungsten = (new PaneBlock(getBlockID("fenceTungsten"), CreationModInit.RESOURCE_ID + "bars/tungsten_bars", CreationModInit.RESOURCE_ID + "bars/tungsten_bars", CTMaterials.tungsten, false)).setStepSound(soundMetalFootstep).setResistance(24.0F).setHardness(12.8F).setMinHarvestLevel(4);
+        fenceTungsten = (new PaneBlock(getBlockID("fenceTungsten"), CreationModInit.COLON_ID + "bars/tungsten_bars", CreationModInit.COLON_ID + "bars/tungsten_bars", CTMaterials.tungsten, false)).setStepSound(soundMetalFootstep).setResistance(24.0F).setHardness(12.8F).setMinHarvestLevel(4);
         doorTungsten = (new DoorBlock(getBlockID("doorTungsten"), CTMaterials.tungsten, () -> Item.getItem(CTRegistryInit.doorTungsten))).setStepSound(soundMetalFootstep).setMinHarvestLevel(4);
         anvilTungsten = (BlockAnvil) new BlockCTAnvil(getBlockID("anvilTungsten"), CTMaterials.tungsten).setStepSound(soundAnvilFootstep);
         deepStaleBrick = (BlockCTDeepStaleBrick) (new BlockCTDeepStaleBrick(getBlockID("deepStaleBrick"))).setHardness(1.8F).setResistance(15.0F).setStepSound(soundDeepslateBrickFootstep);

@@ -56,6 +56,7 @@ accessible field net/minecraft/BiomeDecorator reedsPerChunk I
 accessible field net/minecraft/BiomeDecorator clayPerChunk I
 accessible field net/minecraft/BiomeDecorator waterlilyPerChunk I
 accessible field net/minecraft/BiomeDecorator bush_patches_per_chunk_tenths I
+accessible field net/minecraft/BiomeDecorator bigMushroomGen Lnet/minecraft/WorldGenerator;
 accessible method net/minecraft/BiomeGenBase setTemperatureRainfall (FF)Lnet/minecraft/BiomeGenBase;
 accessible method net/minecraft/BiomeGenBase setDisableRain ()Lnet/minecraft/BiomeGenBase;
 accessible method net/minecraft/BiomeGenBase setMinMaxHeight (FF)Lnet/minecraft/BiomeGenBase;
@@ -63,7 +64,7 @@ accessible method net/minecraft/WorldGenDungeons pickMobSpawner (Lnet/minecraft/
 accessible method net/minecraft/WorldGenDungeons getChestContentsForWorld (Lnet/minecraft/World;)[Lnet/minecraft/WeightedRandomChestContent;
 accessible field net/minecraft/GenLayer chunkSeed J
 accessible method net/minecraft/MapGenStructureIO func_143031_a (Ljava/lang/Class;Ljava/lang/String;)V
-
+accessible field net/minecraft/WorldChunkManager biomesToSpawnIn Ljava/util/List;
 
 accessible method net/minecraft/Damage getResponsibleEntity ()Lnet/minecraft/Entity;
 accessible method net/minecraft/DamageSource setFireAspect (Z)Lnet/minecraft/DamageSource;
@@ -91,5 +92,4 @@ accessible method net/minecraft/EnumDirection isSouth ()Z
 accessible method net/minecraft/EnumDirection isWest ()Z
 accessible method net/minecraft/EnumDirection isEast ()Z
 
-accessible field net/minecraft/BiomeDecorator bigMushroomGen Lnet/minecraft/WorldGenerator;
-accessible field net/minecraft/WorldChunkManager biomesToSpawnIn Ljava/util/List;
+accessible method net/minecraft/Axis isUpDown ()Z

@@ -2,11 +2,13 @@ package mod.mitecreation.event;
 
 import com.google.common.eventbus.Subscribe;
 import mod.mitecreation.client.audio.CTSounds;
+import mod.mitecreation.client.render.RenderCTDecayCreeper;
 import mod.mitecreation.command.CommandCTDimensionTP;
 import mod.mitecreation.command.CommandCTProtection;
 import mod.mitecreation.client.render.RenderCTDevilBat;
 import mod.mitecreation.client.render.RenderCTSpiderQueen;
 import mod.mitecreation.client.render.RenderCTSpirit;
+import mod.mitecreation.entity.EntityCTDecayCreeper;
 import mod.mitecreation.entity.EntityCTDevilBat;
 import mod.mitecreation.entity.EntityCTSpiderQueen;
 import mod.mitecreation.entity.EntityCTSpirit;
@@ -18,8 +20,11 @@ import mod.mitecreation.material.CTMaterials;
 import moddedmite.rustedironcore.api.event.Handlers;
 import moddedmite.rustedironcore.api.event.handler.GravelDropHandler;
 import moddedmite.rustedironcore.api.event.listener.IArrowRegisterListener;
+import moddedmite.rustedironcore.api.event.listener.IInitializationListener;
 import moddedmite.rustedironcore.api.event.listener.IPlayerEventListener;
+import moddedmite.rustedironcore.api.util.BiomeSpawnUtil;
 import net.minecraft.*;
+import net.minecraft.server.MinecraftServer;
 import net.xiaoyu233.fml.FishModLoader;
 import net.xiaoyu233.fml.reload.event.*;
 import net.xiaoyu233.fml.reload.utils.IdUtil;
@@ -37,9 +42,10 @@ public class CreationEvents extends Handlers {
 
     @Subscribe
     public void onEntityRegister(EntityRegisterEvent event) {
-        event.register(EntityCTSpirit.class, CreationModInit.NAMESPACE, "Spirit", IdUtil.getNextEntityID(), 0xFFFFFFF, 0xFFAD0000);
-        event.register(EntityCTSpiderQueen.class, CreationModInit.NAMESPACE, "SpiderQueen", IdUtil.getNextEntityID(), 11013646, 0xFFAD1245);
-        event.register(EntityCTDevilBat.class, CreationModInit.NAMESPACE, "DevilBat", IdUtil.getNextEntityID(), 0x020000, 0x300000);
+        event.register(EntityCTSpirit.class, CreationModInit.NAMESPACE, "Spirit", IdUtil.getNextEntityID(), 0x00FFFFFFF, 0xAD0000);
+        event.register(EntityCTSpiderQueen.class, CreationModInit.NAMESPACE, "SpiderQueen", IdUtil.getNextEntityID(), 0x020000, 0x300000);
+        event.register(EntityCTDevilBat.class, CreationModInit.NAMESPACE, "DevilBat", IdUtil.getNextEntityID(), 0x250000, 0xCECECE);
+        event.register(EntityCTDecayCreeper.class, CreationModInit.NAMESPACE, "DecayCreeper", IdUtil.getNextEntityID(), 0x250000, 0xCECECE);
     }
 
     @Subscribe
@@ -47,6 +53,7 @@ public class CreationEvents extends Handlers {
         event.register(EntityCTSpiderQueen.class, new RenderCTSpiderQueen(1.5F));
         event.register(EntityCTSpirit.class, new RenderCTSpirit());
         event.register(EntityCTDevilBat.class, new RenderCTDevilBat());
+        event.register(EntityCTDecayCreeper.class, new RenderCTDecayCreeper());
     }
 
     @Subscribe
@@ -91,7 +98,7 @@ public class CreationEvents extends Handlers {
         ArmorModel.register(new CTArmorModelListener());
         PlayerAttribute.register(new CTPlayerAttributeListener());
         BiomeGenerate.register(new CTBiomeGenerateListener());
-        Structure.register(new CTStructureRegister());
+        MapGen.register(new CTMapGenRegister());
         StructureNBT.register(new CTStructureNBTRegister());
         Achievement.register(new CTAchievementListener());
         PlayerEvent.register(new IPlayerEventListener() {
@@ -101,7 +108,23 @@ public class CreationEvents extends Handlers {
             }
         });
         Crafting.register(new CTCraftingRegistry());
+        Initialization.register(new IInitializationListener() {
+            @Override
+            public void onServerStarted(MinecraftServer server) {
+                addCreationSpawn();
+            }
+        });
         registerHandpanRecipesCompat();
+    }
+
+    public static void addCreationSpawn() {
+        BiomeSpawnUtil.addSpawn(EntityCTSpiderQueen.class, 5, 1, 1, EnumCreatureType.monster, BiomeGenBase.underworld);
+
+        BiomeSpawnUtil.addSpawn(EntityInfernalCreeper.class, 20, 1, 3, EnumCreatureType.monster, BiomeGenBase.hell);
+        BiomeSpawnUtil.addSpawn(EntityDemonSpider.class, 20, 1, 4, EnumCreatureType.monster, BiomeGenBase.hell);
+        BiomeSpawnUtil.addSpawn(EntityHellhound.class, 20, 1, 4, EnumCreatureType.monster, BiomeGenBase.hell);
+        BiomeSpawnUtil.addSpawn(EntityCTSpirit.class, 5, 1, 2, EnumCreatureType.monster, BiomeGenBase.hell);
+        BiomeSpawnUtil.addSpawn(EntityCTDevilBat.class, 1, 1, 1, EnumCreatureType.monster, BiomeGenBase.hell);
     }
 
     private static void registerHandpanRecipesCompat() {

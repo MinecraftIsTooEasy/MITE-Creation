@@ -4,8 +4,8 @@
   "version": "${version}",
   "depends": {
     "minecraft": "1.6.4-mite",
-    "fishmodloader": ">=3.5.0",
-    "rusted_iron_core": ">=1.3.9"
+    "fishmodloader": ">=3.4.2",
+    "rusted_iron_core": ">=1.4.1"
   },
   "environment": "*",
   "name": "Creation",

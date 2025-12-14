@@ -21,7 +21,7 @@ public class BlockCTPeachPlanksDoubleSlab extends BlockDoubleSlab {
 
     private BlockSlab getSingleSlab() {
         if (this.single_slab == null) {
-            this.single_slab = (BlockSlab)Block.getBlock(getBlockID("peachPlanksSingleSlab"));
+            this.single_slab = CTRegistryInit.peachPlanksSingleSlab;
         }
         return this.single_slab;
     }

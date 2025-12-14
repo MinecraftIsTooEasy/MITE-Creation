@@ -17,9 +17,6 @@ public class CTLootTableRegistry implements ILootTableRegisterListener {
 
     @Override
     public void onDungeonUnderworldRegister(List<WeightedRandomChestContent> original) {
-        original.add(new WeightedRandomChestContent(CTRegistryInit.coinRustedIron.itemID, 0, 1, 4, 10));
-        original.add(new WeightedRandomChestContent(CTRegistryInit.rawRustedIronNugget.itemID, 0, 1, 4, 10));
-        original.add(new WeightedRandomChestContent(CTRegistryInit.rustedIronNugget.itemID, 0, 1, 4, 5));
-        original.add(new WeightedRandomChestContent(CTRegistryInit.ingotRustedIron.itemID, 0, 1, 2, 2));
+        original.add(new WeightedRandomChestContent(CTRegistryInit.rawAncientMetalNugget.itemID, 0, 1, 4, 10));
     }
 }

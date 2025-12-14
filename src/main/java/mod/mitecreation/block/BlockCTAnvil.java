@@ -13,11 +13,11 @@ public class BlockCTAnvil extends BlockAnvil {
 
     @Override
     public void registerIcons(IconRegister par1IconRegister) {
-        this.blockIcon = par1IconRegister.registerIcon(CreationModInit.RESOURCE_ID + "anvil/" + this.metal_type.name + "/base");
+        this.blockIcon = par1IconRegister.registerIcon(CreationModInit.COLON_ID + "anvil/" + this.metal_type.name + "/base");
         super.iconArray = new Icon[anvilIconNames.length];
 
         for(int var2 = 0; var2 < super.iconArray.length; ++var2) {
-            super.iconArray[var2] = par1IconRegister.registerIcon(CreationModInit.RESOURCE_ID + "anvil/" + this.metal_type.name + "/" + anvilIconNames[var2]);
+            super.iconArray[var2] = par1IconRegister.registerIcon(CreationModInit.COLON_ID + "anvil/" + this.metal_type.name + "/" + anvilIconNames[var2]);
         }
 
     }

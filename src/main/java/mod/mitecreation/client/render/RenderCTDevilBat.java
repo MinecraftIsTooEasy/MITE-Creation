@@ -19,7 +19,7 @@ public class RenderCTDevilBat extends RenderLiving implements RenderAPI {
 
     @Override
     protected void setTextures() {
-        this.setTexture(0, CreationModInit.RESOURCE_ID + "textures/entity/bat/devil");
+        this.setTexture(0, CreationModInit.COLON_ID + "textures/entity/bat/devil");
     }
 
     public void func_82443_a(EntityBat par1EntityBat, double par2, double par4, double par6, float par8, float par9) {

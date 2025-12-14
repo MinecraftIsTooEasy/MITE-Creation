@@ -87,7 +87,7 @@ public class RenderCTSpirit extends RenderLiving implements RenderAPI {
     }
 
     protected void setTextures() {
-        this.setTexture(0, CreationModInit.RESOURCE_ID + "textures/entity/spirit");
+        this.setTexture(0, CreationModInit.COLON_ID + "textures/entity/spirit");
     }
 
     public float getModelOpacity(Entity entity) {

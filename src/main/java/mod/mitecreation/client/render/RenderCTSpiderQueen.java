@@ -21,7 +21,7 @@ public class RenderCTSpiderQueen extends RenderArachnid implements RenderAPI {
 
     @Override
     protected void setTextures() {
-        this.setTexture(0, CreationModInit.RESOURCE_ID + "textures/entity/spider/" + this.getSubtypeName());
+        this.setTexture(0, CreationModInit.COLON_ID + "textures/entity/spider/" + this.getSubtypeName());
     }
 
     @Override
